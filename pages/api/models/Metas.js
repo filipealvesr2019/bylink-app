@@ -5,7 +5,7 @@ const MetasSchema = new mongoose.Schema({
   preco: { type: Number, required: true },
   statusDaMeta: {
     type: String,
-    enum: ["pendente", "concluida", "perdida"],
+    enum: ["pendente", "concluida", "expirada"],
     default: "pendente",
   },
   dataCriacao: { type: Date, default: Date.now },

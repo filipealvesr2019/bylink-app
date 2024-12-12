@@ -26,10 +26,7 @@ async function dbConnect() {
 
   cached.conn = await cached.promise;
 // Atrasar a chamada ao cron job para garantir que a conexão esteja pronta
-setImmediate(() => {
-  const { default: checkAndUpdateProductsStatus } = require('../cronJobs');
-  checkAndUpdateProductsStatus();
-  });
+
   return cached.conn;
 }
 
