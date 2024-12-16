@@ -33,9 +33,15 @@ const MetasSchema = new mongoose.Schema({
   nome: { type: String, required: true },
   valor: { type: Number, required: true },
   parcelas: {
-    numero: { type: Number, required: true, default: 1 }, // Número de parcelas
-    valorParcela: { type: Number, required: true }, // Valor de cada parcela
+    numero: { type: Number, required: true, default: 1 },
+    valorParcela: { type: Number, required: true },
   },
+  parcelasDetalhadas: [
+    {
+      valor: { type: Number, required: true },
+      dataVencimento: { type: Date, required: true },
+    },
+  ],
   statusDaMeta: {
     type: String,
     enum: ["Pendente", "Concluída", "Expirada"],
@@ -47,9 +53,20 @@ const MetasSchema = new mongoose.Schema({
 // Middleware para calcular o valor da parcela antes de salvar
 MetasSchema.pre("save", function (next) {
   if (this.parcelas.numero > 0 && this.valor > 0) {
-    this.parcelas.valorParcela = (this.valor / this.parcelas.numero).toFixed(2); // Calcula o valor de cada parcela
+    this.parcelas.valorParcela = (this.valor / this.parcelas.numero).toFixed(2);
+    // Calculando as parcelas detalhadas com as datas
+    const parcelasDetalhadas = [];
+    let dataVencimento = new Date(this.prazo.dataInicial);
+    for (let i = 0; i < this.parcelas.numero; i++) {
+      parcelasDetalhadas.push({
+        valor: this.parcelas.valorParcela,
+        dataVencimento: new Date(dataVencimento.setMonth(dataVencimento.getMonth() + 1)),
+      });
+    }
+    this.parcelasDetalhadas = parcelasDetalhadas;
   } else {
-    this.parcelas.valorParcela = 0; // Caso não haja parcelas ou valor seja 0
+    this.parcelas.valorParcela = 0;
+    this.parcelasDetalhadas = [];
   }
   next();
 });

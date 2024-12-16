@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Metas = () => {
@@ -20,6 +20,25 @@ const Metas = () => {
     event.target.showPicker(); // Abre o seletor de data
   };
 
+  const [metas, setMetas] = useState([]);
+  const fetchMetas = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3000/api/metas`);
+      if (response.data.success) {
+        setMetas(response.data.data || []); // Certifique-se de que metas seja sempre um array
+      } else {
+        setError("Nenhuma meta encontrada.");
+      }
+    } catch (err) {
+      setError("Erro ao carregar as metas.");
+    }
+  };
+  useEffect(() => {
+    
+  
+    fetchMetas();
+  }, []);
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -57,13 +76,24 @@ const Metas = () => {
       return;
     }
   
-    // Altera a estrutura do formData para incluir o objeto 'prazo'
+    // Calcular as parcelas detalhadas
+    const parcelasDetalhadas = [];
+    let dataVencimento = new Date(formData.dataInicial);
+    for (let i = 0; i < formData.parcelas.numero; i++) {
+      parcelasDetalhadas.push({
+        valor: formData.parcelas.valorParcela,
+        dataVencimento: new Date(dataVencimento.setMonth(dataVencimento.getMonth() + 1)),
+      });
+    }
+  
+    // Altera a estrutura do formData para incluir as parcelas detalhadas
     const metaData = {
       ...formData,
       prazo: {
         dataInicial: formData.dataInicial,
         dataFinal: formData.dataFinal,
-      }
+      },
+      parcelasDetalhadas,
     };
   
     try {
@@ -202,6 +232,31 @@ const Metas = () => {
 
         <button type="submit">Cadastrar Meta</button>
       </form>
+
+
+
+
+      <div>
+      <h2>Metas</h2>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      {metas.length > 0 ? (
+        <ul>
+          {metas.map((meta) => (
+            <li key={meta._id}>
+              <h3>{meta.nome}</h3>
+              <p>Categoria: {meta.categoria}</p>
+              <p>Status: {meta.statusDaMeta}</p>
+              <p>Valor: R$ {meta.valor}</p>
+              <p>Parcelas: {meta.parcelas.numero}</p>
+              <p>Intervalo: {meta.intervalo}</p>
+              <p>Prazo: {new Date(meta.prazo.dataInicial).toLocaleDateString()} até {new Date(meta.prazo.dataFinal).toLocaleDateString()}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Não há metas para exibir.</p>
+      )}
+    </div>
     </div>
   );
 };
