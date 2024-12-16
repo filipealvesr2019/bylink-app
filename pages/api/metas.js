@@ -1,17 +1,21 @@
 import Metas from "./models/Metas";
 import dbConnect from "./utils/dbConnect";
-
+import { getAuth } from "@clerk/nextjs/server";
 export default async function handler(req, res) {
   const { method } = req;
+
+  const { userId } = getAuth(req); // Obtém o ID do usuário autenticado
+
+  if (!userId) {
+    return res.status(401).json({ success: false, message: "Usuário não autenticado." });
+  }
 
   await dbConnect(); // Conecta ao banco de dados
 
   switch (method) {
     case "POST":
       try {
-        // Verifica os dados enviados no corpo da requisição
         const {
-          userId,
           intervalo,
           prazo,
           horas,
@@ -19,11 +23,12 @@ export default async function handler(req, res) {
           nome,
           valor,
           statusDaMeta,
+          parcelas, // Número de parcelas
         } = req.body;
 
-        // Cria uma nova meta no banco de dados
+        // Cria uma nova meta com as parcelas incluídas
         const meta = await Metas.create({
-          userId,
+          userId, // ID do usuário autenticado
           intervalo,
           prazo,
           horas,
@@ -31,9 +36,9 @@ export default async function handler(req, res) {
           nome,
           valor,
           statusDaMeta,
+          parcelas, // Inclui as parcelas no banco
         });
 
-        // Retorna a meta criada
         res.status(201).json({ success: true, data: meta });
       } catch (error) {
         console.error("Erro ao criar meta:", error);

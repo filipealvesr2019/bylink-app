@@ -10,8 +10,8 @@ const MetasSchema = new mongoose.Schema({
   },
 
   prazo: {
-    dataInicial: { type: Date, default: Date.now, required: true }, // Data inicial (data de criação ou fornecida)
-    dataFinal: { type: Date, required: true }, // Data final para cumprir a meta
+    dataInicial: { type: Date, required: true }, // Atualizado para ser obrigatório
+    dataFinal: { type: Date, required: true },
   },
 
   horas: { type: Number, required: false }, // Horas dedicadas por dia
@@ -32,7 +32,10 @@ const MetasSchema = new mongoose.Schema({
   
   nome: { type: String, required: true },
   valor: { type: Number, required: true },
-  
+  parcelas: {
+    numero: { type: Number, required: true, default: 1 }, // Número de parcelas
+    valorParcela: { type: Number, required: true }, // Valor de cada parcela
+  },
   statusDaMeta: {
     type: String,
     enum: ["Pendente", "Concluída", "Expirada"],
@@ -41,5 +44,15 @@ const MetasSchema = new mongoose.Schema({
 
   dataCriacao: { type: Date, default: Date.now },
 });
+// Middleware para calcular o valor da parcela antes de salvar
+MetasSchema.pre("save", function (next) {
+  if (this.parcelas.numero > 0 && this.valor > 0) {
+    this.parcelas.valorParcela = (this.valor / this.parcelas.numero).toFixed(2); // Calcula o valor de cada parcela
+  } else {
+    this.parcelas.valorParcela = 0; // Caso não haja parcelas ou valor seja 0
+  }
+  next();
+});
+
 
 export default mongoose.models.Metas || mongoose.model("Metas", MetasSchema);
