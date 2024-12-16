@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Calendar from "react-calendar";  // Importando o Calendar
+import 'react-calendar/dist/Calendar.css';
 
 const Metas = () => {
+  const [date, setDate] = useState(new Date()); // Initializes date with the current date
+
   const [formData, setFormData] = useState({
     userId: "",
     intervalo: "Diário", // Valor padrão
@@ -21,6 +25,7 @@ const Metas = () => {
   };
 
   const [metas, setMetas] = useState([]);
+
   const fetchMetas = async () => {
     try {
       const response = await axios.get(`http://localhost:3000/api/metas`);
@@ -119,6 +124,18 @@ const Metas = () => {
     }
   };
   
+  const handleDateChange = (newDate) => {
+    setDate(newDate);
+  };
+
+  const getMetasForDate = (date) => {
+    // Filtra as metas que possuem a data no intervalo de tempo da meta
+    const metasForDate = metas.filter(
+      (meta) =>
+        new Date(meta.prazo.dataInicial) <= date && new Date(meta.prazo.dataFinal) >= date
+    );
+    return metasForDate;
+  };
 
   return (
     <div>
@@ -236,27 +253,26 @@ const Metas = () => {
 
 
 
-      <div>
-      <h2>Metas</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {metas.length > 0 ? (
-        <ul>
-          {metas.map((meta) => (
-            <li key={meta._id}>
-              <h3>{meta.nome}</h3>
-              <p>Categoria: {meta.categoria}</p>
-              <p>Status: {meta.statusDaMeta}</p>
-              <p>Valor: R$ {meta.valor}</p>
-              <p>Parcelas: {meta.parcelas.numero}</p>
-              <p>Intervalo: {meta.intervalo}</p>
-              <p>Prazo: {new Date(meta.prazo.dataInicial).toLocaleDateString()} até {new Date(meta.prazo.dataFinal).toLocaleDateString()}</p>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Não há metas para exibir.</p>
-      )}
-    </div>
+    {/* Outras seções do seu componente */}
+    <div>
+        <h2>Calendário</h2>
+        <Calendar
+          onChange={handleDateChange}
+          value={date}
+        />
+        <div>
+          <h3>Metas para {date.toLocaleDateString()}:</h3>
+          {getMetasForDate(date).length > 0 ? (
+            <ul>
+              {getMetasForDate(date).map((meta) => (
+                <li key={meta._id}>{meta.nome}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>Não há metas para esta data.</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
