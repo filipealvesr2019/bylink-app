@@ -1,0 +1,449 @@
+import Layout from "/components/Layout";
+import { useState, useEffect } from "react";
+import TypographySettings from '/components/appearance/TypographySettings';
+import ImageSettings from '/components/appearance/ImageSettings';
+import EffectsSettings from '/components/appearance/EffectsSettings';
+import ColorSettings from '/components/appearance/ColorSettings';
+import Link from 'next/link';
+
+export default function Appearance() {
+  // Default settings
+  const defaultSettings = {
+    backgroundColor: "#ffffff",
+    linkColor: "#0000ff",
+    buttonColor: "#ff0000",
+    font: "Arial",
+    buttonStyle: "filled",
+    borderRadius: 5, // Default border radius
+    gradient: false,
+    gradientDirection: "to right",
+    gradientColor1: "#ff0000",
+    gradientColor2: "#0000ff",
+    title: "",
+    presentation: "",
+    profileImage: "",
+    buttonAnimation: 'none',
+    socialIconsColor: '#000000',
+    customCSS: '',
+    layout: 'standard',
+    backgroundImage: '',
+    backgroundOverlay: 'none',
+    theme: 'light',
+    customFonts: [],
+    animations: {
+      enabled: false,
+      type: 'fade'
+    },
+    shadowStyle: 'none',
+    titleColor: '#ffffff'
+  };
+
+  // State management
+  const [settings, setSettings] = useState(defaultSettings);
+  const [error, setError] = useState("");
+  const [activeTab, setActiveTab] = useState('colors');
+  const [socialLinks, setSocialLinks] = useState([]);
+
+  // Load and save settings
+  useEffect(() => {
+    const savedSettings = JSON.parse(localStorage.getItem("appearanceSettings"));
+    if (savedSettings) setSettings(savedSettings);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("appearanceSettings", JSON.stringify(settings));
+  }, [settings]);
+
+  useEffect(() => {
+    const savedLinks = JSON.parse(localStorage.getItem("socialLinks")) || [];
+    setSocialLinks(savedLinks);
+  }, []);
+
+  // Handlers
+  const handleReset = () => {
+    setSettings(defaultSettings);
+    setError("");
+  };
+
+  const handleSaveTemplate = () => {
+    localStorage.setItem("appearanceSettings", JSON.stringify(settings));
+    alert("Template salvo com sucesso!");
+  };
+
+  const validateImage = (url) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(false);
+      img.src = url;
+    });
+  };
+
+  const handleProfileImageChange = async (url) => {
+    const isValid = await validateImage(url);
+    if (isValid) {
+      setSettings((prev) => ({ ...prev, profileImage: url }));
+      setError("");
+    } else {
+      setError("URL da imagem inválida.");
+    }
+  };
+
+  const handleTitleColorChange = (e) => {
+    setSettings((prev) => ({ ...prev, titleColor: e.target.value }));
+  };
+
+  // Styles for preview
+  const getShadowStyle = (shadowStyle) => {
+    switch(shadowStyle) {
+      case 'light':
+        return '0 2px 4px rgba(0, 0, 0, 0.1)';
+      case 'medium':
+        return '0 4px 8px rgba(0, 0, 0, 0.2)';
+      case 'strong':
+        return '0 8px 16px rgba(0, 0, 0, 0.3)';
+      default:
+        return 'none';
+    }
+  };
+
+  const previewStyle = {
+    background: settings.gradient
+      ? `linear-gradient(${settings.gradientDirection}, ${settings.gradientColor1}, ${settings.gradientColor2})`
+      : settings.backgroundImage 
+        ? `url(${settings.backgroundImage})`
+        : settings.backgroundColor,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    fontFamily: settings.font,
+    padding: "20px",
+    width: "320px", // Largura padrão de smartphone
+    height: "640px", // Altura proporcional
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    position: "relative",
+    boxShadow: getShadowStyle(settings.shadowStyle),
+    border: "16px solid #1a1a1a", // Borda preta para simular o smartphone
+    borderRadius: "40px", // Bordas arredondadas do smartphone
+    position: "sticky",
+    top: "20px",
+    margin: "0 auto",
+    overflow: "hidden", // Para conteúdo não vazar
+  };
+
+  const smartphoneNotchStyle = {
+    position: "absolute",
+    top: 0,
+    width: "50%",
+    height: "25px",
+    backgroundColor: "#1a1a1a",
+    borderBottomLeftRadius: "20px",
+    borderBottomRightRadius: "20px",
+    left: "25%",
+    zIndex: 10
+  };
+
+  const smartphoneContentStyle = {
+    width: "100%",
+    height: "100%",
+    overflow: "auto",
+    padding: "35px 15px 15px 15px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    background: settings.gradient
+      ? `linear-gradient(${settings.gradientDirection}, ${settings.gradientColor1}, ${settings.gradientColor2})`
+      : settings.backgroundImage 
+        ? `url(${settings.backgroundImage})`
+        : settings.backgroundColor,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    color: "#fff"
+  };
+
+  const profileImageStyle = {
+    width: "120px",
+    height: "120px",
+    borderRadius: "50%",
+    objectFit: "cover",
+    border: "4px solid white",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+    marginBottom: "15px"
+  };
+
+  const socialIconsStyle = {
+    display: "flex",
+    gap: "15px",
+    marginBottom: "20px"
+  };
+
+  const linksContainerStyle = {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    padding: "0 10px",
+    marginTop: "20px"
+  };
+
+  const buttonStylePreview = {
+    padding: "10px 20px",
+    borderRadius: `${settings.borderRadius}px`,
+    width: "80%",
+    margin: "5px 0",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    animation: settings.animations.enabled ? `${settings.animations.type} 1s infinite` : 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '10px',
+    
+    // Estilos base dos botões
+    backgroundColor: settings.linkColor,
+    color: '#ffffff',
+    border: 'none',
+    
+    // Estilos específicos por tipo de botão
+    ...(settings.buttonStyle === 'outlined' && {
+      backgroundColor: 'transparent',
+      color: settings.linkColor,
+      border: `2px solid ${settings.linkColor}`,
+    }),
+    
+    ...(settings.buttonStyle === 'minimal' && {
+      backgroundColor: 'transparent',
+      color: settings.linkColor,
+      border: 'none',
+    }),
+    
+    ...(settings.buttonStyle === 'rounded' && {
+      borderRadius: '50px',
+    }),
+    
+    ...(settings.buttonStyle === 'shadow' && {
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    }),
+
+    // Sombra adicional se configurada
+    boxShadow: settings.buttonStyle === 'shadow' 
+      ? '0 4px 6px rgba(0, 0, 0, 0.1)' 
+      : getShadowStyle(settings.shadowStyle),
+
+    // Efeitos hover
+    '&:hover': {
+      opacity: 0.9,
+      transform: (settings.buttonStyle === 'shadow' || settings.shadowStyle !== 'none') 
+        ? 'translateY(-2px)' 
+        : 'none',
+      boxShadow: settings.buttonStyle === 'shadow'
+        ? '0 6px 8px rgba(0, 0, 0, 0.2)'
+        : settings.shadowStyle !== 'none'
+          ? getShadowStyle(settings.shadowStyle)
+          : 'none',
+    }
+  };
+
+  return (
+    <Layout>
+      <div className="container">
+        <h1 className="title has-text-centered mb-5">Personalize sua página</h1>
+        
+        <div className="columns">
+          <div className="column is-7">
+            <div className="tabs is-boxed mb-4">
+              <ul>
+                <li className={activeTab === 'colors' ? 'is-active' : ''}>
+                  <a onClick={() => setActiveTab('colors')}>
+                    <span className="icon"></span>
+                    <span>Cores</span>
+                  </a>
+                </li>
+                <li className={activeTab === 'typography' ? 'is-active' : ''}>
+                  <a onClick={() => setActiveTab('typography')}>
+                    <span className="icon"></span>
+                    <span>Tipografia</span>
+                  </a>
+                </li>
+                <li className={activeTab === 'images' ? 'is-active' : ''}>
+                  <a onClick={() => setActiveTab('images')}>
+                    <span className="icon"></span>
+                    <span>Imagens</span>
+                  </a>
+                </li>
+                <li className={activeTab === 'effects' ? 'is-active' : ''}>
+                  <a onClick={() => setActiveTab('effects')}>
+                    <span className="icon"></span>
+                    <span>Efeitos</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="box">
+              {activeTab === 'colors' && (
+                <ColorSettings settings={settings} setSettings={setSettings} />
+              )}
+              
+              {activeTab === 'typography' && (
+                <TypographySettings settings={settings} setSettings={setSettings} />
+              )}
+              
+              {activeTab === 'images' && (
+                <ImageSettings 
+                  settings={settings} 
+                  setSettings={setSettings}
+                  handleProfileImageChange={handleProfileImageChange}
+                  error={error}
+                />
+              )}
+              
+              {activeTab === 'effects' && (
+                <EffectsSettings settings={settings} setSettings={setSettings} />
+              )}
+
+              {/* Botão de Reset */}
+              <div className="field mt-5">
+                <button 
+                  className="button is-danger is-light is-fullwidth"
+                  onClick={handleReset}
+                >
+                  <span className="icon">
+              
+                  </span>
+                  <span>Restaurar Padrões</span>
+                </button>
+              </div>
+
+              {/* Botão para salvar o template */}
+              <div className="field mt-3">
+                <button 
+                  className="button is-success is-fullwidth"
+                  onClick={handleSaveTemplate}
+                >
+                  <span className="icon">
+                 
+                  </span>
+                  <span>Salvar Template</span>
+                </button>
+              </div>
+
+              {/* Botão para acessar o perfil */}
+              <div className="field mt-3">
+                <Link href="/profile">
+                  <button className="button is-primary is-fullwidth">
+                    <span className="icon">
+                  
+                    </span>
+                    <span>Editar Perfil</span>
+                  </button>
+                </Link>
+              </div>
+
+              {/* Seletor de cor para o título */}
+              <div className="field mt-3">
+                <label className="label">Cor do Título</label>
+                <input
+                  type="color"
+                  value={settings.titleColor}
+                  onChange={handleTitleColorChange}
+                  className="input"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Preview */}
+          <div className="column is-5">
+            <div className="preview-container" style={{ position: 'sticky', top: '20px' }}>
+              <h3 className="subtitle is-5 mb-4 has-text-centered">Prévia</h3>
+              <div style={previewStyle}>
+                <div style={smartphoneNotchStyle}></div>
+                <div style={smartphoneContentStyle}>
+                  {/* Seção de Perfil */}
+                  <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+                    {settings.profileImage && (
+                      <img
+                        src={settings.profileImage}
+                        alt="Profile"
+                        style={profileImageStyle}
+                      />
+                    )}
+                    <h2 style={{ 
+                      fontSize: '1.5rem', 
+                      fontWeight: 'bold',
+                      marginBottom: '5px',
+                      color: settings.titleColor
+                    }}>
+                      {settings.title || "Seu Nome"}
+                    </h2>
+                    <p style={{ 
+                      fontSize: '0.9rem',
+                      opacity: 0.9,
+                      marginBottom: '15px',
+                      color: 'white'
+                    }}>
+                      {settings.presentation || "@seu.usuario"}
+                    </p>
+                  </div>
+
+                  {/* Ícones de Redes Sociais */}
+                  <div style={socialIconsStyle}>
+                    {/* Você pode adicionar ícones de redes sociais aqui */}
+                  </div>
+
+                  {/* Container de Links */}
+                  <div style={linksContainerStyle}>
+                    {socialLinks.map((link, index) => (
+                      <button 
+                        key={link.id || index}
+                        style={{
+                          ...buttonStylePreview,
+                          opacity: link.active ? 1 : 0.5,
+                        }}
+                        className={`preview-button button-${settings.buttonStyle}`}
+                        onClick={() => window.open(link.url, '_blank')}
+                      >
+                        {link.name}
+                      </button>
+                    ))}
+
+                    {socialLinks.length === 0 && (
+                      <>
+                        <button 
+                          style={buttonStylePreview}
+                          className={`preview-button button-${settings.buttonStyle}`}
+                        >
+                          Exemplo de Link
+                        </button>
+                        <button 
+                          style={buttonStylePreview}
+                          className={`preview-button button-${settings.buttonStyle}`}
+                        >
+                          Outro Link
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+              
+              {/* Adicione um botão home do iPhone */}
+              <div style={{
+                width: "50px",
+                height: "50px",
+                borderRadius: "50%",
+                border: "2px solid #1a1a1a",
+                margin: "-25px auto 0",
+                position: "relative",
+                zIndex: 2,
+                backgroundColor: "#f0f0f0"
+              }}></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
+}

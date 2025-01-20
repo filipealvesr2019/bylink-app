@@ -1,0 +1,12 @@
+/* styles/Home.module.css */
+.container {
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+.links-container {
+  margin-top: 2rem;
+}

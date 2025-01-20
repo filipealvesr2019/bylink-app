@@ -1,0 +1,11 @@
+.layout {
+    display: flex;
+  }
+  
+  .main {
+    margin-left: 250px; /* Espaço para o Sidebar */
+    padding: 2rem;
+    flex: 1;
+    background: #fff;
+  }
+  

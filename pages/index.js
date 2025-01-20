@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-export default function Metas(){
+export default function Home() {
   return (
-    <>
-        <h1>Bem-vindo ao Meu Painel!</h1>
+    <div style={{ textAlign: "center", padding: "2rem" }}>
+      <h1>Bem-vindo ao Meu Painel!</h1>
       <p>Escolha uma das opções abaixo para começar:</p>
       <nav>
         <ul style={{ listStyle: "none", padding: 0 }}>
@@ -19,6 +19,6 @@ export default function Metas(){
           </li>
         </ul>
       </nav>
-    </>
-  )
+    </div>
+  );
 }

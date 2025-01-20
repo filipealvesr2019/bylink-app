@@ -1,0 +1,475 @@
+/* styles/globals.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #8b5cf6;
+  --accent-color: #ec4899;
+  --background-light: #f0f9ff;
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --success-color: #22c55e;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+header .nav-links {
+  margin-top: 10px;
+}
+
+header .nav-links a {
+  margin-right: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.link-card {
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.link-card:hover {
+  transform: scale(1.05);
+}
+
+.link-card-content h3 {
+  font-size: 1.25rem;
+  color: #333;
+}
+
+/* Animações */
+@keyframes fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes slide {
+  0% { transform: translateX(-10px); }
+  100% { transform: translateX(10px); }
+}
+
+@keyframes scale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+}
+
+/* Estilos para os inputs de cor */
+input[type="color"] {
+  -webkit-appearance: none;
+  padding: 0;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 4px;
+}
+
+/* Melhorias visuais gerais */
+.settings-section {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.preview-container {
+  transition: all 0.3s ease;
+  perspective: 1000px;
+}
+
+.tabs li.is-active a {
+  border-bottom-color: #485fc7;
+  color: #485fc7;
+}
+
+.label, 
+.select select,
+.input,
+.textarea,
+.checkbox,
+.radio,
+.help {
+  color: #000 !important;
+}
+
+.select select,
+.select select option {
+  color: #000 !important;
+  background-color: #fff !important;
+}
+
+.tabs li a {
+  color: #4a4a4a;
+}
+
+.subtitle {
+  color: #000 !important;
+}
+
+.preview-button {
+  transition: all 0.3s ease;
+  max-width: 250px !important;
+  width: 100% !important;
+}
+
+.preview-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Estilos específicos para cada tipo de botão */
+.button-filled {
+  background-color: var(--button-color);
+  color: white;
+}
+
+.button-outlined {
+  background-color: transparent;
+  border: 2px solid var(--button-color);
+  color: var(--button-color);
+}
+
+.button-minimal {
+  background-color: transparent;
+  color: var(--button-color);
+}
+
+.button-rounded {
+  border-radius: 50px;
+  background-color: var(--button-color);
+  color: white;
+}
+
+.button-shadow {
+  background-color: var(--button-color);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-shadow:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Adicione estas regras para garantir a cor do texto em todos os navegadores */
+select {
+  color: #000 !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.select:after {
+  border-color: #000 !important;
+}
+
+/* Estilo específico para as opções do select */
+select option {
+  background-color: #fff !important;
+  color: #000 !important;
+  padding: 8px !important;
+}
+
+/* Estilo para o select quando aberto */
+select:focus {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+/* Estilo para hover nas opções */
+select option:hover,
+select option:focus,
+select option:active,
+select option:checked {
+  background-color: #f5f5f5 !important;
+  color: #000 !important;
+}
+
+/* Mantenha a seta do select visível */
+.select:not(.is-multiple):not(.is-loading)::after {
+  border-color: #4a4a4a !important;
+}
+
+/* Estilo para o select quando hover */
+.select:hover::after {
+  border-color: #000 !important;
+}
+
+/* Adicione estes estilos para as sombras */
+.shadow-light {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.shadow-medium {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.shadow-strong {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+.shadow-preview .box {
+  cursor: pointer;
+}
+
+.shadow-preview .box:hover {
+  transform: translateY(-2px);
+}
+
+/* Efeito de sombra para o smartphone */
+.preview-container > div:first-child {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Reflexo na tela */
+.smartphone-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1),
+    transparent 20%,
+    transparent 80%,
+    rgba(255, 255, 255, 0.1)
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Estilização dos cards e boxes */
+.box {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+/* Estilização das tabs */
+.tabs.is-boxed li.is-active a {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white !important;
+}
+
+.tabs.is-boxed a {
+  border-radius: 8px;
+  margin: 0 4px;
+  transition: all 0.3s ease;
+}
+
+.tabs.is-boxed a:hover {
+  background-color: var(--secondary-color);
+  color: white !important;
+}
+
+/* Botões */
+.button.is-primary {
+  background-color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.button.is-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Inputs e Selects */
+.input:focus, .select select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* Preview container */
+.preview-container {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  padding: 20px;
+  border-radius: 24px;
+  margin-top: 20px;
+}
+
+.preview-container h3 {
+  color: white !important;
+}
+
+/* Títulos */
+.title {
+  color: var(--primary-color);
+}
+
+.subtitle {
+  color: var(--text-light);
+}
+
+/* Links na página */
+.link-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 8px 0;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.link-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.1);
+}
+
+/* Botões de ação */
+.button.is-success {
+  background-color: var(--success-color);
+}
+
+.button.is-warning {
+  background-color: var(--warning-color);
+}
+
+.button.is-danger {
+  background-color: var(--danger-color);
+}
+
+/* Animações suaves */
+.button, .input, .select select, .link-card {
+  transition: all 0.3s ease;
+}
+
+/* Gradientes nos cards */
+.settings-section {
+  background: linear-gradient(to bottom right, white, #f8fafc);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+/* Melhorias nos inputs de cor */
+input[type="color"] {
+  border-radius: 8px;
+  height: 48px;
+  cursor: pointer;
+  background: white;
+  border: 2px solid var(--primary-color);
+}
+
+/* Estilo para os sliders */
+input[type="range"] {
+  accent-color: var(--primary-color);
+}
+
+/* Mantenha os estilos existentes e adicione estes novos */
+
+/* Adicione estes estilos */
+.preview-button {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.preview-button:hover {
+  transform: translateY(-2px) !important;
+}
+
+/* Animação suave para os elementos */
+.preview-container * {
+  transition: all 0.3s ease;
+}
+
+/* Estilo para o container de links */
+.links-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Reflexo na tela do smartphone */
+.smartphone-screen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+/* Remova os estilos específicos por tipo que podem estar interferindo */
+.button-filled,
+.button-outlined,
+.button-minimal,
+.button-rounded,
+.button-shadow {
+  transition: all 0.3s ease;
+}
