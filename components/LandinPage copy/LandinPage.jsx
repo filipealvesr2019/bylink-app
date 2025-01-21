@@ -1,6 +1,7 @@
 import styles from "./LandinPage.module.css";
 import Footer from "../Footer/Footer";
 import Link from "next/link";
+import Login from "@/app/Login";
 export default function LandinPage() {
   return (
     <>

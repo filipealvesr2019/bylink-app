@@ -36,8 +36,9 @@ export default function Login() {
           </>
         ) : null}
       </div>
-
-      <aside className={styles.Dashboard}>
+      {user ? (
+          <>
+            <aside className={styles.Dashboard}>
       <nav>
         <ul>
           <li>
@@ -64,6 +65,9 @@ export default function Login() {
         </ul>
       </nav>
     </aside>
+          </>
+        ) : null}
+     
     </>
   );
 }
