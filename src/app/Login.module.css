@@ -13,14 +13,79 @@
 }
 .login{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     gap: 1rem;
     margin: 1rem;
+    position: fixed;
+    right: 0;
+    
 }
 .login__img{
     width: 33vw;
 }
+
+
+
+
+/* styles/Sidebar.module.css */
+
+/* Estilo da barra lateral */
+.Dashboard {
+    width: 250px; /* Largura da barra lateral */
+    background-color: #F0F9FF; /* Cor de fundo da barra lateral */
+    height: 100vh; /* Ocupa toda a altura da tela */
+    position: fixed; /* Fixa a barra na tela */
+    padding: 1rem; /* Espaçamento interno */
+    border-right: 1px solid #ddd; /* Linha divisória no lado direito */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Alinha conteúdo superior e inferior */
+  }
+  
+  /* Estilo para a lista de links */
+  .Dashboard ul {
+    list-style: none; /* Remove os marcadores das listas */
+    padding: 0; /* Remove o espaçamento interno */
+    margin: 0; /* Remove o espaçamento externo */
+  }
+  
+  /* Estilo dos itens da lista */
+  .Dashboard li {
+    margin-bottom: 1rem; /* Espaçamento entre os itens */
+  }
+  
+  /* Estilo dos links na barra lateral */
+  .link {
+    text-decoration: none; /* Remove o sublinhado */
+    color: #333; /* Cor do texto */
+    font-size: 1rem; /* Tamanho do texto */
+    display: flex; /* Organiza ícone e texto na mesma linha */
+    align-items: center; /* Alinha verticalmente o ícone e o texto */
+    padding: 0.5rem 0.8rem; /* Espaçamento interno do link */
+    border-radius: 8px; /* Bordas arredondadas */
+    transition: background-color 0.3s, color 0.3s; /* Animação suave */
+  }
+  
+  /* Link ao passar o mouse */
+  .link:hover {
+    background-color: #0070f3; /* Fundo azul */
+    color: white; /* Cor do texto branco */
+  }
+  
+  /* Estilo para o ícone */
+  .icon {
+    margin-right: 0.8rem; /* Espaçamento entre o ícone e o texto */
+    font-size: 1.2rem; /* Tamanho do ícone */
+  }
+  
+  /* Espaço reservado no final da barra lateral */
+  .sidebar-footer {
+    padding-top: 2rem;
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
 @media screen  and (min-width: 700px){
     .button{
         background-color: #367af5;

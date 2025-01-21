@@ -18,8 +18,7 @@ export default function Login() {
 
   return (
     <>
-      <div className={styles.login}>
-        <img src="https://i.imgur.com/kSvw0pC.png" alt="" className={styles.login__img}/>
+      <div className={styles.login} >
 
         <SignedOut>
           <div>
@@ -37,6 +36,34 @@ export default function Login() {
           </>
         ) : null}
       </div>
+
+      <aside className={styles.Dashboard}>
+      <nav>
+        <ul>
+          <li>
+            <Link href="/dashboard" className={styles.link}>
+              <span className={styles.icon}>🏠</span> Dashboard
+            </Link>
+          </li>
+         
+          <li>
+            <Link href="/appearance" className={styles.link}>
+              <span className={styles.icon}>✏️</span> Aparência
+            </Link>
+          </li>
+          <li>
+            <Link href="/settings" className={styles.link}>
+              <span className={styles.icon}>⚙️</span> Configurações
+            </Link>
+          </li>
+          <li>
+            <Link href="/profile" className={styles.link}>
+              <span className={styles.icon}>👤</span> Perfil
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </aside>
     </>
   );
 }
