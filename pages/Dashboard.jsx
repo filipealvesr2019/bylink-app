@@ -1,24 +1,22 @@
-// components/Sidebar.js
-import Username from "/components/Username";
-import Link from "next/link";
-import styles from "../pages/styles/Sidebar.module.css";
 
-const Sidebar = () => {
+import Link from "next/link";
+import styles from "./Dashboard.module.css";
+
+
+export default function Dashboard() {
+  
+
   return (
-    <aside className={styles.sidebar}>
+    <div >
+  <aside className={styles.Dashboard}>
       <nav>
-        <Username initialName="Usuario" />
         <ul>
           <li>
             <Link href="/dashboard" className={styles.link}>
               <span className={styles.icon}>🏠</span> Dashboard
             </Link>
           </li>
-          <li>
-            <Link href="/links" className={styles.link}>
-              <span className={styles.icon}>📦</span> Links
-            </Link>
-          </li>
+         
           <li>
             <Link href="/appearance" className={styles.link}>
               <span className={styles.icon}>✏️</span> Aparência
@@ -37,7 +35,6 @@ const Sidebar = () => {
         </ul>
       </nav>
     </aside>
+    </div>
   );
-};
-
-export default Sidebar;
+}

@@ -1,7 +1,7 @@
 "use client";
 import { useAuth } from '@clerk/nextjs';
-import Metas from '../Metas/Metas';
 import LandinPage from '../LandinPage/LandinPage';
+import Dashboard from '../../pages/Dashboard';
 
 export default function UserAuth() {
     const { isSignedIn } = useAuth();
@@ -9,7 +9,7 @@ export default function UserAuth() {
 
   return (
     <div>
-      {isSignedIn ? <Metas /> : <LandinPage />}
+      {isSignedIn ? <Dashboard /> : <LandinPage />}
     </div>
   );
 }
