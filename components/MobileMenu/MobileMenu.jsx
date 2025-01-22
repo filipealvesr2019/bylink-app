@@ -55,18 +55,16 @@ export default function MobileMenu() {
             </span>
             <nav>
             {user ? (
-          <>
+          <div  className={styles.top}>
+
             <UserButton />
 
             <SignedOut></SignedOut>
-          </>
+            <span>Logo</span>
+          </div>
         ) : null}
         <ul  className={styles.ul}>
-        <li>
-            <Link href="/dashboard" className={styles.link}>
-              Logo
-            </Link>
-          </li>
+      
          
           <li>
             <Link href="/dashboard" className={styles.link}>
