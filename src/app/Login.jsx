@@ -18,8 +18,24 @@ export default function Login() {
 
   return (
     <>
-    
-      <div className={styles.login} >
+      
+      <div className={styles.login}  style={{
+        display:"flex",
+        justifyContent: !user ? "space-between": "flex-end"
+      }}>
+        
+      {!user ? (
+          <>
+           <img
+          src="https://i.imgur.com/kSvw0pC.png"
+          alt=""
+      style={{
+        width:"10vw"
+      }}
+        />
+          </>
+        ) : null}
+      
         <SignedOut>
           <div>
             <Link href={"/login"}>
