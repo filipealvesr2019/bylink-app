@@ -1,10 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react";
-import TypographySettings from '/components/appearance/TypographySettings';
-import ImageSettings from '/components/appearance/ImageSettings';
-import EffectsSettings from '/components/appearance/EffectsSettings';
-import ColorSettings from '/components/appearance/ColorSettings';
+import TypographySettings from '../components/appearance/TypographySettings';
+import ImageSettings from '../components/appearance/ImageSettings';
+import EffectsSettings from '../components/appearance/EffectsSettings';
+import ColorSettings from '../components/appearance/ColorSettings';
 import Link from 'next/link';
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import Login from "@/app/Login";
