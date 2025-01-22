@@ -19,7 +19,7 @@ export default function Login() {
   return (
     <>
       <div className={styles.login} >
-
+        <img src="https://i.imgur.com/kSvw0pC.png" alt="" className={styles.login__img} />
         <SignedOut>
           <div>
             <Link href={"/login"}>
@@ -36,6 +36,7 @@ export default function Login() {
           </>
         ) : null}
       </div>
+      
       {user ? (
           <>
             <aside className={styles.Dashboard}>

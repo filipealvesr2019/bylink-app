@@ -12,17 +12,20 @@
     height: 5vh;
 }
 .login{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  
     gap: 1rem;
     margin: 1rem;
-    position: fixed;
-    right: 0;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 95vw;
     
 }
 .login__img{
     width: 33vw;
+    z-index: -1;
 }
 
 
