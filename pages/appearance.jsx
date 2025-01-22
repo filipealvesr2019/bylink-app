@@ -1,12 +1,14 @@
 "use client"
-import Layout from "/components/Layout";
+
 import { useState, useEffect } from "react";
 import TypographySettings from '/components/appearance/TypographySettings';
 import ImageSettings from '/components/appearance/ImageSettings';
 import EffectsSettings from '/components/appearance/EffectsSettings';
 import ColorSettings from '/components/appearance/ColorSettings';
 import Link from 'next/link';
-
+import MobileMenu from "../components/MobileMenu/MobileMenu";
+import Login from "@/app/Login";
+import styles from '../pages/styles/appearance.module.css'
 export default function Appearance() {
   // Default settings
   const defaultSettings = {
@@ -247,14 +249,20 @@ export default function Appearance() {
   };
 
   return (
-    <Layout>
-      <div className="container">
-        <h1 className="title has-text-centered mb-5">Personalize sua página</h1>
-        
-        <div className="columns">
-          <div className="column is-7">
+    <div style={{
+      backgroundColor:"#fff"
+    }}>
+    
+      <div className={styles.container} >
+      <MobileMenu />
+      <Login />
+        <div className={styles.columns}>
+          <div  className={styles.columnA}>
+        <h1 >Personalize sua página</h1>
             <div className="tabs is-boxed mb-4">
-              <ul>
+              <ul style={{
+                listStyleType:"none"
+              }}>
                 <li className={activeTab === 'colors' ? 'is-active' : ''}>
                   <a onClick={() => setActiveTab('colors')}>
                     <span className="icon"></span>
@@ -356,7 +364,7 @@ export default function Appearance() {
           </div>
 
           {/* Preview */}
-          <div className="column is-5">
+          <div className={styles.columnB}>
             <div className="preview-container" style={{ position: 'sticky', top: '20px' }}>
               <h3 className="subtitle is-5 mb-4 has-text-centered">Prévia</h3>
               <div style={previewStyle}>
@@ -445,6 +453,6 @@ export default function Appearance() {
           </div>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 }
