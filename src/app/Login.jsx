@@ -39,7 +39,9 @@ export default function Login() {
         <SignedOut>
           <div>
             <Link href={"/login"}>
-              <button className={styles.button}>Entrar</button>
+              <button className={styles.button} style={{
+                width:"15vw"
+              }}>Entrar</button>
             </Link>
           </div>
         </SignedOut>
