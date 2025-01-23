@@ -292,7 +292,12 @@ export default function Appearance() {
 
             <div className="box">
               {activeTab === 'colors' && (
-                <ColorSettings settings={settings} setSettings={setSettings} />
+                <>
+            
+                <ColorSettings settings={settings} setSettings={setSettings}  handleTitleColorChange={handleTitleColorChange}/>
+                
+             
+                </>
               )}
               
               {activeTab === 'typography' && (
@@ -350,16 +355,6 @@ export default function Appearance() {
                 </Link>
               </div>
 
-              {/* Seletor de cor para o título */}
-              <div className="field mt-3">
-                <label className="label">Cor do Título</label>
-                <input
-                  type="color"
-                  value={settings.titleColor}
-                  onChange={handleTitleColorChange}
-                  className="input"
-                />
-              </div>
             </div>
           </div>
 

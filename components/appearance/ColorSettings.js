@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ColorSettings = ({ settings, setSettings }) => {
+const ColorSettings = ({ settings, setSettings, handleTitleColorChange }) => {
   return (
     <div className="settings-section" style={{ 
       background: 'linear-gradient(to bottom right, white, #f8fafc)',
@@ -12,9 +12,22 @@ const ColorSettings = ({ settings, setSettings }) => {
       </h3>
       
       <div className="columns is-multiline">
+      <div className="column is-6">
+         {/* Seletor de cor para o título */}
+         <div className="field mt-3">
+                <label className="label">Cor do Título</label>
+                <input
+                  type="color"
+                  value={settings.titleColor}
+                  onChange={handleTitleColorChange}
+                  className="input"
+                />
+              </div>
+        </div>
         <div className="column is-6">
           <div className="field">
             <label className="label">Cor de Fundo</label>
+                
             <div className="control">
               <input
                 type="color"
@@ -41,19 +54,7 @@ const ColorSettings = ({ settings, setSettings }) => {
           </div>
         </div>
 
-        <div className="column is-6">
-          <div className="field">
-            <label className="label">Cor dos Botões</label>
-            <div className="control">
-              <input
-                type="color"
-                value={settings.buttonColor}
-                onChange={(e) => setSettings(prev => ({...prev, buttonColor: e.target.value}))}
-                className="input"
-              />
-            </div>
-          </div>
-        </div>
+      
 
         <div className="column is-12">
           <div className="field">
@@ -61,7 +62,7 @@ const ColorSettings = ({ settings, setSettings }) => {
             <div className="control">
               <div className="select is-fullwidth">
                 <select
-                  value={settings.buttonStyle}
+                  value={settings}
                   onChange={(e) => setSettings(prev => ({...prev, buttonStyle: e.target.value}))}
                 >
                   <option value="filled">Preenchido</option>
