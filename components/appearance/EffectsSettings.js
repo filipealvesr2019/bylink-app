@@ -30,20 +30,7 @@ const EffectsSettings = ({ settings, setSettings }) => {
         </div>
       </div>
 
-      <div className="field">
-        <label className="label">Raio da Borda</label>
-        <div className="control">
-          <input
-            type="range"
-            min="0"
-            max="50"
-            value={settings.borderRadius}
-            onChange={(e) => setSettings(prev => ({...prev, borderRadius: Number(e.target.value)}))}
-            className="slider is-fullwidth"
-          />
-          <div className="has-text-centered">{settings.borderRadius}px</div>
-        </div>
-      </div>
+     
 
       <div className="field">
         <label className="label">Sombra dos Elementos</label>
