@@ -17,6 +17,8 @@ const LinksSchema = new mongoose.Schema({
   titleColor: { type: String, default: ""  },
   mainFont: { type: String, default: ""  },
   titleSize: { type: String, default: ""  },
+  profileImage: { type: String, default: ""  },
+  BackgroundImage: { type: String, default: ""  },
   dataCriacao: { type: Date, default: Date.now },
 });
 
