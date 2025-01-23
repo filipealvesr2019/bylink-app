@@ -201,51 +201,59 @@ export default function Appearance() {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    alignItems:"center",
     gap: '10px',
     
     // Estilos base dos botões
     backgroundColor: settings.linkColor,
     color: '#ffffff',
+    
     border: 'none',
+    ...(settings.buttonStyle === 'filled' && {
+      borderRadius: '15px',
+      width:"15vw",
+      borderStyle:"none"
+
+      
+    }),
     
     // Estilos específicos por tipo de botão
     ...(settings.buttonStyle === 'outlined' && {
       backgroundColor: 'transparent',
       color: settings.linkColor,
       border: `2px solid ${settings.linkColor}`,
+      width:"15vw"
+
     }),
     
     ...(settings.buttonStyle === 'minimal' && {
       backgroundColor: 'transparent',
       color: settings.linkColor,
       border: 'none',
+      width:"15vw"
+
     }),
     
     ...(settings.buttonStyle === 'rounded' && {
-      borderRadius: '50px',
+      borderRadius: settings.buttonStyle ? "50px" : "",
+      width:"15vw"
+      
     }),
     
-    ...(settings.buttonStyle === 'shadow' && {
-      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    ...(settings.buttonStyle === 'square' && {
+      borderRadius: settings.buttonStyle ? "10px" : "",
+      width:"15vw"
+      
     }),
 
-    // Sombra adicional se configurada
-    boxShadow: settings.buttonStyle === 'shadow' 
-      ? '0 4px 6px rgba(0, 0, 0, 0.1)' 
-      : getShadowStyle(settings.shadowStyle),
+    ...(settings.buttonStyle === 'dashed' && {
+      backgroundColor: 'white', // Fundo branco
+      color: settings.linkColor,
+      borderRadius: settings.buttonStyle ? "10px" : "",
+      width: "15vw",
+      border: `2px dashed ${settings.linkColor}` // Borda tracejada vermelha
+    }),
 
-    // Efeitos hover
-    '&:hover': {
-      opacity: 0.9,
-      transform: (settings.buttonStyle === 'shadow' || settings.shadowStyle !== 'none') 
-        ? 'translateY(-2px)' 
-        : 'none',
-      boxShadow: settings.buttonStyle === 'shadow'
-        ? '0 6px 8px rgba(0, 0, 0, 0.2)'
-        : settings.shadowStyle !== 'none'
-          ? getShadowStyle(settings.shadowStyle)
-          : 'none',
-    }
   };
 
   return (
@@ -414,20 +422,19 @@ export default function Appearance() {
                     ))}
 
                     {socialLinks.length === 0 && (
-                      <>
+                      <div >
                         <button 
                           style={buttonStylePreview}
-                          className={`preview-button button-${settings.buttonStyle}`}
                         >
                           Exemplo de Link
                         </button>
                         <button 
                           style={buttonStylePreview}
-                          className={`preview-button button-${settings.buttonStyle}`}
                         >
                           Outro Link
                         </button>
-                      </>
+                        
+                      </div>
                     )}
                   </div>
                 </div>

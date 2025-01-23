@@ -62,14 +62,17 @@ const ColorSettings = ({ settings, setSettings, handleTitleColorChange }) => {
             <div className="control">
               <div className="select is-fullwidth">
                 <select
-                  value={settings}
+                  value={settings.buttonStyle}
                   onChange={(e) => setSettings(prev => ({...prev, buttonStyle: e.target.value}))}
                 >
                   <option value="filled">Preenchido</option>
                   <option value="outlined">Contorno</option>
                   <option value="minimal">Minimalista</option>
                   <option value="rounded">Arredondado</option>
-                  <option value="shadow">Com Sombra</option>
+                  <option value="square">Quadrado</option>
+                  <option value="dashed">pontilhado</option>
+
+                  
                 </select>
               </div>
             </div>
