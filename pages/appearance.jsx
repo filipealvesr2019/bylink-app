@@ -53,17 +53,18 @@ export default function Appearance() {
   const [buttonStyle, setButtonStyle] = useState("")
   const CriarPagina = async () => {
     try {
-      const response = await axios.post(`http://localhost:3000/api/routes/temas`, {
+      const response = await axios.post("http://localhost:3000/api/routes/temas", {
         name: settings.font || "DefaultName",
         linksColor: settings.linkColor || "#000000",
         backgroundColor: settings.backgroundColor || "#ffffff",
-        buttonStyle: settings.buttonStyle || "filled"
-     }
-     );
+        buttonStyle: settings.buttonStyle || "filled",
+        // Adicione mais campos aqui, se necessário
+      });
       console.log("Resposta da API:", response.data);
     } catch (error) {
       console.error("Erro ao criar página:", error.response?.data || error.message);
     }
+  
   };
   
   // Load and save settings

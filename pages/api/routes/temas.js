@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
       
       const { 
-        nome,
+        name,
         backgroundColor, 
         linksColor, 
         buttonStyle,
@@ -24,14 +24,14 @@ export default async function handler(req, res) {
       console.log("Dados recebidos:", req.body);
 
       // Verificar se todos os campos necessários estão presentes
-      if (!nome || !backgroundColor || !linksColor || !buttonStyle){
+      if (!name || !backgroundColor || !linksColor || !buttonStyle){
         return res.status(400).json({ error: 'Todos os campos são obrigatórios.' });
       }
 
       // Criar o novo produto
-      const newProduct = new Links({
+      const newPageLinks = new Links({
         userId,
-        nome,
+        name,
         backgroundColor, 
         linksColor, 
         buttonStyle,
@@ -39,8 +39,8 @@ export default async function handler(req, res) {
       });
 
       // Salvar o produto no banco de dados
-      await newProduct.save();
-      res.status(201).json({ message: 'Produto criado com sucesso!', product: newProduct });
+      await newPageLinks.save();
+      res.status(201).json({ message: 'Produto criado com sucesso!', pageLinks: newPageLinks});
     } 
     else if (req.method === 'GET') {
       try {
