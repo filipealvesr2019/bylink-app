@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 
 const LinksSchema = new mongoose.Schema({
   userId: { type: String, required: true }, // Relaciona o produto ao cliente
-  name: { type: String, required: true }, // Relaciona o produto ao cliente
-  BackgroundColor: { type: String, default: "" }, // Relaciona o produto ao cliente
-  LinksColor: { type: String, default: ""  }, // Relaciona o produto ao cliente
+  name: { type: String }, // Relaciona o produto ao cliente
+  backgroundColor: { type: String, default: "" }, // Relaciona o produto ao cliente
+  linksColor: { type: String, default: ""  }, // Relaciona o produto ao cliente
   buttonStyle: { type: String, default: ""  }, // Relaciona o produto ao cliente
   gradient: { 
     firstColor: { type: String, default: ""  },

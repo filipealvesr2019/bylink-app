@@ -9,6 +9,7 @@ import Link from 'next/link';
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import Login from "@/app/Login";
 import styles from '../pages/styles/appearance.module.css'
+import axios from "axios";
 export default function Appearance() {
   // Default settings
   const defaultSettings = {
@@ -46,7 +47,25 @@ export default function Appearance() {
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState('colors');
   const [socialLinks, setSocialLinks] = useState([]);
-
+  const [name, setName] = useState("")
+  const [backgroundColor, setBackgroundColor] = useState("")
+  const [linksColor, setLinksColor] = useState("")
+  const [buttonStyle, setButtonStyle] = useState("")
+  const CriarPagina = async () => {
+    try {
+      const response = await axios.post(`http://localhost:3000/api/routes/temas`, {
+        name: settings.font || "DefaultName",
+        linksColor: settings.linkColor || "#000000",
+        backgroundColor: settings.backgroundColor || "#ffffff",
+        buttonStyle: settings.buttonStyle || "filled"
+     }
+     );
+      console.log("Resposta da API:", response.data);
+    } catch (error) {
+      console.error("Erro ao criar página:", error.response?.data || error.message);
+    }
+  };
+  
   // Load and save settings
   useEffect(() => {
     const savedSettings = JSON.parse(localStorage.getItem("appearanceSettings"));
@@ -256,6 +275,8 @@ export default function Appearance() {
 
   };
 
+
+
   return (
     <div style={{
       backgroundColor:"#fff"
@@ -266,6 +287,7 @@ export default function Appearance() {
       <Login />
         <div className={styles.columns}>
           <div  className={styles.columnA}>
+            <button onClick={CriarPagina}>Criar Pagina</button>
         <h1 >Personalize sua página</h1>
             <div className="tabs is-boxed mb-4">
               <ul style={{
