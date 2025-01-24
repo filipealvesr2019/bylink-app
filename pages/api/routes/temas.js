@@ -30,6 +30,7 @@ export default async function handler(req, res) {
 
       // Criar o novo produto
       const newProduct = new Links({
+        userId,
         nome,
         backgroundColor, 
         linksColor, 
