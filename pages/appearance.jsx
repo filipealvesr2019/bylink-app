@@ -54,10 +54,23 @@ export default function Appearance() {
   const CriarPagina = async () => {
     try {
       const response = await axios.post("http://localhost:3000/api/routes/temas", {
-        name: settings.font || "DefaultName",
+        name: settings.title || "DefaultName",
         linksColor: settings.linkColor || "#000000",
         backgroundColor: settings.backgroundColor || "#ffffff",
         buttonStyle: settings.buttonStyle || "filled",
+        mainFont: settings.font,
+        gradient: { 
+          firstColor: settings.gradientColor1,
+          secondColor: settings.gradientColor2,
+          direction: settings.gradientDirection,
+          isGradientSelected: settings.gradient ?  true : false
+          },
+        title: settings.title,
+        description: settings.presentation,
+        titleColor: settings.titleColor,
+        titleSize: settings.titleSize ,
+        profileImage: settings.profileImage,
+        BackgroundImage: settings.backgroundImage,
         // Adicione mais campos aqui, se necessário
       });
       console.log("Resposta da API:", response.data);
