@@ -228,6 +228,13 @@ export default function Appearance() {
     // Estilos base dos botões
     backgroundColor: settings.linkColor,
     color: '#ffffff',
+    boxShadow: settings.shadowStyle === 'none' 
+    ? 'none'
+    : settings.shadowStyle === 'light'
+      ? '0 2px 4px rgba(0, 0, 0, 0.1)'
+      : settings.shadowStyle === 'medium'
+        ? '0 4px 8px rgba(0, 0, 0, 0.2)'
+        : '0 8px 16px rgba(0, 0, 0, 0.3)',
     
     border: 'none',
     ...(settings.buttonStyle === 'filled' && {
