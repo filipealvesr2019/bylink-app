@@ -168,6 +168,7 @@ export default function Appearance() {
   };
 
   const smartphoneContentStyle = {
+    position: "relative", // Permite o uso de um overlay absoluto
     width: "100%",
     height: "100%",
     overflow: "auto",
@@ -175,16 +176,16 @@ export default function Appearance() {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    background: settings.gradient
-      ? `linear-gradient(${settings.gradientDirection}, ${settings.gradientColor1}, ${settings.gradientColor2})`
-      : settings.backgroundImage 
-        ? `url(${settings.backgroundImage})`
-        : settings.backgroundColor,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    color: "#fff"
+    background: settings.backgroundImage 
+      ? `url(${settings.backgroundImage})`
+      : settings.backgroundColor,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    color: "#fff",
   };
-
+  
+ 
+  
   const profileImageStyle = {
     width: "120px",
     height: "120px",

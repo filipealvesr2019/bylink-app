@@ -32,22 +32,7 @@ const ImageSettings = ({ settings, setSettings, handleProfileImageChange, error 
         </div>
       </div>
 
-      <div className="field">
-        <label className="label">Overlay de Fundo</label>
-        <div className="control">
-          <div className="select is-fullwidth">
-            <select
-              value={settings.backgroundOverlay}
-              onChange={(e) => setSettings(prev => ({...prev, backgroundOverlay: e.target.value}))}
-            >
-              <option value="none">Sem overlay</option>
-              <option value="light">Claro</option>
-              <option value="dark">Escuro</option>
-              <option value="blur">Desfoque</option>
-            </select>
-          </div>
-        </div>
-      </div>
+    
     </div>
   );
 };
