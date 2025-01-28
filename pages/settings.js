@@ -5,6 +5,7 @@ import { useUser } from "@clerk/nextjs";
 
 import Login from "@/app/Login";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
+import Link from "next/link";
 
 export default function Settings() {
   const { user } = useUser();
@@ -34,11 +35,14 @@ export default function Settings() {
       <MobileMenu />
       <Login />
 
-
-        {data.map((link) => (
-          <>{link.name}</>
-        ))}
-    
+      {data.map((link) => (
+        <div>
+          <Link href={`http://localhost:3000/${link.name}`}>
+          {link.name}
+          
+          </Link>
+        </div>
+      ))}
     </div>
   );
 }
