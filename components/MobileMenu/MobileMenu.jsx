@@ -83,7 +83,7 @@ export default function MobileMenu() {
             </Link>
           </li>
           <li>
-            <Link href="/settings" className={styles.link}>
+            <Link href="/MinhasPaginas" className={styles.link}>
               <span className={styles.icon}>⚙️</span> Configurações
             </Link>
           </li>

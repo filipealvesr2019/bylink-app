@@ -41,6 +41,17 @@ export default function Settings() {
           {link.name}
           
           </Link>
+          <iframe
+        src={`http://localhost:3000/${link.name}`} // Substitua pela URL que deseja exibir
+        title="Capa"
+        style={{
+          width: "50%",
+          height: "50vh",
+          border: "2px solid #ccc",
+          borderRadius: "10px",
+        }}
+        allowFullScreen
+      />
         </div>
       ))}
     </div>
