@@ -1,10 +1,15 @@
 
-const Tema1 = ({ handleCreateBio}) => {
-    const string = 'valor do componente filho'
+const Tema1 = ({ CriarPagina}) => {
+    const settings = {
+      name: "Teste de Temas",
+      linksColor: "#000000", // Valor padrão
+      backgroundColor: "#ffffff", // Valor padrão
+      buttonStyle: "filled", // Valor padrão
+    }
 
   return (
     <>
-    <button onClick={() => handleCreateBio(string)}>button</button>
+    <button onClick={() => CriarPagina(settings)}>button</button>
     </>
   );
 };
