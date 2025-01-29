@@ -44,12 +44,12 @@ export default function Settings() {
 
         return (
           <div key={formattedName} style={{ position: "relative" }}>
-            <Link href={`http://localhost:3000/page/${formattedName}`}>
+            <Link href={`http://localhost:3000/${formattedName}`}>
               {link.name}
             </Link>
 
             <iframe
-              src={`http://localhost:3000/page/${formattedName}`} // Substitui pelo nome formatado
+              src={`http://localhost:3000/${formattedName}`} // Substitui pelo nome formatado
               title="Capa"
               style={{
                 width: "50%",
@@ -62,7 +62,7 @@ export default function Settings() {
 
             {/* Div invisível para capturar o clique */}
             <div
-              onClick={() => window.location.href = `http://localhost:3000/page/${formattedName}`}
+              onClick={() => window.location.href = `http://localhost:3000/${formattedName}`}
               style={{
                 position: "absolute",
                 top: 0,
