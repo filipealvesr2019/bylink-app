@@ -1,8 +1,6 @@
 import axios from "axios";
-
 import { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
-
 import Login from "@/app/Login";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import Link from "next/link";
@@ -17,7 +15,6 @@ export default function Settings() {
         `http://localhost:3000/api/routes/temas`
       );
       setData(response.data.links);
-      console.log("setName", name);
     } catch (error) {
       console.log(error);
     }
@@ -25,6 +22,13 @@ export default function Settings() {
   useEffect(() => {
     getTemas();
   }, []);
+
+  const formatLinkName = (name) => {
+    return name
+      .toLowerCase() // Torna tudo minúsculo
+      .replace(/\s+/g, '_'); // Substitui espaços por underscores
+  };
+
   return (
     <div
       style={{
@@ -35,25 +39,42 @@ export default function Settings() {
       <MobileMenu />
       <Login />
 
-      {data.map((link) => (
-        <div>
-          <Link href={`http://localhost:3000/${link.name}`}>
-          {link.name}
-          
-          </Link>
-          <iframe
-        src={`http://localhost:3000/${link.name}`} // Substitua pela URL que deseja exibir
-        title="Capa"
-        style={{
-          width: "50%",
-          height: "50vh",
-          border: "2px solid #ccc",
-          borderRadius: "10px",
-        }}
-        allowFullScreen
-      />
-        </div>
-      ))}
+      {data.map((link) => {
+        const formattedName = formatLinkName(link.name); // Aplica a formatação
+
+        return (
+          <div key={formattedName} style={{ position: "relative" }}>
+            <Link href={`http://localhost:3000/${formattedName}`}>
+              {link.name}
+            </Link>
+
+            <iframe
+              src={`http://localhost:3000/${formattedName}`} // Substitui pelo nome formatado
+              title="Capa"
+              style={{
+                width: "50%",
+                height: "50vh",
+                border: "2px solid #ccc",
+                borderRadius: "10px",
+              }}
+              allowFullScreen
+            />
+
+            {/* Div invisível para capturar o clique */}
+            <div
+              onClick={() => window.location.href = `http://localhost:3000/${formattedName}`}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "50%", // Mesma largura do iframe
+                height: "50vh", // Mesma altura do iframe
+                backgroundColor: "transparent", // Tornando a div invisível
+              }}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }
