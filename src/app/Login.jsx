@@ -32,6 +32,7 @@ export default function Login() {
       style={{
         width:"10vw"
       }}
+      
         />
           </>
         ) : null}

@@ -15,7 +15,7 @@ const Tema1 = ({ CriarPagina }) => {
       .replace(/\s+/g, "_"); // Substitui espaços por underscores
   };
   const formattedName = formatLinkName(name); // Aplica a formatação 
-
+  
   return (
     <>
       <div key={formattedName} style={{ position: "relative" }}>
