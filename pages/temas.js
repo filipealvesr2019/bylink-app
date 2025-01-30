@@ -2,6 +2,8 @@ import axios from "axios";
 import Tema1 from "../components/temas/Tema1";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import Login from "@/app/Login";
+import Tema2 from "../components/temas/Tema2";
+import Link from "next/link";
 
 export default function Temas() {
   const CriarPagina = async (settings) => {
@@ -42,7 +44,18 @@ export default function Temas() {
     <>
       <MobileMenu />
       <Login />
-      <Tema1 CriarPagina={CriarPagina} />
+
+      <Link href={`/viewer/tema1`}>
+      tema1
+      </Link>
+
+
+      <Link href={`/viewer/tema2`}>
+      tema2
+      </Link>
+      {/* <Tema1 CriarPagina={CriarPagina} />
+      <Tema2 CriarPagina={CriarPagina} /> */}
+
     </>
   );
 }

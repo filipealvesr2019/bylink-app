@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const Tema1 = ({ CriarPagina }) => {
-  const [name, setName] = useState("Tema1")
+const Tema2 = ({ CriarPagina }) => {
+  const [name, setName] = useState("Tema2")
   const settings = {
     name: name,
     linksColor: "#000000", // Valor padrão
@@ -29,4 +29,4 @@ const Tema1 = ({ CriarPagina }) => {
   );
 };
 
-export default Tema1;
+export default Tema2;
