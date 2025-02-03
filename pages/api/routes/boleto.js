@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import dbConnect from "../utils/dbConnect";
-import TemasComprados from "../models/temasComprados";
+import TemasComprados from "../models/Temas";
 
 
 export default async function handler(req, res) {
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.ASSAS_API_KEY}`,
+          Authorization: `Bearer ${process.env.ASAAS_API_KEY}`,
         },
         body: JSON.stringify({
           customer: email,
