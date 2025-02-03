@@ -4,6 +4,10 @@ import { getAuth } from "@clerk/nextjs/server";
 import Clientes from "../models/clientes";
 
 export default async function handler(req, res) {
+
+    const apiKey = process.env.ASAAS_API_KEY// Aqui você já está acessando a variável corretamente
+console.log("API Key:", apiKey); // Verifique se a chave está sendo lida
+
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Método não permitido" });
   }
@@ -30,7 +34,7 @@ export default async function handler(req, res) {
       headers: {
         accept: "application/json",
         "content-type": "application/json",
-        access_token: process.env.ASAAS_API_KEY,
+        access_token: apiKey,
       },
       body: JSON.stringify({ name, cpfCnpj, email }),
     };
