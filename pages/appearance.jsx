@@ -39,7 +39,7 @@ export default function Appearance() {
       type: 'fade'
     },
     shadowStyle: 'none',
-    titleColor: '#ffffff'
+    titleColor: '#000000'
   };
 
   // State management
@@ -418,13 +418,32 @@ export default function Appearance() {
                 <div style={smartphoneNotchStyle}></div>
                 <div style={smartphoneContentStyle}>
                   {/* Seção de Perfil */}
-                  <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-                    {settings.profileImage && (
+                  <div style={{
+                    textAlign: 'center',
+                     marginBottom: '20px',
+                      display:"flex",
+                       flexDirection:"column",
+                       justifyContent:"center",
+                       alignItems:"center"
+                 }}>
+                    {settings.profileImage ? (
                       <img
                         src={settings.profileImage}
                         alt="Profile"
                         style={profileImageStyle}
                       />
+                    ) : (
+                      <div style={{
+                        width:"5rem",
+                        height:"5rem",
+                 
+                        borderRadius:"50%",
+                        display:"flex",
+                        justifyContent:"center",
+                        alignItems:"center"
+                      }}>
+                        <img src="https://i.imgur.com/soSw6fY.png" alt="" />
+                      </div>
                     )}
                     <h2 style={{ 
                       fontSize: '1.5rem', 
@@ -438,7 +457,7 @@ export default function Appearance() {
                       fontSize: '0.9rem',
                       opacity: 0.9,
                       marginBottom: '15px',
-                      color: 'white'
+                      color: settings.titleColor
                     }}>
                       {settings.presentation || "@seu.usuario"}
                     </p>

@@ -5,8 +5,8 @@ import Clientes from "../models/clientes";
 
 export default async function handler(req, res) {
 
-    const apiKey = process.env.ASAAS_API_KEY// Aqui você já está acessando a variável corretamente
-console.log("API Key:", apiKey); // Verifique se a chave está sendo lida
+    const apiKey = process.env.NEXT_PUBLIC_ASAAS_API_KEY;
+    console.log("API Key:", apiKey); // Verifique se a chave está sendo lida
 
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Método não permitido" });
