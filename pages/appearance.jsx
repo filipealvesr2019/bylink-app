@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
 import { useState, useEffect } from "react";
-import TypographySettings from '../components/appearance/TypographySettings';
-import ImageSettings from '../components/appearance/ImageSettings';
-import EffectsSettings from '../components/appearance/EffectsSettings';
-import ColorSettings from '../components/appearance/ColorSettings';
-import Link from 'next/link';
+import TypographySettings from "../components/appearance/TypographySettings";
+import ImageSettings from "../components/appearance/ImageSettings";
+import EffectsSettings from "../components/appearance/EffectsSettings";
+import ColorSettings from "../components/appearance/ColorSettings";
+import Link from "next/link";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import Login from "@/app/Login";
-import styles from '../pages/styles/appearance.module.css'
+import styles from "../pages/styles/appearance.module.css";
 import axios from "axios";
 
 export default function Appearance() {
-    const [links, setLinks] = useState([
-      { id: 1, name: 'Exemplo de Link 1', value: '' },
-      { id: 2, name: 'Exemplo de Link 2', value: '' }
-    ]);
-  
+  const [links, setLinks] = useState([
+    { id: 1, name: "Exemplo de Link 1", value: "" },
+    { id: 2, name: "Exemplo de Link 2", value: "" },
+  ]);
+
   // Default settings
   const defaultSettings = {
     backgroundColor: "#ffffff",
@@ -32,63 +32,70 @@ export default function Appearance() {
     title: "",
     presentation: "",
     profileImage: "",
-    buttonAnimation: 'none',
-    socialIconsColor: '#000000',
-    customCSS: '',
-    layout: 'standard',
-    backgroundImage: '',
-    backgroundOverlay: 'none',
-    theme: 'light',
+    buttonAnimation: "none",
+    socialIconsColor: "#000000",
+    customCSS: "",
+    layout: "standard",
+    backgroundImage: "",
+    backgroundOverlay: "none",
+    theme: "light",
     customFonts: [],
     animations: {
       enabled: false,
-      type: 'fade'
+      type: "fade",
     },
-    shadowStyle: 'none',
-    titleColor: '#000000'
+    shadowStyle: "none",
+    titleColor: "#000000",
   };
 
   // State management
   const [settings, setSettings] = useState(defaultSettings);
   const [error, setError] = useState("");
-  const [activeTab, setActiveTab] = useState('colors');
+  const [activeTab, setActiveTab] = useState("colors");
   const [socialLinks, setSocialLinks] = useState([]);
-  const [name, setName] = useState("")
-  const [backgroundColor, setBackgroundColor] = useState("")
-  const [linksColor, setLinksColor] = useState("")
-  const [buttonStyle, setButtonStyle] = useState("")
+  const [name, setName] = useState("");
+  const [backgroundColor, setBackgroundColor] = useState("");
+  const [linksColor, setLinksColor] = useState("");
+  const [buttonStyle, setButtonStyle] = useState("");
   const CriarPagina = async () => {
     try {
-      const response = await axios.post("http://localhost:3000/api/routes/temas", {
-        name: settings.title || "DefaultName",
-        linksColor: settings.linkColor || "#000000",
-        backgroundColor: settings.backgroundColor || "#ffffff",
-        buttonStyle: settings.buttonStyle || "filled",
-        mainFont: settings.font,
-        gradient: { 
-          firstColor: settings.gradientColor1,
-          secondColor: settings.gradientColor2,
-          direction: settings.gradientDirection,
-          isGradientSelected: settings.gradient ?  true : false
+      const response = await axios.post(
+        "http://localhost:3000/api/routes/temas",
+        {
+          name: settings.title || "DefaultName",
+          linksColor: settings.linkColor || "#000000",
+          backgroundColor: settings.backgroundColor || "#ffffff",
+          buttonStyle: settings.buttonStyle || "filled",
+          mainFont: settings.font,
+          gradient: {
+            firstColor: settings.gradientColor1,
+            secondColor: settings.gradientColor2,
+            direction: settings.gradientDirection,
+            isGradientSelected: settings.gradient ? true : false,
           },
-        title: settings.title,
-        description: settings.presentation,
-        titleColor: settings.titleColor,
-        titleSize: settings.titleSize ,
-        profileImage: settings.profileImage,
-        BackgroundImage: settings.backgroundImage,
-        // Adicione mais campos aqui, se necessário
-      });
+          title: settings.title,
+          description: settings.presentation,
+          titleColor: settings.titleColor,
+          titleSize: settings.titleSize,
+          profileImage: settings.profileImage,
+          BackgroundImage: settings.backgroundImage,
+          // Adicione mais campos aqui, se necessário
+        }
+      );
       console.log("Resposta da API:", response.data);
     } catch (error) {
-      console.error("Erro ao criar página:", error.response?.data || error.message);
+      console.error(
+        "Erro ao criar página:",
+        error.response?.data || error.message
+      );
     }
-  
   };
-  
+
   // Load and save settings
   useEffect(() => {
-    const savedSettings = JSON.parse(localStorage.getItem("appearanceSettings"));
+    const savedSettings = JSON.parse(
+      localStorage.getItem("appearanceSettings")
+    );
     if (savedSettings) setSettings(savedSettings);
   }, []);
 
@@ -137,26 +144,26 @@ export default function Appearance() {
 
   // Styles for preview
   const getShadowStyle = (shadowStyle) => {
-    switch(shadowStyle) {
-      case 'light':
-        return '0 2px 4px rgba(0, 0, 0, 0.1)';
-      case 'medium':
-        return '0 4px 8px rgba(0, 0, 0, 0.2)';
-      case 'strong':
-        return '0 8px 16px rgba(0, 0, 0, 0.3)';
+    switch (shadowStyle) {
+      case "light":
+        return "0 2px 4px rgba(0, 0, 0, 0.1)";
+      case "medium":
+        return "0 4px 8px rgba(0, 0, 0, 0.2)";
+      case "strong":
+        return "0 8px 16px rgba(0, 0, 0, 0.3)";
       default:
-        return 'none';
+        return "none";
     }
   };
 
   const previewStyle = {
     background: settings.gradient
       ? `linear-gradient(${settings.gradientDirection}, ${settings.gradientColor1}, ${settings.gradientColor2})`
-      : settings.backgroundImage 
-        ? `url(${settings.backgroundImage})`
-        : settings.backgroundColor,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+      : settings.backgroundImage
+      ? `url(${settings.backgroundImage})`
+      : settings.backgroundColor,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
     fontFamily: settings.font,
     padding: "20px",
     width: "320px", // Largura padrão de smartphone
@@ -183,7 +190,7 @@ export default function Appearance() {
     borderBottomLeftRadius: "20px",
     borderBottomRightRadius: "20px",
     left: "25%",
-    zIndex: 10
+    zIndex: 10,
   };
 
   const smartphoneContentStyle = {
@@ -195,16 +202,14 @@ export default function Appearance() {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    background: settings.backgroundImage 
+    background: settings.backgroundImage
       ? `url(${settings.backgroundImage})`
       : settings.backgroundColor,
     backgroundSize: "cover",
     backgroundPosition: "center",
     color: "#fff",
   };
-  
- 
-  
+
   const profileImageStyle = {
     width: "120px",
     height: "120px",
@@ -212,13 +217,13 @@ export default function Appearance() {
     objectFit: "cover",
     border: "4px solid white",
     boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-    marginBottom: "15px"
+    marginBottom: "15px",
   };
 
   const socialIconsStyle = {
     display: "flex",
     gap: "15px",
-    marginBottom: "20px"
+    marginBottom: "20px",
   };
 
   const linksContainerStyle = {
@@ -227,7 +232,7 @@ export default function Appearance() {
     flexDirection: "column",
     gap: "10px",
     padding: "0 10px",
-    marginTop: "20px"
+    marginTop: "20px",
   };
 
   const buttonStylePreview = {
@@ -237,110 +242,107 @@ export default function Appearance() {
     margin: "5px 0",
     cursor: "pointer",
     transition: "all 0.3s ease",
-    animation: settings.animations.enabled ? `${settings.animations.type} 1s infinite` : 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignItems:"center",
-    gap: '10px',
-    
+    animation: settings.animations.enabled
+      ? `${settings.animations.type} 1s infinite`
+      : "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "10px",
+
     // Estilos base dos botões
     backgroundColor: settings.linkColor,
-    color: '#ffffff',
-    boxShadow: settings.shadowStyle === 'none' 
-    ? 'none'
-    : settings.shadowStyle === 'light'
-      ? '0 2px 4px rgba(0, 0, 0, 0.1)'
-      : settings.shadowStyle === 'medium'
-        ? '0 4px 8px rgba(0, 0, 0, 0.2)'
-        : '0 8px 16px rgba(0, 0, 0, 0.3)',
-    
-    border: 'none',
-    ...(settings.buttonStyle === 'filled' && {
-      borderRadius: '15px',
-      width:"15vw",
-      borderStyle:"none"
+    color: "#ffffff",
+    boxShadow:
+      settings.shadowStyle === "none"
+        ? "none"
+        : settings.shadowStyle === "light"
+        ? "0 2px 4px rgba(0, 0, 0, 0.1)"
+        : settings.shadowStyle === "medium"
+        ? "0 4px 8px rgba(0, 0, 0, 0.2)"
+        : "0 8px 16px rgba(0, 0, 0, 0.3)",
 
-      
+    border: "none",
+    ...(settings.buttonStyle === "filled" && {
+      borderRadius: "15px",
+      width: "15vw",
+      borderStyle: "none",
     }),
-    
+
     // Estilos específicos por tipo de botão
-    ...(settings.buttonStyle === 'outlined' && {
-      backgroundColor: 'transparent',
+    ...(settings.buttonStyle === "outlined" && {
+      backgroundColor: "transparent",
       color: settings.linkColor,
       border: `2px solid ${settings.linkColor}`,
-      width:"15vw"
-
+      width: "15vw",
     }),
-    
-    ...(settings.buttonStyle === 'minimal' && {
-      backgroundColor: 'transparent',
+
+    ...(settings.buttonStyle === "minimal" && {
+      backgroundColor: "transparent",
       color: settings.linkColor,
-      border: 'none',
-      width:"15vw"
-
+      border: "none",
+      width: "15vw",
     }),
-    
-    ...(settings.buttonStyle === 'rounded' && {
+
+    ...(settings.buttonStyle === "rounded" && {
       borderRadius: settings.buttonStyle ? "50px" : "",
-      width:"15vw"
-      
-    }),
-    
-    ...(settings.buttonStyle === 'square' && {
-      borderRadius: settings.buttonStyle ? "10px" : "",
-      width:"15vw"
-      
+      width: "15vw",
     }),
 
-    ...(settings.buttonStyle === 'dashed' && {
-      backgroundColor: 'white', // Fundo branco
+    ...(settings.buttonStyle === "square" && {
+      borderRadius: settings.buttonStyle ? "10px" : "",
+      width: "15vw",
+    }),
+
+    ...(settings.buttonStyle === "dashed" && {
+      backgroundColor: "white", // Fundo branco
       color: settings.linkColor,
       borderRadius: settings.buttonStyle ? "10px" : "",
       width: "15vw",
-      border: `2px dashed ${settings.linkColor}` // Borda tracejada vermelha
+      border: `2px dashed ${settings.linkColor}`, // Borda tracejada vermelha
     }),
-
   };
 
-
-
   return (
-    <div style={{
-      backgroundColor:"#fff"
-    }}>
-    
-      <div className={styles.container} >
-      <MobileMenu />
-      <Login />
+    <div
+      style={{
+        backgroundColor: "#fff",
+      }}
+    >
+      <div className={styles.container}>
+        <MobileMenu />
+        <Login />
         <div className={styles.columns}>
-          <div  className={styles.columnA}>
+          <div className={styles.columnA}>
             <button onClick={CriarPagina}>Criar Pagina</button>
-        <h1 >Personalize sua página</h1>
+            <h1>Personalize sua página</h1>
             <div className="tabs is-boxed mb-4">
-              <ul style={{
-                listStyleType:"none"
-              }}>
-                <li className={activeTab === 'colors' ? 'is-active' : ''}>
-                  <a onClick={() => setActiveTab('colors')}>
+              <ul
+                style={{
+                  listStyleType: "none",
+                }}
+              >
+                <li className={activeTab === "colors" ? "is-active" : ""}>
+                  <a onClick={() => setActiveTab("colors")}>
                     <span className="icon"></span>
                     <span>Cores</span>
                   </a>
                 </li>
-                <li className={activeTab === 'typography' ? 'is-active' : ''}>
-                  <a onClick={() => setActiveTab('typography')}>
+                <li className={activeTab === "typography" ? "is-active" : ""}>
+                  <a onClick={() => setActiveTab("typography")}>
                     <span className="icon"></span>
                     <span>Tipografia</span>
                   </a>
                 </li>
-                <li className={activeTab === 'images' ? 'is-active' : ''}>
-                  <a onClick={() => setActiveTab('images')}>
+                <li className={activeTab === "images" ? "is-active" : ""}>
+                  <a onClick={() => setActiveTab("images")}>
                     <span className="icon"></span>
                     <span>Imagens</span>
                   </a>
                 </li>
-                <li className={activeTab === 'effects' ? 'is-active' : ''}>
-                  <a onClick={() => setActiveTab('effects')}>
+                <li className={activeTab === "effects" ? "is-active" : ""}>
+                  <a onClick={() => setActiveTab("effects")}>
                     <span className="icon"></span>
                     <span>Efeitos</span>
                   </a>
@@ -349,54 +351,57 @@ export default function Appearance() {
             </div>
 
             <div className="box">
-              {activeTab === 'colors' && (
+              {activeTab === "colors" && (
                 <>
-            
-                <ColorSettings settings={settings} setSettings={setSettings}  handleTitleColorChange={handleTitleColorChange}/>
-                
-             
+                  <ColorSettings
+                    settings={settings}
+                    setSettings={setSettings}
+                    handleTitleColorChange={handleTitleColorChange}
+                  />
                 </>
               )}
-              
-              {activeTab === 'typography' && (
-                <TypographySettings settings={settings} setSettings={setSettings} />
+
+              {activeTab === "typography" && (
+                <TypographySettings
+                  settings={settings}
+                  setSettings={setSettings}
+                />
               )}
-              
-              {activeTab === 'images' && (
-                <ImageSettings 
-                  settings={settings} 
+
+              {activeTab === "images" && (
+                <ImageSettings
+                  settings={settings}
                   setSettings={setSettings}
                   handleProfileImageChange={handleProfileImageChange}
                   error={error}
                 />
               )}
-              
-              {activeTab === 'effects' && (
-                <EffectsSettings settings={settings} setSettings={setSettings} />
+
+              {activeTab === "effects" && (
+                <EffectsSettings
+                  settings={settings}
+                  setSettings={setSettings}
+                />
               )}
 
               {/* Botão de Reset */}
               <div className="field mt-5">
-                <button 
+                <button
                   className="button is-danger is-light is-fullwidth"
                   onClick={handleReset}
                 >
-                  <span className="icon">
-              
-                  </span>
+                  <span className="icon"></span>
                   <span>Restaurar Padrões</span>
                 </button>
               </div>
 
               {/* Botão para salvar o template */}
               <div className="field mt-3">
-                <button 
+                <button
                   className="button is-success is-fullwidth"
                   onClick={handleSaveTemplate}
                 >
-                  <span className="icon">
-                 
-                  </span>
+                  <span className="icon"></span>
                   <span>Salvar Template</span>
                 </button>
               </div>
@@ -405,33 +410,35 @@ export default function Appearance() {
               <div className="field mt-3">
                 <Link href="/profile">
                   <button className="button is-primary is-fullwidth">
-                    <span className="icon">
-                  
-                    </span>
+                    <span className="icon"></span>
                     <span>Editar Perfil</span>
                   </button>
                 </Link>
               </div>
-
             </div>
           </div>
 
           {/* Preview */}
           <div className={styles.columnB}>
-            <div className="preview-container" style={{ position: 'sticky', top: '20px' }}>
+            <div
+              className="preview-container"
+              style={{ position: "sticky", top: "20px" }}
+            >
               <h3 className="subtitle is-5 mb-4 has-text-centered">Prévia</h3>
               <div style={previewStyle}>
                 <div style={smartphoneNotchStyle}></div>
                 <div style={smartphoneContentStyle}>
                   {/* Seção de Perfil */}
-                  <div style={{
-                    textAlign: 'center',
-                     marginBottom: '20px',
-                      display:"flex",
-                       flexDirection:"column",
-                       justifyContent:"center",
-                       alignItems:"center"
-                 }}>
+                  <div
+                    style={{
+                      textAlign: "center",
+                      marginBottom: "20px",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
                     {settings.profileImage ? (
                       <img
                         src={settings.profileImage}
@@ -439,32 +446,38 @@ export default function Appearance() {
                         style={profileImageStyle}
                       />
                     ) : (
-                      <div style={{
-                        width:"5rem",
-                        height:"5rem",
-                 
-                        borderRadius:"50%",
-                        display:"flex",
-                        justifyContent:"center",
-                        alignItems:"center"
-                      }}>
+                      <div
+                        style={{
+                          width: "5rem",
+                          height: "5rem",
+
+                          borderRadius: "50%",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
                         <img src="https://i.imgur.com/soSw6fY.png" alt="" />
                       </div>
                     )}
-                    <h2 style={{ 
-                      fontSize: '1.5rem', 
-                      fontWeight: 'bold',
-                      marginBottom: '5px',
-                      color: settings.titleColor
-                    }}>
+                    <h2
+                      style={{
+                        fontSize: "1.5rem",
+                        fontWeight: "bold",
+                        marginBottom: "5px",
+                        color: settings.titleColor,
+                      }}
+                    >
                       {settings.title || "Seu Nome"}
                     </h2>
-                    <p style={{ 
-                      fontSize: '0.9rem',
-                      opacity: 0.9,
-                      marginBottom: '15px',
-                      color: settings.titleColor
-                    }}>
+                    <p
+                      style={{
+                        fontSize: "0.9rem",
+                        opacity: 0.9,
+                        marginBottom: "15px",
+                        color: settings.titleColor,
+                      }}
+                    >
                       {settings.presentation || "@seu.usuario"}
                     </p>
                   </div>
@@ -477,43 +490,49 @@ export default function Appearance() {
                   {/* Container de Links */}
                   <div style={linksContainerStyle}>
                     {socialLinks.map((link, index) => (
-                      <button 
+                      <button
                         key={link.id || index}
                         style={{
                           ...buttonStylePreview,
                           opacity: link.active ? 1 : 0.5,
                         }}
                         className={`preview-button button-${settings.buttonStyle}`}
-                        onClick={() => window.open(link.url, '_blank')}
+                        onClick={() => window.open(link.url, "_blank")}
                       >
                         {link.name}
                       </button>
                     ))}
 
                     {socialLinks.length === 0 && (
-                      <div >
-
-                         {/* Campos de Link Dinâmicos */}
-      <div className="field" >
-        {links.map((link) => (
-          <div key={link.id}  style={{
-            display:"flex",
-            flexDirection:"column"
-          }}>
-
-            <button
-              type="text"
-              value={link.name}
-              onChange={(e) => updateLinkValue(link.id, 'name', e.target.value)}
-              placeholder={`Nome do Link ${link.id}`}
-              style={buttonStylePreview}
-              >
-                {link.name}
-              </button>
-
-          </div>
-        ))}
-      </div>
+                      <div>
+                        {/* Campos de Link Dinâmicos */}
+                        <div className="field">
+                          {links.map((link) => (
+                            <div
+                              key={link.id}
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                              }}
+                            >
+                              <button
+                                type="text"
+                                value={link.name}
+                                onChange={(e) =>
+                                  updateLinkValue(
+                                    link.id,
+                                    "name",
+                                    e.target.value
+                                  )
+                                }
+                                placeholder={`Nome do Link ${link.id}`}
+                                style={buttonStylePreview}
+                              >
+                                {link.name}
+                              </button>
+                            </div>
+                          ))}
+                        </div>
                         {/* <button 
                           style={buttonStylePreview}
                         >
@@ -524,24 +543,25 @@ export default function Appearance() {
                         >
                           Outro Link
                         </button> */}
-                        
                       </div>
                     )}
                   </div>
                 </div>
               </div>
-              
+
               {/* Adicione um botão home do iPhone */}
-              <div style={{
-                width: "50px",
-                height: "50px",
-                borderRadius: "50%",
-                border: "2px solid #1a1a1a",
-                margin: "-25px auto 0",
-                position: "relative",
-                zIndex: 2,
-                backgroundColor: "#f0f0f0"
-              }}></div>
+              <div
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  borderRadius: "50%",
+                  border: "2px solid #1a1a1a",
+                  margin: "-25px auto 0",
+                  position: "relative",
+                  zIndex: 2,
+                  backgroundColor: "#f0f0f0",
+                }}
+              ></div>
             </div>
           </div>
         </div>
