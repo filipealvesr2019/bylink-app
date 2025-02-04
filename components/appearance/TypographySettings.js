@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const TypographySettings = ({ settings, setSettings }) => {
+  const [links, setLinks] = useState([{ id: 1, name: '', value: '' }]);
+
+  const addLinkField = () => {
+    setLinks([...links, { id: links.length + 1, name: '', value: '' }]);
+  };
+
+  const updateLinkValue = (id, field, newValue) => {
+    setLinks(links.map(link => (link.id === id ? { ...link, [field]: newValue } : link)));
+  };
+
   return (
     <div className="settings-section">
       <h3 className="subtitle is-5 mb-4" style={{ color: "#000" }}>Tipografia</h3>
@@ -63,8 +73,35 @@ const TypographySettings = ({ settings, setSettings }) => {
           />
         </div>
       </div>
+
+      <label className="label">Links</label>
+      {/* Campos de Link Dinâmicos */}
+      <div className="field" >
+        {links.map((link) => (
+          <div key={link.id}  style={{
+            display:"flex",
+            flexDirection:"column"
+          }}>
+            <input
+              type="text"
+              className="input mb-1"
+              value={link.name}
+              onChange={(e) => updateLinkValue(link.id, 'name', e.target.value)}
+              placeholder={`Nome do Link ${link.id}`}
+            />
+            <input
+              type="text"
+              className="input"
+              value={link.value}
+              onChange={(e) => updateLinkValue(link.id, 'value', e.target.value)}
+              placeholder={`URL do Link ${link.id}`}
+            />
+          </div>
+        ))}
+        <button className="button is-primary mt-2" onClick={addLinkField}>+</button>
+      </div>
     </div>
   );
 };
 
-export default TypographySettings; 
+export default TypographySettings;
