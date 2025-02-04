@@ -10,7 +10,13 @@ import MobileMenu from "../components/MobileMenu/MobileMenu";
 import Login from "@/app/Login";
 import styles from '../pages/styles/appearance.module.css'
 import axios from "axios";
+
 export default function Appearance() {
+    const [links, setLinks] = useState([
+      { id: 1, name: 'Exemplo de Link 1', value: '' },
+      { id: 2, name: 'Exemplo de Link 2', value: '' }
+    ]);
+  
   // Default settings
   const defaultSettings = {
     backgroundColor: "#ffffff",
@@ -486,7 +492,29 @@ export default function Appearance() {
 
                     {socialLinks.length === 0 && (
                       <div >
-                        <button 
+
+                         {/* Campos de Link Dinâmicos */}
+      <div className="field" >
+        {links.map((link) => (
+          <div key={link.id}  style={{
+            display:"flex",
+            flexDirection:"column"
+          }}>
+
+            <button
+              type="text"
+              value={link.name}
+              onChange={(e) => updateLinkValue(link.id, 'name', e.target.value)}
+              placeholder={`Nome do Link ${link.id}`}
+              style={buttonStylePreview}
+              >
+                {link.name}
+              </button>
+
+          </div>
+        ))}
+      </div>
+                        {/* <button 
                           style={buttonStylePreview}
                         >
                           Exemplo de Link
@@ -495,7 +523,7 @@ export default function Appearance() {
                           style={buttonStylePreview}
                         >
                           Outro Link
-                        </button>
+                        </button> */}
                         
                       </div>
                     )}
