@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-const TypographySettings = ({ settings, setSettings }) => {
-  const [links, setLinks] = useState([{ id: 1, name: '', value: '' }]);
+const TypographySettings = ({ settings, setSettings, links, setLinks }) => {
 
   const addLinkField = () => {
     setLinks([...links, { id: links.length + 1, name: '', value: '' }]);

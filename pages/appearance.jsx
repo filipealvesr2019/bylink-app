@@ -365,6 +365,8 @@ export default function Appearance() {
                 <TypographySettings
                   settings={settings}
                   setSettings={setSettings}
+                  links={links}
+                  setLinks={setLinks}
                 />
               )}
 
