@@ -510,6 +510,9 @@ export default function Appearance() {
                         {/* Campos de Link Dinâmicos */}
                         <div className="field">
                           {links.map((link) => (
+
+                            <Link href={`${link.value}`}>
+                            
                             <div
                               key={link.id}
                               style={{
@@ -533,18 +536,9 @@ export default function Appearance() {
                                 {link.name}
                               </button>
                             </div>
+                            </Link>
                           ))}
                         </div>
-                        {/* <button 
-                          style={buttonStylePreview}
-                        >
-                          Exemplo de Link
-                        </button>
-                        <button 
-                          style={buttonStylePreview}
-                        >
-                          Outro Link
-                        </button> */}
                       </div>
                     )}
                   </div>
