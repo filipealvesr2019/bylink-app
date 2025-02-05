@@ -4,7 +4,6 @@ import { useUser  } from "@clerk/nextjs";
 import Login from "@/app/Login"; 
 import MobileMenu from "../components/MobileMenu/MobileMenu"; 
 import Link from "next/link";
-
 export default function Settings() { 
   const { user } = useUser (); 
 
@@ -42,9 +41,18 @@ export default function Settings() {
 
         return ( 
           <div key={formattedName} style={{ position: "relative" }}> 
-            <Link href={`http://localhost:3000/${formattedName}`}>
+            <Link href={`http://localhost:3000/${formattedName}`} style={{
+              
+            }}>
+              <span>
               {link.name}
-            {/* <img src="https://i.imgur.com/xr0rvm6.jpg"/> */}
+
+              </span>
+            <img src="https://i.imgur.com/mVgbAwI.png" style={{
+              width: "25vw",
+              marginTop:"5rem",
+              border: '1px solid red'
+            }}/>
               
             </Link>
         
