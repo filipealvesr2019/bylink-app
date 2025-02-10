@@ -158,7 +158,18 @@ export default function Paginas() {
     left: "25%",
     zIndex: 10,
   };
+  // isGradientSelected: data?.gradient ? true : false,
 
+  const handleBackground = () => {
+    switch(true){
+      case settings?.profileImage:
+        return settings?.profileImage
+      case data?.gradient ? true : false:
+        return isGradientSelected
+      case settings?.backgroundColor:
+        return settings?.backgroundColor
+    }
+  }
   const smartphoneContentStyle = {
     position: "relative", // Permite o uso de um overlay absoluto
     width: "100%",
@@ -168,9 +179,7 @@ export default function Paginas() {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    background: settings.backgroundImage
-      ? `url(${settings.backgroundImage})`
-      : settings.backgroundColor,
+    background: handleBackground(),
     backgroundSize: "cover",
     backgroundPosition: "center",
     color: "#fff",
@@ -269,22 +278,6 @@ export default function Paginas() {
     }),
   };
 
-  // Load and save settings
-  useEffect(() => {
-    const savedSettings = JSON.parse(
-      localStorage.getItem("appearanceSettings")
-    );
-    if (savedSettings) setSettings(savedSettings);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("appearanceSettings", JSON.stringify(settings));
-  }, [settings]);
-
-  useEffect(() => {
-    const savedLinks = JSON.parse(localStorage.getItem("socialLinks")) || [];
-    setSocialLinks(savedLinks);
-  }, []);
 
   const handleProfileImageChange = async (url) => {
     const isValid = await validateImage(url);
@@ -294,6 +287,14 @@ export default function Paginas() {
     } else {
       setError("URL da imagem inválida.");
     }
+  };
+  const validateImage = (url) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(false);
+      img.src = url;
+    });
   };
   return (
     <div>

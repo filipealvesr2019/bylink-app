@@ -33,20 +33,7 @@ const TypographySettings = ({ settings, setSettings, links, setLinks }) => {
         </div>
       </div>
 
-      <div className="field">
-        <label className="label">Tamanho do Título</label>
-        <div className="control">
-          <input
-            type="range"
-            min="16"
-            max="48"
-            value={settings.titleSize || 24}
-            onChange={(e) => setSettings(prev => ({...prev, titleSize: e.target.value}))}
-            className="slider is-fullwidth"
-          />
-          <div className="has-text-centered">{settings.titleSize || 24}px</div>
-        </div>
-      </div>
+   
 
       <div className="field">
         <label className="label">Título da Página</label>

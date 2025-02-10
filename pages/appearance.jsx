@@ -193,6 +193,16 @@ export default function Appearance() {
     zIndex: 10,
   };
 
+  const handleBackground = () => {
+    switch(true){
+      case settings?.profileImage:
+        return settings?.profileImage
+      case settings.gradient:
+        return settings.gradient
+      case settings?.backgroundColor:
+        return settings?.backgroundColor
+    }
+  }
   const smartphoneContentStyle = {
     position: "relative", // Permite o uso de um overlay absoluto
     width: "100%",
@@ -202,9 +212,7 @@ export default function Appearance() {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    background: settings.backgroundImage
-      ? `url(${settings.backgroundImage})`
-      : settings.backgroundColor,
+    background: handleBackground(),
     backgroundSize: "cover",
     backgroundPosition: "center",
     color: "#fff",
