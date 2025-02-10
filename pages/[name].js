@@ -78,40 +78,26 @@ export default function Paginas() {
    const defaultSettings = {
     backgroundColor: data?.backgroundColor || "",
     linkColor: data?.linksColor || "",
-    buttonColor: "#ff0000",
-    font: "Arial",
     buttonStyle: data?.buttonStyle || "",
     borderRadius: 5, // Default border radius
-    gradient: false,
-    gradientDirection: "to right",
-    gradientColor1: "#ff0000",
-    gradientColor2: "#0000ff",
-    title: data?.name,
-    presentation: "",
-    profileImage: "",
-    buttonAnimation: "none",
-    socialIconsColor: "#000000",
-    customCSS: "",
-    layout: "standard",
-    backgroundImage: "",
-    backgroundOverlay: "none",
-    theme: "light",
-    customFonts: [],
-    animations: {
-      enabled: false,
-      type: "fade",
-    },
-    shadowStyle: "none",
-    titleColor: "#000000",
+    mainFont: data?.font,
+          gradient: {
+            firstColor: data?.gradientColor1,
+            secondColor: data?.gradientColor2,
+            direction: data?.gradientDirection,
+            isGradientSelected: data?.gradient ? true : false,
+          },
+          title: data?.title,
+          description: data?.presentation,
+          titleColor: data?.titleColor,
+          titleSize: data?.titleSize,
+          profileImage: data?.profileImage,
+          BackgroundImage: data?.backgroundImage,
   };
 
   // State management
   const [settings, setSettings] = useState(defaultSettings);
-  
-  const handleSaveTemplate = () => {
-    localStorage.setItem("appearanceSettings", JSON.stringify(settings));
-    alert("Template salvo com sucesso!");
-  };
+
   // Handlers
   const handleReset = () => {
     setSettings(defaultSettings);
@@ -221,7 +207,7 @@ export default function Paginas() {
     margin: "5px 0",
     cursor: "pointer",
     transition: "all 0.3s ease",
-    animation: settings.animations.enabled
+    animation: settings?.animations?.enabled
       ? `${settings.animations.type} 1s infinite`
       : "none",
     display: "flex",
@@ -404,10 +390,9 @@ export default function Paginas() {
                 </div>
 
                 {/* Botão para salvar o template */}
-                <div className="field mt-3">
+                <div className="field mt-3" onClick={AtualizarPagina}>
                   <button
                     className="button is-success is-fullwidth"
-                    onClick={handleSaveTemplate}
                   >
                     <span className="icon"></span>
                     <span>Salvar Template</span>
