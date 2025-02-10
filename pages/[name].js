@@ -23,6 +23,7 @@ export default function Paginas() {
   const [error, setError] = useState("");
   const [data, setData] = useState()
   const { name } = router.query; // Obtém o parâmetro `name` da rota
+
   const fetchPage = async () => {
     try {
       const reponse = await axios.get(`/api/routes/${name}`);
@@ -32,26 +33,60 @@ export default function Paginas() {
       console.log(error);
     }
   };
-
+  
   useEffect(() => {
     if (name) {
       fetchPage();
     }
   }, [name]);
 
+  const AtualizarPagina = async () => {
+    try {
+      const response = await axios.put(
+        `http://localhost:3000/api/routes/temas?id=${data._id}`,
+        {
+          name: settings.title || "DefaultName",
+          linksColor: settings.linkColor || "#000000",
+          backgroundColor: settings.backgroundColor || "#ffffff",
+          buttonStyle: settings.buttonStyle || "filled",
+          mainFont: settings.font,
+          gradient: {
+            firstColor: settings.gradientColor1,
+            secondColor: settings.gradientColor2,
+            direction: settings.gradientDirection,
+            isGradientSelected: settings.gradient ? true : false,
+          },
+          title: settings.title,
+          description: settings.presentation,
+          titleColor: settings.titleColor,
+          titleSize: settings.titleSize,
+          profileImage: settings.profileImage,
+          BackgroundImage: settings.backgroundImage,
+          // Adicione mais campos aqui, se necessário
+        }
+      );
+      console.log("Resposta da API:", response.data);
+    } catch (error) {
+      console.error(
+        "Erro ao criar página:",
+        error.response?.data || error.message
+      );
+    }
+  };
+
    // Default settings
    const defaultSettings = {
-    backgroundColor: data.backgroundColor,
-    linkColor: data.linksColor,
+    backgroundColor: data?.backgroundColor || "",
+    linkColor: data?.linksColor || "",
     buttonColor: "#ff0000",
     font: "Arial",
-    buttonStyle: data.buttonStyle,
+    buttonStyle: data?.buttonStyle || "",
     borderRadius: 5, // Default border radius
     gradient: false,
     gradientDirection: "to right",
     gradientColor1: "#ff0000",
     gradientColor2: "#0000ff",
-    title: "",
+    title: data?.name,
     presentation: "",
     profileImage: "",
     buttonAnimation: "none",
@@ -286,6 +321,7 @@ export default function Paginas() {
           <Login />
           <div className={styles.columns}>
             <div className={styles.columnA}>
+              <button onClick={AtualizarPagina}>AtualizarPagina</button>
               <h1>Personalize sua página</h1>
               <div className="tabs is-boxed mb-4">
                 <ul

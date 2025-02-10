@@ -1,6 +1,7 @@
 import { getAuth } from '@clerk/nextjs/server'
 import Links from '../models/Links';
 import dbConnect from '../utils/dbConnect';
+import mongoose from 'mongoose';
 
 // A função handler será responsável por lidar com a requisição
 export default async function handler(req, res) {
@@ -63,13 +64,29 @@ export default async function handler(req, res) {
    
       res.status(200).json({ message: 'Produto excluído com sucesso!' });
     } else if (req.method === 'PUT') {
-    
-      res.status(200).json({ message: 'Status de pagamento atualizado com sucesso!', product: updatedProduct });
-    }
+      const { id } = req.query; // Captura o _id da URL
+      const updateData = req.body; // Dados a serem atualizados
+
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ error: 'ID inválido.' });
+      }
+
+      const updatedPage = await Links.findOneAndUpdate(
+        { _id: id, userId }, // Garante que só o dono pode modificar
+        updateData,
+        { new: true, runValidators: true }
+      );
+
+      if (!updatedPage) {
+        return res.status(404).json({ error: 'Registro não encontrado.' });
+      }
+      
+      res.status(200).json({ message: 'Página atualizada com sucesso!', page: updatedPage });
+    } 
     else {
-      // Retornar erro caso o método não seja permitido
       res.status(405).json({ error: 'Método não permitido.' });
     }
+    
   } catch (error) {
     console.error("Erro geral:", error);
   res.status(500).json({
