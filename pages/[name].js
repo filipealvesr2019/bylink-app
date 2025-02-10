@@ -202,13 +202,13 @@ export default function Paginas() {
 
   const buttonStylePreview = {
     padding: "10px 20px",
-    borderRadius: `${settings.borderRadius}px`,
+    borderRadius: `${settings?.borderRadius}px`,
     width: "80%",
     margin: "5px 0",
     cursor: "pointer",
     transition: "all 0.3s ease",
     animation: settings?.animations?.enabled
-      ? `${settings.animations.type} 1s infinite`
+      ? `${settings?.animations?.type} 1s infinite`
       : "none",
     display: "flex",
     alignItems: "center",
