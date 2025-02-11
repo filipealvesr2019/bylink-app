@@ -1,4 +1,3 @@
-import Layout from "/components/Layout";
 import { useState, useEffect } from "react";
 
 export default function Profile() {
@@ -45,7 +44,7 @@ export default function Profile() {
   };
 
   return (
-    <Layout>
+    <div>
       <div className="container">
         <h1 className="title has-text-centered">Perfil</h1>
         <div className="profileCard">
@@ -104,6 +103,6 @@ export default function Profile() {
           </button>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 } 

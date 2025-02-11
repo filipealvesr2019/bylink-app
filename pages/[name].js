@@ -54,7 +54,7 @@ export default function Paginas() {
             firstColor: settings.gradientColor1,
             secondColor: settings.gradientColor2,
             direction: settings.gradientDirection,
-            isGradientSelected: settings.gradient ? true : false,
+            isGradientSelected: settings.gradient,
           },
           title: settings.title,
           description: settings.presentation,
@@ -81,12 +81,12 @@ export default function Paginas() {
     buttonStyle: data?.buttonStyle || "",
     borderRadius: 5, // Default border radius
     mainFont: data?.font,
-          gradient: {
-            firstColor: data?.gradientColor1,
-            secondColor: data?.gradientColor2,
-            direction: data?.gradientDirection,
-            isGradientSelected: data?.gradient ? true : false,
-          },
+
+      firstColor: data?.gradient.firstColor,
+        secondColor: data?.gradient.secondColor,
+        direction: data?.gradient.direction,
+        isGradientSelected: data?.gradient,
+      
           title: data?.title,
           description: data?.presentation,
           titleColor: data?.titleColor,
@@ -121,10 +121,31 @@ export default function Paginas() {
         return "none";
     }
   };
-
+  useEffect(() => {
+    if (data) {
+      setSettings({
+        backgroundColor: data?.backgroundColor ,
+        linkColor: data?.linksColor ,
+        buttonStyle: data?.buttonStyle ,
+        borderRadius: 5,
+        mainFont: data?.font,
+        firstColor: data?.gradient?.firstColor ,
+        secondColor: data?.gradient?.secondColor ,
+        direction: data?.gradient?.direction ,
+        isGradientSelected: data?.gradient?.isGradientSelected || false,
+        name: data?.title,
+        description: data?.presentation,
+        nameColor: data?.titleColor,
+        nameSize: data?.titleSize,
+        profileImage: data?.profileImage,
+        backgroundImage: data?.backgroundImage,
+      });
+    }
+  }, [data]);
+  
   const previewStyle = {
-    background: settings.gradient
-      ? `linear-gradient(${settings.gradientDirection}, ${settings.gradientColor1}, ${settings.gradientColor2})`
+    background: settings?.isGradientSelected
+      ? `linear-gradient(${settings.direction}, ${settings.firstColor}, ${settings.secondColor})`
       : settings.backgroundImage
       ? `url(${settings.backgroundImage})`
       : settings.backgroundColor,
@@ -164,8 +185,8 @@ export default function Paginas() {
     switch(true){
       case settings?.profileImage:
         return settings?.profileImage
-      case data?.gradient ? true : false:
-        return isGradientSelected
+      case settings?.gradient:
+        return settings?.gradient
       case settings?.backgroundColor:
         return settings?.backgroundColor
     }
@@ -303,6 +324,7 @@ export default function Paginas() {
           backgroundColor: "#fff",
         }}
       >
+        
         <div className={styles.container}>
           <MobileMenu />
           <Login />

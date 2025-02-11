@@ -63,6 +63,9 @@ export default function Appearance() {
         "http://localhost:3000/api/routes/temas",
         {
           name: settings.title || "DefaultName",
+          nameColor: settings.titleColor,
+          nameSize: settings.titleSize,
+          description: settings.presentation,
           linksColor: settings.linkColor || "#000000",
           backgroundColor: settings.backgroundColor || "#ffffff",
           buttonStyle: settings.buttonStyle || "filled",
@@ -74,9 +77,6 @@ export default function Appearance() {
             isGradientSelected: settings.gradient ? true : false,
           },
           title: settings.title,
-          description: settings.presentation,
-          titleColor: settings.titleColor,
-          titleSize: settings.titleSize,
           profileImage: settings.profileImage,
           BackgroundImage: settings.backgroundImage,
           // Adicione mais campos aqui, se necessário

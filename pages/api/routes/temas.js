@@ -17,9 +17,16 @@ export default async function handler(req, res) {
       
       const { 
         name,
+        nameColor,
+        nameSize,
+        description,
         backgroundColor, 
         linksColor, 
         buttonStyle,
+        mainFont,
+        gradient,
+        profileImage,
+        BackgroundImage,
        
         } = req.body;
       console.log("Dados recebidos:", req.body);
@@ -32,10 +39,17 @@ export default async function handler(req, res) {
       // Criar o novo produto
       const newPageLinks = new Links({
         userId,
+        profileImage,
         name,
+        nameColor,
+        nameSize,
+        description,
         backgroundColor, 
+        BackgroundImage,
         linksColor, 
         buttonStyle,
+        mainFont,
+        gradient,
         
       });
 

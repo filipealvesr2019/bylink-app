@@ -3,6 +3,9 @@ import mongoose from "mongoose";
 const LinksSchema = new mongoose.Schema({
   userId: { type: String, required: true }, // Relaciona o produto ao cliente
   name: { type: String }, // Relaciona o produto ao cliente
+  nameColor: { type: String, default: ""  },
+  nameSize: { type: String, default: ""  },
+  description: { type: String, default: ""  },
   backgroundColor: { type: String, default: "" }, // Relaciona o produto ao cliente
   linksColor: { type: String, default: ""  }, // Relaciona o produto ao cliente
   buttonStyle: { type: String, default: ""  }, // Relaciona o produto ao cliente
@@ -12,11 +15,7 @@ const LinksSchema = new mongoose.Schema({
     direction: { type: String, default: ""  },
     isGradientSelected: Boolean
     }, // Relaciona o produto ao cliente
-  title: { type: String, default: ""  },
-  description: { type: String, default: ""  },
-  titleColor: { type: String, default: ""  },
   mainFont: { type: String, default: ""  },
-  titleSize: { type: String, default: ""  },
   profileImage: { type: String, default: ""  },
   BackgroundImage: { type: String, default: ""  },
   dataCriacao: { type: Date, default: Date.now },
