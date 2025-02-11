@@ -82,10 +82,10 @@ export default function Paginas() {
     borderRadius: 5, // Default border radius
     mainFont: data?.font,
 
-      firstColor: data?.gradient.firstColor,
-        secondColor: data?.gradient.secondColor,
-        direction: data?.gradient.direction,
-        isGradientSelected: data?.gradient,
+    gradientColor1: data?.gradient?.firstColor ,
+    gradientColor2: data?.gradient?.secondColor ,
+    gradientDirection: data?.gradient?.direction ,
+    gradient: data?.gradient?.isGradientSelected || false,
       
           title: data?.title,
           description: data?.presentation,
@@ -129,10 +129,10 @@ export default function Paginas() {
         buttonStyle: data?.buttonStyle ,
         borderRadius: 5,
         mainFont: data?.font,
-        firstColor: data?.gradient?.firstColor ,
-        secondColor: data?.gradient?.secondColor ,
-        direction: data?.gradient?.direction ,
-        isGradientSelected: data?.gradient?.isGradientSelected || false,
+        gradientColor1: data?.gradient?.firstColor ,
+        gradientColor2: data?.gradient?.secondColor ,
+        gradientDirection: data?.gradient?.direction ,
+        gradient: data?.gradient?.isGradientSelected || false,
         name: data?.title,
         description: data?.presentation,
         nameColor: data?.titleColor,
@@ -144,8 +144,8 @@ export default function Paginas() {
   }, [data]);
   
   const previewStyle = {
-    background: settings?.isGradientSelected
-      ? `linear-gradient(${settings.direction}, ${settings.firstColor}, ${settings.secondColor})`
+    background: settings?.gradient
+      ? `linear-gradient(${settings.gradientDirection}, ${settings.gradientColor1}, ${settings.gradientColor2})`
       : settings.backgroundImage
       ? `url(${settings.backgroundImage})`
       : settings.backgroundColor,
