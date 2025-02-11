@@ -2,6 +2,8 @@ import subscriptions from "../models/subscriptions";
 import dbConnect from "../utils/dbConnect";
 
 export default async function handler(req, res) {
+    const token = process.env.ASAAS_TOKEN
+
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Método não permitido" });
   }
@@ -20,7 +22,7 @@ export default async function handler(req, res) {
       headers: {
         accept: "application/json",
         "content-type": "application/json",
-        access_token: process.env.ASAAS_TOKEN, // Pegando o token da env
+        access_token: token, // Pegando o token da env
       },
       body: JSON.stringify({
         billingType: "PIX",
