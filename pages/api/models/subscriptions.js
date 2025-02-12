@@ -70,4 +70,5 @@ const Subscriptionschema = new mongoose.Schema({
 });
 
 
+
 export default mongoose.models.Subscriptions || mongoose.model("Subscriptions", Subscriptionschema);
