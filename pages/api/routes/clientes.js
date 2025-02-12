@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import dbConnect from "../utils/dbConnect";
 import { getAuth } from "@clerk/nextjs/server";
-import Clientes from "../models/clientes";
+import Clientes from "../models/Clientes";
 
 export default async function handler(req, res) {
 
