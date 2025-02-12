@@ -10,7 +10,7 @@ import MobileMenu from "../components/MobileMenu/MobileMenu";
 import Login from "@/app/Login";
 import styles from "../pages/styles/appearance.module.css";
 import axios from "axios";
-
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 export default function Appearance() {
   const [links, setLinks] = useState([
     { id: 1, name: "Exemplo de Link 1", value: "" },
@@ -312,6 +312,7 @@ export default function Appearance() {
     }),
   };
 
+  const status = 'PENDING'
   return (
     <div
       style={{
@@ -329,6 +330,9 @@ export default function Appearance() {
               <ul
                 style={{
                   listStyleType: "none",
+                  display:"flex",
+                  alignItems:"center",
+                  justifyContent:"center"
                 }}
               >
                 <li className={activeTab === "colors" ? "is-active" : ""}>
@@ -355,6 +359,16 @@ export default function Appearance() {
                     <span>Efeitos</span>
                   </a>
                 </li>
+                <li className={activeTab === "components" ? "is-active" : ""}>
+                  <a onClick={() => setActiveTab("components")} style={{
+                    display:"flex",
+                    alignItems:"center"
+                  }}>
+                  <LockOutlinedIcon />
+                    <span>Componentes </span>
+                  </a>
+                </li>
+                
               </ul>
             </div>
 
@@ -393,6 +407,10 @@ export default function Appearance() {
                   setSettings={setSettings}
                 />
               )}
+
+              {activeTab === "components" && (
+                <></>
+              )} 
 
               {/* Botão de Reset */}
               <div className="field mt-5">
