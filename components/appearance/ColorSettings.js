@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ColorSettings = ({ settings, setSettings, handleTitleColorChange }) => {
+const ColorSettings = ({ settings, status, setSettings, handleTitleColorChange }) => {
   return (
     <div className="settings-section" style={{ 
       background: 'linear-gradient(to bottom right, white, #f8fafc)',
@@ -24,9 +24,15 @@ const ColorSettings = ({ settings, setSettings, handleTitleColorChange }) => {
                 />
               </div>
         </div>
-        <div className="column is-6">
+     
+
+
+{status  !== "RECEIVED" ? (<>
+</>)  : (
+<>
+<div className="column is-6">
           <div className="field">
-            <label className="label">Cor de Fundo</label>
+            <label className="label">Cor do Fundo</label>
                 
             <div className="control">
               <input
@@ -42,7 +48,7 @@ const ColorSettings = ({ settings, setSettings, handleTitleColorChange }) => {
 
         <div className="column is-6">
           <div className="field">
-            <label className="label">Cor dos Links</label>
+            <label className="label">Cor dos butoes</label>
             <div className="control">
               <input
                 type="color"
@@ -53,6 +59,9 @@ const ColorSettings = ({ settings, setSettings, handleTitleColorChange }) => {
             </div>
           </div>
         </div>
+</>
+) }
+      
 
       
 
@@ -68,9 +77,17 @@ const ColorSettings = ({ settings, setSettings, handleTitleColorChange }) => {
                   <option value="filled">Preenchido</option>
                   <option value="outlined">Contorno</option>
                   <option value="minimal">Minimalista</option>
-                  <option value="rounded">Arredondado</option>
-                  <option value="square">Quadrado</option>
-                  <option value="dashed">pontilhado</option>
+                  {status  !== "RECEIVED" ? (
+                    <>
+                  </>
+                  ) : (
+                    <>
+                    <option value="rounded">Arredondado</option>
+                    <option value="square">Quadrado</option>
+                    <option value="dashed">pontilhado</option>
+                    
+                    </>
+                  )}
 
                   
                 </select>

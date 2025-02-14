@@ -324,7 +324,6 @@ export default function Appearance() {
         <Login />
         <div className={styles.columns}>
           <div className={styles.columnA}>
-            <button onClick={CriarPagina}>Criar Pagina</button>
             <h1>Personalize sua página</h1>
             <div className="tabs is-boxed mb-4">
               <ul
@@ -377,6 +376,7 @@ export default function Appearance() {
                 <>
                   <ColorSettings
                     settings={settings}
+                    status={status}
                     setSettings={setSettings}
                     handleTitleColorChange={handleTitleColorChange}
                   />
@@ -427,10 +427,10 @@ export default function Appearance() {
               <div className="field mt-3">
                 <button
                   className="button is-success is-fullwidth"
-                  onClick={handleSaveTemplate}
+                  onClick={CriarPagina}
                 >
                   <span className="icon"></span>
-                  <span>Salvar Template</span>
+                  <span>Criar Pagina</span>
                 </button>
               </div>
 
