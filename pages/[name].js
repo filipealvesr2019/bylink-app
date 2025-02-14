@@ -332,7 +332,7 @@ export default function Paginas() {
           <Login />
           <div className={styles.columns}>
             <div className={styles.columnA}>
-              <button onClick={AtualizarPagina}>AtualizarPagina</button>
+            
               <h1>Personalize sua página</h1>
               <div className="tabs is-boxed mb-4">
                 <ul
@@ -414,14 +414,13 @@ export default function Paginas() {
                     <span>Restaurar Padrões</span>
                   </button>
                 </div>
-
                 {/* Botão para salvar o template */}
                 <div className="field mt-3" onClick={AtualizarPagina}>
                   <button
                     className="button is-success is-fullwidth"
                   >
                     <span className="icon"></span>
-                    <span>Salvar Template</span>
+                    <span>Atualizar Pagina</span>
                   </button>
                 </div>
 
