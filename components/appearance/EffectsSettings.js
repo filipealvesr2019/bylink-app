@@ -10,7 +10,7 @@ const EffectsSettings = ({ settings, setSettings }) => {
         <div className="control">
           <div className="select is-fullwidth">
             <select
-              value={settings.animations.type}
+              value={settings?.animations?.type}
               onChange={(e) => setSettings(prev => ({
                 ...prev,
                 animations: {

@@ -317,6 +317,8 @@ export default function Paginas() {
       img.src = url;
     });
   };
+
+    const status = 'PENDING'
   return (
     <div>
       <div
@@ -370,6 +372,7 @@ export default function Paginas() {
                   <>
                     <ColorSettings
                       settings={settings}
+                      status={status}
                       setSettings={setSettings}
                       handleTitleColorChange={handleTitleColorChange}
                     />
