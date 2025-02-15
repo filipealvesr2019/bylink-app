@@ -4,6 +4,7 @@ export default function CreateBanner() {
   const [image, setImage] = useState(null);
   const [text, setText] = useState('');
   const [format, setFormat] = useState('300x250'); // Armazenar o formato selecionado
+  const [scalePercentage, setScalePercentage] = useState(100); // Armazenar a porcentagem de escala
   const canvasRef = useRef(null);
 
   const handleImageUpload = (event) => {
@@ -29,6 +30,11 @@ export default function CreateBanner() {
     setFormat(event.target.value);
   };
 
+  const handleScaleChange = (event) => {
+    setScalePercentage(event.target.value); // Atualiza a porcentagem
+    drawCanvas(image, text); // Redesenha o canvas com o novo valor de escala
+  };
+
   const drawCanvas = (imgSrc, text = '') => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -36,10 +42,8 @@ export default function CreateBanner() {
     // Limpa o canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Desenha a imagem
     const img = new Image();
     img.onload = () => {
-      // Calcula as proporções para que a imagem se ajuste ao banner sem distorcer
       const imageWidth = img.width;
       const imageHeight = img.height;
 
@@ -47,14 +51,16 @@ export default function CreateBanner() {
       const bannerWidth = canvas.width;
       const bannerHeight = canvas.height;
 
-      // Calcula a proporção para redimensionar a imagem
-      const scale = Math.min(bannerWidth / imageWidth, bannerHeight / imageHeight);
+      // Calcula a proporção para redimensionar a imagem de acordo com a porcentagem
+      const scale = scalePercentage / 100; // Converte a porcentagem em um valor decimal
       const newWidth = imageWidth * scale;
       const newHeight = imageHeight * scale;
 
+      // Centraliza a imagem no banner
+      const xOffset = (bannerWidth - newWidth) / 2;
+      const yOffset = (bannerHeight - newHeight) / 2;
+
       // Desenha a imagem no canvas com as novas dimensões
-      const xOffset = (bannerWidth - newWidth) / 2; // Centraliza horizontalmente
-      const yOffset = (bannerHeight - newHeight) / 2; // Centraliza verticalmente
       ctx.drawImage(img, xOffset, yOffset, newWidth, newHeight);
 
       // Adiciona o texto
@@ -110,6 +116,19 @@ export default function CreateBanner() {
           value={text}
           onChange={handleTextChange}
         />
+      </div>
+      <div>
+        <label>
+          Escala da imagem (%):
+          <input
+            type="number"
+            value={scalePercentage}
+            onChange={handleScaleChange}
+            min="1"
+            max="100"
+            step="1"
+          />
+        </label>
       </div>
       <canvas
         ref={canvasRef}
