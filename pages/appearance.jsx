@@ -13,7 +13,7 @@ import axios from "axios";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Videos from "../components/Videos/VideosUpload";
 import VideosUpload from "../components/Videos/VideosUpload";
-import VideosPage from "../components/Videos/VideosPage";
+import VideosPage from "../components/Videos/VideoList";
 export default function Appearance() {
   const [links, setLinks] = useState([
     { id: 1, name: "Exemplo de Link 1", value: "" },
