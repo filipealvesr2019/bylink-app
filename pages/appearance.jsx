@@ -11,11 +11,15 @@ import Login from "@/app/Login";
 import styles from "../pages/styles/appearance.module.css";
 import axios from "axios";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Videos from "../components/Videos/VideosUpload";
+import VideosUpload from "../components/Videos/VideosUpload";
+import VideosPage from "../components/Videos/VideosPage";
 export default function Appearance() {
   const [links, setLinks] = useState([
     { id: 1, name: "Exemplo de Link 1", value: "" },
     { id: 2, name: "Exemplo de Link 2", value: "" },
   ]);
+  const [autoPlay, setAutoPlay] = useState(false);
 
   // Default settings
   const defaultSettings = {
@@ -409,7 +413,15 @@ export default function Appearance() {
               )}
 
               {activeTab === "components" && (
-                <></>
+                <>
+                <div>
+                  <VideosUpload />
+
+                </div>
+                <form action="">
+                  <label htmlFor="">Formulario de Leads</label>
+                </form>
+                </>
               )} 
 
               {/* Botão de Reset */}
