@@ -10,7 +10,7 @@ export default function UserAuth() {
 
   return (
     <div>
-      {isSignedIn ? <CreateBanner /> : <LandinPage />}
+      {isSignedIn ? <Dashboard /> : <LandinPage />}
     </div>
   );
 }
