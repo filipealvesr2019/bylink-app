@@ -13,7 +13,7 @@ export default function tema() {
         case "tema1":
             return (
                 <Tema1  />
-            );
+            )
         case "tema2":
             return (
                 <Tema2  />
@@ -26,7 +26,7 @@ export default function tema() {
   return (
     <div>
 
-    {tema}
+
     {handleShowStyles()}
     </div>
   );

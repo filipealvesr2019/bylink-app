@@ -44,15 +44,24 @@ export default function Temas() {
     <>
       <MobileMenu />
       <Login />
+      <div>
 
       <Link href={`/viewer/tema1`}>
-      tema1
+      <img src="https://i.imgur.com/NS08nbf.jpg" style={{
+        width:"15vw"
+      }}/>
       </Link>
 
 
       <Link href={`/viewer/tema2`}>
-      tema2
+      <img src="https://i.imgur.com/NS08nbf.jpg" style={{
+        width:"15vw"
+      }}/>
+
       </Link>
+
+      </div>
+
       {/* <Tema1 CriarPagina={CriarPagina} />
       <Tema2 CriarPagina={CriarPagina} /> */}
 
