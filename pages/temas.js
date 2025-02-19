@@ -54,8 +54,11 @@ export default function Temas() {
           </div>
         </Link>
 
-        <Link href={`/viewer/tema2`}>
+        <Link href={`/viewer/tema2`}  className={styles.Link}>
           <img src="https://i.imgur.com/egPRNRC.png" className={styles.img} />
+          <div className={styles.lock}>
+            <LockOutlinedIcon />
+          </div>
         </Link>
       </div>
     </>
