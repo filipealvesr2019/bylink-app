@@ -41,26 +41,39 @@ export default function Temas() {
     }
   };
   // RECEIVED
-  const status = "PENDING";
+  const status = "RECEIVED";
   return (
     <>
       <MobileMenu />
       <Login />
-      <div className={styles.container}>
-        <Link href={`/viewer/tema1`} className={styles.Link}>
+      {status !== "RECEIVED" ? (
+        <div className={styles.container}>
+          <div className={styles.Link}>
           <img src="https://i.imgur.com/PRsKLfE.png" className={styles.img} />
           <div className={styles.lock}>
-            <LockOutlinedIcon />
+              <LockOutlinedIcon />
+            </div>
           </div>
-        </Link>
-
-        <Link href={`/viewer/tema2`}  className={styles.Link}>
+          <div className={styles.Link}>
           <img src="https://i.imgur.com/egPRNRC.png" className={styles.img} />
           <div className={styles.lock}>
-            <LockOutlinedIcon />
-          </div>
-        </Link>
-      </div>
+              <LockOutlinedIcon />
+            </div>
+</div>
+        </div>
+      ) : (
+        <div className={styles.container}>
+          <Link href={`/viewer/tema1`} className={styles.Link}>
+            <img src="https://i.imgur.com/PRsKLfE.png" className={styles.img} />
+          
+          </Link>
+
+          <Link href={`/viewer/tema2`} className={styles.Link}>
+            <img src="https://i.imgur.com/egPRNRC.png" className={styles.img} />
+        
+          </Link>
+        </div>
+      )}
     </>
   );
 }
