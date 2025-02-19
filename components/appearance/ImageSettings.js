@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ImageSettings = ({ settings, setSettings, handleProfileImageChange, error }) => {
+const ImageSettings = ({ settings, setSettings, handleProfileImageChange, error, status }) => {
   return (
     <div className="settings-section">
       <h3 className="subtitle is-5 mb-4" style={{ color: "#000" }}>Imagens</h3>
@@ -19,7 +19,12 @@ const ImageSettings = ({ settings, setSettings, handleProfileImageChange, error 
         {error && <p className="help is-danger">{error}</p>}
       </div>
 
-      <div className="field">
+     
+
+      {status !== "RECEIVED" ? (
+        <></>
+      ) : (
+        <div className="field">
         <label className="label">Imagem de Fundo (URL)</label>
         <div className="control">
           <input
@@ -31,8 +36,7 @@ const ImageSettings = ({ settings, setSettings, handleProfileImageChange, error 
           />
         </div>
       </div>
-
-    
+      )}
     </div>
   );
 };

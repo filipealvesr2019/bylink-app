@@ -35,11 +35,6 @@ const ColorSettings = ({
             />
           </div>
         </div>
-
-        {status !== "RECEIVED" ? (
-          <></>
-        ) : (
-          <>
             <div className="column is-6">
               <div className="field">
                 <label className="label">Cor do Fundo</label>
@@ -60,6 +55,11 @@ const ColorSettings = ({
                 </div>
               </div>
             </div>
+
+        {status !== "RECEIVED" ? (
+          <></>
+        ) : (
+          <>
 
             <div className="column is-6">
               <div className="field">
@@ -114,11 +114,7 @@ const ColorSettings = ({
           </div>
         </div>
       </div>
-
-      {status !== "RECEIVED" ? (
-        <></>
-      ) : (
-        <>
+      <>
           {/* Gradiente Toggle */}
           <div className="field mt-4">
             <label className="label">Fundo em Gradiente</label>
@@ -207,7 +203,7 @@ const ColorSettings = ({
             </div>
           )}
         </>
-      )}
+    
     </div>
   );
 };

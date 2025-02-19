@@ -402,6 +402,7 @@ export default function Appearance() {
                   setSettings={setSettings}
                   handleProfileImageChange={handleProfileImageChange}
                   error={error}
+                  status={status}
                 />
               )}
 

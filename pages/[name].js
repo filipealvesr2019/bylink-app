@@ -394,6 +394,7 @@ export default function Paginas() {
                     setSettings={setSettings}
                     handleProfileImageChange={handleProfileImageChange}
                     error={error}
+                    status={status}
                   />
                 )}
 
