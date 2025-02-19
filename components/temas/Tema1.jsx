@@ -3,10 +3,10 @@ import { useState } from "react";
 import styles from "./Tema1.module.css";
 const Tema1 = ({ CriarPagina }) => {
   const [links, setLinks] = useState([
-    { id: 1, name: "Exemplo de Link 1", value: "" },
-    { id: 2, name: "Exemplo de Link 2", value: "" },
-    { id: 3, name: "Exemplo de Link 3", value: "" },
-    { id: 4, name: "Exemplo de Link 4", value: "" },
+    { id: 1, name: "LINK 1", value: "" },
+    { id: 2, name: "LINK 2", value: "" },
+    { id: 3, name: "LINK 3", value: "" },
+    { id: 4, name: "LINK 4", value: "" },
   ]);
   const [name, setName] = useState("Tema1");
   const settings = {

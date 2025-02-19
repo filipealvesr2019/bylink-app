@@ -97,14 +97,14 @@ const ColorSettings = ({
                   }
                 >
                   <option value="filled">Preenchido</option>
-                  <option value="outlined">Contorno</option>
-                  <option value="minimal">Minimalista</option>
+                  <option value="rounded">Arredondado</option>
+                  <option value="square">Quadrado</option>
                   {status !== "RECEIVED" ? (
                     <></>
                   ) : (
                     <>
-                      <option value="rounded">Arredondado</option>
-                      <option value="square">Quadrado</option>
+                    <option value="minimal">Minimalista</option>
+                    <option value="outlined">Contorno</option>
                       <option value="dashed">pontilhado</option>
                     </>
                   )}

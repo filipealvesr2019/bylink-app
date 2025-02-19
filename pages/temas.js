@@ -4,7 +4,8 @@ import MobileMenu from "../components/MobileMenu/MobileMenu";
 import Login from "@/app/Login";
 import Tema2 from "../components/temas/Tema2";
 import Link from "next/link";
-
+import styles from "./temas.module.css";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 export default function Temas() {
   const CriarPagina = async (settings) => {
     console.log("settings", settings);
@@ -39,32 +40,24 @@ export default function Temas() {
       );
     }
   };
-
+  // RECEIVED
+  const status = "PENDING";
   return (
     <>
       <MobileMenu />
       <Login />
-      <div>
+      <div className={styles.container}>
+        <Link href={`/viewer/tema1`} className={styles.Link}>
+          <img src="https://i.imgur.com/PRsKLfE.png" className={styles.img} />
+          <div className={styles.lock}>
+            <LockOutlinedIcon />
+          </div>
+        </Link>
 
-      <Link href={`/viewer/tema1`}>
-      <img src="https://i.imgur.com/NS08nbf.jpg" style={{
-        width:"15vw"
-      }}/>
-      </Link>
-
-
-      <Link href={`/viewer/tema2`}>
-      <img src="https://i.imgur.com/NS08nbf.jpg" style={{
-        width:"15vw"
-      }}/>
-
-      </Link>
-
+        <Link href={`/viewer/tema2`}>
+          <img src="https://i.imgur.com/egPRNRC.png" className={styles.img} />
+        </Link>
       </div>
-
-      {/* <Tema1 CriarPagina={CriarPagina} />
-      <Tema2 CriarPagina={CriarPagina} /> */}
-
     </>
   );
 }

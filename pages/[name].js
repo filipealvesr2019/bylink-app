@@ -260,7 +260,7 @@ export default function Paginas() {
 
     border: "none",
     ...(settings.buttonStyle === "filled" && {
-      borderRadius: "15px",
+      borderRadius: "4px",
       width: "15vw",
       borderStyle: "none",
     }),

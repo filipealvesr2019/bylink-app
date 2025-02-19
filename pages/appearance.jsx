@@ -277,7 +277,7 @@ export default function Appearance() {
 
     border: "none",
     ...(settings.buttonStyle === "filled" && {
-      borderRadius: "15px",
+      borderRadius: "4px",
       width: "15vw",
       borderStyle: "none",
     }),
@@ -315,7 +315,7 @@ export default function Appearance() {
       border: `2px dashed ${settings.linkColor}`, // Borda tracejada vermelha
     }),
   };
-
+  // RECEIVED
   const status = 'PENDING'
   return (
     <div

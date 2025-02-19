@@ -10,7 +10,7 @@ export default function Settings() {
   const [data, setData] = useState([]); 
   const getTemas = async () => { 
     try { 
-      const response = await axios.get("http://localhost:3000/api/routes/temas"); 
+      const response = await axios.get("http://localhost:5003/api/routes/temas"); 
       setData(response.data.links); 
     } catch (error) { 
       console.log(error); 
@@ -41,7 +41,7 @@ export default function Settings() {
 
         return ( 
           <div key={formattedName} style={{ position: "relative" }}> 
-            <Link href={`http://localhost:3000/${formattedName}`} style={{
+            <Link href={`http://localhost:5003/${formattedName}`} style={{
               
             }}>
               <span>

@@ -85,7 +85,7 @@ export default function Login() {
             </Link>
           </li>
           <li>
-            <Link href="/MinhasPaginas" className={styles.link}>
+            <Link href="/paginas" className={styles.link}>
               <span className={styles.icon}>⚙️</span> Minhas Paginas
             </Link>
           </li>

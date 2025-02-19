@@ -5,6 +5,6 @@ export default function App({ Component, pageProps }) {
 
   return (
   <ClerkProvider >
-    <Component {...pageProps} />;
+    <Component {...pageProps} />
   </ClerkProvider>);
 }
