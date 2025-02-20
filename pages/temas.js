@@ -41,19 +41,19 @@ export default function Temas() {
     }
   };
   // RECEIVED
-  const status = "sRECEIVED";
+  const status = "RECEIVED";
   return (
     <>
       <MobileMenu />
       <Login />
-      <div
-       className={styles.container}
-      >
+      <div className={styles.container}>
         {status !== "RECEIVED" ? (
-          <div style={{
-            display:"flex",
-            gap:"1rem"
-          }}>
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
             <div className={styles.Link}>
               <img
                 src="https://i.imgur.com/PRsKLfE.png"
@@ -63,7 +63,7 @@ export default function Temas() {
                 <LockOutlinedIcon />
               </div>
             </div>
-            <div className={styles.Link}>
+            {/* <div className={styles.Link}>
               <img
                 src="https://i.imgur.com/egPRNRC.png"
                 className={styles.img}
@@ -78,14 +78,15 @@ export default function Temas() {
               <div className={styles.lock}>
                 <LockOutlinedIcon />
               </div>
-            </div>
+            </div> */}
           </div>
         ) : (
-          <div style={{
-            display:"flex",
-            gap:"1rem"
-
-          }}>
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
             <Link href={`/viewer/tema1`} className={styles.Link}>
               <img
                 src="https://i.imgur.com/PRsKLfE.png"
@@ -93,7 +94,7 @@ export default function Temas() {
               />
             </Link>
 
-            <Link href={`/viewer/tema2`} className={styles.Link}>
+            {/* <Link href={`/viewer/tema2`} className={styles.Link}>
               <img
                 src="https://i.imgur.com/egPRNRC.png"
                 className={styles.img}
@@ -101,10 +102,106 @@ export default function Temas() {
             </Link>
             <Link href={`/viewer/tema6`} className={styles.Link}>
           <img src="https://i.imgur.com/VmSupJW.png" className={styles.img} />
-        </Link>
+        </Link> */}
           </div>
         )}
 
+        {status !== "RECEIVED" ? (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+            <div className={styles.Link}>
+              <img
+                src="https://i.imgur.com/egPRNRC.png"
+                className={styles.img}
+              />
+              <div className={styles.lock}>
+                <LockOutlinedIcon />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+            <Link href={`/viewer/tema2`} className={styles.Link}>
+              <img
+                src="https://i.imgur.com/egPRNRC.png"
+                className={styles.img}
+              />
+            </Link>
+          </div>
+        )}
+
+        {status !== "RECEIVED" ? (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+            <div className={styles.Link}>
+              <img
+                src="https://i.imgur.com/VmSupJW.png"
+                className={styles.img}
+              />
+
+              <div className={styles.lock}>
+                <LockOutlinedIcon />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+            <Link href={`/viewer/tema6`} className={styles.Link}>
+              <img
+                src="https://i.imgur.com/VmSupJW.png"
+                className={styles.img}
+              />
+            </Link>
+          </div>
+        )}
+
+
+{status !== "RECEIVED" ? (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+            <div className={styles.Link}>
+            <img src="https://i.imgur.com/D1jiFKU.png" className={styles.img} />
+
+
+              <div className={styles.lock}>
+                <LockOutlinedIcon />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+            <Link href={`/viewer/tema7`} className={styles.Link}>
+          <img src="https://i.imgur.com/D1jiFKU.png" className={styles.img} />
+        </Link>
+          </div>
+        )}
         <Link href={`/viewer/tema3`} className={styles.Link}>
           <img src="https://i.imgur.com/c6f2Hww.png" className={styles.img} />
         </Link>
@@ -114,7 +211,10 @@ export default function Temas() {
         <Link href={`/viewer/tema5`} className={styles.Link}>
           <img src="https://i.imgur.com/EMTRpIq.png" className={styles.img} />
         </Link>
-      
+        
+        <Link href={`/viewer/tema8`} className={styles.Link}>
+          <img src="https://i.imgur.com/mV8qrP5.png" className={styles.img} />
+        </Link>
       </div>
     </>
   );
