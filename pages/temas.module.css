@@ -28,3 +28,18 @@
 .Mockup{
     position: relative;
 }
+
+@keyframes moveGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .animatedBG {
+    background: linear-gradient(270deg, #ff00ff, #00ffff, #ff00ff);
+    background-size: 400% 400%;
+    animation: moveGradient 10s ease infinite;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+  }
