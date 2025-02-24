@@ -390,16 +390,16 @@ export default function Temas() {
           <img src="https://i.imgur.com/g1Rhjsb.png" className={styles.img} />
         </Link>
         <Link href={`/viewer/tema16`} className={styles.Link}>
-          <img src="https://i.imgur.com/g1Rhjsb.png" className={styles.img} />
+          <img src="https://i.imgur.com/OuTFiLR.png" className={styles.img} />
         </Link>
         <Link href={`/viewer/tema17`} className={styles.Link}>
-          <img src="https://i.imgur.com/g1Rhjsb.png" className={styles.img} />
+          <img src="https://i.imgur.com/IF0sbEH.png" className={styles.img} />
         </Link>
         <Link href={`/viewer/tema18`} className={styles.Link}>
           <img src="https://i.imgur.com/wqVrvcv.png" className={styles.img} />
         </Link>
         <Link href={`/viewer/tema19`} className={styles.Link}>
-          <img src="https://i.imgur.com/wqVrvcv.png" className={styles.img} />
+          <img src="https://i.imgur.com/wjAVWQS.png" className={styles.img} />
         </Link>
       </div>
     </>
