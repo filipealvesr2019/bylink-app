@@ -1,5 +1,5 @@
 .container{
-    background:  #0D0D0D ;
+    background:  #FFE5D9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,9 +24,9 @@
       justify-content: center;
   }
   .buttonLinks{
-      background:#00FF99;
+      background:#FF9E9D;
       border: 0 ;
-      color: #111111;
+      color:  #2E2E2E;
       width:80vw;
       margin: 0 auto;
       padding: .8rem;

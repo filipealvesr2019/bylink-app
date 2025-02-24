@@ -24,6 +24,7 @@ import Tema20 from "../../components/temas/Tema20";
 import Tema21 from "../../components/temas/Tema21";
 import Tema22 from "../../components/temas/Tema22";
 import Tema23 from "../../components/temas/Tema22";
+import Tema24 from "../../components/temas/Tema24";
 
 export default function tema() {
   const router = useRouter();
@@ -79,7 +80,7 @@ export default function tema() {
                 return <Tema22 />;
               case "tema23":
                 return <Tema23 />;
-              case "Tema24":
+              case "tema24":
                 return <Tema24 />;
               case "Tema25":
                 return <Tema25 />;
