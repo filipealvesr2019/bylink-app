@@ -4,6 +4,7 @@ import { getAuth } from '@clerk/nextjs/server';  // Autenticação com Clerk
 
 import cloudinary from '../lib/cloudinary';
 import Videos from '../models/Videos';
+import dbConnect from '../utils/dbConnect';
 // Desabilitar o bodyParser padrão do Next.js para aceitar uploads de arquivos
 export const config = {
   api: {
@@ -31,6 +32,8 @@ const handler = (req, res) => {
     }
 
     try {
+        // Conectar ao banco de dados uma vez, antes de executar a lógica da requisição
+    await dbConnect();
       // Faz o upload diretamente para o Cloudinary
       const result = await new Promise((resolve, reject) => {
         cloudinary.v2.uploader.upload_stream(
@@ -50,12 +53,13 @@ const handler = (req, res) => {
         userId,
         videoUrl: result.secure_url, // URL gerado pelo Cloudinary
       });
-
+      console.log("Resultado do upload:", result);
+      console.log("URL do vídeo:", result?.secure_url);
       await newVideo.save();
       return res.status(200).json({ message: 'Vídeo enviado com sucesso!', video: newVideo });
     } catch (error) {
       console.error(error);
-      return res.status(500).json({ error: 'Erro ao enviar vídeo para o Cloudinary' });
+    
     }
   });
 };

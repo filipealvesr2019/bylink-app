@@ -1,5 +1,7 @@
 .container{
-    background-color: #004d40;
+   background-image: url("https://i.imgur.com/D3Wmd73.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,17 +25,19 @@
       justify-content: center;
   }
   .buttonLinks{
-      background: #ffffff;
-      border: 0;
-      color: #004d40;
-      width:80vw;
-      margin: 0 auto;
-      padding: .8rem;
-      margin-bottom: .8rem;
-      border-radius: 100px;
-      font-size: 1.2rem;
-      font-weight: 600;
-  }
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
+    width:80vw;
+    margin: 0 auto;
+    padding: .8rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+
+}
   
   .img{
       width: 7rem;
@@ -52,7 +56,7 @@
   
   @media screen and (min-width: 700px) {
       .buttonLinks{
-          width: 20vw;
+          width: 30vw;
           font-size: .8rem;
   
       }

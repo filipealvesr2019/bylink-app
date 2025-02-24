@@ -1,70 +1,72 @@
-import Link from "next/link";
-import { useState } from "react";
-import styles from "./Tema10.module.css";
-const Tema10 = ({ CriarPagina }) => {
+import { useState, useEffect } from "react";
+import styles from "./Tema19.module.css";
+
+const Tema19 = ({ CriarPagina }) => {
+  const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [name, setName] = useState("Tema1");
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
     { id: 2, name: "LINK 2", value: "" },
     { id: 3, name: "LINK 3", value: "" },
     { id: 4, name: "LINK 4", value: "" },
   ]);
-  const [name, setName] = useState("Tema1");
-  const settings = {
-    name: "Gradiente",
-    linksColor: "#ffffff",
-    backgroundColor: "linear-gradient(135deg, #ff7eb3, #ff758c, #ff7eb3)",
-    buttonStyle: "filled",
-  };
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const response = await fetch("/api/routes/get-videos");
+        const data = await response.json();
+        console.log(data)
+
+        if (response.ok) {
+          setVideos(data.videos);
+        } else {
+          console.error("Erro ao buscar vídeos:", data.error);
+        }
+      } catch (error) {
+        console.error("Erro ao conectar com API:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVideos();
+  }, []);
+
   const formatLinkName = (name) => {
-    return name
-      .toLowerCase() // Torna tudo minúsculo
-      .replace(/\s+/g, "_"); // Substitui espaços por underscores
+    return name.toLowerCase().replace(/\s+/g, "_");
   };
-  const formattedName = formatLinkName(name); // Aplica a formatação
+  const formattedName = formatLinkName(name);
 
   return (
     <>
+      {/* Vídeo de fundo */}
+      <video
+        className={styles.videoBackground}
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="URL_DO_SEU_VIDEO_AQUI" type="video/mp4" />
+      </video>
+
       <div className={styles.container}>
-        <div
-          style={{
-            color: "white",
-          }}
-          className={styles.content}
-        >
-
+        <div className={styles.content} style={{ color: "white" }}>
           <div className={styles.profile}>
-            <div>
-
-          <img
-            src="https://i.imgur.com/r6IyNwI.jpg"
-            alt=""
-            className={styles.img}
-          />
-            </div>
-            <span  className={styles.span}>{name}</span> 
+            <img
+              src="https://i.imgur.com/r6IyNwI.jpg"
+              alt="Profile"
+              className={styles.img}
+            />
+            <span className={styles.span}>{name}</span>
           </div>
 
           <div className="field">
             {links.map((link) => (
-              <div
-                key={link.id}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-                lassName={styles.buttonContainer}
-              >
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.buttonLinks}
-                >
-                  {link.name}
-                </button>
+              <div key={link.id} className={styles.buttonContainer}>
+                <button className={styles.buttonLinks}>{link.name}</button>
               </div>
             ))}
           </div>
@@ -74,4 +76,4 @@ const Tema10 = ({ CriarPagina }) => {
   );
 };
 
-export default Tema10;
+export default Tema19;

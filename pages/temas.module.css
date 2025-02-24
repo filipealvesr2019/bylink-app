@@ -12,6 +12,7 @@
     width: 15vw;
     height: 50vh;
     border-radius: 8px;
+    object-fit: fill;
 }
 
 .lock{

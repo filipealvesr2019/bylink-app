@@ -1,51 +1,21 @@
-import { useState, useEffect } from "react";
+import Videos from "../../../models/Videos";
 
-function VideoList() {
-  const [videos, setVideos] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default async function handler(req, res) {
+  if (req.method !== "GET") {
+    return res.status(405).json({ error: "Método não permitido" });
+  }
 
-  useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        const response = await fetch("/api/routes/get-videos"); // Chama a API
-        const data = await response.json();
+  try {
+    // Busca todos os vídeos do banco de dados
+    const videos = await Videos.find().sort({ createdAt: -1 });
 
-        if (response.ok) {
-          setVideos(data.videos); // Atualiza o estado com os vídeos
-        } else {
-          console.error("Erro ao buscar vídeos:", data.error);
-        }
-      } catch (error) {
-        console.error("Erro ao conectar com API:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    if (!videos.length) {
+      return res.status(404).json({ error: "Nenhum vídeo encontrado." });
+    }
 
-    fetchVideos();
-  }, []);
-
-  if (loading) return <p>Carregando vídeos...</p>;
-
-  return (
-    <div>
-      <h2>Meus Vídeos</h2>
-      {videos.length === 0 ? (
-        <p>Nenhum vídeo encontrado.</p>
-      ) : (
-        <ul>
-          {videos.map((video) => (
-            <li key={video._id}>
-              <video width="320" height="240" controls>
-                <source src={video.videoUrl} type="video/mp4" />
-                Seu navegador não suporta o elemento de vídeo.
-              </video>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
+    return res.status(200).json({ videos });
+  } catch (error) {
+    console.error("Erro ao buscar vídeos:", error);
+    return res.status(500).json({ error: "Erro ao buscar vídeos no banco de dados." });
+  }
 }
-
-export default VideoList;
