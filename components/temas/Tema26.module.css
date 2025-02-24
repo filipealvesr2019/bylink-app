@@ -1,5 +1,5 @@
 .container{
-    background-color: #004d40;
+    background:  #1A237E;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,6 +12,7 @@
   }
   .span{
       margin-top: 1rem;
+      color: white;
   }
   .button {
       background: transparent;
@@ -23,14 +24,14 @@
       justify-content: center;
   }
   .buttonLinks{
-      background: #ffffff;
-      border: 0;
-      color: #004d40;
+      background:#6A1B9A;
+      border: 0 ;
+      color:  #FFFFFF;
       width:80vw;
       margin: 0 auto;
       padding: .8rem;
       margin-bottom: .8rem;
-      border-radius: 100px;
+      border-radius: 8px;
       font-size: 1.2rem;
       font-weight: 600;
   }

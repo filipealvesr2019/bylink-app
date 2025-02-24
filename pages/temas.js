@@ -419,6 +419,9 @@ export default function Temas() {
         <Link href={`/viewer/tema25`} className={styles.Link}>
           <img src="https://i.imgur.com/K7qT7Xw.png" className={styles.img} />
         </Link>
+        <Link href={`/viewer/tema26`} className={styles.Link}>
+          <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
+        </Link>
       </div>
     </>
   );
