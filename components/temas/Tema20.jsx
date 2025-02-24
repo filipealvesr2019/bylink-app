@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
-import styles from "./Tema21.module.css";
-const Tema21 = ({ CriarPagina }) => {
+import styles from "./Tema20.module.css";
+const Tema20 = ({ CriarPagina }) => {
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
     { id: 2, name: "LINK 2", value: "" },
@@ -74,4 +74,4 @@ const Tema21 = ({ CriarPagina }) => {
   );
 };
 
-export default Tema21;
+export default Tema20;

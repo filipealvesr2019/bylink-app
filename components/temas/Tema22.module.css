@@ -1,12 +1,10 @@
 .container{
-    background-color: black;
+    background: #F4B400;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100vh;
-   background: linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff);
-
   }
   .content{
       height: 80vh;
@@ -14,6 +12,7 @@
   }
   .span{
       margin-top: 1rem;
+      color: black;
   }
   .button {
       background: transparent;
@@ -25,9 +24,9 @@
       justify-content: center;
   }
   .buttonLinks{
-      background: transparent;
-      border: 2px solid #ffffff;
-      color: #ffffff;
+      background: #B2E7D4 ;
+      border: 2px solid #B2E7D4;
+      color: #2C3E50;
       width:80vw;
       margin: 0 auto;
       padding: .8rem;
