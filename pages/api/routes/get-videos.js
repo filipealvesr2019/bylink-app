@@ -1,4 +1,5 @@
-import Videos from "../../../models/Videos";
+import Videos from "../models/Videos";
+import dbConnect from "../utils/dbConnect";
 
 export default async function handler(req, res) {
   if (req.method !== "GET") {
@@ -6,6 +7,8 @@ export default async function handler(req, res) {
   }
 
   try {
+        // Conectar ao banco de dados uma vez, antes de executar a lógica da requisição
+        await dbConnect();
     // Busca todos os vídeos do banco de dados
     const videos = await Videos.find().sort({ createdAt: -1 });
 
