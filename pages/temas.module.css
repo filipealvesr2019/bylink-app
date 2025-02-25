@@ -94,3 +94,27 @@
     height: 50vh;
     border-radius: 8px;
   }
+
+
+
+  .tema29 {
+    background: linear-gradient(45deg, #006d77, #14b8a6, #3b82f6, #9333ea);
+    background-size: 400% 400%;
+    animation: gradientAnimation 6s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #ffffff; /* Texto branco */
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
