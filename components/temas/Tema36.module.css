@@ -1,5 +1,5 @@
 .container{
-    background:linear-gradient(135deg, #00c6ff, #0072ff);
+    background:linear-gradient(135deg, #3a7bd5, #3a6073);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@
   }
   .button {
       background: transparent;
-      border: 0;
+      border: 2px solid #ffffff;
       color: #ffffff;
     }
   .buttonContainer{
@@ -24,9 +24,8 @@
       justify-content: center;
   }
   .buttonLinks{
-    background-color: rgba(255, 255, 255, 0.6); /* Branco semitransparente */
-    border: 2px solid white; /* Borda azul para destacar o botão */
-    
+    background-color: rgba(255, 255, 255, 0.5); /* Branco semitransparente */
+    border: 2px solid #ffffff;
     
       color: black;
       width:80vw;
@@ -36,8 +35,15 @@
       border-radius: 8px;
       font-size: 1.2rem;
       font-weight: 600;
+      transition: all 0.3s ease; /* Transição suave para todas as mudanças */
   }
   
+  .buttonLinks:hover{
+    background-color: rgba(255, 255, 255, 0.9); /* Aumenta a opacidade do botão */
+ 
+    transform: scale(1.05); /* Efeito de zoom suave */
+    
+  }
   .img{
       width: 7rem;
       height: 7rem;
