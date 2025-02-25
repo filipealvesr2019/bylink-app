@@ -1,15 +1,29 @@
 .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     height: 100vh;
-    background: linear-gradient(270deg, #ff416c, #ff4b2b, #1a2a6c);
-    background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
-}
-
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-} 
+    background: radial-gradient(circle, #ff7b7b 15%, transparent 16%) 0 0,
+                radial-gradient(circle, #ff7b7b 15%, transparent 16%) 50px 50px,
+                radial-gradient(circle, #7bff7b 15%, transparent 16%) 0 50px,
+                radial-gradient(circle, #7bff7b 15%, transparent 16%) 50px 0;
+    background-size: 100px 100px;
+    animation: moveBackground 5s linear infinite;
+  }
+  
+  @keyframes moveBackground {
+    0% {
+      background-position: 0 0, 50px 50px, 0 50px, 50px 0;
+    }
+    50% {
+      background-position: 25px 25px, 75px 75px, 25px 75px, 75px 25px;
+    }
+    100% {
+      background-position: 0 0, 50px 50px, 0 50px, 50px 0;
+    }
+  }
+  
 
 
   .content{
@@ -31,7 +45,7 @@
   }
   .buttonLinks{
       border: 0 ;
-      background: #4F83CC;
+      background: #006d77;
     color: #fff;
       width:80vw;
       margin: 0 auto;
