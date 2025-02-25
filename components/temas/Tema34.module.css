@@ -1,5 +1,5 @@
 .container{
-    background: #F4B400;
+    background:linear-gradient(135deg, #ff512f, #f09819);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,9 +24,11 @@
       justify-content: center;
   }
   .buttonLinks{
-      background: #B2E7D4 ;
-      border: 2px solid #B2E7D4;
-      color: #2C3E50;
+    background-color: rgba(255, 255, 255, 0.5); /* Branco semitransparente */
+    border: 0; /* Borda laranja escuro para combinar com o fundo */
+    
+    
+      color: black;
       width:80vw;
       margin: 0 auto;
       padding: .8rem;
