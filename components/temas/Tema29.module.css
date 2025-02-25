@@ -1,5 +1,5 @@
 .container {
-    background: linear-gradient(45deg, #ff416c, #ff4b2b, #1e90ff, #8a2be2);
+    background: linear-gradient(45deg, #006d77, #14b8a6, #3b82f6, #9333ea);
     background-size: 400% 400%;
     animation: gradientAnimation 10s ease infinite;
     display: flex;
@@ -7,6 +7,9 @@
     align-items: center;
     flex-direction: column;
     height: 100vh;
+    color: #ffffff; /* Texto branco */
+    font-family: 'Arial', sans-serif;
+    text-align: center;
 }
 
 @keyframes gradientAnimation {
@@ -14,6 +17,19 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
+
+/* .container {
+    height: 100vh;
+    background: linear-gradient(270deg, #ff416c, #ff4b2b, #1a2a6c);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+} */
 
   .content{
       height: 80vh;
@@ -33,9 +49,9 @@
       justify-content: center;
   }
   .buttonLinks{
-      background:#6A0572;
       border: 0 ;
-      color:  #fff;
+      background: #006d77;
+    color: #fff;
       width:80vw;
       margin: 0 auto;
       padding: .8rem;
