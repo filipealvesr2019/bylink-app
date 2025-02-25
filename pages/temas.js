@@ -6,7 +6,15 @@ import Tema2 from "../components/temas/Tema2";
 import Link from "next/link";
 import styles from "./temas.module.css";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { useState } from "react";
 export default function Temas() {
+
+   const [links, setLinks] = useState([
+      { id: 1, name: "LINK 1", value: "" },
+      { id: 2, name: "LINK 2", value: "" },
+      { id: 3, name: "LINK 3", value: "" },
+      { id: 4, name: "LINK 4", value: "" },
+    ]);
   const CriarPagina = async (settings) => {
     console.log("settings", settings);
     try {
@@ -471,7 +479,27 @@ export default function Temas() {
           <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
         </Link>
         <Link href={`/viewer/tema41`} className={styles.Link}>
-          <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
+        <div className={styles.tema41}>
+            {links.map((link) => (
+              <div
+                key={link.id}
+              
+                className={styles.tema41Buttons}
+              >
+                <button
+                  type="text"
+                  value={link.name}
+                  onChange={(e) =>
+                    updateLinkValue(link.id, "name", e.target.value)
+                  }
+                  placeholder={`Nome do Link ${link.id}`}
+            
+                >
+                  {link.name}
+                </button>
+              </div>
+            ))}
+          </div>
         </Link>
       </div>
     </>
