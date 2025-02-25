@@ -1,5 +1,5 @@
 .container{
-    background:  #0D0D0D ;
+    background:linear-gradient(135deg, #00c6ff, #0072ff);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +12,7 @@
   }
   .span{
       margin-top: 1rem;
-      color: white;
+      color: black;
   }
   .button {
       background: transparent;
@@ -24,9 +24,11 @@
       justify-content: center;
   }
   .buttonLinks{
-      background:#00FF99;
-      border: 0 ;
-      color: #111111;
+    background-color: white; /* Branco semitransparente */
+    border: 0; /* Borda azul para destacar o botão */
+    
+    
+      color: black;
       width:80vw;
       margin: 0 auto;
       padding: .8rem;
