@@ -1,11 +1,17 @@
-.container{
-    background:  #1A237E;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.container {
     height: 100vh;
-  }
+    background: linear-gradient(270deg, #ff416c, #ff4b2b, #1a2a6c);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+} 
+
+
   .content{
       height: 80vh;
       /* background-color: blue; */
@@ -24,9 +30,9 @@
       justify-content: center;
   }
   .buttonLinks{
-      background:#6A1B9A;
       border: 0 ;
-      color:  #FFFFFF;
+      background: #4F83CC;
+    color: #fff;
       width:80vw;
       margin: 0 auto;
       padding: .8rem;
