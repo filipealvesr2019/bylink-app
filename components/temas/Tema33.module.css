@@ -1,5 +1,5 @@
 .container{
-    background: #FFDDC1;
+    background:linear-gradient(135deg, #ff7eb3, #ff758c, #ff7eb3);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,9 +24,9 @@
       justify-content: center;
   }
   .buttonLinks{
-      background: #FF6F61;
-      border: 2px solid #FF6F61;
-      color: #FFFFFF;
+      background:  #ff00ff;
+      border: 0;
+      color: #ffffff;
       width:80vw;
       margin: 0 auto;
       padding: .8rem;
