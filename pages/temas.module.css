@@ -30,6 +30,8 @@
     position: relative;
 }
 
+
+
 @keyframes moveGradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -69,3 +71,26 @@
         background-position: 0% 50%;
     }
 }
+
+
+
+ /* Animação do fundo */
+ @keyframes animatedBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Container com fundo animado */
+  .tema28 {
+    background: linear-gradient(-45deg, #1A237E, #4A148C, #D500F9, #6200EA);
+    background-size: 300% 300%;
+    animation: animatedBackground 6s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+  }

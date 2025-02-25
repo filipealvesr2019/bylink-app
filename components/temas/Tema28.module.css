@@ -1,5 +1,14 @@
-.container{
-    background: #f1e6ff;
+@keyframes animatedBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Container com fundo animado */
+  .container {
+    background: linear-gradient(-45deg, #1A237E, #4A148C, #D500F9, #6200EA);
+    background-size: 300% 300%;
+    animation: animatedBackground 6s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,9 +33,9 @@
       justify-content: center;
   }
   .buttonLinks{
-      background: #6610f2;
-      border: 2px solid #6610f2;
-      color: white;
+    background: #D500F9;
+    color: white;
+    border: 0;
       width:80vw;
       margin: 0 auto;
       padding: .8rem;
