@@ -422,6 +422,29 @@ export default function Temas() {
         <Link href={`/viewer/tema26`} className={styles.Link}>
           <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
         </Link>
+        <Link href={`/viewer/tema27`} className={styles.Link}>
+         <div className={styles.tema27}>
+          
+         </div>
+        </Link>
+        <Link href={`/viewer/tema28`} className={styles.Link}>
+          <img src="https://i.imgur.com/dKd6Eiz.png" className={styles.img} />
+        </Link>
+        <Link href={`/viewer/tema29`} className={styles.Link}>
+          <img src="https://i.imgur.com/Ndl6ERS.png" className={styles.img} />
+        </Link>
+        <Link href={`/viewer/tema30`} className={styles.Link}>
+          <img src="https://i.imgur.com/yn7K7Tw.png" className={styles.img} />
+        </Link>
+        <Link href={`/viewer/tema31`} className={styles.Link}>
+          <img src="https://i.imgur.com/8tSZQhM.png" className={styles.img} />
+        </Link>
+        <Link href={`/viewer/tema32`} className={styles.Link}>
+          <img src="https://i.imgur.com/K7qT7Xw.png" className={styles.img} />
+        </Link>
+        <Link href={`/viewer/tema33`} className={styles.Link}>
+          <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
+        </Link>
       </div>
     </>
   );

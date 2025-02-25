@@ -27,6 +27,8 @@ import Tema23 from "../../components/temas/Tema22";
 import Tema24 from "../../components/temas/Tema24";
 import Tema25 from "../../components/temas/Tema25";
 import Tema26 from "../../components/temas/Tema26";
+import Tema27 from "../../components/temas/Tema27";
+import Tema28 from "../../components/temas/Tema28";
 
 export default function tema() {
   const router = useRouter();
@@ -60,38 +62,56 @@ export default function tema() {
       case "tema12":
         return <Tema12 />;
 
-        case "tema13":
-          return <Tema13 />;
-          case "tema14":
-            return <Tema14 />;
-          case "tema15":
-            return <Tema15 />;
-          case "tema16":
-            return <Tema16 />;
-          case "tema17":
-            return <Tema17 />;
-          case "tema18":
-            return <Tema18 />;
-          case "tema19":
-            return <Tema19 />;
-          case "tema20":
-            return <Tema20 />;
-            case "tema21":
-              return <Tema21 />;
-              case "tema22":
-                return <Tema22 />;
-              case "tema23":
-                return <Tema23 />;
-              case "tema24":
-                return <Tema24 />;
-              case "tema25":
-                return <Tema25 />;
-              case "tema26":
-                return <Tema26 />;
-              // case "tema11":
-              //   return <Tema19 />;
-              // case "tema12":
-              //   return <Tema20 />;
+      case "tema13":
+        return <Tema13 />;
+      case "tema14":
+        return <Tema14 />;
+      case "tema15":
+        return <Tema15 />;
+      case "tema16":
+        return <Tema16 />;
+      case "tema17":
+        return <Tema17 />;
+      case "tema18":
+        return <Tema18 />;
+      case "tema19":
+        return <Tema19 />;
+      case "tema20":
+        return <Tema20 />;
+      case "tema21":
+        return <Tema21 />;
+      case "tema22":
+        return <Tema22 />;
+      case "tema23":
+        return <Tema23 />;
+      case "tema24":
+        return <Tema24 />;
+      case "tema25":
+        return <Tema25 />;
+      case "tema26":
+        return <Tema26 />;
+      case "tema27":
+        return <Tema27 />;
+      case "tema28":
+        return <Tema28 />;
+      case "Tema29":
+        return <Tema29 />;
+      case "tema30":
+        return <Tema29 />;
+      case "tema31":
+        return <Tema31 />;
+      case "tema32":
+        return <Tema32 />;
+      case "tema33":
+        return <Tema33 />;
+      case "tema34":
+        return <Tema34 />;
+      case "tema35":
+        return <Tema35 />;
+      case "tema36":
+        return <Tema36 />;
+      case "tema37":
+        return <Tema37 />;
       default:
         return <></>;
     }
