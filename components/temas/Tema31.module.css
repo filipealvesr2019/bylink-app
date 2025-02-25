@@ -1,18 +1,36 @@
-.container{
-    background:  #FDCB82;
+
+.container {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100vh;
   }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+
+
   .content{
       height: 80vh;
       /* background-color: blue; */
   }
   .span{
       margin-top: 1rem;
-      color: black;
+      color: white;
   }
   .button {
       background: transparent;
@@ -24,9 +42,10 @@
       justify-content: center;
   }
   .buttonLinks{
-      background:#FF8C00;
       border: 0 ;
-      color:  #FFFFFF;
+      background: #ff6347;
+      border: none;
+      color: white;
       width:80vw;
       margin: 0 auto;
       padding: .8rem;

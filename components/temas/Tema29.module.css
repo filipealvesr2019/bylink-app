@@ -1,23 +1,27 @@
+
 .container {
-    background: linear-gradient(45deg, #006d77, #14b8a6, #3b82f6, #9333ea);
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4);
     background-size: 400% 400%;
-    animation: gradientAnimation 10s ease infinite;
+    animation: gradient 10s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    color: #ffffff; /* Texto branco */
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-}
-
-@keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
 
 
   .content{
@@ -39,8 +43,9 @@
   }
   .buttonLinks{
       border: 0 ;
-      background: #006d77;
-    color: #fff;
+      background: #ff6347;
+      border: none;
+      color: white;
       width:80vw;
       margin: 0 auto;
       padding: .8rem;
