@@ -1,5 +1,5 @@
 .container{
-    background:linear-gradient(135deg, #00c6ff, #0072ff, #00c6ff);
+    background:linear-gradient(135deg, #ff9a9e, #fad0c4);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,8 +24,8 @@
       justify-content: center;
   }
   .buttonLinks{
-    background-color: rgba(255, 255, 255, 0.5); /* Branco semitransparente */
-    border: 2px solid #fff; /* Borda azul claro para dar destaque */
+    background-color: rgba(255, 255, 255, 0.6); /* Branco semitransparente */
+    border: 0; /* Borda dourada para combinar com o fundo quente */
     
       color: black;
       width:80vw;
