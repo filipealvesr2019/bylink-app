@@ -56,7 +56,7 @@
     background: linear-gradient(to right,#77530a,#ffd277,#77530a,#77530a,#ffd277,#77530a);
     background-size: 250%;
     background-position: left;
-    color: #ffd277;
+    color: black;
     position: relative;
     display: flex;
     align-items: center;
@@ -66,20 +66,7 @@
     overflow: hidden;
   }
   
-  .buttonLinks::before {
-    position: absolute;
-    content: attr(data-content); /* Pega o conteúdo do data-content */
-    color: #ffd277;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 97%;
-    height: 90%;
-    border-radius: 8px;
-    transition-duration: 1s;
-    background-color: rgba(0, 0, 0, 0.842);
-    background-size: 200%;
-  }
+  
   
   .buttonLinks:hover {
     background-position: right;
