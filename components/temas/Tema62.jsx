@@ -66,6 +66,7 @@ const Tema62 = ({ CriarPagina }) => {
 
                 >
                   <span
+                  className={styles.text}
     >
                   {link.name}
   
