@@ -1,0 +1,73 @@
+.container{
+    background:#212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+  }
+  .content{
+      height: 80vh;
+      /* background-color: blue; */
+  }
+  .span{
+      margin-top: 1rem;
+      color: black;
+  }
+  .button {
+      background: transparent;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+    }
+  .buttonContainer{
+      display: flex;
+      justify-content: center;
+  }
+  .buttonLinks{
+    background-color: rgba(255, 255, 255, 0.4); 
+    border: 0;
+    color: #ffffff;
+    
+    
+      width:80vw;
+      margin: 0 auto;
+      padding: .8rem;
+      margin-bottom: .8rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      transition: all 0.3s ease; /* Transição suave para todas as mudanças */
+  }
+  
+  .buttonLinks:hover{
+    background-color: rgba(255, 255, 255, 0.6); /* Aumenta a opacidade do botão */
+ 
+    transform: scale(1.05); /* Efeito de zoom suave */
+    
+  }
+
+  
+  
+  .img{
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+      border: 4px solid #fff;
+   
+  }
+  
+  .profile{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 3rem;
+  }
+  
+  @media screen and (min-width: 700px) {
+      .buttonLinks{
+          width: 20vw;
+          font-size: .8rem;
+  
+      }
+      
+  }

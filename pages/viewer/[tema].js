@@ -49,6 +49,8 @@ import Tema45 from "../../components/temas/Tema45";
 import Tema46 from "../../components/temas/Tema46";
 import Tema47 from "../../components/temas/Tema47";
 import Tema48 from "../../components/temas/Tema48";
+import Tema49 from "../../components/temas/Tema48";
+import Tema50 from "../../components/temas/Tema50";
 
 export default function tema() {
   const router = useRouter();
@@ -138,26 +140,26 @@ export default function tema() {
         return <Tema39 />;
       case "tema40":
         return <Tema40 />;
-        case "tema41":
+      case "tema41":
         return <Tema41 />;
-        case "tema42":
-          return <Tema42 />;
-        case "tema43":
-          return <Tema43 />;
-        case "tema44":
-          return <Tema44 />;
-        case "tema45":
-          return <Tema45 />;
-          case "tema46":
-            return <Tema46 />;
-            case "tema47":
-              return <Tema47 />;
-              case "tema48":
-                return <Tema48 />;
-        // case "tema40":
-        //   return <Tema40 />;
-        //   case "tema41":
-        //   return <Tema41 />;
+      case "tema42":
+        return <Tema42 />;
+      case "tema43":
+        return <Tema43 />;
+      case "tema44":
+        return <Tema44 />;
+      case "tema45":
+        return <Tema45 />;
+      case "tema46":
+        return <Tema46 />;
+      case "tema47":
+        return <Tema47 />;
+      case "tema48":
+        return <Tema48 />;
+      case "tema50":
+        return <Tema50 />;
+      //   case "tema41":
+      //   return <Tema41 />;
       default:
         return <></>;
     }
