@@ -43,6 +43,7 @@ import Tema39 from "../../components/temas/Tema39";
 import Tema40 from "../../components/temas/Tema40";
 import Tema41 from "../../components/temas/Tema41";
 import Tema42 from "../../components/temas/Tema42";
+import Tema43 from "../../components/temas/Tema43";
 
 export default function tema() {
   const router = useRouter();
