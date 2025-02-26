@@ -60,6 +60,7 @@ import Tema56 from "../../components/temas/Tema56";
 import Tema57 from "../../components/temas/Tema57";
 import Tema58 from "../../components/temas/Tema58";
 import Tema59 from "../../components/temas/Tema59";
+import Tema60 from "../../components/temas/Tema60";
 
 export default function tema() {
   const router = useRouter();
@@ -183,6 +184,10 @@ export default function tema() {
         return <Tema58 />;
       case "tema59":
         return <Tema59 />;
+        case "tema60":
+          return <Tema60 />;
+  
+        
 
       default:
         return <></>;
