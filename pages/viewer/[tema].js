@@ -187,15 +187,15 @@ export default function tema() {
         return <Tema58 />;
       case "tema59":
         return <Tema59 />;
-        case "tema60":
-          return <Tema60 />;
-          case "tema61":
-            return <Tema61 />;
-            case "tema62":
-              return <Tema62 />; 
-              case "tema63":
-                return <Tema63 />; 
-            
+      case "tema60":
+        return <Tema60 />;
+      case "tema61":
+        return <Tema61 />;
+      case "tema62":
+        return <Tema62 />;
+      case "tema63":
+        return <Tema63 />;
+
       default:
         return <></>;
     }
