@@ -136,8 +136,8 @@ export default function tema() {
         return <Tema41 />;
         case "tema42":
           return <Tema42 />;
-        // case "tema36":
-        //   return <Tema36 />;
+        case "tema43":
+          return <Tema43 />;
         // case "tema37":
         //   return <Tema37 />;
         // case "tema38":
