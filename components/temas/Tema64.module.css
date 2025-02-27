@@ -1,0 +1,101 @@
+.container{
+    background-color: #E8E8E8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+  }
+  .content{
+      height: 80vh;
+      /* background-color: blue; */
+  }
+  .span{
+      margin-top: 1rem;
+  }
+  .button {
+      background: transparent;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+    }
+  .buttonContainer{
+      display: flex;
+      justify-content: center;
+  }
+  .buttonLinks {
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid #ffffff;
+    color: black;
+    width: 80vw;
+    margin: 0 auto;
+    padding: .8rem;
+    margin-bottom: .8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out; /* Transição para todos os atributos */
+}
+.buttonLinks {
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+   }
+   
+   .buttonLinks::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+   }
+   
+   .buttonLinks:hover {
+    color: #e8e8e8;
+   }
+   
+   .buttonLinks:hover::before {
+    width: 100%;
+   }
+  
+
+  
+  
+  .img{
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+      border: 4px solid #fff;
+   
+  }
+  
+  .profile{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 3rem;
+  }
+  
+  @media screen and (min-width: 700px) {
+      .buttonLinks{
+          width: 20vw;
+          font-size: .8rem;
+  
+      }
+  }
