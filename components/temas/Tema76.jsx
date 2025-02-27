@@ -47,7 +47,6 @@ const Tema76 = ({ CriarPagina }) => {
           }}
         ></div>
       ))}
-      <h1 style={{ position: "relative", color: "#333" }}>Background Animado</h1>
         <div
           style={{
             color: "white",
