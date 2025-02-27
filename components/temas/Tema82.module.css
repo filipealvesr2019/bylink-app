@@ -1,0 +1,101 @@
+.container {
+    position: relative;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+ 
+    animation: moveIcon 20s linear infinite;  /* A animação será infinita */
+  }
+
+  
+  
+  /* Posicionamento dos ícones de maneira única */
+  .icon:nth-child(1) {
+    top: 10%;
+    left: 10%;
+  }
+  
+  .icon:nth-child(2) {
+    top: 20%;
+    left: 30%;
+  }
+  
+  .icon:nth-child(3) {
+    top: 40%;
+    left: 50%;
+  }
+  
+  /* Adicione mais regras para outros ícones conforme necessário */
+  
+  @keyframes moveIcon {
+    0% {
+      transform: translate(0, 0);  /* Inicia no ponto inicial */
+    }
+    100% {
+      transform: translate(100vw, 100vh); /* Move para a posição final com base no tamanho da tela */
+    }
+  }
+  
+  
+  
+  .content{
+      height: 80vh;
+      /* background-color: blue; */
+  }
+  .span{
+      margin-top: 1rem;
+  }
+  .button {
+      background: transparent;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+    }
+  .buttonContainer{
+      display: flex;
+      justify-content: center;
+  }
+  .buttonLinks{
+      background: transparent;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      width:80vw;
+      margin: 0 auto;
+      padding: .8rem;
+      margin-bottom: .8rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      z-index: 1;
+  }
+  
+  .img{
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+      border: 4px solid #fff;
+   
+  }
+  
+  .profile{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 3rem;
+  }
+  
+  @media screen and (min-width: 700px) {
+      .buttonLinks{
+          width: 20vw;
+          font-size: .8rem;
+  
+      }
+  }
