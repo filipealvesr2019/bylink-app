@@ -1,18 +1,7 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import styles from "./Tema76.module.css";
-const Tema76 = ({ CriarPagina }) => {
-    const [particles, setParticles] = useState([]);
-
-    useEffect(() => {
-      const numParticles = 30;
-      const newParticles = Array.from({ length: numParticles }).map((_, index) => ({
-        id: index,
-        left: `${Math.random() * 100}vw`,
-        animationDuration: `${Math.random() * 3 + 2}s`,
-      }));
-      setParticles(newParticles);
-    }, []);
+import { useState } from "react";
+import styles from "./Tema77.module.css";
+const Tema77 = ({ CriarPagina }) => {
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
     { id: 2, name: "LINK 2", value: "" },
@@ -36,34 +25,27 @@ const Tema76 = ({ CriarPagina }) => {
   return (
     <>
       <div className={styles.container}>
-        {/* Estrelas Cintilantes */}
-      <div className={styles.stars}></div>
-      <div className={styles.gradientBackground}></div>
-      {particles.map((particle) => (
-        <div
-          key={particle.id}
-          className={styles.particle}
-          style={{
-            left: particle.left,
-            animationDuration: particle.animationDuration,
-          }}
-        ></div>
-      ))}
         <div
           style={{
             color: "white",
           }}
           className={styles.content}
         >
+            <div className={styles.shape}></div>
+      <div className={styles.shape}></div>
+      <div className={styles.shape}></div>
+      <div className={styles.shape}></div>
+
           <div className={styles.profile}>
             <div>
-              <img
-                src="https://i.imgur.com/r6IyNwI.jpg"
-                alt=""
-                className={styles.img}
-              />
+
+          <img
+            src="https://i.imgur.com/r6IyNwI.jpg"
+            alt=""
+            className={styles.img}
+          />
             </div>
-            <span className={styles.span}>{name}</span>
+            <span  className={styles.span}>{name}</span> 
           </div>
 
           <div className="field">
@@ -74,22 +56,21 @@ const Tema76 = ({ CriarPagina }) => {
                   display: "flex",
                   flexDirection: "column",
                 }}
-                className={styles.buttonContainer}
+                lassName={styles.buttonContainer}
               >
-            
-
- 
-
-
-
-<button className={styles.button}>
-  <span className={styles.buttonTop}> {link.name} </span>
-</button>
-
+                <button
+                  type="text"
+                  value={link.name}
+                  onChange={(e) =>
+                    updateLinkValue(link.id, "name", e.target.value)
+                  }
+                  placeholder={`Nome do Link ${link.id}`}
+                  className={styles.buttonLinks}
+                >
+                  {link.name}
+                </button>
               </div>
             ))}
-
-           
           </div>
         </div>
       </div>
@@ -97,4 +78,4 @@ const Tema76 = ({ CriarPagina }) => {
   );
 };
 
-export default Tema76;
+export default Tema77;
