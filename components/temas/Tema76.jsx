@@ -1,7 +1,18 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Tema76.module.css";
 const Tema76 = ({ CriarPagina }) => {
+    const [particles, setParticles] = useState([]);
+
+    useEffect(() => {
+      const numParticles = 30;
+      const newParticles = Array.from({ length: numParticles }).map((_, index) => ({
+        id: index,
+        left: `${Math.random() * 100}vw`,
+        animationDuration: `${Math.random() * 3 + 2}s`,
+      }));
+      setParticles(newParticles);
+    }, []);
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
     { id: 2, name: "LINK 2", value: "" },
@@ -25,6 +36,18 @@ const Tema76 = ({ CriarPagina }) => {
   return (
     <>
       <div className={styles.container}>
+      <div className={styles.gradientBackground}></div>
+      {particles.map((particle) => (
+        <div
+          key={particle.id}
+          className={styles.particle}
+          style={{
+            left: particle.left,
+            animationDuration: particle.animationDuration,
+          }}
+        ></div>
+      ))}
+      <h1 style={{ position: "relative", color: "#333" }}>Background Animado</h1>
         <div
           style={{
             color: "white",
