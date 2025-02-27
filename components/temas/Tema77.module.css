@@ -96,7 +96,7 @@
     height: 100px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
-    animation: floatingShapes 6s infinite ease-in-out alternate;
+    animation: floatingShapes 5s infinite ease-in-out alternate;
   }
   
   .shape:nth-child(1) {
