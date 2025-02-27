@@ -40,7 +40,7 @@
   box-sizing: border-box;
   border: 2px solid var(--button_outline_color);
   border-radius: var(--button_radius);
-  padding: 0.75em 1.5em;
+  padding: 0.5em 1.5em;
   background: linear-gradient(to bottom right, #FFCC99, #FF9966);
   color: var(--button_outline_color);
   transform: translateY(-0.2em);
