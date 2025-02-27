@@ -14,7 +14,7 @@
     height: 30px;
     background-image: url('https://i.imgur.com/YH0eQRX.png');
     background-size: cover;
-    animation: moveIcon 15s linear infinite;  /* A animação será infinita */
+    animation: moveIcon 20s linear infinite;  /* A animação será infinita */
   }
   
   /* Posicionamento dos ícones de maneira única */
