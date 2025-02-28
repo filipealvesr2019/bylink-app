@@ -105,7 +105,7 @@ export default function Paginas() {
                       flexDirection: "column",
                       width:"10vw",
                       margin: "0 auto",
-                      marginBottom: "1rem"
+                      marginBottom: ".5rem"
                     }}
                   >
                     <button
