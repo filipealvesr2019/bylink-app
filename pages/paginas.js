@@ -77,7 +77,7 @@ export default function Settings() {
         return (
           <div key={formattedName} style={{ position: "relative" }}>
             <Link
-              href={`http://localhost:5003/${formattedName}`}
+              href={`http://localhost:5003/theme/${formattedName}`}
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -93,6 +93,12 @@ export default function Settings() {
                 }}
               />
             </Link>
+            <Link
+              href={`http://localhost:5003/${formattedName}`}>
+
+            <button >Ir pra pagina</button>
+
+              </Link>
             <DeleteIcon
               onClick={() => handleClickOpenModal(link._id)} // Abre modal com ID do tema
               style={{ cursor: "pointer", marginLeft: "10px", color: "red" }}
