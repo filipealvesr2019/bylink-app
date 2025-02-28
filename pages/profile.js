@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export default function Profile() {
-  const [profileImage, setProfileImage] = useState("/path/to/profile-image.jpg");
+  const [profileImage, setProfileImage] = useState("");
   const [description, setDescription] = useState("Uma breve descrição sobre você.");
   const [textColor, setTextColor] = useState("#000000");
 

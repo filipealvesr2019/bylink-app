@@ -64,9 +64,9 @@ export default function Appearance() {
   const CriarPagina = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/routes/temas",
+        "http://localhost:5003/api/routes/temas",
         {
-          name: settings.title || "DefaultName",
+          name: settings.title || "nome3",
           nameColor: settings.titleColor,
           nameSize: settings.titleSize,
           description: settings.presentation,
@@ -81,7 +81,7 @@ export default function Appearance() {
             isGradientSelected: settings.gradient ? true : false,
           },
           title: settings.title,
-          profileImage: settings.profileImage,
+          profileImage: settings.profileImage || "",
           BackgroundImage: settings.backgroundImage,
           // Adicione mais campos aqui, se necessário
         }

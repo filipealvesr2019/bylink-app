@@ -31,31 +31,36 @@ export default async function handler(req, res) {
         } = req.body;
       console.log("Dados recebidos:", req.body);
 
-      // Verificar se todos os campos necessários estão presentes
-      if (!name || !backgroundColor || !linksColor || !buttonStyle){
-        return res.status(400).json({ error: 'Todos os campos são obrigatórios.' });
+      try{
+        // Verificar se todos os campos necessários estão presentes
+        if (!name || !backgroundColor || !linksColor || !buttonStyle){
+          return res.status(400).json({ error: 'Todos os campos são obrigatórios.' });
+        }
+  
+        // Criar o novo produto
+        const newPageLinks = new Links({
+          userId,
+          profileImage,
+          name,
+          nameColor,
+          nameSize,
+          description,
+          backgroundColor, 
+          BackgroundImage,
+          linksColor, 
+          buttonStyle,
+          mainFont,
+          gradient,
+          
+        });
+  
+        // Salvar o produto no banco de dados
+        await newPageLinks.save();
+        res.status(201).json({ message: 'Produto criado com sucesso!', pageLinks: newPageLinks});
+
+      }catch(error){
+        console.log(error)
       }
-
-      // Criar o novo produto
-      const newPageLinks = new Links({
-        userId,
-        profileImage,
-        name,
-        nameColor,
-        nameSize,
-        description,
-        backgroundColor, 
-        BackgroundImage,
-        linksColor, 
-        buttonStyle,
-        mainFont,
-        gradient,
-        
-      });
-
-      // Salvar o produto no banco de dados
-      await newPageLinks.save();
-      res.status(201).json({ message: 'Produto criado com sucesso!', pageLinks: newPageLinks});
     } 
     else if (req.method === 'GET') {
       try {
@@ -76,7 +81,24 @@ export default async function handler(req, res) {
     } 
     else if (req.method === 'DELETE') {
    
-      res.status(200).json({ message: 'Produto excluído com sucesso!' });
+      const { id } = req.query; // Captura o _id do tema na URL
+
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ error: 'ID inválido.' });
+      }
+    
+      try {
+        const deletedPage = await Links.findOneAndDelete({ _id: id, userId });
+    
+        if (!deletedPage) {
+          return res.status(404).json({ error: 'Tema não encontrado ou você não tem permissão para excluí-lo.' });
+        }
+    
+        res.status(200).json({ message: 'Tema excluído com sucesso!', deletedPage });
+      } catch (error) {
+        console.error('Erro ao excluir tema:', error);
+        res.status(500).json({ error: 'Erro ao excluir tema.', details: error.message });
+      }
     } else if (req.method === 'PUT') {
       const { id } = req.query; // Captura o _id da URL
       const updateData = req.body; // Dados a serem atualizados
