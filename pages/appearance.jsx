@@ -66,7 +66,7 @@ export default function Appearance() {
       const response = await axios.post(
         "http://localhost:5003/api/routes/temas",
         {
-          name: settings.title || "nome3",
+          name: settings.title || "nome",
           nameColor: settings.titleColor,
           nameSize: settings.titleSize,
           description: settings.presentation,
