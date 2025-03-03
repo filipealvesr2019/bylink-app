@@ -739,7 +739,7 @@ export default function Temas() {
         </Link>
 
         <Link href={`/viewer/tema17`} className={styles.Link}>
-          <div className={styles.tema1}>
+          <div className={styles.tema17}>
             {links.map((link) => (
               <div key={link.id}>
                 <button
@@ -749,7 +749,7 @@ export default function Temas() {
                     updateLinkValue(link.id, "name", e.target.value)
                   }
                   placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema1Buttons}
+                  className={styles.tema17Buttons}
                 >
                   {link.name}
                 </button>
@@ -758,8 +758,23 @@ export default function Temas() {
           </div>
         </Link>
         <Link href={`/viewer/tema18`} className={styles.Link}>
-          <img src="https://i.imgur.com/wqVrvcv.png" className={styles.img} />
-        </Link>
+        <div className={styles.tema18}>
+            {links.map((link) => (
+              <div key={link.id}>
+              <button
+                type="text"
+                value={link.name}
+                onChange={(e) =>
+                  updateLinkValue(link.id, "name", e.target.value)
+                }
+                placeholder={`Nome do Link ${link.id}`}
+                className={styles.tema18Buttons}
+              >
+                {link.name}
+              </button>
+            </div>
+            ))}
+          </div>        </Link>
         <Link href={`/viewer/tema19`} className={styles.Link}>
           <img src="https://i.imgur.com/wjAVWQS.png" className={styles.img} />
         </Link>
@@ -1570,7 +1585,7 @@ export default function Temas() {
             ))}
           </div>
         </Link> */}
-         <Link href={`/viewer/tema83`} className={styles.Link}>
+         {/* <Link href={`/viewer/tema83`} className={styles.Link}>
           <div className={styles.tema83}>
             {links.map((link) => (
               <div key={link.id}>
@@ -1588,7 +1603,7 @@ export default function Temas() {
               </div>
             ))}
           </div>
-        </Link>
+        </Link> */}
       </div>
     </>
   );

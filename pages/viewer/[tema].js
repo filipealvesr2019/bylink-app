@@ -20,7 +20,7 @@ import Tema13 from "../../components/temas/Tema13";
 import Tema14 from "../../components/temas/Tema14";
 import Tema15 from "../../components/temas/Tema15";
 import Tema16 from "../../components/temas/Tema16"
-import Tema17 from "../../components/temas/Tema17";
+
 import Tema18 from "../../components/temas/Tema18";
 import Tema19 from "../../components/temas/Tema19";
 import Tema20 from "../../components/temas/Tema20";
@@ -87,6 +87,7 @@ import Tema80 from "../../components/temas/Tema80";
 // import Tema81 from "../../components/temas/Tema81";
 import Tema82 from "../../components/temas/Tema82";
 import Tema83 from "../../components/temas/Tema83";
+import Tema17 from "../../components/temas/Tema17";
 
 
 export default function tema() {
