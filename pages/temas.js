@@ -620,25 +620,7 @@ export default function Temas() {
                 ))}
               </div>
             </Link>
-        <Link href={`/viewer/tema83`} className={styles.Link}>
-          <div className={styles.tema83}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema83Buttons}
-                >
-                  {link.name}
-                </button>
-              </div>
-            ))}
-          </div>
-        </Link>
+       
         <Link href={`/viewer/tema3`} className={styles.Link}>
           <div className={styles.tema3}>
             {links.map((link) => (
@@ -1588,6 +1570,25 @@ export default function Temas() {
             ))}
           </div>
         </Link> */}
+         <Link href={`/viewer/tema83`} className={styles.Link}>
+          <div className={styles.tema83}>
+            {links.map((link) => (
+              <div key={link.id}>
+                <button
+                  type="text"
+                  value={link.name}
+                  onChange={(e) =>
+                    updateLinkValue(link.id, "name", e.target.value)
+                  }
+                  placeholder={`Nome do Link ${link.id}`}
+                  className={styles.tema83Buttons}
+                >
+                  {link.name}
+                </button>
+              </div>
+            ))}
+          </div>
+        </Link>
       </div>
     </>
   );
