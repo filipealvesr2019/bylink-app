@@ -194,10 +194,23 @@ export default function Temas() {
             }}
           >
             <div className={styles.Link}>
-              <img
-                src="https://i.imgur.com/VmSupJW.png"
-                className={styles.img}
-              />
+            <div className={styles.tema6}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema3Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
 
               <div className={styles.lock}>
                 <LockOutlinedIcon />
@@ -212,10 +225,23 @@ export default function Temas() {
             }}
           >
             <Link href={`/viewer/tema6`} className={styles.Link}>
-              <img
-                src="https://i.imgur.com/VmSupJW.png"
-                className={styles.img}
-              />
+            <div className={styles.tema6}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema6Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
             </Link>
           </div>
         )}
@@ -228,10 +254,24 @@ export default function Temas() {
             }}
           >
             <div className={styles.Link}>
-              <img
-                src="https://i.imgur.com/D1jiFKU.png"
-                className={styles.img}
-              />
+            <div className={styles.tema7}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema7Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
+
 
               <div className={styles.lock}>
                 <LockOutlinedIcon />
@@ -246,10 +286,24 @@ export default function Temas() {
             }}
           >
             <Link href={`/viewer/tema7`} className={styles.Link}>
-              <img
-                src="https://i.imgur.com/D1jiFKU.png"
-                className={styles.img}
-              />
+            <div className={styles.tema7}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema7Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
+
             </Link>
           </div>
         )}
@@ -262,11 +316,23 @@ export default function Temas() {
             }}
           >
             <div className={styles.Link}>
-              <img
-                src="https://i.imgur.com/4XKNTU0.png"
-                className={styles.img}
-              />
-
+            <div className={styles.tema9}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema9Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
               <div className={styles.lock}>
                 <LockOutlinedIcon />
               </div>
@@ -280,10 +346,23 @@ export default function Temas() {
             }}
           >
             <Link href={`/viewer/tema9`} className={styles.Link}>
-              <img
-                src="https://i.imgur.com/4XKNTU0.png"
-                className={styles.img}
-              />
+            <div className={styles.tema9}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema9Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
             </Link>
           </div>
         )}
@@ -296,10 +375,23 @@ export default function Temas() {
             }}
           >
             <div className={styles.Link}>
-              <img
-                src="https://i.imgur.com/QhbXw40.png"
-                className={styles.img}
-              />
+            <div className={styles.tema12}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema12Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
 
               <div className={styles.lock}>
                 <LockOutlinedIcon />
@@ -314,10 +406,23 @@ export default function Temas() {
             }}
           >
             <Link href={`/viewer/tema12`} className={styles.Link}>
-              <img
-                src="https://i.imgur.com/QhbXw40.png"
-                className={styles.img}
-              />
+            <div className={styles.tema12}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema12Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
             </Link>
           </div>
         )}
@@ -330,10 +435,23 @@ export default function Temas() {
             }}
           >
             <div className={styles.Link}>
-              <img
-                src="https://i.imgur.com/mav3lxQ.png"
-                className={styles.img}
-              />
+            <div className={styles.tema13}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema13Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
 
               <div className={styles.lock}>
                 <LockOutlinedIcon />
@@ -348,10 +466,24 @@ export default function Temas() {
             }}
           >
             <Link href={`/viewer/tema13`} className={styles.Link}>
-              <img
-                src="https://i.imgur.com/mav3lxQ.png"
-                className={styles.img}
-              />
+            <div className={styles.tema13}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema13Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
+
             </Link>
           </div>
         )}
@@ -364,11 +496,23 @@ export default function Temas() {
             }}
           >
             <div className={styles.Link}>
-              <img
-                src="https://i.imgur.com/3Ihomdv.png"
-                className={styles.img}
-              />
-
+            <div className={styles.tema14}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema14Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
               <div className={styles.lock}>
                 <LockOutlinedIcon />
               </div>
@@ -382,10 +526,23 @@ export default function Temas() {
             }}
           >
             <Link href={`/viewer/tema14`} className={styles.Link}>
-              <img
-                src="https://i.imgur.com/3Ihomdv.png"
-                className={styles.img}
-              />
+            <div className={styles.tema14}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema14Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
             </Link>
           </div>
         )}
@@ -398,7 +555,7 @@ export default function Temas() {
             }}
           >
             <div className={styles.Link}>
-              <div className={styles.animatedBG}></div>
+              <div className={styles.tema15}></div>
               <div className={styles.lock}>
                 <LockOutlinedIcon />
               </div>
@@ -412,33 +569,159 @@ export default function Temas() {
             }}
           >
             <Link href={`/viewer/tema15`} className={styles.Link}>
-              <div className={styles.animatedBG}></div>
+              <div className={styles.tema15}>
+              {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema15Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
             </Link>
           </div>
         )}
+           <Link href={`/viewer/tema83`} className={styles.Link}>
+          <div className={styles.tema83}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema83Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
+        </Link>
         <Link href={`/viewer/tema3`} className={styles.Link}>
-          <img src="https://i.imgur.com/c6f2Hww.png" className={styles.img} />
+        <div className={styles.tema3}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema3Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
         </Link>
         <Link href={`/viewer/tema4`} className={styles.Link}>
-          <img src="https://i.imgur.com/4M5S4S5.png" className={styles.img} />
+        <div className={styles.tema4}>
+              {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema4Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
         </Link>
         <Link href={`/viewer/tema5`} className={styles.Link}>
-          <img src="https://i.imgur.com/EMTRpIq.png" className={styles.img} />
-        </Link>
+        <div className={styles.tema5}>
+              {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema5Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>        </Link>
 
         <Link href={`/viewer/tema8`} className={styles.Link}>
-          <img src="https://i.imgur.com/mV8qrP5.png" className={styles.img} />
-        </Link>
+        <div className={styles.tema8}>
+              {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema8Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>   
+                      </Link>
 
         <Link href={`/viewer/tema10`} className={styles.Link}>
-          <img src="https://i.imgur.com/y36s0IW.png" className={styles.img} />
-        </Link>
+        <div className={styles.tema10}>
+              {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema10Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>           </Link>
         <Link href={`/viewer/tema11`} className={styles.Link}>
-          <img src="https://i.imgur.com/g1Rhjsb.png" className={styles.img} />
-        </Link>
-        <Link href={`/viewer/tema16`} className={styles.Link}>
-          <img src="https://i.imgur.com/OuTFiLR.png" className={styles.img} />
-        </Link>
+        <div className={styles.tema11}>
+              {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema11Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>           </Link>
+     
         <Link href={`/viewer/tema17`} className={styles.Link}>
           <img src="https://i.imgur.com/IF0sbEH.png" className={styles.img} />
         </Link>
@@ -1196,7 +1479,7 @@ export default function Temas() {
             ))}
           </div>
         </Link>
-        <Link href={`/viewer/tema79`} className={styles.Link}>
+        {/* <Link href={`/viewer/tema79`} className={styles.Link}>
           <div className={styles.tema41}>
             {links.map((link) => (
               <div key={link.id} className={styles.tema41Buttons}>
@@ -1252,7 +1535,8 @@ export default function Temas() {
               </div>
             ))}
           </div>
-        </Link>
+        </Link> */}
+       
       </div>
     </>
   );

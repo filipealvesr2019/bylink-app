@@ -83,11 +83,15 @@ import Tema79 from "../../components/temas/Tema79";
 import Tema80 from "../../components/temas/Tema80";
 import Tema81 from "../../components/temas/Tema80";
 import Tema82 from "../../components/temas/Tema82";
+import Tema83 from "../../components/temas/Tema83";
 
 export default function tema() {
   const router = useRouter();
   const { tema } = router.query; // Obtém o parâmetro `name` da rota
-
+  useEffect(() => {
+    console.log('Parâmetro tema:', tema);
+  }, [tema]);
+  
   const handleShowStyles = () => {
     switch (tema) {
       case "tema1":
@@ -122,8 +126,7 @@ export default function tema() {
         return <Tema14 />;
       case "tema15":
         return <Tema15 />;
-      case "tema16":
-        return <Tema16 />;
+
       case "tema17":
         return <Tema17 />;
       case "tema18":
@@ -233,31 +236,32 @@ export default function tema() {
         return <Tema71 />;
       case "tema72":
         return <Tema72 />;
-        case "tema73":
-          return <Tema73 />;
+      case "tema73":
+        return <Tema73 />;
       case "tema74":
         return <Tema74 />;
-        case "tema75":
-          return <Tema75 />;
-          case "tema76":
-            return <Tema76 />;
-            case "tema77":
-              return <Tema77 />;
-              case "tema78":
-                return <Tema78 />;
-                case "tema79":
-                  return <Tema79 />;
-                
-                  case "tema80":
-                    return <Tema80 />;
-                    case "tema82":
-                      return <Tema82 />;
-                    
-            
+      case "tema75":
+        return <Tema75 />;
+      case "tema76":
+        return <Tema76 />;
+      case "tema77":
+        return <Tema77 />;
+      case "tema78":
+        return <Tema78 />;
+      case "tema79":
+        return <Tema79 />;
+
+      case "tema80":
+        return <Tema80 />;
+      case "tema82":
+        return <Tema82 />;
+        case "tema83":
+          return <Tema83 />;
       default:
         return <></>;
     }
   };
 
-  return <div>{handleShowStyles()}</div>;
+  return <div key={tema}>{handleShowStyles()}</div>;
+
 }
