@@ -1,6 +1,9 @@
+// 📦 Imports Externos
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+
+// 📁 Imports Internos (Componentes Tema)
 import Tema1 from "../../components/temas/Tema1";
 import Tema2 from "../../components/temas/Tema2";
 import Tema3 from "../../components/temas/Tema3";
@@ -16,14 +19,14 @@ import Tema12 from "../../components/temas/Tema12";
 import Tema13 from "../../components/temas/Tema13";
 import Tema14 from "../../components/temas/Tema14";
 import Tema15 from "../../components/temas/Tema15";
-import Tema16 from "../../components/temas/Tema16";
+import Tema16 from "../../components/temas/Tema16"
 import Tema17 from "../../components/temas/Tema17";
 import Tema18 from "../../components/temas/Tema18";
 import Tema19 from "../../components/temas/Tema19";
 import Tema20 from "../../components/temas/Tema20";
 import Tema21 from "../../components/temas/Tema21";
 import Tema22 from "../../components/temas/Tema22";
-import Tema23 from "../../components/temas/Tema22";
+import Tema23 from "../../components/temas/Tema23";
 import Tema24 from "../../components/temas/Tema24";
 import Tema25 from "../../components/temas/Tema25";
 import Tema26 from "../../components/temas/Tema26";
@@ -49,11 +52,11 @@ import Tema45 from "../../components/temas/Tema45";
 import Tema46 from "../../components/temas/Tema46";
 import Tema47 from "../../components/temas/Tema47";
 import Tema48 from "../../components/temas/Tema48";
-import Tema49 from "../../components/temas/Tema48";
+// import Tema49 from "../../components/temas/Tema49";
 import Tema50 from "../../components/temas/Tema50";
 import Tema51 from "../../components/temas/Tema51";
 import Tema52 from "../../components/temas/Tema52";
-import Tema53 from "../../components/temas/Tema52";
+// import Tema53 from "../../components/temas/Tema53";
 import Tema54 from "../../components/temas/Tema54";
 import Tema55 from "../../components/temas/Tema55";
 import Tema56 from "../../components/temas/Tema56";
@@ -81,9 +84,10 @@ import Tema77 from "../../components/temas/Tema77";
 import Tema78 from "../../components/temas/Tema78";
 import Tema79 from "../../components/temas/Tema79";
 import Tema80 from "../../components/temas/Tema80";
-import Tema81 from "../../components/temas/Tema80";
+// import Tema81 from "../../components/temas/Tema81";
 import Tema82 from "../../components/temas/Tema82";
 import Tema83 from "../../components/temas/Tema83";
+
 
 export default function tema() {
   const router = useRouter();
@@ -126,7 +130,8 @@ export default function tema() {
         return <Tema14 />;
       case "tema15":
         return <Tema15 />;
-
+      case "tema16":
+        return <Tema16 />
       case "tema17":
         return <Tema17 />;
       case "tema18":

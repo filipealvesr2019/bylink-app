@@ -578,7 +578,100 @@
 
 
 
+.tema16{
+    background: linear-gradient(135deg, #ff512f, #dd2476);
 
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.tema16Buttons{
+    background: #ffffff;
+    border: 0;
+    color: #004d40;
+    
+    
+      width:12vw;
+      margin: 0 auto;
+      padding: .5rem;
+      margin-bottom: .8rem;
+      border-radius: 100px;
+      font-size: .7rem;
+      font-weight: 600;
+}
+
+
+
+
+
+
+
+.tema78{
+    background: linear-gradient(45deg, #ff6a00, #ee0979, #ff6a00, #a1c4fd);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .tema78::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    z-index: -1;
+    animation: movePattern 10s linear infinite;
+  }
+  
+  @keyframes movePattern {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+
+.tema78Buttons{
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    
+      width:12vw;
+      margin: 0 auto;
+      padding: .5rem;
+      margin-bottom: .8rem;
+      border-radius: 100px;
+      font-size: .7rem;
+      font-weight: 600;
+}
 
 
 
@@ -609,3 +702,6 @@
       font-size: .7rem;
       font-weight: 600;
 }
+
+
+
