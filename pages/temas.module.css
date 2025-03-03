@@ -671,6 +671,65 @@
       font-weight: 600;
 }
 
+
+
+.tema19{
+    background:#e9ecef;
+
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.tema19Buttons{
+    background: #6c757d;
+    border: 2px solid #6c757d;
+    color: #fff;
+    color: #ffffff;
+    
+      width:12vw;
+      margin: 0 auto;
+      padding: .5rem;
+      margin-bottom: .8rem;
+  
+      font-size: .7rem;
+      font-weight: 600;
+      border-radius: 8px;
+}
+
+
+.tema20{
+    background: #f1e6ff;
+
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.tema20Buttons{
+    background: #b2e7d4;
+    border: 0;
+    color: black;
+    
+      width:12vw;
+      margin: 0 auto;
+      padding: .5rem;
+      margin-bottom: .8rem;
+  
+      font-size: .7rem;
+      font-weight: 600;
+      border-radius: 8px;
+}
 .tema78{
     background: linear-gradient(45deg, #ff6a00, #ee0979, #ff6a00, #a1c4fd);
     background-size: 400% 400%;
@@ -735,8 +794,7 @@
 
 
 .tema83{
-    background: linear-gradient(135deg, #ff512f, #dd2476);
-
+    background: #f4b400;
     width: 15vw;
     height: 50vh;
     border-radius: 8px;
@@ -748,16 +806,15 @@
 
 
 .tema83Buttons{
-    background: #ffffff;
+    background: #b2e7d4;
     border: 0;
-    color: #004d40;
-    
+    color: black;
     
       width:12vw;
       margin: 0 auto;
       padding: .5rem;
       margin-bottom: .8rem;
-      border-radius: 100px;
+      border-radius: 8px;
       font-size: .7rem;
       font-weight: 600;
 }

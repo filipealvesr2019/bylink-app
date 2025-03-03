@@ -776,11 +776,42 @@ export default function Temas() {
             ))}
           </div>        </Link>
         <Link href={`/viewer/tema19`} className={styles.Link}>
-          <img src="https://i.imgur.com/wjAVWQS.png" className={styles.img} />
+        <div className={styles.tema19}>
+            {links.map((link) => (
+              <div key={link.id}>
+              <button
+                type="text"
+                value={link.name}
+                onChange={(e) =>
+                  updateLinkValue(link.id, "name", e.target.value)
+                }
+                placeholder={`Nome do Link ${link.id}`}
+                className={styles.tema19Buttons}
+              >
+                {link.name}
+              </button>
+            </div>
+            ))}
+          </div>       
         </Link>
         <Link href={`/viewer/tema20`} className={styles.Link}>
-          <img src="https://i.imgur.com/QtfJllw.png" className={styles.img} />
-        </Link>
+        <div className={styles.tema20}>
+            {links.map((link) => (
+              <div key={link.id}>
+              <button
+                type="text"
+                value={link.name}
+                onChange={(e) =>
+                  updateLinkValue(link.id, "name", e.target.value)
+                }
+                placeholder={`Nome do Link ${link.id}`}
+                className={styles.tema20Buttons}
+              >
+                {link.name}
+              </button>
+            </div>
+            ))}
+          </div>              </Link>
         <Link href={`/viewer/tema21`} className={styles.Link}>
           <img src="https://i.imgur.com/dKd6Eiz.png" className={styles.img} />
         </Link>
@@ -1585,7 +1616,7 @@ export default function Temas() {
             ))}
           </div>
         </Link> */}
-         {/* <Link href={`/viewer/tema83`} className={styles.Link}>
+         <Link href={`/viewer/tema83`} className={styles.Link}>
           <div className={styles.tema83}>
             {links.map((link) => (
               <div key={link.id}>
@@ -1603,7 +1634,7 @@ export default function Temas() {
               </div>
             ))}
           </div>
-        </Link> */}
+        </Link>
       </div>
     </>
   );
