@@ -881,10 +881,25 @@
   font-weight: 600;
   border-radius: 8px;
 }
-.tema78 {
-  background: linear-gradient(45deg, #ff6a00, #ee0979, #ff6a00, #a1c4fd);
-  background-size: 400% 400%;
-  animation: gradientAnimation 10s ease infinite;
+
+@keyframes animatedBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+
+  @keyframes animatedBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+
+.tema28 {
+  background: linear-gradient(-45deg, #1A237E, #4A148C, #D500F9, #6200EA);
+  background-size: 300% 300%;
+  animation: animatedBackground 6s ease infinite;
   width: 15vw;
   height: 50vh;
   border-radius: 8px;
@@ -893,6 +908,34 @@
   justify-content: center;
   align-items: center;
 }
+
+.tema28Buttons {
+  background: #D500F9;
+  color: white;
+  border: 0;
+  width: 12vw;
+  margin: 0 auto;
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.tema78 {
+  background: linear-gradient(45deg, #ff6a00, #ee0979, #ff6a00, #a1c4fd);
+  background-size: 400% 400%;
+  animation: gradientAnimation 3s ease infinite;
+  width: 15vw;
+  height: 50vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 
 @keyframes gradientAnimation {
   0% {
