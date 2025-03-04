@@ -38,7 +38,7 @@ const Tema18 = ({ CriarPagina }) => {
           <img
             src="https://i.imgur.com/r6IyNwI.jpg"
             alt=""
-            className={styles.img}
+           
           />
             </div>
             <span  className={styles.span}>{name}</span> 
