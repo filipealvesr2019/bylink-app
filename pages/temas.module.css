@@ -999,6 +999,72 @@ color: #fff;
 }
 
 
+.tema31 {
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;  width: 15vw;
+  height: 50vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.tema31Buttons {
+  border: 0 ;
+  background: #ff6347;
+  border: none;
+  color: white;
+  width: 12vw;
+  margin: 0 auto;
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+
+.tema32 {
+  background:  #FFE5D9;
+  width: 15vw;
+  height: 50vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tema32Buttons {
+  background:#2E2E2E;
+      border: 0 ;
+      color:  white;
+  width: 12vw;
+  margin: 0 auto;
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
 .tema78 {
   background: linear-gradient(45deg, #ff6a00, #ee0979, #ff6a00, #a1c4fd);
   background-size: 400% 400%;
