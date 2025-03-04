@@ -931,7 +931,7 @@ export default function Temas() {
         </Link>
         <Link href={`/viewer/tema27`} className={styles.Link}>
           <div className={styles.tema27}>
-          {links.map((link) => (
+            {links.map((link) => (
               <div key={link.id}>
                 <button
                   type="text"
@@ -950,7 +950,7 @@ export default function Temas() {
         </Link>
         <Link href={`/viewer/tema28`} className={styles.Link}>
           <div className={styles.tema28}>
-          {links.map((link) => (
+            {links.map((link) => (
               <div key={link.id}>
                 <button
                   type="text"
@@ -969,7 +969,7 @@ export default function Temas() {
         </Link>
         <Link href={`/viewer/tema29`} className={styles.Link}>
           <div className={styles.tema29}>
-          {links.map((link) => (
+            {links.map((link) => (
               <div key={link.id}>
                 <button
                   type="text"
@@ -987,8 +987,8 @@ export default function Temas() {
           </div>
         </Link>
         <Link href={`/viewer/tema30`} className={styles.Link}>
-        <div className={styles.tema30}>
-          {links.map((link) => (
+          <div className={styles.tema30}>
+            {links.map((link) => (
               <div key={link.id}>
                 <button
                   type="text"
@@ -1003,9 +1003,10 @@ export default function Temas() {
                 </button>
               </div>
             ))}
-          </div>        </Link>
+          </div>{" "}
+        </Link>
         <Link href={`/viewer/tema31`} className={styles.Link}>
-        <div className={styles.tema31}>
+          <div className={styles.tema31}>
             {links.map((link) => (
               <div key={link.id}>
                 <button
@@ -1021,9 +1022,10 @@ export default function Temas() {
                 </button>
               </div>
             ))}
-          </div>        </Link>
+          </div>{" "}
+        </Link>
         <Link href={`/viewer/tema32`} className={styles.Link}>
-        <div className={styles.tema32}>
+          <div className={styles.tema32}>
             {links.map((link) => (
               <div key={link.id}>
                 <button
@@ -1039,7 +1041,8 @@ export default function Temas() {
                 </button>
               </div>
             ))}
-          </div>           </Link>
+          </div>{" "}
+        </Link>
         <Link href={`/viewer/tema33`} className={styles.Link}>
           <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
         </Link>
