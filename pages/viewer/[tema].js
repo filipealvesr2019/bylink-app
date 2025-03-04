@@ -81,7 +81,7 @@ import Tema74 from "../../components/temas/Tema74";
 import Tema75 from "../../components/temas/Tema75";
 import Tema76 from "../../components/temas/Tema76";
 import Tema77 from "../../components/temas/Tema77";
-import Tema78 from "../../components/temas/Tema78";
+import Tema78 from '../../components/temas/Tema78'
 import Tema79 from "../../components/temas/Tema79";
 import Tema80 from "../../components/temas/Tema80";
 // import Tema81 from "../../components/temas/Tema81";
