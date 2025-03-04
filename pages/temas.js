@@ -905,8 +905,23 @@ export default function Temas() {
           </div>
         </Link>
         <Link href={`/viewer/tema26`} className={styles.Link}>
-          <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
-        </Link>
+        <div className={styles.tema26}>
+            {links.map((link) => (
+              <div key={link.id}>
+              <button
+                type="text"
+                value={link.name}
+                onChange={(e) =>
+                  updateLinkValue(link.id, "name", e.target.value)
+                }
+                placeholder={`Nome do Link ${link.id}`}
+                className={styles.tema26Buttons}
+              >
+                {link.name}
+              </button>
+            </div>
+            ))}
+          </div>          </Link>
         <Link href={`/viewer/tema27`} className={styles.Link}>
           <div className={styles.tema27}></div>
         </Link>
