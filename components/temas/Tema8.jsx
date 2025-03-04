@@ -25,12 +25,17 @@ const Tema8 = ({ CriarPagina }) => {
   return (
     <>
       <div className={styles.container}>
+        
         <div
           style={{
             color: "white",
           }}
           className={styles.content}
         >
+           <div className="background"></div>
+  <div className="abstract-shapes"></div>
+  <div className="overlay"></div>
+     
 
           <div className={styles.profile}>
             <div>
