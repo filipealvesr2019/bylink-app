@@ -24,9 +24,9 @@
       justify-content: center;
   }
   .buttonLinks{
-      background: #6610f2;
-      border: 2px solid #6610f2;
-      color: white;
+      background: #00FF99;
+      border: none;
+      color: black;
       width:80vw;
       margin: 0 auto;
       padding: .8rem;
