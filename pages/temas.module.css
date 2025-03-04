@@ -847,7 +847,7 @@
 .tema27 {
   background: linear-gradient(-45deg, #ff4e50, #fc913a, #f9d423, #ff4e50);
   background-size: 300% 300%;
-  animation: wave 7s ease infinite;
+  animation: wave 3s ease infinite;
   width: 15vw;
   height: 50vh;
   border-radius: 8px;
