@@ -90,6 +90,7 @@ import Tema83 from "../../components/temas/Tema83";
 import Tema17 from "../../components/temas/Tema17";
 import Tema84 from "../../components/temas/Tema84";
 import Tema49 from "../../components/temas/Tema49";
+import Tema53 from "../../components/temas/Tema53";
 
 
 export default function tema() {
@@ -207,6 +208,10 @@ export default function tema() {
         return <Tema51 />;
       case "tema52":
         return <Tema52 />;
+
+        case "tema53":
+          return <Tema53 />;
+  
       case "tema54":
         return <Tema54 />;
       case "tema55":
