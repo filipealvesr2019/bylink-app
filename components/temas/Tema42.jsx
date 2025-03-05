@@ -31,17 +31,15 @@ const Tema42 = ({ CriarPagina }) => {
           }}
           className={styles.content}
         >
-
           <div className={styles.profile}>
             <div>
-
-          <img
-            src="https://i.imgur.com/r6IyNwI.jpg"
-            alt=""
-            className={styles.img}
-          />
+              <img
+                src="https://i.imgur.com/r6IyNwI.jpg"
+                alt=""
+                className={styles.img}
+              />
             </div>
-            <span  className={styles.span}>{name}</span> 
+            <span className={styles.span}>{name}</span>
           </div>
 
           <div className="field">
@@ -62,7 +60,6 @@ const Tema42 = ({ CriarPagina }) => {
                   }
                   placeholder={`Nome do Link ${link.id}`}
                   className={styles.buttonLinks}
-                  
                 >
                   {link.name}
                 </button>
@@ -70,12 +67,36 @@ const Tema42 = ({ CriarPagina }) => {
             ))}
           </div>
         </div>
-        <footer style={{ color: 'white' }}>
-  <p>Copyright 2025 Gautam Sharma</p>
-  <p>Licenciado sob a <a href="https://opensource.org/license/mit" style={{fontWeight:"600"}}>MIT License</a>. Veja o arquivo de licença para mais detalhes.</p>
-  <p>CSS por <a href="https://uiverse.io/profile/Gautammsharma" style={{fontWeight:"600"}}>Gautam Sharma</a> - Licenciado sob a <a href="https://opensource.org/license/mit" style={{fontWeight:"600"}}>MIT License</a>.</p>
-</footer>
-
+        <footer style={{ color: "white" }}>
+          <p>Copyright 2025 Gautam Sharma</p>
+          <p>
+            Licenciado sob a{" "}
+            <a
+              href="https://opensource.org/license/mit"
+              style={{ fontWeight: "600" }}
+            >
+              MIT License
+            </a>
+            . Veja o arquivo de licença para mais detalhes.
+          </p>
+          <p>
+            CSS por{" "}
+            <a
+              href="https://uiverse.io/profile/Gautammsharma"
+              style={{ fontWeight: "600" }}
+            >
+              Gautam Sharma
+            </a>{" "}
+            - Licenciado sob a{" "}
+            <a
+              href="https://opensource.org/license/mit"
+              style={{ fontWeight: "600" }}
+            >
+              MIT License
+            </a>
+            .
+          </p>
+        </footer>
       </div>
     </>
   );
