@@ -72,8 +72,8 @@ const Tema42 = ({ CriarPagina }) => {
         </div>
         <footer style={{ color: 'white' }}>
   <p>Copyright 2025 Gautam Sharma</p>
-  <p>Licenciado sob a <a href="https://opensource.org/license/mit">MIT License</a>. Veja o arquivo de licença para mais detalhes.</p>
-  <p>CSS por <a href="https://uiverse.io/profile/Gautammsharma">Gautam Sharma</a> - Licenciado sob a <a href="https://opensource.org/license/mit">MIT License</a>.</p>
+  <p>Licenciado sob a <a href="https://opensource.org/license/mit" style={{fontWeight:"600"}}>MIT License</a>. Veja o arquivo de licença para mais detalhes.</p>
+  <p>CSS por <a href="https://uiverse.io/profile/Gautammsharma" style={{fontWeight:"600"}}>Gautam Sharma</a> - Licenciado sob a <a href="https://opensource.org/license/mit" style={{fontWeight:"600"}}>MIT License</a>.</p>
 </footer>
 
       </div>
