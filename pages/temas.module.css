@@ -1221,6 +1221,91 @@
   border-radius: 8px;
 }
 
+
+
+.tema39 {
+  background:linear-gradient(135deg, #ff9a9e, #fad0c4);
+  width: 15vw;
+  height: 50vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tema39Buttons {
+  background-color: rgba(255, 255, 255, 0.6); /* Branco semitransparente */
+  border: 0; /* Borda dourada para combinar com o fundo quente */
+  
+    color: black;
+  width: 12vw;
+  margin: 0 auto;
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+
+
+.tema40 {
+  background:linear-gradient(135deg, #a1c4fd, #c2e9fb);
+  width: 15vw;
+  height: 50vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tema40Buttons {
+  background-color: rgba(255, 255, 255, 0.5); 
+  border: 2px solid #a1c4fd;
+  color: black;
+  
+  
+  width: 12vw;
+  margin: 0 auto;
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+
+
+.tema41 {
+  background:linear-gradient(135deg, #7b2ff7, #f107a3);
+  width: 15vw;
+  height: 50vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tema41Buttons {
+  background-color: rgba(255, 255, 255, 0.4); 
+  border: 0;
+  color: #ffffff;
+  
+  
+  width: 12vw;
+  margin: 0 auto;
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 8px;
+}
 .tema78 {
   background: linear-gradient(45deg, #ff6a00, #ee0979, #ff6a00, #a1c4fd);
   background-size: 400% 400%;
