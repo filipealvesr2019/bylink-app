@@ -1,21 +1,26 @@
-/* components/ThemeButtons.module.css */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    /* Fundo animado com cores mais suaves e modernas */
-    animation: backgroundAnimation 5s ease-in-out infinite;
-    background: linear-gradient(135deg, #6a82fb, #fc5c7d); /* Gradiente moderno */
+    background: linear-gradient(45deg, #ff6b6b, #f0e130, #60a3d9, #f5a623); /* Exemplo de fundo com gradiente de várias cores */
     background-size: 400% 400%;
+    animation: gradientAnimation 5s ease infinite;
   }
   
-  @keyframes backgroundAnimation {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
+  
   
   .content {
     height: 80vh;
