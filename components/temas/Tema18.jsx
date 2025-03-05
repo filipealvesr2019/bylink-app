@@ -33,13 +33,15 @@ const Tema18 = ({ CriarPagina }) => {
         >
 
           <div className={styles.profile}>
-            <div>
 
           <img
             src="https://i.imgur.com/r6IyNwI.jpg"
             alt=""
-           
+            className={styles.img}
           />
+
+            <div>
+            
             </div>
             <span  className={styles.span}>{name}</span> 
           </div>

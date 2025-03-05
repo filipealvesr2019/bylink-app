@@ -72,7 +72,7 @@ export default function Temas() {
     }
   };
   // RECEIVED
-  const status = "RECEIVED";
+  const status = "sRECEIVED";
   return (
     <>
       <MobileMenu />
@@ -717,7 +717,51 @@ export default function Temas() {
           </div>{" "}
         </Link>
 
-        <Link href={`/viewer/tema8`} className={styles.Link}>
+
+
+
+
+
+
+
+        {status !== "RECEIVED" ? (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+            <div className={styles.Link} onClick={handleClickOpenModal}>
+            <div className={styles.tema8}>
+            {links.map((link) => (
+              <div key={link.id}>
+                <button
+                  type="text"
+                  value={link.name}
+                  onChange={(e) =>
+                    updateLinkValue(link.id, "name", e.target.value)
+                  }
+                  placeholder={`Nome do Link ${link.id}`}
+                  className={styles.tema8Buttons}
+                >
+                  {link.name}
+                </button>
+              </div>
+            ))}
+          </div>
+              <div className={styles.lock}>
+                <LockOutlinedIcon />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+                    <Link href={`/viewer/tema8`} className={styles.Link}>
           <div className={styles.tema8}>
             {links.map((link) => (
               <div key={link.id}>
@@ -736,6 +780,10 @@ export default function Temas() {
             ))}
           </div>
         </Link>
+          </div>
+        )}
+
+
 
         <Link href={`/viewer/tema10`} className={styles.Link}>
           <div className={styles.tema10}>
