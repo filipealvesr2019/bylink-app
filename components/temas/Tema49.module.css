@@ -1,0 +1,91 @@
+/* components/ThemeButtons.module.css */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    /* Fundo animado com cores mais suaves e modernas */
+    animation: backgroundAnimation 5s ease-in-out infinite;
+    background: linear-gradient(135deg, #6a82fb, #fc5c7d); /* Gradiente moderno */
+    background-size: 400% 400%;
+  }
+  
+  @keyframes backgroundAnimation {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .content {
+    height: 80vh;
+    /* Sem cor de fundo específica, o foco é no conteúdo centralizado */
+  }
+  
+  .span {
+    margin-top: 1rem;
+    color: #333; /* Cor de texto mais suave */
+    font-size: 1.1rem;
+  }
+  
+  .button {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Estilo dos botões com cores de fundo mais agradáveis */
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .buttonLinks {
+    background-color: #3498db; /* Cor de fundo agradável e moderna */
+    border: none;
+    color: #fff;
+    width: 80vw;
+    margin: 0 auto;
+    padding: .8rem;
+    margin-bottom: .8rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  /* Efeito hover suave para os botões */
+  .buttonLinks:hover {
+    background-color: #2980b9; /* Cor de fundo mais escura no hover */
+    transform: scale(1.05); /* Efeito de zoom suave */
+  }
+  
+  /* Imagem de perfil com bordas suaves */
+  .img {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    border: 4px solid #fff;
+  }
+  
+  /* Estilo do perfil */
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  
+  /* Responsividade para telas maiores */
+  @media screen and (min-width: 700px) {
+    .buttonLinks {
+      width: 20vw;
+      font-size: .8rem;
+    }
+  }
+  
