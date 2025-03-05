@@ -70,6 +70,14 @@ const Tema42 = ({ CriarPagina }) => {
             ))}
           </div>
         </div>
+      <footer style={{
+        color:"white"
+      }}>
+      <p>Copyright 2025 Gautam Sharma</p>
+      <p>Licenciado sob a MIT License. Veja o arquivo de <a href="https://opensource.org/license/mit">lisença</a> para mais detalhes.</p>
+      <p>CSS por <a href="https://uiverse.io/profile/Gautammsharma">Gautam Sharma</a> - Licenciado sob a <a href="/LICENSE">MIT License</a>.</p>
+
+      </footer>
       </div>
     </>
   );
