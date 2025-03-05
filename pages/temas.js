@@ -1385,12 +1385,126 @@ export default function Temas() {
             ))}
           </div>{" "}
         </Link>
-        <Link href={`/viewer/tema33`} className={styles.Link}>
-          <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
-        </Link>
-        <Link href={`/viewer/tema34`} className={styles.Link}>
-          <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
-        </Link>
+        {status !== "RECEIVED" ? (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+            <div className={styles.Link}  onClick={handleClickOpenModal}>
+            <div className={styles.tema33}>
+            {links.map((link) => (
+              <div key={link.id}>
+                <button
+                  type="text"
+                  value={link.name}
+                  onChange={(e) =>
+                    updateLinkValue(link.id, "name", e.target.value)
+                  }
+                  placeholder={`Nome do Link ${link.id}`}
+                  className={styles.tema33Buttons}
+                >
+                  {link.name}
+                </button>
+              </div>
+            ))}
+          </div>  
+              <div className={styles.lock}>
+                <LockOutlinedIcon />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+         <Link href={`/viewer/tema33`} className={styles.Link}>
+        <div className={styles.tema33}>
+            {links.map((link) => (
+              <div key={link.id}>
+                <button
+                  type="text"
+                  value={link.name}
+                  onChange={(e) =>
+                    updateLinkValue(link.id, "name", e.target.value)
+                  }
+                  placeholder={`Nome do Link ${link.id}`}
+                  className={styles.tema33Buttons}
+                >
+                  {link.name}
+                </button>
+              </div>
+            ))}
+          </div>        </Link>
+
+          </div>
+        )}
+
+{status !== "RECEIVED" ? (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+            <div className={styles.Link}  onClick={handleClickOpenModal}>
+            <div className={styles.tema34}>
+            {links.map((link) => (
+              <div key={link.id}>
+                <button
+                  type="text"
+                  value={link.name}
+                  onChange={(e) =>
+                    updateLinkValue(link.id, "name", e.target.value)
+                  }
+                  placeholder={`Nome do Link ${link.id}`}
+                  className={styles.tema34Buttons}
+                >
+                  {link.name}
+                </button>
+              </div>
+            ))}
+          </div>       
+              <div className={styles.lock}>
+                <LockOutlinedIcon />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+         <Link href={`/viewer/tema34`} className={styles.Link}>
+        <div className={styles.tema34}>
+            {links.map((link) => (
+              <div key={link.id}>
+                <button
+                  type="text"
+                  value={link.name}
+                  onChange={(e) =>
+                    updateLinkValue(link.id, "name", e.target.value)
+                  }
+                  placeholder={`Nome do Link ${link.id}`}
+                  className={styles.tema34Buttons}
+                >
+                  {link.name}
+                </button>
+              </div>
+            ))}
+          </div>              </Link>
+
+          </div>
+        )}
+
+
+      
         <Link href={`/viewer/tema35`} className={styles.Link}>
           <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
         </Link>

@@ -1116,6 +1116,65 @@
   border-radius: 8px;
 }
 
+
+.tema33 {
+  background:linear-gradient(135deg, #ff7eb3, #ff758c, #ff7eb3);
+
+  width: 15vw;
+  height: 50vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tema33Buttons {
+  background-color: rgba(255, 255, 255, 0.3); /* Branco semitransparente */
+  border: 2px solid #ffffff; /* Borda branca para destacar o botão */
+  
+    color: black;
+  width: 12vw;
+  margin: 0 auto;
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.tema34 {
+  background:linear-gradient(135deg, #00c6ff, #0072ff);
+
+  width: 15vw;
+  height: 50vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tema34Buttons {
+  background-color: rgba(255, 255, 255, 0.6); /* Branco semitransparente */
+    border: 2px solid white; /* Borda azul para destacar o botão */
+    
+    
+      color: black;
+  width: 12vw;
+  margin: 0 auto;
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+
+
+
 .tema78 {
   background: linear-gradient(45deg, #ff6a00, #ee0979, #ff6a00, #a1c4fd);
   background-size: 400% 400%;
