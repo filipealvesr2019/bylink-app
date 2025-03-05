@@ -99,7 +99,7 @@ export default function Temas() {
     }
   };
   // RECEIVED
-  const status = "sRECEIVED";
+  const status = "RECEIVED";
   return (
     <>
       <MobileMenu />
@@ -615,7 +615,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}  onClick={handleClickOpenModal}>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
               <div className={styles.tema15}>
                 {links.map((link) => (
                   <div key={link.id}>
