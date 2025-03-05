@@ -17,39 +17,13 @@ export default function Temas() {
   const [openModal, setOpenModal] = useState(false);
   const modalRef = useRef(null);
 
-  // Lógica para abrir o modal após um tempo ou quando o usuário estiver prestes a sair
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      // Mostra o pop-up após 5 segundos
-      if (!localStorage.getItem("popupClosed")) {
-        setOpenModal(true);
-      }
-    }, 5000);
-
-    // Detectar quando o usuário está prestes a sair da página (exit-intent)
-    const handleMouseLeave = (event) => {
-      if (event.clientY <= 0 && !localStorage.getItem("popupClosed")) {
-        setOpenModal(true);
-      }
-    };
-
-    document.addEventListener("mouseleave", handleMouseLeave);
-
-    return () => {
-      clearTimeout(timer);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
-
   const handleClickOpenModal = () => {
     setOpenModal(true);
   };
+
   const handleClickCloseModal = () => {
     setOpenModal(false);
   };
-  
-
- 
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -64,7 +38,6 @@ export default function Temas() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [openModal]);
-
   const CriarPagina = async (settings) => {
     console.log("settings", settings);
     try {
