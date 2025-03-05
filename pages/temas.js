@@ -6,7 +6,7 @@ import Tema2 from "../components/temas/Tema2";
 import Link from "next/link";
 import styles from "./temas.module.css";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 export default function Temas() {
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
@@ -14,6 +14,57 @@ export default function Temas() {
     { id: 3, name: "LINK 3", value: "" },
     { id: 4, name: "LINK 4", value: "" },
   ]);
+  const [openModal, setOpenModal] = useState(false);
+  const modalRef = useRef(null);
+
+  // Lógica para abrir o modal após um tempo ou quando o usuário estiver prestes a sair
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // Mostra o pop-up após 5 segundos
+      if (!localStorage.getItem("popupClosed")) {
+        setOpenModal(true);
+      }
+    }, 5000);
+
+    // Detectar quando o usuário está prestes a sair da página (exit-intent)
+    const handleMouseLeave = (event) => {
+      if (event.clientY <= 0 && !localStorage.getItem("popupClosed")) {
+        setOpenModal(true);
+      }
+    };
+
+    document.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
+  const handleClickOpenModal = () => {
+    setOpenModal(true);
+  };
+  const handleClickCloseModal = () => {
+    setOpenModal(false);
+  };
+  
+
+ 
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target) && openModal) {
+        setOpenModal(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [openModal]);
+
   const CriarPagina = async (settings) => {
     console.log("settings", settings);
     try {
@@ -48,12 +99,25 @@ export default function Temas() {
     }
   };
   // RECEIVED
-  const status = "RECEIVED";
+  const status = "sRECEIVED";
   return (
     <>
       <MobileMenu />
       <Login />
       <div className={styles.container}>
+      {openModal && (
+        <div className={styles.Modal}>
+          <div ref={modalRef} className={styles.ModalContent}>
+            <span className={styles.Close} onClick={handleClickCloseModal}>
+              X
+            </span>
+
+            <div>
+             
+            </div>
+          </div>
+        </div>
+      )}
         {status !== "RECEIVED" ? (
           <div
             style={{
@@ -61,7 +125,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
               <div className={styles.tema1}>
                 {links.map((link) => (
                   <div key={link.id}>
@@ -120,7 +184,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}>
+            <div className={styles.Link}  onClick={handleClickOpenModal}>
               <div
                 className={styles.tema2}
                 style={{
@@ -193,7 +257,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}>
+            <div className={styles.Link}  onClick={handleClickOpenModal}>
               <div className={styles.tema6}>
                 {links.map((link) => (
                   <div key={link.id}>
@@ -253,7 +317,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}>
+            <div className={styles.Link}  onClick={handleClickOpenModal}>
               <div className={styles.tema7}>
                 {links.map((link) => (
                   <div key={link.id}>
@@ -313,7 +377,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}>
+            <div className={styles.Link}  onClick={handleClickOpenModal}>
               <div className={styles.tema9}>
                 {links.map((link) => (
                   <div key={link.id}>
@@ -372,7 +436,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}>
+            <div className={styles.Link}  onClick={handleClickOpenModal}>
               <div className={styles.tema12}>
                 {links.map((link) => (
                   <div key={link.id}>
@@ -432,7 +496,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}>
+            <div className={styles.Link}  onClick={handleClickOpenModal}>
               <div className={styles.tema13}>
                 {links.map((link) => (
                   <div key={link.id}>
@@ -492,7 +556,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}>
+            <div className={styles.Link}  onClick={handleClickOpenModal}>
               <div className={styles.tema14}>
                 {links.map((link) => (
                   <div key={link.id}>
@@ -551,7 +615,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}>
+            <div className={styles.Link}  onClick={handleClickOpenModal}>
               <div className={styles.tema15}>
                 {links.map((link) => (
                   <div key={link.id}>
