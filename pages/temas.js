@@ -1730,50 +1730,87 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-          
-      
-        <Link href={`/viewer/tema41`} className={styles.Link}>
-          <div className={styles.tema41}>
-            {links.map((link) => (
-              <div key={link.id} className={styles.tema41Buttons}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                >
-                  {link.name}
-                </button>
-              </div>
-            ))}
-          </div>
-        </Link>
+           <Link href={`/viewer/tema41`} className={styles.Link}>
+        <div className={styles.tema41}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema41Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>{" "}        </Link>
           </div>
         )}
 
 
 
-        <Link href={`/viewer/tema42`} className={styles.Link}>
-          <div className={styles.tema41}>
-            {links.map((link) => (
-              <div key={link.id} className={styles.tema41Buttons}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  pla
-                  ceholder={`Nome do Link ${link.id}`}
-                >
-                  {link.name}
-                </button>
+{status !== "RECEIVED" ? (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+            <div className={styles.Link} onClick={handleClickOpenModal}>
+            <div className={styles.tema42}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema42Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>{" "}   
+              <div className={styles.lock}>
+                <LockOutlinedIcon />
               </div>
-            ))}
+            </div>
           </div>
-        </Link>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+           <Link href={`/viewer/tema42`} className={styles.Link}>
+        <div className={styles.tema40}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema42Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>{" "}        </Link>
+          </div>
+        )}
+
         <Link href={`/viewer/tema43`} className={styles.Link}>
           <div className={styles.tema41}>
             {links.map((link) => (

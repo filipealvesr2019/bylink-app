@@ -1306,6 +1306,68 @@
   font-weight: 600;
   border-radius: 8px;
 }
+
+
+
+.tema42 {
+  background:linear-gradient(135deg, #7b2ff7, #f107a3);
+  width: 15vw;
+  height: 50vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tema42Buttons {
+  background-color: rgba(255, 255, 255, 0.4); 
+  border: 2px double  rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  
+  width: 12vw;
+  margin: 0 auto;
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease; /* Transição suave para todas as mudanças */
+
+}
+
+
+.tema42Buttons {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #ff5252;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tema42Buttons:hover {
+  background-color: #fff;
+  color: #ff5252;
+  border: 2px solid #ff5252;
+  box-shadow: 5px 5px 0px #ff5252;
+}
+
+.tema42Buttons:active {
+  background-color: #fcf414;
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+
 .tema78 {
   background: linear-gradient(45deg, #ff6a00, #ee0979, #ff6a00, #a1c4fd);
   background-size: 400% 400%;
