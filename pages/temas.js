@@ -27,7 +27,11 @@ export default function Temas() {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target) && openModal) {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target) &&
+        openModal
+      ) {
         setOpenModal(false);
       }
     };
@@ -78,19 +82,17 @@ export default function Temas() {
       <MobileMenu />
       <Login />
       <div className={styles.container}>
-      {openModal && (
-        <div className={styles.Modal}>
-          <div ref={modalRef} className={styles.ModalContent}>
-            <span className={styles.Close} onClick={handleClickCloseModal}>
-              X
-            </span>
+        {openModal && (
+          <div className={styles.Modal}>
+            <div ref={modalRef} className={styles.ModalContent}>
+              <span className={styles.Close} onClick={handleClickCloseModal}>
+                X
+              </span>
 
-            <div>
-             
+              <div></div>
             </div>
           </div>
-        </div>
-      )}
+        )}
         {status !== "RECEIVED" ? (
           <div
             style={{
@@ -157,7 +159,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}  onClick={handleClickOpenModal}>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
               <div
                 className={styles.tema2}
                 style={{
@@ -230,7 +232,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}  onClick={handleClickOpenModal}>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
               <div className={styles.tema6}>
                 {links.map((link) => (
                   <div key={link.id}>
@@ -290,7 +292,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}  onClick={handleClickOpenModal}>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
               <div className={styles.tema7}>
                 {links.map((link) => (
                   <div key={link.id}>
@@ -350,7 +352,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}  onClick={handleClickOpenModal}>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
               <div className={styles.tema9}>
                 {links.map((link) => (
                   <div key={link.id}>
@@ -409,7 +411,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}  onClick={handleClickOpenModal}>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
               <div className={styles.tema12}>
                 {links.map((link) => (
                   <div key={link.id}>
@@ -469,7 +471,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}  onClick={handleClickOpenModal}>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
               <div className={styles.tema13}>
                 {links.map((link) => (
                   <div key={link.id}>
@@ -529,7 +531,7 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}  onClick={handleClickOpenModal}>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
               <div className={styles.tema14}>
                 {links.map((link) => (
                   <div key={link.id}>
@@ -717,13 +719,6 @@ export default function Temas() {
           </div>{" "}
         </Link>
 
-
-
-
-
-
-
-
         {status !== "RECEIVED" ? (
           <div
             style={{
@@ -732,23 +727,23 @@ export default function Temas() {
             }}
           >
             <div className={styles.Link} onClick={handleClickOpenModal}>
-            <div className={styles.tema8}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema8Buttons}
-                >
-                  {link.name}
-                </button>
+              <div className={styles.tema8}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema8Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
               <div className={styles.lock}>
                 <LockOutlinedIcon />
               </div>
@@ -761,29 +756,27 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-                    <Link href={`/viewer/tema8`} className={styles.Link}>
-          <div className={styles.tema8}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema8Buttons}
-                >
-                  {link.name}
-                </button>
+            <Link href={`/viewer/tema8`} className={styles.Link}>
+              <div className={styles.tema8}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema8Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </Link>
+            </Link>
           </div>
         )}
-
-
 
         <Link href={`/viewer/tema10`} className={styles.Link}>
           <div className={styles.tema10}>
@@ -832,23 +825,23 @@ export default function Temas() {
             }}
           >
             <div className={styles.Link} onClick={handleClickOpenModal}>
-            <div className={styles.tema17}>
-              {links.map((link) => (
-                <div key={link.id}>
-                  <button
-                    type="text"
-                    value={link.name}
-                    onChange={(e) =>
-                      updateLinkValue(link.id, "name", e.target.value)
-                    }
-                    placeholder={`Nome do Link ${link.id}`}
-                    className={styles.tema17Buttons}
-                  >
-                    {link.name}
-                  </button>
-                </div>
-              ))}
-            </div>
+              <div className={styles.tema17}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema17Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
               <div className={styles.lock}>
                 <LockOutlinedIcon />
               </div>
@@ -860,31 +853,28 @@ export default function Temas() {
               display: "flex",
               gap: "1rem",
             }}
-          >  
-          <Link href={`/viewer/tema17`} className={styles.Link}>
-            <div className={styles.tema17}>
-              {links.map((link) => (
-                <div key={link.id}>
-                  <button
-                    type="text"
-                    value={link.name}
-                    onChange={(e) =>
-                      updateLinkValue(link.id, "name", e.target.value)
-                    }
-                    placeholder={`Nome do Link ${link.id}`}
-                    className={styles.tema17Buttons}
-                  >
-                    {link.name}
-                  </button>
-                </div>
-              ))}
-            </div>
-          </Link>
+          >
+            <Link href={`/viewer/tema17`} className={styles.Link}>
+              <div className={styles.tema17}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema17Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </Link>
           </div>
         )}
-
-      
-
 
         {status !== "RECEIVED" ? (
           <div
@@ -894,23 +884,23 @@ export default function Temas() {
             }}
           >
             <div className={styles.Link} onClick={handleClickOpenModal}>
-            <div className={styles.tema18}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema18Buttons}
-                >
-                  {link.name}
-                </button>
-              </div>
-            ))}
-          </div>{" "}
+              <div className={styles.tema18}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema18Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>{" "}
               <div className={styles.lock}>
                 <LockOutlinedIcon />
               </div>
@@ -922,29 +912,30 @@ export default function Temas() {
               display: "flex",
               gap: "1rem",
             }}
-          >  <Link href={`/viewer/tema18`} className={styles.Link}>
-          <div className={styles.tema18}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema18Buttons}
-                >
-                  {link.name}
-                </button>
-              </div>
-            ))}
-          </div>{" "}
-        </Link>
+          >
+            {" "}
+            <Link href={`/viewer/tema18`} className={styles.Link}>
+              <div className={styles.tema18}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema18Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>{" "}
+            </Link>
           </div>
         )}
 
-      
         <Link href={`/viewer/tema19`} className={styles.Link}>
           <div className={styles.tema19}>
             {links.map((link) => (
@@ -1105,24 +1096,24 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}  onClick={handleClickOpenModal}>
-            <div className={styles.tema27}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema27Buttons}
-                >
-                  {link.name}
-                </button>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
+              <div className={styles.tema27}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema27Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
 
               <div className={styles.lock}>
                 <LockOutlinedIcon />
@@ -1137,53 +1128,52 @@ export default function Temas() {
             }}
           >
             <Link href={`/viewer/tema27`} className={styles.Link}>
-          <div className={styles.tema27}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema27Buttons}
-                >
-                  {link.name}
-                </button>
+              <div className={styles.tema27}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema27Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </Link>
+            </Link>
           </div>
         )}
 
-
-{status !== "RECEIVED" ? (
+        {status !== "RECEIVED" ? (
           <div
             style={{
               display: "flex",
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}  onClick={handleClickOpenModal}>
-            <div className={styles.tema28}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema26Buttons}
-                >
-                  {link.name}
-                </button>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
+              <div className={styles.tema28}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema26Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
               <div className={styles.lock}>
                 <LockOutlinedIcon />
               </div>
@@ -1196,57 +1186,53 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-           
-        <Link href={`/viewer/tema28`} className={styles.Link}>
-          <div className={styles.tema28}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema26Buttons}
-                >
-                  {link.name}
-                </button>
+            <Link href={`/viewer/tema28`} className={styles.Link}>
+              <div className={styles.tema28}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema26Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </Link>
+            </Link>
           </div>
         )}
-      
 
-
-        
-      {status !== "RECEIVED" ? (
+        {status !== "RECEIVED" ? (
           <div
             style={{
               display: "flex",
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}  onClick={handleClickOpenModal}>
-            <div className={styles.tema29}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema29Buttons}
-                >
-                  {link.name}
-                </button>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
+              <div className={styles.tema29}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema29Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
               <div className={styles.lock}>
                 <LockOutlinedIcon />
               </div>
@@ -1259,60 +1245,59 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-         <Link href={`/viewer/tema29`} className={styles.Link}>
-          <div className={styles.tema29}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema29Buttons}
-                >
-                  {link.name}
-                </button>
+            <Link href={`/viewer/tema29`} className={styles.Link}>
+              <div className={styles.tema29}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema29Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </Link>
-
+            </Link>
           </div>
         )}
 
-
-       
-        
-{status !== "RECEIVED" ? (
+        {status !== "RECEIVED" ? (
           <div
             style={{
               display: "flex",
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}  onClick={handleClickOpenModal}>
-            <div className={styles.tema30}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema30Buttons}
-                >
-                  {link.name}
-                </button>
-              </div>
-            ))}
-          </div>{" "}
-              <div className={styles.lock} style={{
-                color:"black"
-              }}>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
+              <div className={styles.tema30}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema30Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>{" "}
+              <div
+                className={styles.lock}
+                style={{
+                  color: "black",
+                }}
+              >
                 <LockOutlinedIcon />
               </div>
             </div>
@@ -1324,29 +1309,28 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-        <Link href={`/viewer/tema30`} className={styles.Link}>
-          <div className={styles.tema30}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema30Buttons}
-                >
-                  {link.name}
-                </button>
-              </div>
-            ))}
-          </div>{" "}
-        </Link>
+            <Link href={`/viewer/tema30`} className={styles.Link}>
+              <div className={styles.tema30}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema30Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>{" "}
+            </Link>
           </div>
         )}
-      
-        
+
         <Link href={`/viewer/tema31`} className={styles.Link}>
           <div className={styles.tema31}>
             {links.map((link) => (
@@ -1392,24 +1376,24 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}  onClick={handleClickOpenModal}>
-            <div className={styles.tema33}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema33Buttons}
-                >
-                  {link.name}
-                </button>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
+              <div className={styles.tema33}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema33Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>  
               <div className={styles.lock}>
                 <LockOutlinedIcon />
               </div>
@@ -1422,53 +1406,53 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-         <Link href={`/viewer/tema33`} className={styles.Link}>
-        <div className={styles.tema33}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema33Buttons}
-                >
-                  {link.name}
-                </button>
-              </div>
-            ))}
-          </div>        </Link>
-
+            <Link href={`/viewer/tema33`} className={styles.Link}>
+              <div className={styles.tema33}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema33Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>{" "}
+            </Link>
           </div>
         )}
 
-{status !== "RECEIVED" ? (
+        {status !== "RECEIVED" ? (
           <div
             style={{
               display: "flex",
               gap: "1rem",
             }}
           >
-            <div className={styles.Link}  onClick={handleClickOpenModal}>
-            <div className={styles.tema34}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema34Buttons}
-                >
-                  {link.name}
-                </button>
+            <div className={styles.Link} onClick={handleClickOpenModal}>
+              <div className={styles.tema34}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema34Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>       
               <div className={styles.lock}>
                 <LockOutlinedIcon />
               </div>
@@ -1481,32 +1465,30 @@ export default function Temas() {
               gap: "1rem",
             }}
           >
-         <Link href={`/viewer/tema34`} className={styles.Link}>
-        <div className={styles.tema34}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema34Buttons}
-                >
-                  {link.name}
-                </button>
-              </div>
-            ))}
-          </div>              </Link>
-
+            <Link href={`/viewer/tema34`} className={styles.Link}>
+              <div className={styles.tema34}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema34Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>{" "}
+            </Link>
           </div>
         )}
 
-
-      
         <Link href={`/viewer/tema35`} className={styles.Link}>
-        <div className={styles.tema35}>
+          <div className={styles.tema35}>
             {links.map((link) => (
               <div key={link.id}>
                 <button
@@ -1522,17 +1504,75 @@ export default function Temas() {
                 </button>
               </div>
             ))}
-          </div>               </Link>
-        <Link href={`/viewer/tema36`} className={styles.Link}>
-          <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
+          </div>{" "}
         </Link>
-        <Link href={`/viewer/tema37`} className={styles.Link}>
+        {/* <Link href={`/viewer/tema36`} className={styles.Link}>
+          <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
+        </Link> */}
+        {/* <Link href={`/viewer/tema37`} className={styles.Link}>
           <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
           tema37
-        </Link>
-        <Link href={`/viewer/tema38`} className={styles.Link}>
-          <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
-        </Link>
+        </Link> */}
+
+        {status !== "RECEIVED" ? (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+            <div className={styles.Link} onClick={handleClickOpenModal}>
+              <div className={styles.tema38}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema38Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
+              <div className={styles.lock}>
+                <LockOutlinedIcon />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+            }}
+          >
+            <Link href={`/viewer/tema38`} className={styles.Link}>
+              <div className={styles.tema38}>
+                {links.map((link) => (
+                  <div key={link.id}>
+                    <button
+                      type="text"
+                      value={link.name}
+                      onChange={(e) =>
+                        updateLinkValue(link.id, "name", e.target.value)
+                      }
+                      placeholder={`Nome do Link ${link.id}`}
+                      className={styles.tema38Buttons}
+                    >
+                      {link.name}
+                    </button>
+                  </div>
+                ))}
+              </div>{" "}
+            </Link>
+          </div>
+        )}
+
         <Link href={`/viewer/tema39`} className={styles.Link}>
           <img src="https://i.imgur.com/uwULYgr.png" className={styles.img} />
         </Link>

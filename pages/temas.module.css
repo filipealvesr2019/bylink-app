@@ -67,7 +67,6 @@
   border-radius: 8px;
 }
 
-
 .tema27 {
   background: linear-gradient(-45deg, #ff4e50, #fc913a, #f9d423, #ff4e50);
   background-size: 300% 300%;
@@ -1116,9 +1115,8 @@
   border-radius: 8px;
 }
 
-
 .tema33 {
-  background:linear-gradient(135deg, #ff7eb3, #ff758c, #ff7eb3);
+  background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff7eb3);
 
   width: 15vw;
   height: 50vh;
@@ -1132,8 +1130,8 @@
 .tema33Buttons {
   background-color: rgba(255, 255, 255, 0.3); /* Branco semitransparente */
   border: 2px solid #ffffff; /* Borda branca para destacar o botão */
-  
-    color: black;
+
+  color: black;
   width: 12vw;
   margin: 0 auto;
   padding: 0.5rem;
@@ -1145,7 +1143,7 @@
 }
 
 .tema34 {
-  background:linear-gradient(135deg, #00c6ff, #0072ff);
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
 
   width: 15vw;
   height: 50vh;
@@ -1158,10 +1156,9 @@
 
 .tema34Buttons {
   background-color: rgba(255, 255, 255, 0.6); /* Branco semitransparente */
-    border: 2px solid white; /* Borda azul para destacar o botão */
-    
-    
-      color: black;
+  border: 2px solid white; /* Borda azul para destacar o botão */
+
+  color: black;
   width: 12vw;
   margin: 0 auto;
   padding: 0.5rem;
@@ -1172,10 +1169,8 @@
   border-radius: 8px;
 }
 
-
-
 .tema35 {
-  background:linear-gradient(135deg, #00c6ff, #0072ff);
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
   width: 15vw;
   height: 50vh;
   border-radius: 8px;
@@ -1187,10 +1182,35 @@
 
 .tema35Buttons {
   background-color: white; /* Branco semitransparente */
-    border: 0; /* Borda azul para destacar o botão */
-    
-    
-      color: black;
+  border: 0; /* Borda azul para destacar o botão */
+
+  color: black;
+  width: 12vw;
+  margin: 0 auto;
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.tema38 {
+  background: linear-gradient(135deg, #f7971e, #ffd200);
+  width: 15vw;
+  height: 50vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tema38Buttons {
+  background-color: rgba(255, 255, 255, 0.6); /* Branco semitransparente */
+  border: 0; /* Borda dourada para combinar com o fundo quente */
+
+  color: black;
   width: 12vw;
   margin: 0 auto;
   padding: 0.5rem;
