@@ -1339,9 +1339,11 @@
 
 
 .tema42Buttons {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ height: 2vw;
+  font-size: .8rem;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
