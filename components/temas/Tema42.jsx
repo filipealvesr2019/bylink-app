@@ -68,7 +68,7 @@ const Tema42 = ({ CriarPagina }) => {
           </div>
         </div>
         <footer style={{ color: "white" }}>
-          <p>Copyright 2025 Gautam Sharma</p>
+          <p>@Copyright 2025 Gautam Sharma</p>
           <p>
             Licenciado sob a{" "}
             <a
