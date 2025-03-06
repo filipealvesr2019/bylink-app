@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function UploadForm() {
+function VideosUpload() {
   const [video, setVideo] = useState(null);
   const [isUploading, setIsUploading] = useState(false);  // Para exibir um carregamento
 
@@ -48,4 +48,4 @@ function UploadForm() {
   );
 }
 
-export default UploadForm;
+export default VideosUpload;

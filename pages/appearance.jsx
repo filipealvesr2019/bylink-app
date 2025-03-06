@@ -14,11 +14,13 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Videos from "../components/Videos/VideosUpload";
 import VideosUpload from "../components/Videos/VideosUpload";
 import VideosPage from "../components/Videos/VideoList";
+import Buttons from "../components/Buttons/Buttons";
 export default function Appearance() {
   const [links, setLinks] = useState([
     { id: 1, name: "Exemplo de Link 1", value: "" },
     { id: 2, name: "Exemplo de Link 2", value: "" },
   ]);
+  const [button, setButton] = useState("button1")
   const [autoPlay, setAutoPlay] = useState(false);
 
   // Default settings
@@ -341,7 +343,7 @@ export default function Appearance() {
                 <li className={activeTab === "colors" ? "is-active" : ""}>
                   <a onClick={() => setActiveTab("colors")}>
                     <span className="icon"></span>
-                    <span>Cores</span>
+                    <span>Cores e Estilo</span>
                   </a>
                 </li>
                 <li className={activeTab === "typography" ? "is-active" : ""}>
@@ -422,6 +424,10 @@ export default function Appearance() {
                 <form action="">
                   <label htmlFor="">Formulario de Leads</label>
                 </form>
+                <h1>Botões</h1>
+                <button onClick={() => setButton("button1")}>button1</button>
+                <button onClick={() => setButton("button2")}>button2</button>
+                {/* <Buttons button={button} /> */}
                 </>
               )} 
 
@@ -551,7 +557,7 @@ export default function Appearance() {
                           {links.map((link) => (
 
                             <Link href={`${link.value}`}>
-                            
+                              <Buttons button={button}  link={link} backgroundButton={settings.linkColor} colorButton="white" />
                             <div
                               key={link.id}
                               style={{
@@ -577,9 +583,12 @@ export default function Appearance() {
                             </div>
                             </Link>
                           ))}
+                          
                         </div>
                       </div>
                     )}
+                   
+                     
                   </div>
                 </div>
               </div>
