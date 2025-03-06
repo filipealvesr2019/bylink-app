@@ -65,7 +65,38 @@ const Tema74 = ({ CriarPagina }) => {
            
           </div>
         </div>
+        <footer style={{ color: "black" }}>
+          <p>@Copyright 2025 Praashoo7 (Prashant) </p>
+          <p>
+            Licenciado sob a{" "}
+            <a
+              href="https://opensource.org/license/mit"
+              style={{ fontWeight: "600" }}
+            >
+              MIT License
+            </a>
+            . Veja o arquivo de licença para mais detalhes.
+          </p>
+          <p>
+            CSS por{" "}
+            <a
+              href="https://uiverse.io/profile/Praashoo7"
+              style={{ fontWeight: "600" }}
+            >
+              Praashoo7 (Prashant) 
+            </a>{" "}
+            - Licenciado sob a{" "}
+            <a
+              href="https://opensource.org/license/mit"
+              style={{ fontWeight: "600" }}
+            >
+              MIT License
+            </a>
+            .
+          </p>
+        </footer>
       </div>
+      
     </>
   );
 };

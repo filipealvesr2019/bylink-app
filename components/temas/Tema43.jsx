@@ -69,7 +69,38 @@ const Tema43 = ({ CriarPagina }) => {
               </div>
             ))}
           </div>
+          
         </div>
+        <footer style={{ color: "black" }}>
+          <p>@Copyright - 2025 adamgiebl (Adam Giebl) </p>
+          <p>
+            Licenciado sob a{" "}
+            <a
+              href="https://opensource.org/license/mit"
+              style={{ fontWeight: "600" }}
+            >
+              MIT License
+            </a>
+            . Veja o arquivo de licença para mais detalhes.
+          </p>
+          <p>
+            CSS por{" "}
+            <a
+              href="https://uiverse.io/profile/adamgiebl"
+              style={{ fontWeight: "600" }}
+            >
+              adamgiebl (Adam Giebl)
+            </a>{" "}
+            - Licenciado sob a{" "}
+            <a
+              href="https://opensource.org/license/mit"
+              style={{ fontWeight: "600" }}
+            >
+              MIT License
+            </a>
+            .
+          </p>
+        </footer>
       </div>
     </>
   );

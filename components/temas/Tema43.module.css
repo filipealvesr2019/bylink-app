@@ -92,6 +92,8 @@
   .buttonLinks:active {
     transform: scale(0.9);
   }
+
+  
   .img{
       width: 7rem;
       height: 7rem;
