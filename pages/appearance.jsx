@@ -10,7 +10,7 @@ import MobileMenu from "../components/MobileMenu/MobileMenu";
 import Login from "@/app/Login";
 import styles from "../pages/styles/appearance.module.css";
 import axios from "axios";
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Videos from "../components/Videos/VideosUpload";
 import VideosUpload from "../components/Videos/VideosUpload";
 import VideosPage from "../components/Videos/VideoList";
@@ -20,7 +20,7 @@ export default function Appearance() {
     { id: 1, name: "Exemplo de Link 1", value: "" },
     { id: 2, name: "Exemplo de Link 2", value: "" },
   ]);
-  const [button, setButton] = useState("button1")
+  const [button, setButton] = useState("button1");
   const [autoPlay, setAutoPlay] = useState(false);
 
   // Default settings
@@ -200,15 +200,15 @@ export default function Appearance() {
   };
 
   const handleBackground = () => {
-    switch(true){
+    switch (true) {
       case settings?.profileImage:
-        return settings?.profileImage
+        return settings?.profileImage;
       case settings.gradient:
-        return settings.gradient
+        return settings.gradient;
       case settings?.backgroundColor:
-        return settings?.backgroundColor
+        return settings?.backgroundColor;
     }
-  }
+  };
   const smartphoneContentStyle = {
     position: "relative", // Permite o uso de um overlay absoluto
     width: "100%",
@@ -318,7 +318,7 @@ export default function Appearance() {
     }),
   };
   // RECEIVED
-  const status = 'RECEIVED'
+  const status = "RECEIVED";
   return (
     <div
       style={{
@@ -335,9 +335,9 @@ export default function Appearance() {
               <ul
                 style={{
                   listStyleType: "none",
-                  display:"flex",
-                  alignItems:"center",
-                  justifyContent:"center"
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
                 <li className={activeTab === "colors" ? "is-active" : ""}>
@@ -365,15 +365,17 @@ export default function Appearance() {
                   </a>
                 </li>
                 <li className={activeTab === "components" ? "is-active" : ""}>
-                  <a onClick={() => setActiveTab("components")} style={{
-                    display:"flex",
-                    alignItems:"center"
-                  }}>
-                  <LockOutlinedIcon />
+                  <a
+                    onClick={() => setActiveTab("components")}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <LockOutlinedIcon />
                     <span>Componentes </span>
                   </a>
                 </li>
-                
               </ul>
             </div>
 
@@ -417,22 +419,33 @@ export default function Appearance() {
 
               {activeTab === "components" && (
                 <>
-                <div>
-                  <VideosUpload />
-
-                </div>
-                <form action="">
-                  <label htmlFor="">Formulario de Leads</label>
-                </form>
-                <h1>Botões</h1>
-                <button onClick={() => setButton("button1")}>button1</button>
-                <button onClick={() => setButton("button2")}>button2</button>
-                <button onClick={() => setButton("button3")}>button2</button>
-                <button onClick={() => setButton("button4")}>button2</button>
-                <button onClick={() => setButton("button5")}>button2</button>
-                {/* <Buttons button={button} /> */}
+                  <div>
+                    <VideosUpload />
+                  </div>
+                  <form action="">
+                    <label htmlFor="">Formulario de Leads</label>
+                  </form>
+                  <h1>Botões</h1>
+                  <button
+                    onClick={() => setButton("button1")}
+                    style={{
+                      backgroundColor: settings.linkColor,
+                      color: settings.backgroundColor,
+                      borderRadius: "4px",
+                      border: "0",
+                      width: "10vw",
+                      padding: ".5rem",
+                    }}
+                  >
+                    button1
+                  </button>
+                  <button onClick={() => setButton("button2")}>button2</button>
+                  <button onClick={() => setButton("button3")}>button2</button>
+                  <button onClick={() => setButton("button4")}>button2</button>
+                  <button onClick={() => setButton("button5")}>button2</button>
+                  {/* <Buttons button={button} /> */}
                 </>
-              )} 
+              )}
 
               {/* Botão de Reset */}
               <div className="field mt-5">
@@ -558,40 +571,42 @@ export default function Appearance() {
                         {/* Campos de Link Dinâmicos */}
                         <div className="field">
                           {links.map((link) => (
-
                             <Link href={`${link.value}`}>
-                              <Buttons backgroundColor={backgroundColor}  button={button}  link={link} backgroundButton={settings.linkColor} colorButton="white" />
-                            <div
-                              key={link.id}
-                              style={{
-                                display: "flex",
-                                flexDirection: "column",
-                              }}
-                            >
-                              <button
-                                type="text"
-                                value={link.name}
-                                onChange={(e) =>
-                                  updateLinkValue(
-                                    link.id,
-                                    "name",
-                                    e.target.value
-                                  )
-                                }
-                                placeholder={`Nome do Link ${link.id}`}
-                                style={buttonStylePreview}
+                              <Buttons
+                                backgroundColor={backgroundColor}
+                                button={button}
+                                link={link}
+                                backgroundButton={settings.linkColor}
+                                colorButton="white"
+                              />
+                              <div
+                                key={link.id}
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                }}
                               >
-                                {link.name}
-                              </button>
-                            </div>
+                                <button
+                                  type="text"
+                                  value={link.name}
+                                  onChange={(e) =>
+                                    updateLinkValue(
+                                      link.id,
+                                      "name",
+                                      e.target.value
+                                    )
+                                  }
+                                  placeholder={`Nome do Link ${link.id}`}
+                                  style={buttonStylePreview}
+                                >
+                                  {link.name}
+                                </button>
+                              </div>
                             </Link>
                           ))}
-                          
                         </div>
                       </div>
                     )}
-                   
-                     
                   </div>
                 </div>
               </div>
