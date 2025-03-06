@@ -1,5 +1,13 @@
 import button1 from "./buttonStyles/Button1.module.css";
 import button2 from "./buttonStyles/Button2.module.css";
+import button3 from "./buttonStyles/button3.module.css";
+import button4 from "./buttonStyles/button4.module.css";
+import button5 from "./buttonStyles/button5.module.css";
+import button6 from "./buttonStyles/button6.module.css";
+import button7 from "./buttonStyles/button7.module.css";
+import button8 from "./buttonStyles/button8.module.css";
+import button9 from "./buttonStyles/button9.module.css";
+import button10 from "./buttonStyles/button10.module.css";
 
 export default function Buttons({
   button,
@@ -13,80 +21,84 @@ export default function Buttons({
         return button1;
       case "button2":
         return button2;
+      case "button3":
+        return button3;
+      case "button4":
+        return button4;
+      case "button5":
+        return button5;
+      case "button6":
+        return button6;
+      case "button7":
+        return button7;
+      case "button8":
+        return button8;
+      case "button9":
+        return button9;
+      case "button10":
+        return button10;
+      default:
+        return button1;
     }
   };
+
   const styles = buttonStyles();
+
   const handleButtonsSwitch = () => {
     switch (button) {
       case "button1":
         return (
-          <>
-            <div
-              key={link.id}
+          <div
+            key={link.id}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <button
+              type="text"
+              value={link.name}
+              placeholder={`Nome do Link ${link.id}`}
+              className={styles.button}
               style={{
-                display: "flex",
-                flexDirection: "column",
+                backgroundColor: backgroundButton,
+                color: colorButton,
+                borderRadius: "4px",
               }}
             >
-              <button
-                type="text"
-                value={link.name}
-                // onChange={(e) =>
-                //   updateLinkValue(
-                //     link.id,
-                //     "name",
-                //     e.target.value
-                //   )
-                // }
-                placeholder={`Nome do Link ${link.id}`}
-                className={styles.button}
-                style={{
-                  backgroundColor: backgroundButton,
-                  color: colorButton,
-                  borderRadius: "4px",
-                }}
-              >
-                {link.name}
-              </button>
-            </div>
-          </>
+              {link.name}
+            </button>
+          </div>
         );
       case "button2":
         return (
-          <>
-            <div
-              key={link.id}
+          <div
+            key={link.id}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <button
+              type="text"
+              value={link.name}
+              placeholder={`Nome do Link ${link.id}`}
+              className={styles.button}
               style={{
-                display: "flex",
-                flexDirection: "column",
+                backgroundColor: backgroundButton,
+                color: colorButton,
+                borderRadius: "50px",
+                border: "0",
               }}
             >
-              <button
-                type="text"
-                value={link.name}
-                // onChange={(e) =>
-                //   updateLinkValue(
-                //     link.id,
-                //     "name",
-                //     e.target.value
-                //   )
-                // }
-                placeholder={`Nome do Link ${link.id}`}
-                className={styles.button}
-
-                style={{
-                  backgroundColor: backgroundButton,
-                  color: colorButton,
-                  borderRadius: "50px",
-                  border: "0",
-                }}
-              >
-                {link.name}
-              </button>
-            </div>
-          </>
+              {link.name}
+            </button>
+          </div>
         );
+      default:
+        return null;
     }
   };
+
   return <>{handleButtonsSwitch()}</>;
 }
