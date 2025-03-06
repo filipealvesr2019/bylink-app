@@ -27,7 +27,7 @@
 
 /* Estilo da barra lateral */
 .menu {
-  width: 250px; /* Largura da barra lateral */
+  width: 15vw; /* Largura da barra lateral */
   background-color: #F0F9FF; /* Cor de fundo da barra lateral */
   height: 100vh; /* Ocupa toda a altura da tela */
   position: fixed; /* Fixa a barra na tela */

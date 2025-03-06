@@ -329,13 +329,14 @@ export default function Appearance() {
         <MobileMenu />
         <Login />
         <div className={styles.columns}>
-          <div className={styles.columnA}>
+          <div className={styles.columnA} >
             <h1>Personalize sua página</h1>
             <div className="tabs is-boxed mb-4">
               <ul
                 style={{
                   listStyleType: "none",
                   display: "flex",
+                  flexDirection:"column",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
@@ -379,7 +380,9 @@ export default function Appearance() {
               </ul>
             </div>
 
-            <div className="box">
+         
+          </div>
+          <div className="box">
               {activeTab === "colors" && (
                 <>
                   <ColorSettings
@@ -479,8 +482,6 @@ export default function Appearance() {
                 </Link>
               </div>
             </div>
-          </div>
-
           {/* Preview */}
           <div className={styles.columnB}>
             <div

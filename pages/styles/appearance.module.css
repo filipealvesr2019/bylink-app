@@ -5,10 +5,11 @@
 }
 .columns{
     display: flex;
+
     justify-content: space-between;
 
     margin-top: 5rem;
-    gap: 10rem;
+ 
    
 }
 
