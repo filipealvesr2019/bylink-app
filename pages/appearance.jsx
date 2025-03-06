@@ -318,7 +318,7 @@ export default function Appearance() {
     }),
   };
   // RECEIVED
-  const status = 'PENDING'
+  const status = 'RECEIVED'
   return (
     <div
       style={{
@@ -427,6 +427,9 @@ export default function Appearance() {
                 <h1>Botões</h1>
                 <button onClick={() => setButton("button1")}>button1</button>
                 <button onClick={() => setButton("button2")}>button2</button>
+                <button onClick={() => setButton("button3")}>button2</button>
+                <button onClick={() => setButton("button4")}>button2</button>
+                <button onClick={() => setButton("button5")}>button2</button>
                 {/* <Buttons button={button} /> */}
                 </>
               )} 
@@ -557,7 +560,7 @@ export default function Appearance() {
                           {links.map((link) => (
 
                             <Link href={`${link.value}`}>
-                              <Buttons button={button}  link={link} backgroundButton={settings.linkColor} colorButton="white" />
+                              <Buttons backgroundColor={backgroundColor}  button={button}  link={link} backgroundButton={settings.linkColor} colorButton="white" />
                             <div
                               key={link.id}
                               style={{

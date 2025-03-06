@@ -82,7 +82,7 @@ const ColorSettings = ({
           </>
         )}
 
-        <div className="column is-12">
+        {/* <div className="column is-12">
           <div className="field">
             <label className="label">Estilo dos Botões</label>
             <div className="control">
@@ -112,7 +112,7 @@ const ColorSettings = ({
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <>
           {/* Gradiente Toggle */}
