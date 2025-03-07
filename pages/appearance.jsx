@@ -340,7 +340,8 @@ export default function Appearance() {
                   justifyContent: "center",
                   padding:"1rem",
                   borderRadius:"15px",
-                  color:"black"
+                  color:"black",
+                  gap:"1.5rem"
                   
                 }}
               
