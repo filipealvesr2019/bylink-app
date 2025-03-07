@@ -329,29 +329,31 @@ export default function Appearance() {
         <MobileMenu />
         <Login />
         <div className={styles.columns}>
-          <div className={styles.columnA} >
+          <div className={styles.columnA}>
             <div className="tabs is-boxed mb-4">
               <ul
                 style={{
                   listStyleType: "none",
                   display: "flex",
-                  flexDirection:"column",
+                  flexDirection: "column",
                   alignItems: "flex-start",
                   justifyContent: "center",
-                  padding:"1rem",
-                  borderRadius:"15px",
-                  color:"black",
-                  gap:"1.5rem"
-                  
+                  padding: "1rem",
+                  borderRadius: "15px",
+                  color: "black",
+                  gap: "1.5rem",
                 }}
-              
               >
-                <li className={activeTab === "colors" ? "is-active" : ""} >
-                  <a onClick={() => setActiveTab("colors")} >
+                <li className={activeTab === "colors" ? "is-active" : ""}>
+                  <a onClick={() => setActiveTab("colors")}>
                     <span className="icon"></span>
-                    <span style={{
-                        color:"black"
-                    }}>Cores e Estilo</span>
+                    <span
+                      style={{
+                        color: "black",
+                      }}
+                    >
+                      Cores e Estilo
+                    </span>
                   </a>
                 </li>
                 <li className={activeTab === "typography" ? "is-active" : ""}>
@@ -377,68 +379,64 @@ export default function Appearance() {
                     onClick={() => setActiveTab("components")}
                     style={{
                       display: "flex",
-                      alignItems: "center"
+                      alignItems: "center",
                     }}
                   >
-          
                     <span>Componentes </span>
                   </a>
                 </li>
               </ul>
             </div>
-
-         
           </div>
           <div className="box">
-              {activeTab === "colors" && (
-                <>
-                  <ColorSettings
-                    settings={settings}
-                    status={status}
-                    setSettings={setSettings}
-                    handleTitleColorChange={handleTitleColorChange}
-                  />
-                </>
-              )}
-
-              {activeTab === "typography" && (
-                <TypographySettings
+            {activeTab === "colors" && (
+              <>
+                <ColorSettings
                   settings={settings}
-                  setSettings={setSettings}
-                  links={links}
-                  setLinks={setLinks}
-                />
-              )}
-
-              {activeTab === "images" && (
-                <ImageSettings
-                  settings={settings}
-                  setSettings={setSettings}
-                  handleProfileImageChange={handleProfileImageChange}
-                  error={error}
                   status={status}
-                />
-              )}
-
-              {activeTab === "effects" && (
-                <EffectsSettings
-                  settings={settings}
                   setSettings={setSettings}
+                  handleTitleColorChange={handleTitleColorChange}
                 />
-              )}
+              </>
+            )}
 
-              {activeTab === "components" && (
-                <div style={{
-                  width:"30vw"
-                }}>
-                  <div>
-                    <VideosUpload />
-                  </div>
-                  <form action="">
-                    <label htmlFor="">Formulario de Leads</label>
-                  </form>
-                  <h1>Botões</h1>
-                  <div className={styles.buttons}>
+            {activeTab === "typography" && (
+              <TypographySettings
+                settings={settings}
+                setSettings={setSettings}
+                links={links}
+                setLinks={setLinks}
+              />
+            )}
+
+            {activeTab === "images" && (
+              <ImageSettings
+                settings={settings}
+                setSettings={setSettings}
+                handleProfileImageChange={handleProfileImageChange}
+                error={error}
+                status={status}
+              />
+            )}
+
+            {activeTab === "effects" && (
+              <EffectsSettings settings={settings} setSettings={setSettings} />
+            )}
+
+            {activeTab === "components" && (
+              <div
+                style={{
+                  width: "30vw",
+                }}
+              >
+                <div>
+                  <VideosUpload />
+                </div>
+                <form action="">
+                  <label htmlFor="">Formulario de Leads</label>
+                </form>
+                <h1>Botões</h1>
+                <div className={styles.buttons}>
                   <button
                     onClick={() => setButton("button1")}
                     style={{
@@ -452,71 +450,84 @@ export default function Appearance() {
                   >
                     button1
                   </button>
-                  <button onClick={() => setButton("button2")}
-                     style={{
+                  <button
+                    onClick={() => setButton("button2")}
+                    style={{
                       backgroundColor: settings.linkColor,
                       color: settings.backgroundColor,
                       borderRadius: "50px",
                       border: "0",
                       width: "10vw",
                       padding: ".5rem",
-                    }}>button2</button>
-                  <button onClick={() => setButton("button3")}  style={{
-                    background: "transparent",
-                    color: settings.linkColor,
-                    width: "10vw",
-                    padding: ".5rem",
-                    border: `2px solid ${settings.linkColor}`,
-                    borderRadius: "6px",
-                    }}>button2</button>
-                  <button onClick={() => setButton("button4")} style={{
-                          width: "10vw",
-                          padding: ".5rem",
-                          background: "transparent",
-                          color: settings.linkColor,
-          
-                          border: `2px dashed ${settings.linkColor}`,
-                          borderRadius: "10px",
-                  }}>button2</button>
+                    }}
+                  >
+                    button2
+                  </button>
+                  <button
+                    onClick={() => setButton("button3")}
+                    style={{
+                      background: "transparent",
+                      color: settings.linkColor,
+                      width: "10vw",
+                      padding: ".5rem",
+                      border: `2px solid ${settings.linkColor}`,
+                      borderRadius: "6px",
+                    }}
+                  >
+                    button2
+                  </button>
+                  <button
+                    onClick={() => setButton("button4")}
+                    style={{
+                      width: "10vw",
+                      padding: ".5rem",
+                      background: "transparent",
+                      color: settings.linkColor,
+
+                      border: `2px dashed ${settings.linkColor}`,
+                      borderRadius: "10px",
+                    }}
+                  >
+                    button2
+                  </button>
                   {/* <button onClick={() => setButton("button5")}>button2</button> */}
                   {/* <Buttons button={button} /> */}
-
-                  </div>
                 </div>
-              )}
-
-              {/* Botão de Reset */}
-              <div className="field mt-5">
-                <button
-                  className="button is-danger is-light is-fullwidth"
-                  onClick={handleReset}
-                >
-                  <span className="icon"></span>
-                  <span>Restaurar Padrões</span>
-                </button>
               </div>
+            )}
 
-              {/* Botão para salvar o template */}
-              <div className="field mt-3">
-                <button
-                  className="button is-success is-fullwidth"
-                  onClick={CriarPagina}
-                >
-                  <span className="icon"></span>
-                  <span>Criar Pagina</span>
-                </button>
-              </div>
-
-              {/* Botão para acessar o perfil */}
-              <div className="field mt-3">
-                <Link href="/profile">
-                  <button className="button is-primary is-fullwidth">
-                    <span className="icon"></span>
-                    <span>Editar Perfil</span>
-                  </button>
-                </Link>
-              </div>
+            {/* Botão de Reset */}
+            <div className="field mt-5">
+              <button
+                className="button is-danger is-light is-fullwidth"
+                onClick={handleReset}
+              >
+                <span className="icon"></span>
+                <span>Restaurar Padrões</span>
+              </button>
             </div>
+
+            {/* Botão para salvar o template */}
+            <div className="field mt-3">
+              <button
+                className="button is-success is-fullwidth"
+                onClick={CriarPagina}
+              >
+                <span className="icon"></span>
+                <span>Criar Pagina</span>
+              </button>
+            </div>
+
+            {/* Botão para acessar o perfil */}
+            <div className="field mt-3">
+              <Link href="/profile">
+                <button className="button is-primary is-fullwidth">
+                  <span className="icon"></span>
+                  <span>Editar Perfil</span>
+                </button>
+              </Link>
+            </div>
+          </div>
           {/* Preview */}
           <div className={styles.columnB}>
             <div
@@ -607,7 +618,7 @@ export default function Appearance() {
                         {/* Campos de Link Dinâmicos */}
                         <div className="field">
                           {links.map((link) => (
-                            <Link href={`${link.value}`} >
+                            <Link href={`${link.value}`}>
                               <Buttons
                                 backgroundColor={backgroundColor}
                                 button={button}
