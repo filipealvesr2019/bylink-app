@@ -58,6 +58,7 @@ export default function BioStandard({
       </p>
 
       <Buttons
+        settings={settings}
         backgroundColor={backgroundColor}
         button={button}
         link={link}

@@ -54,7 +54,7 @@ export default function Bio({
       case "bio1":
         return (
           <div>
-            <BioStandard settings={settings}  backgroundColor={backgroundColor}/>
+            <BioStandard settings={settings}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link}/>
           </div>
         );
       case "bio2":
