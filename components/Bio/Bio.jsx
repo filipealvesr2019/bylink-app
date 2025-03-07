@@ -10,7 +10,14 @@ import bio9 from "./BioStyles/bio9.module.css";
 import bio10 from "./BioStyles/bio10.module.css";
 import styles from "./Bio.module.css";
 import BioStandard from "./BioStandard/BioStandard";
-export default function Bio({ settings, bio }) {
+export default function Bio({ 
+    settings,
+    bio,
+    button,
+    link,
+    backgroundButton,
+    backgroundColor
+ }) {
     console.log(bio);
 
   const buttonStyles = () => {
@@ -47,7 +54,7 @@ export default function Bio({ settings, bio }) {
       case "bio1":
         return (
           <div>
-            <BioStandard settings={settings} />
+            <BioStandard settings={settings}  backgroundColor={backgroundColor}/>
           </div>
         );
       case "bio2":

@@ -539,7 +539,20 @@ export default function Appearance() {
               <div style={previewStyle}>
                 <div style={smartphoneNotchStyle}></div>
                 <div style={smartphoneContentStyle}>
-                  <Bio settings={settings} bio="bio1"/>
+                  {/* {links.map((link) => (
+                    <Link href={`${link.value}`}>
+                   
+                    </Link>
+                  ))} */}
+                     <Bio
+                        settings={settings}
+                        bio="bio1"
+                        backgroundColor={backgroundColor}
+                        button={button}
+                        link={links}
+                        backgroundButton={settings.linkColor}
+                        colorButton="white"
+                      />
                   {/* Seção de Perfil */}
                   <div
                     style={{
@@ -572,7 +585,7 @@ export default function Appearance() {
                         <img src="https://i.imgur.com/soSw6fY.png" alt="" />
                       </div>
                     )} */}
-                    <h2
+                    {/* <h2
                       style={{
                         fontSize: "1.5rem",
                         fontWeight: "bold",
@@ -591,7 +604,7 @@ export default function Appearance() {
                       }}
                     >
                       {settings.presentation || "@seu.usuario"}
-                    </p>
+                    </p> */}
                   </div>
 
                   {/* Ícones de Redes Sociais */}
@@ -621,13 +634,13 @@ export default function Appearance() {
                         <div className="field">
                           {links.map((link) => (
                             <Link href={`${link.value}`}>
-                              <Buttons
+                              {/* <Buttons
                                 backgroundColor={backgroundColor}
                                 button={button}
                                 link={link}
                                 backgroundButton={settings.linkColor}
                                 colorButton="white"
-                              />
+                              /> */}
                               {/* <div
                                 key={link.id}
                                 style={{

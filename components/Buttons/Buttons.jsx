@@ -12,9 +12,10 @@ import styles from "./Buttons.module.css";
 export default function Buttons({
   button,
   link,
-  backgroundColor,
+
   backgroundButton,
   colorButton,
+  backgroundColor,
 }) {
   const buttonStyles = () => {
     switch (button) {
