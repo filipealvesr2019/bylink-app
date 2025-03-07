@@ -552,6 +552,7 @@ export default function Appearance() {
                         link={links}
                         backgroundButton={settings.linkColor}
                         colorButton="white"
+                        
                       />
                   {/* Seção de Perfil */}
                   <div

@@ -5,7 +5,8 @@ export default function BioStandard({
     button,
     link,
     backgroundButton,
-    backgroundColor
+    backgroundColor,
+    colorButton
 
 }) {
   const profileImageStyle = {
@@ -63,7 +64,7 @@ export default function BioStandard({
         button={button}
         link={link}
         backgroundButton={backgroundButton}
-        colorButton="white"
+        colorButton={colorButton}
       />
     </div>
   );

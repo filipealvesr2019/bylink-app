@@ -9,6 +9,7 @@ import button8 from "./buttonStyles/button8.module.css";
 import button9 from "./buttonStyles/button9.module.css";
 import button10 from "./buttonStyles/button10.module.css";
 import styles from "./Buttons.module.css";
+import Link from "next/link";
 export default function Buttons({
   button,
   link,
@@ -43,6 +44,7 @@ export default function Buttons({
         return button1;
     }
   };
+  console.log("link", link);
 
   const styles = buttonStyles();
 
@@ -50,26 +52,32 @@ export default function Buttons({
     switch (button) {
       case "button1":
         return (
-          <div
-            key={link.id}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <button
-              type="text"
-              value={link.name}
-              placeholder={`Nome do Link ${link.id}`}
-              className={styles.button}
-              style={{
-                backgroundColor: backgroundButton,
-                color: colorButton,
-                borderRadius: "4px",
-              }}
-            >
-              {link.name}
-            </button>
+          <div>
+            {link.map((link) => (
+              <Link href={`${link.value}`}>
+                <div
+                  key={link.id}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <button
+                    type="text"
+                    value={link.name}
+                    placeholder={`Nome do Link ${link.id}`}
+                    className={styles.button}
+                    style={{
+                      backgroundColor: backgroundButton,
+                      color: colorButton,
+                      borderRadius: "4px",
+                    }}
+                  >
+                    {link.name}
+                  </button>
+                </div>
+              </Link>
+            ))}
           </div>
         );
       case "button2":
@@ -157,13 +165,14 @@ export default function Buttons({
   return (
     <>
       <div className={styles.ButtonsContainer}>
-        <div style={{
-          marginBottom:"1rem"
-        }}>
-
-        {handleButtonsSwitch()}
+        <div
+          style={{
+            marginBottom: "1rem",
+          }}
+        >
+          {handleButtonsSwitch()}
         </div>
-        </div>
+      </div>
     </>
   );
 }
