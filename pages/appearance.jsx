@@ -15,6 +15,7 @@ import Videos from "../components/Videos/VideosUpload";
 import VideosUpload from "../components/Videos/VideosUpload";
 import VideosPage from "../components/Videos/VideoList";
 import Buttons from "../components/Buttons/Buttons";
+import Bio from "../components/Bio/Bio";
 export default function Appearance() {
   const [links, setLinks] = useState([
     { id: 1, name: "Exemplo de Link 1", value: "" },
@@ -538,6 +539,7 @@ export default function Appearance() {
               <div style={previewStyle}>
                 <div style={smartphoneNotchStyle}></div>
                 <div style={smartphoneContentStyle}>
+                  <Bio settings={settings} bio="bio1"/>
                   {/* Seção de Perfil */}
                   <div
                     style={{
@@ -549,7 +551,7 @@ export default function Appearance() {
                       alignItems: "center",
                     }}
                   >
-                    {settings.profileImage ? (
+                    {/* {settings.profileImage ? (
                       <img
                         src={settings.profileImage}
                         alt="Profile"
@@ -569,7 +571,7 @@ export default function Appearance() {
                       >
                         <img src="https://i.imgur.com/soSw6fY.png" alt="" />
                       </div>
-                    )}
+                    )} */}
                     <h2
                       style={{
                         fontSize: "1.5rem",

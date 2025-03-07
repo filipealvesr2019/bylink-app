@@ -9,9 +9,10 @@ import bio8 from "./BioStyles/bio8.module.css";
 import bio9 from "./BioStyles/bio9.module.css";
 import bio10 from "./BioStyles/bio10.module.css";
 import styles from "./Bio.module.css";
-export default function Bio({
-bio
-}) {
+import BioStandard from "./BioStandard/BioStandard";
+export default function Bio({ settings, bio }) {
+    console.log(bio);
+
   const buttonStyles = () => {
     switch (bio) {
       case "bio1":
@@ -25,17 +26,17 @@ bio
       case "bio5":
         return bio5;
       case " bio6":
-        return  bio6;
+        return bio6;
       case "bio7":
         return bio7;
-      case " bio8":
-        return  bio8;
+      case "bio8":
+        return bio8;
       case "bio9":
         return bio9;
       case "bio8":
         return bio10;
       default:
-        return bio1;
+        return null;
     }
   };
 
@@ -45,26 +46,8 @@ bio
     switch (bio) {
       case "bio1":
         return (
-          <div
-            key={link.id}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <button
-              type="text"
-              value={link.name}
-              placeholder={`Nome do Link ${link.id}`}
-              className={styles.button}
-              style={{
-                backgroundColor: backgroundButton,
-                color: colorButton,
-                borderRadius: "4px",
-              }}
-            >
-              {link.name}
-            </button>
+          <div>
+            <BioStandard settings={settings} />
           </div>
         );
       case "bio2":
@@ -152,13 +135,14 @@ bio
   return (
     <>
       <div className={styles.ButtonsContainer}>
-        <div style={{
-          marginBottom:"1rem"
-        }}>
-
-        {handleBioSwitch()}
+        <div
+          style={{
+            marginBottom: "1rem",
+          }}
+        >
+          {handleBioSwitch()}
         </div>
-        </div>
+      </div>
     </>
   );
 }
