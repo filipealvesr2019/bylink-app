@@ -330,21 +330,27 @@ export default function Appearance() {
         <Login />
         <div className={styles.columns}>
           <div className={styles.columnA} >
-            <h1>Personalize sua página</h1>
             <div className="tabs is-boxed mb-4">
               <ul
                 style={{
                   listStyleType: "none",
                   display: "flex",
                   flexDirection:"column",
-                  alignItems: "center",
+                  alignItems: "flex-start",
                   justifyContent: "center",
+                  padding:"1rem",
+                  borderRadius:"15px",
+                  color:"black"
+                  
                 }}
+              
               >
-                <li className={activeTab === "colors" ? "is-active" : ""}>
-                  <a onClick={() => setActiveTab("colors")}>
+                <li className={activeTab === "colors" ? "is-active" : ""} >
+                  <a onClick={() => setActiveTab("colors")} >
                     <span className="icon"></span>
-                    <span>Cores e Estilo</span>
+                    <span style={{
+                        color:"black"
+                    }}>Cores e Estilo</span>
                   </a>
                 </li>
                 <li className={activeTab === "typography" ? "is-active" : ""}>
@@ -370,10 +376,10 @@ export default function Appearance() {
                     onClick={() => setActiveTab("components")}
                     style={{
                       display: "flex",
-                      alignItems: "center",
+                      alignItems: "center"
                     }}
                   >
-                    <LockOutlinedIcon />
+          
                     <span>Componentes </span>
                   </a>
                 </li>
@@ -421,7 +427,9 @@ export default function Appearance() {
               )}
 
               {activeTab === "components" && (
-                <>
+                <div style={{
+                  width:"30vw"
+                }}>
                   <div>
                     <VideosUpload />
                   </div>
@@ -447,7 +455,7 @@ export default function Appearance() {
                   <button onClick={() => setButton("button4")}>button2</button>
                   <button onClick={() => setButton("button5")}>button2</button>
                   {/* <Buttons button={button} /> */}
-                </>
+                </div>
               )}
 
               {/* Botão de Reset */}

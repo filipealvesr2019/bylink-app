@@ -13,6 +13,7 @@ const ColorSettings = ({
         background: "linear-gradient(to bottom right, white, #f8fafc)",
         borderRadius: "16px",
         padding: "24px",
+        width:"30vw"
       }}
     >
       <h3

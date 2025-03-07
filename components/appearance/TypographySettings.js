@@ -11,7 +11,9 @@ const TypographySettings = ({ settings, setSettings, links, setLinks }) => {
   };
 
   return (
-    <div className="settings-section">
+    <div className="settings-section" style={{
+      width:"30vw"
+    }}>
       <h3 className="subtitle is-5 mb-4" style={{ color: "#000" }}>Tipografia</h3>
       
       <div className="field">

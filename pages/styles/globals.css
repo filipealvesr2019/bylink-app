@@ -139,10 +139,7 @@ input[type="color"]::-webkit-color-swatch {
   perspective: 1000px;
 }
 
-.tabs li.is-active a {
-  border-bottom-color: #485fc7;
-  color: #485fc7;
-}
+
 
 .label, 
 .select select,
@@ -311,13 +308,13 @@ select option:checked {
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   border: 1px solid rgba(99, 102, 241, 0.1);
 }
-
-/* Estilização das tabs */
-.tabs.is-boxed li.is-active a {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: white !important;
+.sidebar{
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.1);
 }
+bs */
 
 .tabs.is-boxed a {
   border-radius: 8px;
@@ -325,10 +322,7 @@ select option:checked {
   transition: all 0.3s ease;
 }
 
-.tabs.is-boxed a:hover {
-  background-color: var(--secondary-color);
-  color: white !important;
-}
+
 
 /* Botões */
 .button.is-primary {

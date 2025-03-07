@@ -2,7 +2,9 @@ import React from 'react';
 
 const EffectsSettings = ({ settings, setSettings }) => {
   return (
-    <div className="settings-section">
+    <div className="settings-section" style={{
+      width:"30vw"
+    }}>
       <h3 className="subtitle is-5 mb-4" style={{ color: "#000" }}>Efeitos</h3>
 
       <div className="field">

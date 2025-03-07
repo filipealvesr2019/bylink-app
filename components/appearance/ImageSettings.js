@@ -2,7 +2,9 @@ import React from 'react';
 
 const ImageSettings = ({ settings, setSettings, handleProfileImageChange, error, status }) => {
   return (
-    <div className="settings-section">
+    <div className="settings-section" style={{
+      width:"30vw"
+    }}>
       <h3 className="subtitle is-5 mb-4" style={{ color: "#000" }}>Imagens</h3>
 
       <div className="field">
