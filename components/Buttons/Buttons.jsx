@@ -44,7 +44,7 @@ export default function Buttons({
         return button1;
     }
   };
-  console.log("link", link);
+
 
   const styles = buttonStyles();
 
@@ -52,9 +52,9 @@ export default function Buttons({
     switch (button) {
       case "button1":
         return (
-          <div>
+          <div >
             {link.map((link) => (
-              <Link href={`${link.value}`}>
+              <Link href={`${link.value}`} >
                 <div
                   key={link.id}
                   style={{
@@ -71,6 +71,7 @@ export default function Buttons({
                       backgroundColor: backgroundButton,
                       color: colorButton,
                       borderRadius: "4px",
+                      marginBottom:"1rem"
                     }}
                   >
                     {link.name}
@@ -166,9 +167,7 @@ export default function Buttons({
     <>
       <div className={styles.ButtonsContainer}>
         <div
-          style={{
-            marginBottom: "1rem",
-          }}
+         
         >
           {handleButtonsSwitch()}
         </div>

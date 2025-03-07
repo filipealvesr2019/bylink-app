@@ -19,7 +19,7 @@ export default function Bio({
     backgroundButton,
     backgroundColor
  }) {
-    console.log(bio);
+
 
   const buttonStyles = () => {
     switch (bio) {
