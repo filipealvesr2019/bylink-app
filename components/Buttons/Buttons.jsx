@@ -8,7 +8,7 @@ import button7 from "./buttonStyles/button7.module.css";
 import button8 from "./buttonStyles/button8.module.css";
 import button9 from "./buttonStyles/button9.module.css";
 import button10 from "./buttonStyles/button10.module.css";
-
+import styles from "./Buttons.module.css";
 export default function Buttons({
   button,
   link,
@@ -153,5 +153,16 @@ export default function Buttons({
     }
   };
 
-  return <>{handleButtonsSwitch()}</>;
+  return (
+    <>
+      <div className={styles.ButtonsContainer}>
+        <div style={{
+          marginBottom:"1rem"
+        }}>
+
+        {handleButtonsSwitch()}
+        </div>
+        </div>
+    </>
+  );
 }

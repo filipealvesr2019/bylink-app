@@ -438,6 +438,7 @@ export default function Appearance() {
                     <label htmlFor="">Formulario de Leads</label>
                   </form>
                   <h1>Botões</h1>
+                  <div className={styles.buttons}>
                   <button
                     onClick={() => setButton("button1")}
                     style={{
@@ -451,11 +452,36 @@ export default function Appearance() {
                   >
                     button1
                   </button>
-                  <button onClick={() => setButton("button2")}>button2</button>
-                  <button onClick={() => setButton("button3")}>button2</button>
-                  <button onClick={() => setButton("button4")}>button2</button>
-                  <button onClick={() => setButton("button5")}>button2</button>
+                  <button onClick={() => setButton("button2")}
+                     style={{
+                      backgroundColor: settings.linkColor,
+                      color: settings.backgroundColor,
+                      borderRadius: "50px",
+                      border: "0",
+                      width: "10vw",
+                      padding: ".5rem",
+                    }}>button2</button>
+                  <button onClick={() => setButton("button3")}  style={{
+                    background: "transparent",
+                    color: settings.linkColor,
+                    width: "10vw",
+                    padding: ".5rem",
+                    border: `2px solid ${settings.linkColor}`,
+                    borderRadius: "6px",
+                    }}>button2</button>
+                  <button onClick={() => setButton("button4")} style={{
+                          width: "10vw",
+                          padding: ".5rem",
+                          background: "transparent",
+                          color: settings.linkColor,
+          
+                          border: `2px dashed ${settings.linkColor}`,
+                          borderRadius: "10px",
+                  }}>button2</button>
+                  {/* <button onClick={() => setButton("button5")}>button2</button> */}
                   {/* <Buttons button={button} /> */}
+
+                  </div>
                 </div>
               )}
 
@@ -581,7 +607,7 @@ export default function Appearance() {
                         {/* Campos de Link Dinâmicos */}
                         <div className="field">
                           {links.map((link) => (
-                            <Link href={`${link.value}`}>
+                            <Link href={`${link.value}`} >
                               <Buttons
                                 backgroundColor={backgroundColor}
                                 button={button}
@@ -589,7 +615,7 @@ export default function Appearance() {
                                 backgroundButton={settings.linkColor}
                                 colorButton="white"
                               />
-                              <div
+                              {/* <div
                                 key={link.id}
                                 style={{
                                   display: "flex",
@@ -611,7 +637,7 @@ export default function Appearance() {
                                 >
                                   {link.name}
                                 </button>
-                              </div>
+                              </div> */}
                             </Link>
                           ))}
                         </div>
