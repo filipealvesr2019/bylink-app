@@ -45,16 +45,15 @@ export default function Buttons({
     }
   };
 
-
   const styles = buttonStyles();
 
   const handleButtonsSwitch = () => {
     switch (button) {
       case "button1":
         return (
-          <div >
+          <div>
             {link.map((link) => (
-              <Link href={`${link.value}`} >
+              <Link href={`${link.value}`}>
                 <div
                   key={link.id}
                   style={{
@@ -71,7 +70,7 @@ export default function Buttons({
                       backgroundColor: backgroundButton,
                       color: colorButton,
                       borderRadius: "4px",
-                      marginBottom:"1rem"
+                      marginBottom: "1rem",
                     }}
                   >
                     {link.name}
@@ -85,36 +84,33 @@ export default function Buttons({
         return (
           <>
             {link.map((link) => (
-            <Link href={`${link.value}`} >
-  <div
-            key={link.id}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <button
-              type="text"
-              value={link.name}
-              placeholder={`Nome do Link ${link.id}`}
-              className={styles.button}
-              style={{
-                backgroundColor: backgroundButton,
-                color: colorButton,
-                borderRadius: "50px",
-                border: "0",
-                marginBottom:"1rem"
-
-              }}
-            >
-              {link.name}
-            </button>
-          </div>
-            </Link>
-          ))
-    }
+              <Link href={`${link.value}`}>
+                <div
+                  key={link.id}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <button
+                    type="text"
+                    value={link.name}
+                    placeholder={`Nome do Link ${link.id}`}
+                    className={styles.button}
+                    style={{
+                      backgroundColor: backgroundButton,
+                      color: colorButton,
+                      borderRadius: "50px",
+                      border: "0",
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    {link.name}
+                  </button>
+                </div>
+              </Link>
+            ))}
           </>
-        
         );
       case "button3":
         return (
@@ -125,84 +121,76 @@ export default function Buttons({
               flexDirection: "column",
             }}
           >
-              {link.map((link) => (
-            <Link href={`${link.value}`} >
-  <div
+            {link.map((link) => (
+              <Link href={`${link.value}`}>
+                <div
+                  key={link.id}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <button
+                    type="text"
+                    value={link.name}
+                    placeholder={`Nome do Link ${link.id}`}
+                    className={styles.button}
+                    style={{
+                      background: "transparent",
+                      color: backgroundButton,
+
+                      border: `2px solid ${backgroundButton}`,
+                      borderRadius: "6px",
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    {link.name}
+                  </button>
+                </div>
+              </Link>
+            ))}
+          </div>
+        );
+      case "button4":
+        return (
+          <div
             key={link.id}
             style={{
               display: "flex",
               flexDirection: "column",
             }}
           >
-           <button
-              type="text"
-              value={link.name}
-              placeholder={`Nome do Link ${link.id}`}
-              className={styles.button}
-              style={{
-                background: "transparent",
-                color: backgroundButton,
+            {link.map((link) => (
+              <Link href={`${link.value}`}>
+                <div
+                  key={link.id}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <button
+                    type="text"
+                    value={link.name}
+                    placeholder={`Nome do Link ${link.id}`}
+                    className={styles.button}
+                    style={{
+                      background: "transparent",
+                      color: backgroundButton,
 
-                border: `2px solid ${backgroundButton}`,
-                borderRadius: "6px",
-                marginBottom:"1rem"
-
-              }}
-            >
-              {link.name}
-            </button>
-          </div>
-            </Link>
-          ))
-    }
-           
+                      border: `2px dashed ${backgroundButton}`,
+                      borderRadius: "10px",
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    {link.name}
+                  </button>
+                </div>
+              </Link>
+            ))}
           </div>
         );
-      case "button4":
-        return (
 
-          <div
-          key={link.id}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-            {link.map((link) => (
-          <Link href={`${link.value}`} >
-<div
-          key={link.id}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-         <button
-              type="text"
-              value={link.name}
-              placeholder={`Nome do Link ${link.id}`}
-              className={styles.button}
-              style={{
-                background: "transparent",
-                color: backgroundButton,
-
-                border: `2px dashed ${backgroundButton}`,
-                borderRadius: "10px",
-                marginBottom:"1rem"
-
-              }}
-            >
-              {link.name}
-            </button>
-        </div>
-          </Link>
-        ))
-  }
-         
-        </div>
-      );
-          
-  
       default:
         return null;
     }
@@ -211,11 +199,7 @@ export default function Buttons({
   return (
     <>
       <div className={styles.ButtonsContainer}>
-        <div
-         
-        >
-          {handleButtonsSwitch()}
-        </div>
+        <div>{handleButtonsSwitch()}</div>
       </div>
     </>
   );
