@@ -475,7 +475,7 @@ export default function Appearance() {
                       borderRadius: "6px",
                     }}
                   >
-                    button2
+                    button3
                   </button>
                   <button
                     onClick={() => setButton("button4")}
@@ -489,7 +489,7 @@ export default function Appearance() {
                       borderRadius: "10px",
                     }}
                   >
-                    button2
+                    button4
                   </button>
                   {/* <button onClick={() => setButton("button5")}>button2</button> */}
                   {/* <Buttons button={button} /> */}
@@ -546,7 +546,7 @@ export default function Appearance() {
                   ))} */}
                      <Bio
                         settings={settings}
-                        bio="bio2"
+                        bio="bio1"
                         backgroundColor={backgroundColor}
                         button={button}
                         link={links}
