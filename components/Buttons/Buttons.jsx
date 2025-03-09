@@ -83,7 +83,10 @@ export default function Buttons({
         );
       case "button2":
         return (
-          <div
+          <>
+            {link.map((link) => (
+            <Link href={`${link.value}`} >
+  <div
             key={link.id}
             style={{
               display: "flex",
@@ -100,11 +103,18 @@ export default function Buttons({
                 color: colorButton,
                 borderRadius: "50px",
                 border: "0",
+                marginBottom:"1rem"
+
               }}
             >
               {link.name}
             </button>
           </div>
+            </Link>
+          ))
+    }
+          </>
+        
         );
       case "button3":
         return (
@@ -115,7 +125,16 @@ export default function Buttons({
               flexDirection: "column",
             }}
           >
-            <button
+              {link.map((link) => (
+            <Link href={`${link.value}`} >
+  <div
+            key={link.id}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+           <button
               type="text"
               value={link.name}
               placeholder={`Nome do Link ${link.id}`}
@@ -126,22 +145,39 @@ export default function Buttons({
 
                 border: `2px solid ${backgroundButton}`,
                 borderRadius: "6px",
+                marginBottom:"1rem"
+
               }}
             >
               {link.name}
             </button>
           </div>
+            </Link>
+          ))
+    }
+           
+          </div>
         );
       case "button4":
         return (
+
           <div
-            key={link.id}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <button
+          key={link.id}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+            {link.map((link) => (
+          <Link href={`${link.value}`} >
+<div
+          key={link.id}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+         <button
               type="text"
               value={link.name}
               placeholder={`Nome do Link ${link.id}`}
@@ -152,12 +188,21 @@ export default function Buttons({
 
                 border: `2px dashed ${backgroundButton}`,
                 borderRadius: "10px",
+                marginBottom:"1rem"
+
               }}
             >
               {link.name}
             </button>
-          </div>
-        );
+        </div>
+          </Link>
+        ))
+  }
+         
+        </div>
+      );
+          
+  
       default:
         return null;
     }

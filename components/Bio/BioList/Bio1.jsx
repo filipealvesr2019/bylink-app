@@ -1,6 +1,6 @@
 import Buttons from "../../Buttons/Buttons";
-import styles from "./BioStandard.module.css";
-export default function BioStandard({ 
+import styles from "./Bio1.module.css";
+export default function Bio1({ 
     settings,
     button,
     link,

@@ -9,7 +9,10 @@ import bio8 from "./BioStyles/bio8.module.css";
 import bio9 from "./BioStyles/bio9.module.css";
 import bio10 from "./BioStyles/bio10.module.css";
 import styles from "./Bio.module.css";
-import BioStandard from "./BioStandard/BioStandard";
+import BioStandard from "./BioList/Bio1";
+import Bio1 from "./BioList/Bio1";
+import Bio2 from "./BioList/Bio2";
+import StandardBio from "./BioList/StandardBio";
 export default function Bio({ 
     settings,
     bio,
@@ -55,7 +58,7 @@ export default function Bio({
       case "bio1":
         return (
           <div>
-            <BioStandard settings={settings}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
+            <StandardBio settings={settings}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
           </div>
         );
       case "bio2":
@@ -67,20 +70,8 @@ export default function Bio({
               flexDirection: "column",
             }}
           >
-            <button
-              type="text"
-              value={link.name}
-              placeholder={`Nome do Link ${link.id}`}
-              className={styles.button}
-              style={{
-                backgroundColor: backgroundButton,
-                color: colorButton,
-                borderRadius: "50px",
-                border: "0",
-              }}
-            >
-              {link.name}
-            </button>
+                        <StandardBio settings={settings}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
+
           </div>
         );
       case "bio3":

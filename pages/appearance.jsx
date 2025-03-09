@@ -546,7 +546,7 @@ export default function Appearance() {
                   ))} */}
                      <Bio
                         settings={settings}
-                        bio="bio1"
+                        bio="bio2"
                         backgroundColor={backgroundColor}
                         button={button}
                         link={links}
