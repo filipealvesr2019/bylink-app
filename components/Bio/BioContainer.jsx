@@ -8,12 +8,12 @@ import bio7 from "./BioStyles/bio7.module.css";
 import bio8 from "./BioStyles/bio8.module.css";
 import bio9 from "./BioStyles/bio9.module.css";
 import bio10 from "./BioStyles/bio10.module.css";
-import styles from "./Bio.module.css";
-import BioStandard from "./BioList/Bio1";
+import BioContainerStyles from "./BioContainer.module.css";
+
 import Bio1 from "./BioList/Bio1";
-import Bio2 from "./BioList/Bio2";
+
 import StandardBio from "./BioList/StandardBio";
-export default function Bio({ 
+export default function BioContainer({ 
     settings,
     bio,
     button,
@@ -55,7 +55,7 @@ export default function Bio({
 
   const handleBioSwitch = () => {
     switch (bio) {
-      case "bio1":
+      case "standard":
         return (
           <div>
             <StandardBio settings={settings}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
@@ -70,61 +70,17 @@ export default function Bio({
               flexDirection: "column",
             }}
           >
-                        <StandardBio settings={settings}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
+                        <Bio1 settings={settings}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
 
           </div>
         );
       case "bio3":
         return (
-          <div
-            key={link.id}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <button
-              type="text"
-              value={link.name}
-              placeholder={`Nome do Link ${link.id}`}
-              className={styles.button}
-              style={{
-                background: "transparent",
-                color: backgroundButton,
-
-                border: `2px solid ${backgroundButton}`,
-                borderRadius: "6px",
-              }}
-            >
-              {link.name}
-            </button>
-          </div>
+          <></>
         );
       case "bio4":
         return (
-          <div
-            key={link.id}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <button
-              type="text"
-              value={link.name}
-              placeholder={`Nome do Link ${link.id}`}
-              className={styles.button}
-              style={{
-                background: "transparent",
-                color: backgroundButton,
-
-                border: `2px dashed ${backgroundButton}`,
-                borderRadius: "10px",
-              }}
-            >
-              {link.name}
-            </button>
-          </div>
+         <></>
         );
       default:
         return null;
@@ -133,7 +89,7 @@ export default function Bio({
 
   return (
     <>
-      <div className={styles.ButtonsContainer}>
+      <div className={BioContainer.BioContainerStyles}>
         <div
           style={{
             marginBottom: "1rem",

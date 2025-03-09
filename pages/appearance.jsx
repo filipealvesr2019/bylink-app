@@ -10,12 +10,11 @@ import MobileMenu from "../components/MobileMenu/MobileMenu";
 import Login from "@/app/Login";
 import styles from "../pages/styles/appearance.module.css";
 import axios from "axios";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Videos from "../components/Videos/VideosUpload";
+
 import VideosUpload from "../components/Videos/VideosUpload";
-import VideosPage from "../components/Videos/VideoList";
-import Buttons from "../components/Buttons/Buttons";
-import Bio from "../components/Bio/Bio";
+import BioContainer from "../components/Bio/BioContainer";
+
+
 export default function Appearance() {
   const [links, setLinks] = useState([
     { id: 1, name: "Exemplo de Link 1", value: "" },
@@ -23,7 +22,7 @@ export default function Appearance() {
   ]);
   const [button, setButton] = useState("button1");
   const [autoPlay, setAutoPlay] = useState(false);
-
+console.log(button)
   // Default settings
   const defaultSettings = {
     backgroundColor: "#ffffff",
@@ -319,7 +318,7 @@ export default function Appearance() {
     }),
   };
   // RECEIVED
-  const status = "RECEIVED";
+  const status = "dRECEIVED";
   return (
     <div
       style={{
@@ -451,6 +450,10 @@ export default function Appearance() {
                   >
                     button1
                   </button>
+
+                  
+                 
+                  
                   <button
                     onClick={() => setButton("button2")}
                     style={{
@@ -464,7 +467,24 @@ export default function Appearance() {
                   >
                     button2
                   </button>
-                  <button
+                   
+                  {status !== "RECEIVED" ? (
+                            <button
+                          
+                            style={{
+                              background: "transparent",
+                              color: settings.linkColor,
+                              width: "10vw",
+                              padding: ".5rem",
+                              border: `2px solid ${settings.linkColor}`,
+                              borderRadius: "6px",
+                            }}
+                          >
+                            button3
+                          </button>
+                          ) : (
+                          
+                               <button
                     onClick={() => setButton("button3")}
                     style={{
                       background: "transparent",
@@ -477,20 +497,42 @@ export default function Appearance() {
                   >
                     button3
                   </button>
-                  <button
-                    onClick={() => setButton("button4")}
-                    style={{
-                      width: "10vw",
-                      padding: ".5rem",
-                      background: "transparent",
-                      color: settings.linkColor,
-
-                      border: `2px dashed ${settings.linkColor}`,
-                      borderRadius: "10px",
-                    }}
-                  >
-                    button4
-                  </button>
+                      
+                          )}
+                
+                {status !== "RECEIVED" ? (
+                             <button
+                             style={{
+                               width: "10vw",
+                               padding: ".5rem",
+                               background: "transparent",
+                               color: settings.linkColor,
+         
+                               border: `2px dashed ${settings.linkColor}`,
+                               borderRadius: "10px",
+                             }}
+                           >
+                             button4
+                           </button>
+                          ) : (
+                          
+                            <button
+                            onClick={() => setButton("button4")}
+                            style={{
+                              width: "10vw",
+                              padding: ".5rem",
+                              background: "transparent",
+                              color: settings.linkColor,
+        
+                              border: `2px dashed ${settings.linkColor}`,
+                              borderRadius: "10px",
+                            }}
+                          >
+                            button4
+                          </button>
+                      
+                          )}
+                 
                   {/* <button onClick={() => setButton("button5")}>button2</button> */}
                   {/* <Buttons button={button} /> */}
                 </div>
@@ -544,9 +586,9 @@ export default function Appearance() {
                    
                     </Link>
                   ))} */}
-                     <Bio
+                     <BioContainer
                         settings={settings}
-                        bio="bio1"
+                        bio="standard"
                         backgroundColor={backgroundColor}
                         button={button}
                         link={links}
