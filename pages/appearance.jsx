@@ -435,7 +435,7 @@ console.log(button)
                 <form action="">
                   <label htmlFor="">Formulario de Leads</label>
                 </form>
-                <h1>Botões</h1>
+                <h1> Estilo dos Botões</h1>
                 <div className={styles.buttons}>
                   <button
                     onClick={() => setButton("button1")}
