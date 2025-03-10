@@ -19,8 +19,8 @@ export default async function handler(req, res) {
     }
 
     try {
-      console.log("req.body:", req.body);
-      console.log("Chave da API Asaas:", process.env.ASAAS_API_KEY); // Verifique se a chave está correta
+      // console.log("req.body:", req.body);
+      // console.log("Chave da API Asaas:", process.env.ASAAS_API_KEY); // Verifique se a chave está correta
 
       const url = "https://api-sandbox.asaas.com/v3/customers";
       const options = {
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
       let data;
       try {
         const text = await response.text(); // Captura a resposta como texto primeiro
-        console.log("Resposta bruta da API Asaas:", text);
+        // console.log("Resposta bruta da API Asaas:", text);
         data = text ? JSON.parse(text) : null; // Converte apenas se houver conteúdo
       } catch (error) {
         console.error("Erro ao converter resposta da API Asaas:", error);
