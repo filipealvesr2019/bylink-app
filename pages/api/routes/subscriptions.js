@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   try {
     await dbConnect(); // Conecta ao banco
 
-    const { userId, customerId } = req.body; // Pegando os dados necessários
+    const { userId, customerId, circle } = req.body; // Pegando os dados necessários
     if (!userId || !customerId) {
       return res.status(400).json({ message: "userId e customerId são obrigatórios" });
     }
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         billingType: "PIX",
-        cycle: "MONTHLY",
+        cycle: circle,
         customer: customerId,
         value: 20,
         nextDueDate: "2025-02-15",
