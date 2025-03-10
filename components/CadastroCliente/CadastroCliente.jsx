@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function CadastroCliente() {
+    
   const [formData, setFormData] = useState({
     name: "",
     cpfCnpj: "",
@@ -10,7 +12,7 @@ export default function CadastroCliente() {
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-
+  const router = useRouter();
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -37,6 +39,8 @@ export default function CadastroCliente() {
       if (response.ok) {
         setMessage("Cliente cadastrado com sucesso!");
         setFormData({ name: "", cpfCnpj: "", email: "" });
+        router.push("/subscription");  // Redirecionando para a página de subscription
+
       } else {
         setMessage(data.error || "Erro ao cadastrar cliente.");
       }
