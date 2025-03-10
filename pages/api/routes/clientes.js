@@ -5,8 +5,8 @@ import Clientes from "../models/Clientes";
 
 export default async function handler(req, res) {
 
-    const apiKey = process.env.NEXT_PUBLIC_ASAAS_API_KEY;
-    console.log("API Key:", apiKey); // Verifique se a chave está sendo lida
+  const token = process.env.ASAAS_TOKEN
+  console.log('token', token)
 
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Método não permitido" });
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
       headers: {
         accept: "application/json",
         "content-type": "application/json",
-        access_token: apiKey,
+        access_token: token,
       },
       body: JSON.stringify({ name, cpfCnpj, email }),
     };

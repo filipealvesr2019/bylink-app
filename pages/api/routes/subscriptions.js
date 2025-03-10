@@ -1,9 +1,12 @@
 import subscriptions from "../models/subscriptions";
 import dbConnect from "../utils/dbConnect";
+import { getAuth } from '@clerk/nextjs/server'
 
 export default async function handler(req, res) {
     const token = process.env.ASAAS_TOKEN
-
+    
+    const { userId } = getAuth(req)
+   console.log(token)
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Método não permitido" });
   }
@@ -11,7 +14,7 @@ export default async function handler(req, res) {
   try {
     await dbConnect(); // Conecta ao banco
 
-    const { userId, customerId, circle } = req.body; // Pegando os dados necessários
+    const {  customerId, circle } = req.body; // Pegando os dados necessários
     if (!userId || !customerId) {
       return res.status(400).json({ message: "userId e customerId são obrigatórios" });
     }
@@ -48,7 +51,7 @@ export default async function handler(req, res) {
       return res.status(response.status).json(data);
     }
 
-    const novaAssinatura = new subscriptions({ userId });
+    const novaAssinatura = new subscriptions({ userId: userId });
     await novaAssinatura.save();
 
     return res.status(201).json({ message: "Assinatura criada com sucesso", data });

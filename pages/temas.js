@@ -7,6 +7,7 @@ import Link from "next/link";
 import styles from "./temas.module.css";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 export default function Temas() {
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
@@ -16,6 +17,7 @@ export default function Temas() {
   ]);
   const [openModal, setOpenModal] = useState(false);
   const modalRef = useRef(null);
+  const router = useRouter();
 
   const handleClickOpenModal = () => {
     setOpenModal(true);
@@ -76,7 +78,18 @@ export default function Temas() {
     }
   };
   // RECEIVED
-  const status = "RECEIVED";
+  const status = "sRECEIVED";
+  
+  const cliente = false
+  const handleRedirect = () => {
+    if(!cliente){
+      router.push("/clientes")
+
+    } else{
+      router.push("/subscription")
+
+    }
+  }
   return (
     <>
       <MobileMenu />
@@ -89,7 +102,7 @@ export default function Temas() {
                 X
               </span>
 
-              <div></div>
+              <button onClick={handleRedirect}>Assinar Plano Pro</button>
             </div>
           </div>
         )}
