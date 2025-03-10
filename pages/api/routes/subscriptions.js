@@ -1,3 +1,4 @@
+import Clientes from "../models/Clientes";
 import subscriptions from "../models/subscriptions";
 import dbConnect from "../utils/dbConnect";
 import { getAuth } from '@clerk/nextjs/server'
@@ -13,11 +14,14 @@ export default async function handler(req, res) {
   try {
     await dbConnect(); // Conecta ao banco
 
-    const {  customerId, circle } = req.body; // Pegando os dados necessários
-    if (!userId || !customerId) {
+    const customer = await Clientes.findOne({ userId });
+    const asaasId = customer?.asaasId;
+    
+    const { circle } = req.body; // Pegando os dados necessários
+    if (!userId || !asaasId) {
       return res.status(400).json({ message: "userId e customerId são obrigatórios" });
     }
-
+ console.log(asaasId)
     const url = "https://api-sandbox.asaas.com/v3/subscriptions";
     const options = {
       method: "POST",
@@ -29,9 +33,9 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         billingType: "PIX",
         cycle: circle,
-        customer: customerId,
+        customer: asaasId,
         value: 20,
-        nextDueDate: "2025-02-15",
+        nextDueDate: "2025-04-15",
         discount: { value: 0, dueDateLimitDays: 0, type: "PERCENTAGE" },
         interest: { value: 0 },
         fine: { value: null, type: "FIXED" },
@@ -39,12 +43,13 @@ export default async function handler(req, res) {
         endDate: null,
         maxPayments: null,
         externalReference: null,
-        callback: { successUrl: "https://www.notion.so/", autoRedirect: true },
+        callback: { successUrl: "https://bylink-app.vercel.app/", autoRedirect: true },
       }),
     };
 
     const response = await fetch(url, options);
     const data = await response.json();
+    console.log("Erro da API:", data);
 
     if (!response.ok) {
       return res.status(response.status).json(data);
