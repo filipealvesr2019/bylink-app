@@ -6,7 +6,6 @@ export default async function handler(req, res) {
     const token = process.env.ASAAS_TOKEN
     
     const { userId } = getAuth(req)
-   console.log(token)
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Método não permitido" });
   }

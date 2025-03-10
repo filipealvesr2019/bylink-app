@@ -15,6 +15,8 @@ export default function Temas() {
     { id: 3, name: "LINK 3", value: "" },
     { id: 4, name: "LINK 4", value: "" },
   ]);
+  const [cliente, setCliente] = useState(null);
+  const [error, setError] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const modalRef = useRef(null);
   const router = useRouter();
@@ -80,7 +82,27 @@ export default function Temas() {
   // RECEIVED
   const status = "sRECEIVED";
   
-  const cliente = false
+  
+
+  useEffect(() => {
+    const fetchCliente = async () => {
+      try {
+        // Faz a requisição GET para o endpoint da API para buscar o cliente
+        const response = await fetch('/api/routes/clientes'); // Supondo que a rota é /api/cliente
+        if (!response.ok) {
+          throw new Error('Cliente não encontrado');
+        }
+        const data = await response.json();
+        setCliente(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+      }
+    };
+
+    fetchCliente();
+  }, []);
+ 
   const handleRedirect = () => {
     if(!cliente){
       router.push("/clientes")

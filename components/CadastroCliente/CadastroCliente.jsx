@@ -99,11 +99,11 @@ export default function CadastroCliente() {
         </button>
       </form>
 
-      {message && (
+      {/* {message && (
         <p className={`mt-4 text-sm ${response?.ok ? "text-green-600" : "text-red-600"}`}>
           {message}
         </p>
-      )}
+      )} */}
     </div>
   );
 }
