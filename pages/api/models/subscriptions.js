@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const Subscriptionschema = new mongoose.Schema({
   userId: { type: String, required: true }, // Relaciona o produto ao cliente
+  subscriptionId:  { type: String, required: true }, // Relaciona o produto ao cliente
   webhook: {
     id: { type: String,  },
     event: { type: String,},
