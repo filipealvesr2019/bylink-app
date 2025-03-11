@@ -1,7 +1,9 @@
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Subscription() {
+  const router = useRouter();
   const handleMonthlySubscription = async () => {
     try {
       const response = await axios.post("/api/routes/month-subscription");
@@ -9,6 +11,8 @@ export default function Subscription() {
         console.log("Assinatura realizada com sucesso:", response.data.message);
         // Aqui você pode fazer qualquer ação depois de uma assinatura bem-sucedida (ex: redirecionamento, notificação)
       }
+      router.push("/buy");  // Redirecionando para a página de subscription
+
     } catch (error) {
       console.error("Erro ao realizar a assinatura:", error.response?.data || error.message);
       // Aqui você pode mostrar uma mensagem de erro ao usuário
@@ -22,6 +26,7 @@ export default function Subscription() {
         console.log("Assinatura realizada com sucesso:", response.data.message);
         // Aqui você pode fazer qualquer ação depois de uma assinatura bem-sucedida (ex: redirecionamento, notificação)
       }
+      router.push("/buy");  // Redirecionando para a página de subscription
     } catch (error) {
       console.error("Erro ao realizar a assinatura:", error.response?.data || error.message);
       // Aqui você pode mostrar uma mensagem de erro ao usuário
