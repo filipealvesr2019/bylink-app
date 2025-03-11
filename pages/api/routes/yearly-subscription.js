@@ -17,7 +17,6 @@ export default async function handler(req, res) {
     const customer = await Clientes.findOne({ userId });
     const asaasId = customer?.asaasId;
     
-    const { circle } = req.body; // Pegando os dados necessários
     if (!userId || !asaasId) {
       return res.status(400).json({ message: "userId e customerId são obrigatórios" });
     }
@@ -31,9 +30,9 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         billingType: "PIX",
-        cycle: circle,
+        cycle: "YEARLY",
         customer: asaasId,
-        value: 20,
+        value: 200,
         nextDueDate: "2025-04-15",
         discount: { value: 0, dueDateLimitDays: 0, type: "PERCENTAGE" },
         interest: { value: 0 },

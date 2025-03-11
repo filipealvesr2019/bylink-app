@@ -9,7 +9,7 @@ export default function Subscriptions(){
     }
     return (
         <>
-        <button >inclição mensal</button>
+        <button onClick={handleMonthlySubscription}>inclição mensal</button>
         </>
     )
 }
