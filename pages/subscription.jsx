@@ -10,10 +10,11 @@ export default function Subscription() {
 
   const handleRedirectMonthlyPayment = () => {
     router.push({
-      pathname: "/payment-monthly",
+      pathname: "/payment-monthly-plan-pro",
       query: { billingType: 100 }, // Passando o valor como query param
     });
   };
+  const [subscriptionSwitch, setSubscriptionSwitch] = useState("MONTHLY")
 
   
   const handleSubscriptionSwitch = () => {
@@ -21,7 +22,7 @@ export default function Subscription() {
       case "MONTHLY":
       return (
         <>
-        <button onClick={handleMonthlySubscriptionPix}>Assinatura Mensal</button>
+        <button onClick={handleRedirectMonthlyPayment}>Assinatura Mensal</button>
         
         </>
       )
@@ -29,21 +30,21 @@ export default function Subscription() {
       case  "SEMIANNUALLY":
         return (
           <>
-          <button onClick={handleYearlySubscription}>Assinatura Anual</button>
+          <button>Assinatura Anual</button>
           
           </>
         )
       case "YEARLY":
         return (
           <>
-          <button onClick={handleYearlySubscription}>Assinatura Anual</button>
+          <button>Assinatura Anual</button>
           
           </>
         )
       default:
         return (
           <>
-          <button onClick={handleMonthlySubscriptionPix}>Assinatura Mensal</button>
+          <button>Assinatura Mensal</button>
           
           </>
         )
@@ -54,7 +55,13 @@ export default function Subscription() {
     <>
     <MobileMenu />
        <Login />
-       <button onClick={handleRedirectMonthlyPayment}>Assinatura Mensal</button>
+       <span onClick={() => setSubscriptionSwitch("MONTHLY")}>mensal</span>
+        <span onClick={() => setSubscriptionSwitch("SEMIANNUALLY")}>Anual</span>
+        <span onClick={() => setSubscriptionSwitch("YEARLY")}>Anual</span>
+
+     
+          {handleSubscriptionSwitch()}
+    
        </>
   );
 }
