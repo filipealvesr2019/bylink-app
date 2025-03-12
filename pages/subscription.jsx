@@ -16,7 +16,7 @@ export default function Subscription() {
       const response = await axios.post("/api/routes/qrcode");
       if (response.status === 201) {
         console.log("qr code gerado com sucesso:", response.data.message);
-        router.push("/pix"); // Redirecionando para a página de subscription
+        router.push("/payment"); // Redirecionando para a página de subscription
         // Aqui você pode fazer qualquer ação depois de uma assinatura bem-sucedida (ex: redirecionamento, notificação)
       }
       setLoading(false);
@@ -37,7 +37,9 @@ export default function Subscription() {
       const response = await axios.post("/api/routes/month-subscription-pix");
       if (response.status === 201) {
         console.log("Assinatura realizada com sucesso:", response.data.message);
-        handleQRcode(response.data.customer, response.data.id)
+        // handleQRcode(response.data.customer, response.data.id)
+        router.push("/payment"); // Redirecionando para a página de subscription
+
         // Aqui você pode fazer qualquer ação depois de uma assinatura bem-sucedida (ex: redirecionamento, notificação)
       }
       setLoading(false);
