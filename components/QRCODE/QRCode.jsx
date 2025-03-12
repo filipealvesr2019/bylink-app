@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import styles from "./QRCode.module.css"
 class QRCODE extends React.Component {
