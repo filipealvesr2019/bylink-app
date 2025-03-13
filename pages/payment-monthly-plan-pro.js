@@ -1,30 +1,28 @@
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./payment.module.css";
 
 export default function Payment() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [customer, setCustomer] = useState("");
-  const [id, setID] = useState("");
+  const [encodedImage, setEncodedImage] = useState("");
+  const [payload, setPayload] = useState("");
+
+  
   const handlePixPayment = () => {
     handleMonthlySubscriptionPix();
-    handleQRcode();
-    router.push({
-      pathname: "/qrcode",
-      // query: { customer: customer, id: id },  // Passando como parâmetros de query
-    });
   };
 
-  const handleQRcode = async (customer, id) => {
+  const handleQRcode = async () => {
     setLoading(true);
     try {
       const response = await axios.post("/api/routes/qrcode-monthly-subscription-plain-pro");
       if (response.status === 201) {
         console.log("QR Code gerado com sucesso:", response.data.message);
-        setCustomer(customer)
-        setID(id)
+        const encodedImageData = response.data.data.encodedImage;
+        setEncodedImage(encodedImageData); // Atualizando o estado com o valor do QR Code
+        setPayload(response.data.data.payload)
       }
       setLoading(false);
     } catch (error) {
@@ -39,8 +37,7 @@ export default function Payment() {
       const response = await axios.post("/api/routes/monthly-subscription-pix-plain-pro");
       if (response.status === 201) {
         console.log("Assinatura realizada com sucesso:", response.data.message);
-        handleQRcode(response.data.customer, response.data.id);
-        console.log(response.data.customer, response.data.id)
+        handleQRcode(); // Chama a função para gerar o QR Code
       }
       setLoading(false);
     } catch (error) {
@@ -48,6 +45,16 @@ export default function Payment() {
       console.error("Erro ao realizar a assinatura:", error.response?.data || error.message);
     }
   };
+
+  // UseEffect para redirecionar após a atualização do estado encodedImage
+  useEffect(() => {
+    if (encodedImage) {
+      router.push({
+        pathname: "/qrcode",
+        query: { encodedImage: encodedImage, payload: payload }, // Codifica a string para a URL
+      });
+    }
+  }, [encodedImage, router]); // A dependência é o encodedImage
 
   return (
     <div className={styles.container}>
@@ -60,6 +67,7 @@ export default function Payment() {
           <button className={styles.button}>Atualizar Assinatura</button>
         </div>
       </div>
+      {encodedImage && <div>Encoded Image: {encodedImage}</div>} {/* Exibe o QR Code ou mensagem */}
     </div>
   );
 }

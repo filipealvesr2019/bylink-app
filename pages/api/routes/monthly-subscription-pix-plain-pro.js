@@ -32,7 +32,7 @@ export default async function handler(req, res) {
         billingType: "PIX",
         cycle: "MONTHLY",
         customer: asaasId,
-        value: 20,
+        value: 18,
         nextDueDate: "2025-04-15",
         discount: { value: 0, dueDateLimitDays: 0, type: "PERCENTAGE" },
         interest: { value: 0 },
