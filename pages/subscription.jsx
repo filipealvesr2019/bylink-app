@@ -23,6 +23,13 @@ export default function Subscription() {
     });
   };
 
+  const handleRedirectSemiannuallyPaymentPix = () => {
+    setLoading(true)
+    router.push({
+      pathname: "/payment-semiannually-plan-pro",
+    });
+  };
+
   
   const [subscriptionSwitch, setSubscriptionSwitch] = useState("MONTHLY")
 
@@ -40,7 +47,7 @@ export default function Subscription() {
       case  "SEMIANNUALLY":
         return (
           <>
-          <button onClick={handleRedirectYearlyPaymentPix}>Assinatura Anual</button>
+          <button onClick={handleRedirectSemiannuallyPaymentPix}>Assinatura Semestral</button>
           
           </>
         )
@@ -71,7 +78,7 @@ export default function Subscription() {
         <div  className={styles.menuContainer}>
         <div className={styles.menu}>
         <span onClick={() => setSubscriptionSwitch("MONTHLY")}>mensal</span>
-        <span onClick={() => setSubscriptionSwitch("SEMIANNUALLY")}>Anual</span>
+        <span onClick={() => setSubscriptionSwitch("SEMIANNUALLY")}>Semestral</span>
         <span onClick={() => setSubscriptionSwitch("YEARLY")}>Anual</span>
 
         </div>
