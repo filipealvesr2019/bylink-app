@@ -9,13 +9,21 @@ export default function Subscription() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
-  const handleRedirectMonthlyPayment = () => {
+  const handleRedirectMonthlyPaymentPix = () => {
     setLoading(true)
     router.push({
       pathname: "/payment-monthly-plan-pro",
-      query: { billingType: 100 }, // Passando o valor como query param
+
     });
   };
+  const handleRedirectYearlyPaymentPix = () => {
+    setLoading(true)
+    router.push({
+      pathname: "/payment-yearly-plan-pro",
+    });
+  };
+
+  
   const [subscriptionSwitch, setSubscriptionSwitch] = useState("MONTHLY")
 
   
@@ -24,7 +32,7 @@ export default function Subscription() {
       case "MONTHLY":
       return (
         <>
-        <button onClick={handleRedirectMonthlyPayment}>Assinatura Mensal</button>
+        <button onClick={handleRedirectMonthlyPaymentPix}>Assinatura Mensal</button>
         
         </>
       )
@@ -32,14 +40,14 @@ export default function Subscription() {
       case  "SEMIANNUALLY":
         return (
           <>
-          <button>Assinatura Anual</button>
+          <button onClick={handleRedirectYearlyPaymentPix}>Assinatura Anual</button>
           
           </>
         )
       case "YEARLY":
         return (
           <>
-          <button>Assinatura Anual</button>
+          <button onClick={handleRedirectYearlyPaymentPix}>Assinatura Anual</button>
           
           </>
         )
