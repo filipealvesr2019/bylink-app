@@ -20,10 +20,6 @@ export default async function handler(req, res) {
     const customer = await Clientes.findOne({ userId });
     const asaasId = customer?.asaasId;
 
-    // Verificar se o userId e asaasId estão corretos
-    console.log("UserId:", userId);
-    console.log("AsaasId:", asaasId);
-
     if (!userId || !asaasId) {
       return res.status(400).json({ message: "userId e customerId são obrigatórios" });
     }
@@ -58,7 +54,6 @@ export default async function handler(req, res) {
       console.error("Erro da API Asaas:", data || "Erro desconhecido");
       return res.status(response.status).json({ error: data || "Erro desconhecido da API Asaas" });
     }
-    console.log("Resposta da API Asaas:", data);
 
     const novaAssinatura = new subscriptions({ userId: userId, subscriptionId: data.id });
     await novaAssinatura.save();

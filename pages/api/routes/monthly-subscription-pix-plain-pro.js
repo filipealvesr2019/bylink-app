@@ -47,7 +47,6 @@ export default async function handler(req, res) {
 
     const response = await fetch(url, options);
     const data = await response.json();
-    console.log("Erro da API:", data);
 
     if (!response.ok) {
       return res.status(response.status).json(data);

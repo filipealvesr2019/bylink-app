@@ -19,7 +19,7 @@ export default function Payment() {
     try {
       const response = await axios.post("/api/routes/qrcode-monthly-subscription-plain-pro");
       if (response.status === 201) {
-        console.log("QR Code gerado com sucesso:", response.data.message);
+        
         const encodedImageData = response.data.data.encodedImage;
         setEncodedImage(encodedImageData); // Atualizando o estado com o valor do QR Code
         setPayload(response.data.data.payload)
@@ -36,7 +36,7 @@ export default function Payment() {
     try {
       const response = await axios.post("/api/routes/monthly-subscription-pix-plain-pro");
       if (response.status === 201) {
-        console.log("Assinatura realizada com sucesso:", response.data.message);
+      
         handleQRcode(); // Chama a função para gerar o QR Code
       }
       setLoading(false);
