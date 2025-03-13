@@ -6,30 +6,25 @@ import styles from "./payment.module.css";
 export default function Payment() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-
+  const [customer, setCustomer] = useState("");
+  const [id, setID] = useState("");
   const handlePixPayment = () => {
     handleMonthlySubscriptionPix();
-    handleQRcode()
+    handleQRcode();
+    router.push({
+      pathname: "/qrcode",
+      // query: { customer: customer, id: id },  // Passando como parâmetros de query
+    });
   };
 
   const handleQRcode = async (customer, id) => {
     setLoading(true);
     try {
-      const response = await axios.post("/api/routes/qrcode");
+      const response = await axios.post("/api/routes/qrcode-monthly-subscription-plain-pro");
       if (response.status === 201) {
         console.log("QR Code gerado com sucesso:", response.data.message);
-
-        // Certificando-se que customer e id estão definidos
-        if (customer && id) {
-          // Redirecionando com query string
-          console.log("Redirecionando para /qrcode");
-          router.push({
-            pathname: "/qrcode",
-            query: { customer: customer, id: id },  // Passando como parâmetros de query
-          });
-        } else {
-          console.error("Customer ou ID não estão definidos.");
-        }
+        setCustomer(customer)
+        setID(id)
       }
       setLoading(false);
     } catch (error) {
@@ -41,10 +36,11 @@ export default function Payment() {
   const handleMonthlySubscriptionPix = async () => {
     setLoading(true);
     try {
-      const response = await axios.post("/api/routes/month-subscription-pix");
+      const response = await axios.post("/api/routes/monthly-subscription-pix-plain-pro");
       if (response.status === 201) {
         console.log("Assinatura realizada com sucesso:", response.data.message);
         handleQRcode(response.data.customer, response.data.id);
+        console.log(response.data.customer, response.data.id)
       }
       setLoading(false);
     } catch (error) {
