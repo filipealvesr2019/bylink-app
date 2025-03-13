@@ -7,8 +7,10 @@ import MobileMenu from "../components/MobileMenu/MobileMenu";
 import Login from "@/app/Login";
 export default function Subscription() {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const handleRedirectMonthlyPayment = () => {
+    setLoading(true)
     router.push({
       pathname: "/payment-monthly-plan-pro",
       query: { billingType: 100 }, // Passando o valor como query param
@@ -55,12 +57,19 @@ export default function Subscription() {
     <>
     <MobileMenu />
        <Login />
-       <span onClick={() => setSubscriptionSwitch("MONTHLY")}>mensal</span>
+       {loading ? (
+        <Loading />
+      ) : (
+        <div  className={styles.menuContainer}>
+        <div className={styles.menu}>
+        <span onClick={() => setSubscriptionSwitch("MONTHLY")}>mensal</span>
         <span onClick={() => setSubscriptionSwitch("SEMIANNUALLY")}>Anual</span>
         <span onClick={() => setSubscriptionSwitch("YEARLY")}>Anual</span>
 
-     
+        </div>
           {handleSubscriptionSwitch()}
+        </div>
+      )}
     
        </>
   );
