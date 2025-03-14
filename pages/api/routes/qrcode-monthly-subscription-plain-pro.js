@@ -55,7 +55,7 @@ export default async function handler(req, res) {
       return res.status(response.status).json({ error: data || "Erro desconhecido da API Asaas" });
     }
 
-    const novaAssinatura = new subscriptions({ userId: userId, subscriptionId: data.id });
+    const novaAssinatura = new subscriptions({ userId: userId, subscriptionId: data.id, plan: "MONTHLY" });
     await novaAssinatura.save();
      console.log(response)
     return res.status(201).json({ message: "Assinatura criada com sucesso", data });
