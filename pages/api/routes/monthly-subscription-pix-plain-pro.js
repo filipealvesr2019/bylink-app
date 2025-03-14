@@ -1,5 +1,5 @@
 import Clientes from "../models/Clientes";
-import subscriptions from "../models/subscriptions";
+import Subscriptions from "../models/subscriptions";
 import dbConnect from "../utils/dbConnect";
 import { getAuth } from '@clerk/nextjs/server'
 
@@ -16,7 +16,8 @@ export default async function handler(req, res) {
 
     const customer = await Clientes.findOne({ userId });
     const asaasId = customer?.asaasId;
-    
+    let assinaturaExistente = await Subscriptions.findOne({ userId });
+
     if (!userId || !asaasId) {
       return res.status(400).json({ message: "userId e customerId são obrigatórios" });
     }
@@ -52,10 +53,18 @@ export default async function handler(req, res) {
       return res.status(response.status).json(data);
     }
 
-    const novaAssinatura = new subscriptions({ userId: userId, subscriptionId: data.id, plan: "pro",
+    if (assinaturaExistente) {
+      // Atualiza o plano existente
+      assinaturaExistente.subscriptionId = data.id;
+      assinaturaExistente.plan = "pro";
+      assinaturaExistente.cycle = "MONTHLY";
+      await assinaturaExistente.save();
+      return res.status(200).json({ message: "Plano atualizado com sucesso", data });
+  } else {
+    const novaAssinatura = new Subscriptions({ userId: userId, subscriptionId: data.id, plan: "pro",
       cycle: "MONTHLY",   });
     await novaAssinatura.save();
-
+    }
     return res.status(201).json({ message: "Assinatura criada com sucesso", data });
   } catch (error) {
     console.log(error)

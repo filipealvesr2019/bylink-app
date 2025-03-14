@@ -20,6 +20,8 @@ export default async function handler(req, res) {
     if (!userId || !asaasId) {
       return res.status(400).json({ message: "userId e customerId são obrigatórios" });
     }
+        let assinaturaExistente = await subscriptions.findOne({ userId });
+    
     const url = "https://api-sandbox.asaas.com/v3/subscriptions";
     const options = {
       method: "POST",
@@ -51,10 +53,18 @@ export default async function handler(req, res) {
     if (!response.ok) {
       return res.status(response.status).json(data);
     }
-
+    if (assinaturaExistente) {
+      // Atualiza o plano existente
+      assinaturaExistente.subscriptionId = data.id;
+      assinaturaExistente.plan = "pro";
+      assinaturaExistente.cycle = "SEMIANNUALLY";
+      await assinaturaExistente.save();
+      return res.status(200).json({ message: "Plano atualizado com sucesso", data });
+  } else {
     const novaAssinatura = new subscriptions({ userId: userId, subscriptionId: data.id,  plan: "pro",
       cycle: "SEMIANNUALLY", });
     await novaAssinatura.save();
+  }
 
     return res.status(201).json({ message: "Assinatura criada com sucesso", data });
   } catch (error) {

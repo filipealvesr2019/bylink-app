@@ -19,7 +19,7 @@ export default async function handler(req, res) {
 
     const customer = await Clientes.findOne({ userId });
     const asaasId = customer?.asaasId;
-
+ // Verifica se já existe uma assinatura para esse usuário
     if (!userId || !asaasId) {
       return res.status(400).json({ message: "userId e customerId são obrigatórios" });
     }
