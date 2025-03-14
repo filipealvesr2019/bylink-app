@@ -5,6 +5,7 @@ const Subscriptionschema = new mongoose.Schema({
   subscriptionId:  { type: String, required: true }, // Relaciona o produto ao cliente
   plan: { type: String, required: true },
   cycle: { type: String, required: true },
+  status: { type: String, default:"PENDING" },
   dataCriacao: { type: Date, default: Date.now },
 });
 

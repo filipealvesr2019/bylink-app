@@ -21,6 +21,7 @@ export default async function handler(req, res) {
     if (!userId || !asaasId) {
       return res.status(400).json({ message: "userId e customerId são obrigatórios" });
     }
+    
     const url = "https://api-sandbox.asaas.com/v3/subscriptions";
     const options = {
       method: "POST",
