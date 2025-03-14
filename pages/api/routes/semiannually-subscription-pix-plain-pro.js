@@ -52,7 +52,8 @@ export default async function handler(req, res) {
       return res.status(response.status).json(data);
     }
 
-    const novaAssinatura = new subscriptions({ userId: userId, subscriptionId: data.id, plan: "SEMIANNUALLY" });
+    const novaAssinatura = new subscriptions({ userId: userId, subscriptionId: data.id,  plan: "pro",
+      cycle: "SEMIANNUALLY", });
     await novaAssinatura.save();
 
     return res.status(201).json({ message: "Assinatura criada com sucesso", data });
