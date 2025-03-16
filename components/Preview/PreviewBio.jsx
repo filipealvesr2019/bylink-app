@@ -16,6 +16,8 @@ import PreviewBioStyles from "./PreviewBio.module.css";
 import Tema3 from "../temas/Tema3";
 import StandardBio from "../Bio/BioList/StandardBio";
 import Tema5 from "../temas/Tema5";
+import Preview1 from "./Preview1";
+import Preview2 from "./Preview2";
 export default function PreviewBio({ 
     settings,
     bio,
@@ -73,13 +75,13 @@ export default function PreviewBio({
               flexDirection: "column",
             }}
           >
-                        <Tema3 settings={settings}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
+                        <Preview1 settings={settings}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
 
           </div>
         );
       case "bio2":
         return (
-          <Tema5/>
+          <Preview2/>
         );
       case "bio3":
         return (
@@ -98,7 +100,7 @@ export default function PreviewBio({
         >
           {handleBioSwitch()}
         </div>
-        {bio}
+        {/* {bio} */}
       </div>
     </>
   );

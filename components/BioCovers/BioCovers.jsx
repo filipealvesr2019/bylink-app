@@ -77,7 +77,9 @@ export default function BioCovers({setBio}){
           // RECEIVED
   const status = "sRECEIVED";
   
-  
+   const handleBioToggle = () => {
+    
+   }
     return (
         <div className={styles.container}>
         {openModal && (
@@ -92,7 +94,8 @@ export default function BioCovers({setBio}){
           </div>
         )}
           {/* <Link href={`/viewer/tema3`} className={styles.Link}> */}
-            <div className={styles.tema3} onClick={() => setBio("bio1")}>
+            <div className={styles.tema3} onClick={() => {
+                setBio("bio1")}}>
               {links.map((link) => (
                 <div key={link.id}>
                   <button
