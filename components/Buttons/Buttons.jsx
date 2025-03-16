@@ -2,7 +2,7 @@ import button1 from "./buttonStyles/Button1.module.css";
 import button2 from "./buttonStyles/Button2.module.css";
 import button3 from "./buttonStyles/Button3.module.css";
 import button4 from "./buttonStyles/Button4.module.css";
-import button5 from "./buttonStyles/button5.module.css";
+import button5 from "./buttonStyles/Button5.module.css";
 import button6 from "./buttonStyles/button6.module.css";
 import button7 from "./buttonStyles/button7.module.css";
 import button8 from "./buttonStyles/button8.module.css";
@@ -190,6 +190,33 @@ export default function Buttons({
             ))}
           </div>
         );
+        case "button5":
+        return (
+          <div className="field">
+          {link.map((link) => (
+            <div
+              key={link.id}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+              lassName={styles.buttonContainer}
+            >
+              <button
+                type="text"
+                value={link.name}
+                onChange={(e) =>
+                  updateLinkValue(link.id, "name", e.target.value)
+                }
+                placeholder={`Nome do Link ${link.id}`}
+                className={styles.buttonLinks}
+              >
+                {link.name}
+              </button>
+            </div>
+          ))}
+        </div>
+        )
 
       default:
         return null;

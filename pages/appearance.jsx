@@ -17,6 +17,7 @@ import BioCovers from "../components/BioCovers/BioCovers";
 
 import VideoList from "../components/Videos/VideoList";
 import BioButtonsStylesCovers from "../components/BioButtonsStylesCovers/BioButtonsStylesCovers";
+import PreviewBio from "../components/Preview/PreviewBio";
 
 export default function Appearance() {
   const [links, setLinks] = useState([
@@ -24,6 +25,7 @@ export default function Appearance() {
     { id: 2, name: "Exemplo de Link 2", value: "" },
   ]);
   const [button, setButton] = useState("button1");
+  const [bio, setBio] = useState("standard");
   const [autoPlay, setAutoPlay] = useState(false);
   console.log(button);
   // Default settings
@@ -174,7 +176,7 @@ export default function Appearance() {
     backgroundSize: "cover",
     backgroundPosition: "center",
     fontFamily: settings.font,
-    padding: "20px",
+
     width: "320px", // Largura padrão de smartphone
     height: "640px", // Altura proporcional
     display: "flex",
@@ -196,8 +198,7 @@ export default function Appearance() {
     width: "50%",
     height: "25px",
     backgroundColor: "#1a1a1a",
-    borderBottomLeftRadius: "20px",
-    borderBottomRightRadius: "20px",
+  
     left: "25%",
     zIndex: 10,
   };
@@ -217,7 +218,6 @@ export default function Appearance() {
     width: "100%",
     height: "100%",
     overflow: "auto",
-    padding: "35px 15px 15px 15px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -454,7 +454,8 @@ export default function Appearance() {
                   width: "35vw",
                 }}
               >
-                <BioCovers />
+                {bio}
+                <BioCovers  setBio={setBio}/>
               </div>
             )}
 
@@ -508,162 +509,17 @@ export default function Appearance() {
           </div>
           {/* Preview */}
           <div className={styles.columnB}>
-            <div
-              className="preview-container"
-              style={{ position: "sticky", top: "20px" }}
-            >
-              <h3 className="subtitle is-5 mb-4 has-text-centered">Prévia</h3>
-              <div style={previewStyle}>
-                <div style={smartphoneNotchStyle}></div>
-                <div style={smartphoneContentStyle}>
-                  {/* {links.map((link) => (
-                    <Link href={`${link.value}`}>
-                   
-                    </Link>
-                  ))} */}
-                  <BioContainer
-                    settings={settings}
-                    bio="standard"
-                    backgroundColor={backgroundColor}
-                    button={button}
-                    link={links}
-                    backgroundButton={settings.linkColor}
-                    colorButton="white"
-                  />
-                  {/* Seção de Perfil */}
-                  <div
-                    style={{
-                      textAlign: "center",
-                      marginBottom: "20px",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    {/* {settings.profileImage ? (
-                      <img
-                        src={settings.profileImage}
-                        alt="Profile"
-                        style={profileImageStyle}
-                      />
-                    ) : (
-                      <div
-                        style={{
-                          width: "5rem",
-                          height: "5rem",
 
-                          borderRadius: "50%",
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      >
-                        <img src="https://i.imgur.com/soSw6fY.png" alt="" />
-                      </div>
-                    )} */}
-                    {/* <h2
-                      style={{
-                        fontSize: "1.5rem",
-                        fontWeight: "bold",
-                        marginBottom: "5px",
-                        color: settings.titleColor,
-                      }}
-                    >
-                      {settings.title || "Seu Nome"}
-                    </h2>
-                    <p
-                      style={{
-                        fontSize: "0.9rem",
-                        opacity: 0.9,
-                        marginBottom: "15px",
-                        color: settings.titleColor,
-                      }}
-                    >
-                      {settings.presentation || "@seu.usuario"}
-                    </p> */}
-                  </div>
-
-                  {/* Ícones de Redes Sociais */}
-                  <div style={socialIconsStyle}>
-                    {/* Você pode adicionar ícones de redes sociais aqui */}
-                  </div>
-
-                  {/* Container de Links */}
-                  <div style={linksContainerStyle}>
-                    {socialLinks.map((link, index) => (
-                      <button
-                        key={link.id || index}
-                        style={{
-                          ...buttonStylePreview,
-                          opacity: link.active ? 1 : 0.5,
-                        }}
-                        className={`preview-button button-${settings.buttonStyle}`}
-                        onClick={() => window.open(link.url, "_blank")}
-                      >
-                        {link.name}
-                      </button>
-                    ))}
-
-                    {socialLinks.length === 0 && (
-                      <div>
-                        {/* Campos de Link Dinâmicos */}
-                        <div className="field">
-                          {links.map((link) => (
-                            <Link href={`${link.value}`}>
-                              {/* <Buttons
-                                backgroundColor={backgroundColor}
-                                button={button}
-                                link={link}
-                                backgroundButton={settings.linkColor}
-                                colorButton="white"
-                              /> */}
-                              {/* <div
-                                key={link.id}
-                                style={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                }}
-                              >
-                                <button
-                                  type="text"
-                                  value={link.name}
-                                  onChange={(e) =>
-                                    updateLinkValue(
-                                      link.id,
-                                      "name",
-                                      e.target.value
-                                    )
-                                  }
-                                  placeholder={`Nome do Link ${link.id}`}
-                                  style={buttonStylePreview}
-                                >
-                                  {link.name}
-                                </button>
-                              </div> */}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Adicione um botão home do iPhone */}
-              <div
-                style={{
-                  width: "50px",
-                  height: "50px",
-                  borderRadius: "50%",
-                  border: "2px solid #1a1a1a",
-                  margin: "-25px auto 0",
-                  position: "relative",
-                  zIndex: 2,
-                  backgroundColor: "#f0f0f0",
-                }}
-              ></div>
-            </div>
+        <PreviewBio 
+           settings={settings}
+           bio={bio}
+           backgroundColor={backgroundColor}
+           button={button}
+           link={links}
+           backgroundButton={settings.linkColor}
+           colorButton="white"
+            />
+{bio}
           </div>
         </div>
       </div>

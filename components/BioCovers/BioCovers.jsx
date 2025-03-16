@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Link from "next/link";
 
-export default function BioCovers(){
+export default function BioCovers({setBio}){
      const [links, setLinks] = useState([
         { id: 1, name: "LINK 1", value: "" },
         { id: 2, name: "LINK 2", value: "" },
@@ -91,11 +91,50 @@ export default function BioCovers(){
             </div>
           </div>
         )}
+          {/* <Link href={`/viewer/tema3`} className={styles.Link}> */}
+            <div className={styles.tema3} onClick={() => setBio("bio1")}>
+              {links.map((link) => (
+                <div key={link.id}>
+                  <button
+                    type="text"
+                    value={link.name}
+                    onChange={(e) =>
+                      updateLinkValue(link.id, "name", e.target.value)
+                    }
+                    placeholder={`Nome do Link ${link.id}`}
+                    className={styles.tema3Buttons}
+                  >
+                    {link.name}
+                  </button>
+                </div>
+              ))}
+            </div>
+          {/* </Link> */}
+
+          {/* <Link href={`/viewer/tema5`} className={styles.Link}> */}
+          <div className={styles.tema5} onClick={ () => setBio("bio2")}>
+            {links.map((link) => (
+              <div key={link.id}>
+                <button
+                  type="text"
+                  value={link.name}
+                  onChange={(e) =>
+                    updateLinkValue(link.id, "name", e.target.value)
+                  }
+                  placeholder={`Nome do Link ${link.id}`}
+                  className={styles.tema5Buttons}
+                >
+                  {link.name}
+                </button>
+              </div>
+            ))}
+          </div>{" "}
+        {/* </Link> */}
         {status !== "RECEIVED" ? (
           <div
             style={{
-              display: "flex",
-              gap: "1rem",
+                display: "flex",
+                gap: "1rem",
             }}
           >
             <div className={styles.Link} onClick={handleClickOpenModal}>
@@ -659,25 +698,6 @@ export default function BioCovers(){
           </div>
         </Link>
 
-        <Link href={`/viewer/tema3`} className={styles.Link}>
-          <div className={styles.tema3}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema3Buttons}
-                >
-                  {link.name}
-                </button>
-              </div>
-            ))}
-          </div>
-        </Link>
         <Link href={`/viewer/tema4`} className={styles.Link}>
           <div className={styles.tema4}>
             {links.map((link) => (
@@ -697,25 +717,7 @@ export default function BioCovers(){
             ))}
           </div>
         </Link>
-        <Link href={`/viewer/tema5`} className={styles.Link}>
-          <div className={styles.tema5}>
-            {links.map((link) => (
-              <div key={link.id}>
-                <button
-                  type="text"
-                  value={link.name}
-                  onChange={(e) =>
-                    updateLinkValue(link.id, "name", e.target.value)
-                  }
-                  placeholder={`Nome do Link ${link.id}`}
-                  className={styles.tema5Buttons}
-                >
-                  {link.name}
-                </button>
-              </div>
-            ))}
-          </div>{" "}
-        </Link>
+       
 
         {status !== "RECEIVED" ? (
           <div

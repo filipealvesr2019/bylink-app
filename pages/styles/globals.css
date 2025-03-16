@@ -339,7 +339,7 @@ select option:checked {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   padding: 20px;
   border-radius: 24px;
-  margin-top: 20px;
+
 }
 
 .preview-container h3 {

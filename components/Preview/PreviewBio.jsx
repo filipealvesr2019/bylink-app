@@ -8,12 +8,15 @@ import bio7 from "./BioStyles/bio7.module.css";
 import bio8 from "./BioStyles/bio8.module.css";
 import bio9 from "./BioStyles/bio9.module.css";
 import bio10 from "./BioStyles/bio10.module.css";
-import BioStyles from "./BioContainer.module.css";
+import PreviewBioStyles from "./PreviewBio.module.css";
 
+// import Bio1 from "./BioList/Bio1";
 
-import StandardBio from "./BioList/StandardBio";
+// import StandardBio from "./BioList/StandardBio";
 import Tema3 from "../temas/Tema3";
-export default function BioContainer({ 
+import StandardBio from "../Bio/BioList/StandardBio";
+import Tema5 from "../temas/Tema5";
+export default function PreviewBio({ 
     settings,
     bio,
     button,
@@ -36,7 +39,7 @@ export default function BioContainer({
         return bio4;
       case "bio5":
         return bio5;
-      case " bio6":
+      case "bio6":
         return bio6;
       case "bio7":
         return bio7;
@@ -74,11 +77,11 @@ export default function BioContainer({
 
           </div>
         );
-      case "bio3":
+      case "bio2":
         return (
-          <></>
+          <Tema5/>
         );
-      case "bio4":
+      case "bio3":
         return (
          <></>
         );
@@ -89,14 +92,13 @@ export default function BioContainer({
 
   return (
     <>
-      <div className={BioStyles.BioContainerStyles}>
+      <div className={PreviewBioStyles.container}>
         <div
-          style={{
-            marginBottom: "1rem",
-          }}
+     
         >
           {handleBioSwitch()}
         </div>
+        {bio}
       </div>
     </>
   );

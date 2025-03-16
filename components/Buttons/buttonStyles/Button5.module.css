@@ -1,0 +1,16 @@
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+}
+.buttonLinks{
+    background: #ffffff;
+    border: 0;
+    color: #393e6f;
+    width:80vw;
+    margin: 0 auto;
+    padding: .8rem;
+    margin-bottom: .8rem;
+    border-radius: 100px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}

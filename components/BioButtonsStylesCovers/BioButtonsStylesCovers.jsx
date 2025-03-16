@@ -105,7 +105,7 @@ export default function BioButtonsStylesCovers({setButton, settings}){
               
                   )}
          
-          {/* <button onClick={() => setButton("button5")}>button2</button> */}
+          <button onClick={() => setButton("button5")}>button2</button>
           {/* <Buttons button={button} /> */}
         </div>
       </div>
