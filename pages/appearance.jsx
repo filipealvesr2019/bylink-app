@@ -16,7 +16,7 @@ import BioContainer from "../components/Bio/BioContainer";
 import BioCovers from "../components/BioCovers/BioCovers";
 
 import VideoList from "../components/Videos/VideoList";
-
+import BioButtonsStylesCovers from "../components/BioButtonsStylesCovers/BioButtonsStylesCovers";
 
 export default function Appearance() {
   const [links, setLinks] = useState([
@@ -25,7 +25,7 @@ export default function Appearance() {
   ]);
   const [button, setButton] = useState("button1");
   const [autoPlay, setAutoPlay] = useState(false);
-console.log(button)
+  console.log(button);
   // Default settings
   const defaultSettings = {
     backgroundColor: "#ffffff",
@@ -377,7 +377,7 @@ console.log(button)
                     <span>Videos</span>
                   </a>
                 </li>
-                
+
                 <li className={activeTab === "effects" ? "is-active" : ""}>
                   <a onClick={() => setActiveTab("effects")}>
                     <span className="icon"></span>
@@ -439,23 +439,26 @@ console.log(button)
                 status={status}
               />
             )}
- {activeTab === "videos" && (
-              <div  style={{
-                width: "35vw",
-              }}>
-              <VideosUpload />
+            {activeTab === "videos" && (
+              <div
+                style={{
+                  width: "35vw",
+                }}
+              >
+                <VideosUpload />
               </div>
             )}
             {activeTab === "temas" && (
-              <div  style={{
-                width: "35vw",
-              }}>
-              <BioCovers />
+              <div
+                style={{
+                  width: "35vw",
+                }}
+              >
+                <BioCovers />
               </div>
             )}
 
-            
- {activeTab === "effects" && (
+            {activeTab === "effects" && (
               <EffectsSettings settings={settings} setSettings={setSettings} />
             )}
             {activeTab === "botoes" && (
@@ -464,108 +467,10 @@ console.log(button)
                   width: "35vw",
                 }}
               >
-  
-                <h1> Estilo dos Botões</h1>
-                <div className={styles.buttons}>
-                  <button
-                    onClick={() => setButton("button1")}
-                    style={{
-                      backgroundColor: settings.linkColor,
-                      color: settings.backgroundColor,
-                      borderRadius: "4px",
-                      border: "0",
-                      width: "10vw",
-                      padding: ".5rem",
-                    }}
-                  >
-                    button1
-                  </button>
-
-                  
-                 
-                  
-                  <button
-                    onClick={() => setButton("button2")}
-                    style={{
-                      backgroundColor: settings.linkColor,
-                      color: settings.backgroundColor,
-                      borderRadius: "50px",
-                      border: "0",
-                      width: "10vw",
-                      padding: ".5rem",
-                    }}
-                  >
-                    button2
-                  </button>
-                   
-                  {status !== "RECEIVED" ? (
-                            <button
-                          
-                            style={{
-                              background: "transparent",
-                              color: settings.linkColor,
-                              width: "10vw",
-                              padding: ".5rem",
-                              border: `2px solid ${settings.linkColor}`,
-                              borderRadius: "6px",
-                            }}
-                          >
-                            button3
-                          </button>
-                          ) : (
-                          
-                               <button
-                    onClick={() => setButton("button3")}
-                    style={{
-                      background: "transparent",
-                      color: settings.linkColor,
-                      width: "10vw",
-                      padding: ".5rem",
-                      border: `2px solid ${settings.linkColor}`,
-                      borderRadius: "6px",
-                    }}
-                  >
-                    button3
-                  </button>
-                      
-                          )}
-                
-                {status !== "RECEIVED" ? (
-                             <button
-                             style={{
-                               width: "10vw",
-                               padding: ".5rem",
-                               background: "transparent",
-                               color: settings.linkColor,
-         
-                               border: `2px dashed ${settings.linkColor}`,
-                               borderRadius: "10px",
-                             }}
-                           >
-                             button4
-                           </button>
-                          ) : (
-                          
-                            <button
-                            onClick={() => setButton("button4")}
-                            style={{
-                              width: "10vw",
-                              padding: ".5rem",
-                              background: "transparent",
-                              color: settings.linkColor,
-        
-                              border: `2px dashed ${settings.linkColor}`,
-                              borderRadius: "10px",
-                            }}
-                          >
-                            button4
-                          </button>
-                      
-                          )}
-                 
-                  {/* <button onClick={() => setButton("button5")}>button2</button> */}
-                  {/* <Buttons button={button} /> */}
-                </div>
+                <BioButtonsStylesCovers
+                  settings={settings}
+                  setButton={setButton}
+                />
               </div>
             )}
 
@@ -616,16 +521,15 @@ console.log(button)
                    
                     </Link>
                   ))} */}
-                     <BioContainer
-                        settings={settings}
-                        bio="standard"
-                        backgroundColor={backgroundColor}
-                        button={button}
-                        link={links}
-                        backgroundButton={settings.linkColor}
-                        colorButton="white"
-                        
-                      />
+                  <BioContainer
+                    settings={settings}
+                    bio="standard"
+                    backgroundColor={backgroundColor}
+                    button={button}
+                    link={links}
+                    backgroundButton={settings.linkColor}
+                    colorButton="white"
+                  />
                   {/* Seção de Perfil */}
                   <div
                     style={{
