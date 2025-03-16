@@ -1,0 +1,1554 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 4 colunas */
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-items: center;
+    align-items: center;
+
+
+
+  }
+  
+  .img {
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    object-fit: fill;
+  }
+  
+  .lock {
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    color: #fff;
+  }
+  
+  .Link {
+    position: relative;
+  }
+  
+  .Mockup {
+    position: relative;
+  }
+  
+  .Modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .ModalContent {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 70%;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .Close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .tema27 {
+    background: linear-gradient(-45deg, #ff4e50, #fc913a, #f9d423, #ff4e50);
+    background-size: 300% 300%;
+    animation: wave 3s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+  }
+  
+  @keyframes wave {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Animação do fundo */
+  @keyframes animatedBackground {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Container com fundo animado */
+  .tema28 {
+    background: linear-gradient(-45deg, #1a237e, #4a148c, #d500f9, #6200ea);
+    background-size: 300% 300%;
+    animation: animatedBackground 6s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+  }
+  
+  .tema29 {
+    background: linear-gradient(45deg, #006d77, #14b8a6, #3b82f6, #9333ea);
+    background-size: 400% 400%;
+    animation: gradientAnimation 6s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #ffffff; /* Texto branco */
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .tema41 {
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema41Buttons button {
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 0;
+    color: black;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema1 {
+    background-color: black;
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema1Buttons {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema2 {
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema2Buttons {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema3 {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema3Buttons {
+    background: #ffffff;
+    border: 0;
+    color: #1e3c72;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema4 {
+    background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff7eb3);
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema4Buttons {
+    background: #ffffff;
+    border: 0;
+    color: #a45fbe;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema5 {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema5Buttons {
+    background: #ffffff;
+    border: 0;
+    color: #393e6f;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  .tema6 {
+    background: linear-gradient(135deg, #ff00ff, #ff4500);
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema6Buttons {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema7 {
+    background: linear-gradient(135deg, #00b09b, #96c93d);
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema7Buttons {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema8 {
+    background: linear-gradient(45deg, #ff6a00, #ee0979, #ff6a00, #a1c4fd);
+    background-size: 400% 400%;
+    animation: gradientAnimation 3s ease infinite;
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .tema8::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    z-index: -1;
+    animation: movePattern 10s linear infinite;
+  }
+  .tema8Buttons {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  .tema9 {
+    background-color: #1a1aff;
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema9Buttons {
+    background: transparent;
+    border: 2px dashed #ffffff;
+    color: #ffffff;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema10 {
+    background-color: #004d40;
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema10Buttons {
+    background: #ffffff;
+    border: 0;
+    color: #4a148c;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema11 {
+    background-color: #4a148c;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema11Buttons {
+    background: #ffffff;
+    border: 0;
+    color: #4a148c;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema12 {
+    background: linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff);
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema12Buttons {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema13 {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema13Buttons {
+    background: white;
+    border: thick double #ff9a9e;
+    color: #333333;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema14 {
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema14Buttons {
+    background: transparent;
+    border: thick double #32a1ce;
+    color: #ffffff;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  @keyframes moveGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .tema15 {
+    background: linear-gradient(270deg, #ff00ff, #00ffff, #ff00ff);
+    background-size: 400% 400%;
+    animation: moveGradient 10s ease infinite;
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema15Buttons {
+    background: #ffffff;
+    border: 0;
+    color: #4a148c;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema16 {
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema16Buttons {
+    background: #ffffff;
+    border: 0;
+    color: #004d40;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema17 {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema17Buttons {
+    background: transparent;
+    border: 2px dashed #ffffff;
+    color: #ffffff;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema18 {
+    background-image: url("https://i.imgur.com/D3Wmd73.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema18Buttons {
+    background: transparent;
+    border: 0;
+    border-bottom: 1.5px solid #ffffff;
+    color: #ffffff;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema19 {
+    background: #e9ecef;
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema19Buttons {
+    background: #6c757d;
+    border: 2px solid #6c757d;
+    color: #fff;
+    color: #ffffff;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  .tema20 {
+    background: #f1e6ff;
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema20Buttons {
+    background: #00ff99;
+    border: 0;
+    color: black;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  .tema21 {
+    background: #ffddc1;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema21Buttons {
+    background: #ff6f61;
+    border: 2px solid #ff6f61;
+    color: #ffffff;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  .tema22 {
+    background: #0d0d0d;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema22Buttons {
+    background: #00ff99;
+    border: none;
+    color: #111111;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 5px;
+  }
+  
+  .tema23 {
+    background: #0d0d0d;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema23Buttons {
+    background: white;
+    border: 0;
+    color: #333333;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+  
+  .tema24 {
+    background: #ffe5d9;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema24Buttons {
+    background: #ff9e9d;
+    border: 0;
+    color: #2e2e2e;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+  
+  .tema25 {
+    background: #fdcb82;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema25Buttons {
+    background: #ff8c00;
+    border: 0;
+    color: #ffffff;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  .tema26 {
+    background: #1a237e;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema26Buttons {
+    background: #6a1b9a;
+    border: 0;
+    color: #ffffff;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  .tema27 {
+    background: linear-gradient(-45deg, #ff4e50, #fc913a, #f9d423, #ff4e50);
+    background-size: 300% 300%;
+    animation: wave 3s ease infinite;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @keyframes wave {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  .tema27Buttons {
+    background: #6a0572;
+    border: 0;
+    color: #fff;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  @keyframes animatedBackground {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes animatedBackground {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .tema28 {
+    background: linear-gradient(-45deg, #1a237e, #4a148c, #d500f9, #6200ea);
+    background-size: 300% 300%;
+    animation: animatedBackground 3s ease infinite;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema28Buttons {
+    background: #d500f9;
+    color: white;
+    border: 0;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .tema29 {
+    background: linear-gradient(45deg, #006d77, #14b8a6, #3b82f6, #9333ea);
+    background-size: 400% 400%;
+    animation: gradientAnimation 3s ease infinite;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema29Buttons {
+    border: 0;
+    background: #006d77;
+    color: #fff;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  @keyframes moveBackground {
+    0% {
+      background-position: 0 0, 50px 50px, 0 50px, 50px 0;
+    }
+    50% {
+      background-position: 25px 25px, 75px 75px, 25px 75px, 75px 25px;
+    }
+    100% {
+      background-position: 0 0, 50px 50px, 0 50px, 50px 0;
+    }
+  }
+  
+  .tema30 {
+    background: radial-gradient(circle, #ff7b7b 15%, transparent 16%) 0 0,
+      radial-gradient(circle, #ff7b7b 15%, transparent 16%) 50px 50px,
+      radial-gradient(circle, #7bff7b 15%, transparent 16%) 0 50px,
+      radial-gradient(circle, #7bff7b 15%, transparent 16%) 50px 0;
+    background-size: 100px 100px;
+    animation: moveBackground 5s linear infinite;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema30Buttons {
+    border: 0;
+    background: #006d77;
+    color: #fff;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  .tema31 {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .tema31Buttons {
+    border: 0;
+    background: #ff6347;
+    border: none;
+    color: white;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  .tema32 {
+    background: #ffe5d9;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema32Buttons {
+    background: #2e2e2e;
+    border: 0;
+    color: white;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  .tema33 {
+    background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff7eb3);
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema33Buttons {
+    background-color: rgba(255, 255, 255, 0.3); /* Branco semitransparente */
+    border: 2px solid #ffffff; /* Borda branca para destacar o botão */
+  
+    color: black;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  .tema34 {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+  
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema34Buttons {
+    background-color: rgba(255, 255, 255, 0.6); /* Branco semitransparente */
+    border: 2px solid white; /* Borda azul para destacar o botão */
+  
+    color: black;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  .tema35 {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema35Buttons {
+    background-color: white; /* Branco semitransparente */
+    border: 0; /* Borda azul para destacar o botão */
+  
+    color: black;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  .tema38 {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema38Buttons {
+    background-color: rgba(255, 255, 255, 0.6); /* Branco semitransparente */
+    border: 0; /* Borda dourada para combinar com o fundo quente */
+  
+    color: black;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  
+  
+  .tema39 {
+    background:linear-gradient(135deg, #ff9a9e, #fad0c4);
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema39Buttons {
+    background-color: rgba(255, 255, 255, 0.6); /* Branco semitransparente */
+    border: 0; /* Borda dourada para combinar com o fundo quente */
+    
+      color: black;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  
+  
+  .tema40 {
+    background:linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema40Buttons {
+    background-color: rgba(255, 255, 255, 0.5); 
+    border: 2px solid #a1c4fd;
+    color: black;
+    
+    
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  
+  
+  .tema41 {
+    background:linear-gradient(135deg, #7b2ff7, #f107a3);
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema41Buttons {
+    background-color: rgba(255, 255, 255, 0.4); 
+    border: 0;
+    color: #ffffff;
+    
+    
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  
+  
+  .tema42 {
+    background:linear-gradient(135deg, #7b2ff7, #f107a3);
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema42Buttons {
+    background-color: rgba(255, 255, 255, 0.4); 
+    border: 2px double  rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease; /* Transição suave para todas as mudanças */
+  
+  }
+  
+  
+  .tema42Buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   height: 2vw;
+    font-size: .8rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff5252;
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px #000;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .tema42Buttons:hover {
+    background-color: #fff;
+    color: #ff5252;
+    border: 2px solid #ff5252;
+    box-shadow: 5px 5px 0px #ff5252;
+  }
+  
+  .tema42Buttons:active {
+    background-color: #fcf414;
+    box-shadow: none;
+    transform: translateY(4px);
+  }
+  
+  
+  
+  .tema43 {
+    background:#E8E8E8;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema43Buttons {
+   
+    
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.3em 2em;
+    border: 3px solid #FF0072;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: #FF0072;
+    text-decoration: none;
+    transition: 0.3s ease all;
+    z-index: 1;
+  }
+  
+  
+  .tema43Buttons:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: #FF0072;
+    z-index: -1;
+  }
+  
+  .tema43Buttons:hover, .tema43Buttons:focus {
+    color: white;
+  }
+  
+  .tema43Buttons:hover:before, .tema43Buttons:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+  }
+  
+  .tema43Buttons:active {
+    transform: scale(0.9);
+  }
+  
+  
+  .tema78 {
+    background: linear-gradient(45deg, #ff6a00, #ee0979, #ff6a00, #a1c4fd);
+    background-size: 400% 400%;
+    animation: gradientAnimation 3s ease infinite;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .tema78::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    z-index: -1;
+    animation: movePattern 10s linear infinite;
+  }
+  
+  @keyframes movePattern {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .tema78Buttons {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema83 {
+    background: #f4b400;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema83Buttons {
+    background: #b2e7d4;
+    border: 2px solid #b2e7d4;
+    color: black;
+  
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .tema84 {
+    background: #f1e6ff;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tema84Buttons {
+    background: #6610f2;
+    border: none;
+    color: #ffffff;
+    width: 12vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+  
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 5px;
+  }
+  

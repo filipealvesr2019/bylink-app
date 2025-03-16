@@ -13,6 +13,9 @@ import axios from "axios";
 
 import VideosUpload from "../components/Videos/VideosUpload";
 import BioContainer from "../components/Bio/BioContainer";
+import BioCovers from "../components/BioCovers/BioCovers";
+
+import VideoList from "../components/Videos/VideoList";
 
 
 export default function Appearance() {
@@ -368,21 +371,39 @@ console.log(button)
                     <span>Imagens</span>
                   </a>
                 </li>
+                <li className={activeTab === "videos" ? "is-active" : ""}>
+                  <a onClick={() => setActiveTab("videos")}>
+                    <span className="icon"></span>
+                    <span>Videos</span>
+                  </a>
+                </li>
+                
                 <li className={activeTab === "effects" ? "is-active" : ""}>
                   <a onClick={() => setActiveTab("effects")}>
                     <span className="icon"></span>
                     <span>Efeitos</span>
                   </a>
                 </li>
-                <li className={activeTab === "components" ? "is-active" : ""}>
+                <li className={activeTab === "botoes" ? "is-active" : ""}>
                   <a
-                    onClick={() => setActiveTab("components")}
+                    onClick={() => setActiveTab("botoes")}
                     style={{
                       display: "flex",
                       alignItems: "center",
                     }}
                   >
-                    <span>Componentes </span>
+                    <span>Botões </span>
+                  </a>
+                </li>
+                <li className={activeTab === "temas" ? "is-active" : ""}>
+                  <a
+                    onClick={() => setActiveTab("temas")}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <span>Temas</span>
                   </a>
                 </li>
               </ul>
@@ -418,23 +439,32 @@ console.log(button)
                 status={status}
               />
             )}
-
-            {activeTab === "effects" && (
-              <EffectsSettings settings={settings} setSettings={setSettings} />
+ {activeTab === "videos" && (
+              <div  style={{
+                width: "35vw",
+              }}>
+              <VideosUpload />
+              </div>
+            )}
+            {activeTab === "temas" && (
+              <div  style={{
+                width: "35vw",
+              }}>
+              <BioCovers />
+              </div>
             )}
 
-            {activeTab === "components" && (
+            
+ {activeTab === "effects" && (
+              <EffectsSettings settings={settings} setSettings={setSettings} />
+            )}
+            {activeTab === "botoes" && (
               <div
                 style={{
-                  width: "30vw",
+                  width: "35vw",
                 }}
               >
-                <div>
-                  <VideosUpload />
-                </div>
-                <form action="">
-                  <label htmlFor="">Formulario de Leads</label>
-                </form>
+  
                 <h1> Estilo dos Botões</h1>
                 <div className={styles.buttons}>
                   <button
