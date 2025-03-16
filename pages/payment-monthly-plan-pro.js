@@ -55,7 +55,6 @@ export default function Payment() {
       // Redirecionar para a URL de pagamento PIX
       window.location.href = response.data.data.data[0].bankSlipUrl;
       }
-      console.log('bankSlipUrl', response.data.data.data[0].bankSlipUrl)
       setLoading(false);
     } catch (error) {
       setLoading(false);
