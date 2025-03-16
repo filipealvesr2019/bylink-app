@@ -60,7 +60,7 @@ export default async function handler(req, res) {
       });
       await novoBoleto.save();
     }
-    console.log("boleto-monthly-subscription-plain-pro", data);
+    // console.log("boleto-monthly-subscription-plain-pro", data);
     return res
       .status(201)
       .json({ message: "Assinatura criada com sucesso", data });
