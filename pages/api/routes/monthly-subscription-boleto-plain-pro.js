@@ -66,6 +66,7 @@ export default async function handler(req, res) {
       cycle: "MONTHLY",   });
     await novaAssinatura.save();
     }
+    
     return res.status(201).json({ message: "Assinatura criada com sucesso", data });
   } catch (error) {
     console.log(error)
