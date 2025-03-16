@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./Preview1.module.css";
-const Preview1 = ({ CriarPagina }) => {
+import Buttons from "../Buttons/Buttons";
+const Preview1 = ({     settings,
+    button,
+    link,
+    backgroundButton,
+    backgroundColor,
+    colorButton }) => {
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
     { id: 2, name: "LINK 2", value: "" },
@@ -9,12 +15,7 @@ const Preview1 = ({ CriarPagina }) => {
     { id: 4, name: "LINK 4", value: "" },
   ]);
   const [name, setName] = useState("Tema1");
-  const settings = {
-    name: "Gradiente",
-    linksColor: "#ffffff",
-    backgroundColor: "linear-gradient(135deg, #ff7eb3, #ff758c, #ff7eb3)",
-    buttonStyle: "filled",
-  };
+
   const formatLinkName = (name) => {
     return name
       .toLowerCase() // Torna tudo minúsculo
@@ -43,7 +44,14 @@ const Preview1 = ({ CriarPagina }) => {
             </div>
             <span  className={styles.span}>{name}</span> 
           </div>
-
+          <Buttons
+                settings={settings}
+                backgroundColor={settings.backgroundColor}
+                button={button}
+                link={link}
+                backgroundButton={backgroundButton}
+                colorButton={colorButton}
+              />
           <div className="field">
             {links.map((link) => (
               <div
@@ -69,6 +77,7 @@ const Preview1 = ({ CriarPagina }) => {
             ))}
           </div>
         </div>
+        
       </div>
     </>
   );

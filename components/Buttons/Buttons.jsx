@@ -137,9 +137,9 @@ export default function Buttons({
                     className={styles.button}
                     style={{
                       background: "transparent",
-                      color: backgroundButton,
+                      color: backgroundColor,
 
-                      border: `2px solid ${backgroundButton}`,
+                      border: `2px solid ${backgroundColor}`,
                       borderRadius: "6px",
                       marginBottom: "1rem",
                     }}

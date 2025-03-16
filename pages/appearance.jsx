@@ -321,7 +321,7 @@ export default function Appearance() {
     }),
   };
   // RECEIVED
-  const status = "dRECEIVED";
+  const status = "RECEIVED";
   return (
     <div
       style={{
@@ -469,6 +469,7 @@ export default function Appearance() {
                 }}
               >
                 <BioButtonsStylesCovers
+                status={status}
                   settings={settings}
                   setButton={setButton}
                 />
@@ -518,6 +519,7 @@ export default function Appearance() {
            link={links}
            backgroundButton={settings.linkColor}
            colorButton="white"
+           
             />
 {bio}
           </div>

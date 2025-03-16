@@ -101,6 +101,7 @@ export default function PreviewBio({
           {handleBioSwitch()}
         </div>
         {/* {bio} */}
+        {backgroundColor}
       </div>
     </>
   );

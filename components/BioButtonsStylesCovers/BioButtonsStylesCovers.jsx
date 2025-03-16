@@ -1,5 +1,5 @@
 import styles from './BioButtonsStylesCovers.module.css'
-export default function BioButtonsStylesCovers({setButton, settings}){
+export default function BioButtonsStylesCovers({setButton, settings, status}){
     return (
         <div
         style={{
