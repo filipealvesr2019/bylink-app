@@ -53,8 +53,9 @@ export default function Payment() {
       const response = await axios.get("/api/routes/boleto-monthly-subscription-plain-pro");
       if (response.status === 201) {
       // Redirecionar para a URL de pagamento PIX
-      window.location.href = response.bankSlipUrl;
+      window.location.href = response.data.data.data[0].bankSlipUrl;
       }
+      console.log('bankSlipUrl', response.data.data.data[0].bankSlipUrl)
       setLoading(false);
     } catch (error) {
       setLoading(false);

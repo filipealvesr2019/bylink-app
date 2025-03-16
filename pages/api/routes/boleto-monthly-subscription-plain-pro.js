@@ -52,7 +52,7 @@ export default async function handler(req, res) {
 
     const novoBoleto = new Boleto({ userId: userId, bankSlipUrl: data.bankSlipUrl});
     await novoBoleto.save();
-     console.log('boleto-monthly-subscription-plain-pro', data)
+    //  console.log('boleto-monthly-subscription-plain-pro', data)
     return res.status(201).json({ message: "Assinatura criada com sucesso", data });
   } catch (error) {
     console.error("Erro ao processar a requisição:", error);
