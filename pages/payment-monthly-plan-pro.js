@@ -2,6 +2,7 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./payment.module.css";
+import Loading from "../components/Loading/Loading";
 
 export default function Payment() {
   const router = useRouter();
@@ -36,9 +37,10 @@ export default function Payment() {
     try {
       const response = await axios.post("/api/routes/monthly-subscription-pix-plain-pro");
       if (response.status === 201) {
-      
+        
         handleQRcode(); // Chama a função para gerar o QR Code
       }
+  
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -91,6 +93,7 @@ export default function Payment() {
 
   return (
     <div className={styles.container}>
+      {loading ? <Loading/> : <>
       <div className={styles.menu}>
         <div className={styles.container__a}>
           <button onClick={handlePixPayment}>Pagar com Pix</button>
@@ -104,6 +107,8 @@ export default function Payment() {
         </div>
       </div>
       {encodedImage && <div>Encoded Image: {encodedImage}</div>} {/* Exibe o QR Code ou mensagem */}
+      
+      </>}
     </div>
   );
 }
