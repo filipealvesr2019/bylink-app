@@ -36,7 +36,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         addressKey: "126dff0c-fc98-402b-8e5f-fb68554ac533",
-        description: "Assinatura Mensal Plano Pro",
+        description: "Assinatura Semestral Plano Pro",
         value: 86,
         format: "ALL",
         expirationDate: "2025-05-05 14:20:50",

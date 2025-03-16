@@ -1,13 +1,15 @@
+import Subscriptions from "../models/subscriptions";
+import Boleto from "../models/Boleto";
 import Clientes from "../models/Clientes";
 import QRcode from "../models/QRcode";
 import dbConnect from "../utils/dbConnect";
 import { getAuth } from "@clerk/nextjs/server";
 
 export default async function handler(req, res) {
-  const token = process.env.PROD_ASAAS_TOKEN;
+  const token = process.env.ASAAS_TOKEN;
   const { userId } = getAuth(req);
 
-  if (req.method !== "POST") {
+  if (req.method !== "GET") {
     return res.status(405).json({ message: "Método não permitido" });
   }
 
@@ -19,34 +21,27 @@ export default async function handler(req, res) {
 
     const customer = await Clientes.findOne({ userId });
     const asaasId = customer?.asaasId;
-
+    const subscriptions = await Subscriptions.findOne({ userId });
+    const id = subscriptions.subscriptionId
+    // const {id} = req.body;
+ // Verifica se já existe uma assinatura para esse usuário
     if (!userId || !asaasId) {
       return res.status(400).json({ message: "userId e customerId são obrigatórios" });
     }
 
-    const url = "https://api.asaas.com/v3/pix/qrCodes/static";
+    const url = `https://api-sandbox.asaas.com/v3/subscriptions/${id}/payments?status=PENDING`;
     const options = {
-      method: "POST",
+      method: "GET",
       headers: {
         accept: "application/json",
-        "content-type": "application/json",
         access_token: token, // Pegando o token da env
       },
-      body: JSON.stringify({
-        addressKey: "126dff0c-fc98-402b-8e5f-fb68554ac533",
-        description: "Assinatura Anual Plano Pro",
-        value: 173,
-        format: "ALL",
-        expirationDate: "2025-05-05 14:20:50",
-        expirationSeconds: null,
-        allowsMultiplePayments: true,
-        externalReference: null,
-      }),
+   
     };
 
     const response = await fetch(url, options);
-
-    // Verifica se há conteúdo antes de chamar .json()
+    console.log(response)
+    // Verifica se há co nteúdo antes de chamar .json()
     const text = await response.text();
     const data = text ? JSON.parse(text) : null;
 
@@ -55,9 +50,9 @@ export default async function handler(req, res) {
       return res.status(response.status).json({ error: data || "Erro desconhecido da API Asaas" });
     }
 
-    const novaAssinatura = new QRcode({ userId: userId, subscriptionId: data.id, plan: "YEARLY" });
-    await novaAssinatura.save();
-     console.log(response)
+    const novoBoleto = new Boleto({ userId: userId, bankSlipUrl: data.bankSlipUrl});
+    await novoBoleto.save();
+    //  console.log('boleto-monthly-subscription-plain-pro', data)
     return res.status(201).json({ message: "Assinatura criada com sucesso", data });
   } catch (error) {
     console.error("Erro ao processar a requisição:", error);
