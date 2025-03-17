@@ -1,12 +1,12 @@
 import Clientes from "../models/Clientes";
 import Subscriptions from "../models/subscriptions";
 import dbConnect from "../utils/dbConnect";
-import { getAuth } from '@clerk/nextjs/server'
+import { getAuth } from "@clerk/nextjs/server";
 
 export default async function handler(req, res) {
-    const token = process.env.ASAAS_TOKEN
-    
-    const { userId } = getAuth(req)
+  const token = process.env.ASAAS_TOKEN;
+
+  const { userId } = getAuth(req);
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Método não permitido" });
   }
@@ -18,10 +18,13 @@ export default async function handler(req, res) {
     const asaasId = customer?.asaasId;
     let assinaturaExistente = await Subscriptions.findOne({ userId });
 
+    const { holderName, number, expiryMonth, expiryYear, ccv } = req.body;
     if (!userId || !asaasId) {
-      return res.status(400).json({ message: "userId e customerId são obrigatórios" });
+      return res
+        .status(400)
+        .json({ message: "userId e customerId são obrigatórios" });
     }
-    console.log(asaasId)
+    console.log(asaasId);
 
     const url2 = `https://api-sandbox.asaas.com/v3/customers/${asaasId}`;
     const options2 = {
@@ -35,11 +38,11 @@ export default async function handler(req, res) {
     const response2 = await fetch(url2, options2);
     const data2 = await response2.json();
     if (!response2.ok) {
-        const errorResponse = await response2.json();
-        console.error("Erro na API do Asaas:", errorResponse);
-        return res.status(response2.status).json(errorResponse);
-      }
-    console.log(data2)
+      const errorResponse = await response2.json();
+      console.error("Erro na API do Asaas:", errorResponse);
+      return res.status(response2.status).json(errorResponse);
+    }
+    console.log(data2);
 
     const url = "https://api-sandbox.asaas.com/v3/subscriptions";
     const options = {
@@ -50,7 +53,7 @@ export default async function handler(req, res) {
         access_token: token, // Pegando o token da env
       },
       body: JSON.stringify({
-        billingType: 'CREDIT_CARD',
+        billingType: "CREDIT_CARD",
         cycle: "MONTHLY",
         customer: asaasId,
         value: 18,
@@ -62,21 +65,23 @@ export default async function handler(req, res) {
         endDate: null,
         maxPayments: null,
         externalReference: null,
-        callback: { successUrl: "https://bylink-app.vercel.app/", autoRedirect: true },
+        callback: {
+          successUrl: "https://bylink-app.vercel.app/",
+          autoRedirect: true,
+        },
         creditCard: {
-          holderName: 'John Doe',
-          number: '1234567890123456',
-          expiryMonth: '3',
-          expiryYear: '2025',
-          ccv: '123'
+          holderName: holderName,
+          number: number,
+          expiryMonth: expiryMonth,
+          expiryYear: expiryYear,
+          ccv: ccv,
         },
         creditCardHolderInfo: {
           name: data2.name,
           email: data2.email,
           cpfCnpj: data2.cpfCnpj,
-        
         },
-        remoteIp: null
+        remoteIp: null,
       }),
     };
 
@@ -93,14 +98,22 @@ export default async function handler(req, res) {
       assinaturaExistente.plan = "pro";
       assinaturaExistente.cycle = "MONTHLY";
       await assinaturaExistente.save();
-      return res.status(200).json({ message: "Plano atualizado com sucesso", data });
-  } else {
-    const novaAssinatura = new Subscriptions({ userId: userId, subscriptionId: data.id, plan: "pro",
-      cycle: "MONTHLY",   });
-    await novaAssinatura.save();
+      return res
+        .status(200)
+        .json({ message: "Plano atualizado com sucesso", data });
+    } else {
+      const novaAssinatura = new Subscriptions({
+        userId: userId,
+        subscriptionId: data.id,
+        plan: "pro",
+        cycle: "MONTHLY",
+      });
+      await novaAssinatura.save();
     }
-    return res.status(201).json({ message: "Assinatura criada com sucesso", data });
+    return res
+      .status(201)
+      .json({ message: "Assinatura criada com sucesso", data });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
