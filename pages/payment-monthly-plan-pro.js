@@ -94,6 +94,25 @@ export default function Payment() {
       );
     }
   };
+  const handleMonthlySubscriptionCartaoDeCredito = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        "/api/routes/monthly-subscription-cartao-de-credito-plain-pro"
+      );
+      if (response.status === 201) {
+        handleBoletoPayment();
+      }
+
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.error(
+        "Erro ao realizar a assinatura:",
+        error.response?.data || error.message
+      );
+    }
+  };
 
   // UseEffect para redirecionar após a atualização do estado encodedImage
   useEffect(() => {
@@ -120,6 +139,13 @@ export default function Payment() {
                 Pagar com Boleto
               </button>
             </div>
+            <div className={styles.container__a}>
+              <button onClick={handleMonthlySubscriptionCartaoDeCredito}>
+                Pagar com Cartão
+              </button>
+            </div>
+
+            
             <div className={styles.container__b}>
               <h1>Valor Total</h1>
               <button className={styles.button}>Atualizar Assinatura</button>

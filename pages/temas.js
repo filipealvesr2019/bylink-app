@@ -20,7 +20,7 @@ export default function Temas() {
   const [openModal, setOpenModal] = useState(false);
   const modalRef = useRef(null);
   const router = useRouter();
-
+  const [loading, setLoading] = useState(true);
   const handleClickOpenModal = () => {
     setOpenModal(true);
   };
@@ -82,21 +82,20 @@ export default function Temas() {
   // RECEIVED
   const status = "sRECEIVED";
   
-  
-
   useEffect(() => {
     const fetchCliente = async () => {
       try {
-        // Faz a requisição GET para o endpoint da API para buscar o cliente
-        const response = await fetch('/api/routes/clientes'); // Supondo que a rota é /api/cliente
+        const response = await fetch('/api/routes/clientes');
         if (!response.ok) {
           throw new Error('Cliente não encontrado');
         }
         const data = await response.json();
+        console.log("Dados do cliente recebidos:", data);
         setCliente(data);
       } catch (error) {
         setError(error.message);
       } finally {
+        setLoading(false);
       }
     };
 
