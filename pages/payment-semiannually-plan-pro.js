@@ -9,7 +9,12 @@ export default function Payment() {
   const [loading, setLoading] = useState(false);
   const [encodedImage, setEncodedImage] = useState("");
   const [payload, setPayload] = useState("");
-
+  // Estados para os dados do cartão
+  const [holderName, setHolderName] = useState("");
+  const [number, setNumber] = useState("");
+  const [expiryMonth, setExpiryMonth] = useState("");
+  const [expiryYear, setExpiryYear] = useState("");
+  const [ccv, setCcv] = useState("");
   const handlePixPayment = () => {
     handleMonthlySubscriptionPix();
   };
@@ -95,6 +100,36 @@ export default function Payment() {
       );
     }
   };
+  // Função para tratar requisições
+  const handleRequest = async (url, method = "POST", data = null) => {
+    setLoading(true);
+    try {
+      const response = await axios({ url, method, data });
+      if (response.status === 201) {
+        return response.data;
+      }
+    } catch (error) {
+      console.error("Erro:", error.response?.data || error.message);
+    } finally {
+      setLoading(false);
+    }
+    return null;
+  };
+
+const handleMonthlySubscriptionCartaoDeCredito = async () => {
+  const result = await handleRequest("/api/routes/semiannually-subscription-cartao-de-credito-plain-pro", "POST", {
+    holderName,
+    number,
+    expiryMonth,
+    expiryYear,
+    ccv,
+  });
+
+  if (result) {
+    alert("Pagamento com cartão aprovado!");
+    router.push("/confirmacao-pagamento");
+  }
+};
 
   // UseEffect para redirecionar após a atualização do estado encodedImage
   useEffect(() => {
@@ -120,6 +155,21 @@ export default function Payment() {
               <button onClick={handleMonthlySubscriptionBoleto}>
                 Pagar com Boleto
               </button>
+              <div className={styles.container__a}>
+              <button onClick={handleMonthlySubscriptionCartaoDeCredito}>
+                Pagar com Cartão
+              </button>
+            </div>
+            
+          {/* Inputs do cartão */}
+          <div className={styles.paymentForm}>
+            <h2>Dados do Cartão</h2>
+            <input type="text" placeholder="Nome do Titular" value={holderName} onChange={(e) => setHolderName(e.target.value)} />
+            <input type="text" placeholder="Número do Cartão" value={number} onChange={(e) => setNumber(e.target.value)} />
+            <input type="text" placeholder="Mês de Expiração" value={expiryMonth} onChange={(e) => setExpiryMonth(e.target.value)} />
+            <input type="text" placeholder="Ano de Expiração" value={expiryYear} onChange={(e) => setExpiryYear(e.target.value)} />
+            <input type="text" placeholder="CCV" value={ccv} onChange={(e) => setCcv(e.target.value)} />
+          </div>
             </div>
             <div className={styles.container__b}>
               <h1>Valor Total</h1>
