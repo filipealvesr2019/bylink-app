@@ -20,7 +20,7 @@ export default function QRCodePage() {
   console.log("encodedImage na página de QRCode:", encodedImage); // Verifique o valor aqui
   return (
     <div>
-      {encodedImage && payload ? (
+      {encodedImage  ? (
         <div className={styles.QRCode}>
           <h1>QR Code</h1>
           <QRCODE encodedImage={encodedImage} />
