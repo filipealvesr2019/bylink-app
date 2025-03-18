@@ -3,11 +3,11 @@ import button2 from "./buttonStyles/Button2.module.css";
 import button3 from "./buttonStyles/Button3.module.css";
 import button4 from "./buttonStyles/Button4.module.css";
 import button5 from "./buttonStyles/Button5.module.css";
-import button6 from "./buttonStyles/button6.module.css";
-import button7 from "./buttonStyles/button7.module.css";
-import button8 from "./buttonStyles/button8.module.css";
-import button9 from "./buttonStyles/button9.module.css";
-import button10 from "./buttonStyles/button10.module.css";
+// import button6 from "./buttonStyles/button6.module.css";
+// import button7 from "./buttonStyles/button7.module.css";
+// import button8 from "./buttonStyles/button8.module.css";
+// import button9 from "./buttonStyles/button9.module.css";
+// import button10 from "./buttonStyles/button10.module.css";
 import styles from "./Buttons.module.css";
 import Link from "next/link";
 export default function Buttons({
@@ -30,16 +30,16 @@ export default function Buttons({
         return button4;
       case "button5":
         return button5;
-      case "button6":
-        return button6;
-      case "button7":
-        return button7;
-      case "button8":
-        return button8;
-      case "button9":
-        return button9;
-      case "button10":
-        return button10;
+      // case "button6":
+      //   return button6;
+      // case "button7":
+      //   return button7;
+      // case "button8":
+      //   return button8;
+      // case "button9":
+      //   return button9;
+      // case "button10":
+        // return button10;
       default:
         return button1;
     }
