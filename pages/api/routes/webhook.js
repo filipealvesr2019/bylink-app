@@ -1,32 +1,33 @@
 import Webhook from "../models/webhook";
 import dbConnect from "../utils/dbConnect";
-import { getAuth } from '@clerk/nextjs/server'
-
+import { getAuth } from '@clerk/nextjs/server';
 
 export default async function handler(req, res) {
-      const { userId } = getAuth(req)
-    
-  if (req.method !== "PUT") {
-    return res.status(405).json({ error: "Método não permitido" });
-  }
-
-  try {
-    await dbConnect();
-    
-    const { id, event, payment } = req.body;
-    if (!userId || !id || !event || !payment) {
-      return res.status(400).json({ error: "Dados incompletos" });
+    if (req.method !== "POST") {
+      return res.status(405).json({ error: "Method Not Allowed" });
     }
-
-    const webhookData = await Webhook.findOneAndUpdate(
-      { id },
-      { userId: userId, event, payment, dateCreated: new Date() },
-      { upsert: true, new: true }
-    );
-
-    return res.status(200).json({ success: true, data: webhookData });
-  } catch (error) {
-    console.error("Erro ao processar webhook:", error);
-    return res.status(500).json({ error: "Erro interno do servidor" });
+  
+    const { userId } = getAuth(req);
+  
+    if (!userId) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+  
+    try {
+      await dbConnect();
+      const webhookData = req.body;
+  
+      // Garantir que o userId do Clerk seja associado ao webhook
+      const newWebhook = new Webhook({
+        ...webhookData,
+        userId, // Sobrescreve qualquer userId enviado no body
+      });
+  
+      await newWebhook.save();
+  
+      return res.status(201).json({ message: "Webhook received and saved." });
+    } catch (error) {
+      console.error("Error processing webhook:", error);
+      return res.status(500).json({ error: "Internal Server Error" });
+    }
   }
-}
