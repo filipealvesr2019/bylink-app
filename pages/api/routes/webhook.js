@@ -1,4 +1,4 @@
-import { Webhook } from "../models/webhook";
+import Webhook from "../models/webhook";
 import dbConnect from "../utils/dbConnect";
 import { getAuth } from '@clerk/nextjs/server'
 
