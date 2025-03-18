@@ -21,6 +21,7 @@ export default function Temas() {
   const modalRef = useRef(null);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const [status, setStatus] = useState("");
   const handleClickOpenModal = () => {
     setOpenModal(true);
   };
@@ -79,9 +80,29 @@ export default function Temas() {
       );
     }
   };
-  // RECEIVED
-  const status = "sRECEIVED";
-  
+
+
+  useEffect(() => {
+    const fetchSubscription = async () => {
+      try {
+        const response = await fetch('/api/routes/subscription');
+        if (!response.ok) {
+          throw new Error('Cliente não encontrado');
+        }
+        const data = await response.json();
+        console.log("fetchSubscription", data);
+        setStatus(data.status);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSubscription();
+  }, []);
+
+
   useEffect(() => {
     const fetchCliente = async () => {
       try {

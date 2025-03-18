@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Link from "next/link";
 
-export default function BioCovers({setBio}){
+export default function BioCovers({ status, setBio}){
      const [links, setLinks] = useState([
         { id: 1, name: "LINK 1", value: "" },
         { id: 2, name: "LINK 2", value: "" },
@@ -75,11 +75,7 @@ export default function BioCovers({setBio}){
             }
           }
           // RECEIVED
-  const status = "sRECEIVED";
-  
-   const handleBioToggle = () => {
-    
-   }
+
     return (
         <div className={styles.container}>
         {openModal && (

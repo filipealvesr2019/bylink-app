@@ -27,7 +27,8 @@ export default function Appearance() {
   const [button, setButton] = useState("button1");
   const [bio, setBio] = useState("standard");
   const [autoPlay, setAutoPlay] = useState(false);
-  console.log(button);
+    const [status, setStatus] = useState("");
+    const [loading, setLoading] = useState(true);
   // Default settings
   const defaultSettings = {
     backgroundColor: "#ffffff",
@@ -321,7 +322,27 @@ export default function Appearance() {
     }),
   };
   // RECEIVED
-  const status = "RECEIVED";
+
+
+  useEffect(() => {
+    const fetchSubscription = async () => {
+      try {
+        const response = await fetch('/api/routes/subscription');
+        if (!response.ok) {
+          throw new Error('Cliente não encontrado');
+        }
+        const data = await response.json();
+        console.log("fetchSubscription", data);
+        setStatus(data.status);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSubscription();
+  }, []);
   return (
     <div
       style={{
@@ -455,7 +476,7 @@ export default function Appearance() {
                 }}
               >
                 {bio}
-                <BioCovers  setBio={setBio}/>
+                <BioCovers  setBio={setBio} status={status}/>
               </div>
             )}
 
