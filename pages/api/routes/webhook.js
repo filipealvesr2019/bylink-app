@@ -24,7 +24,7 @@ export default async function handler(req, res) {
       });
   
       await newWebhook.save();
-  
+      console.log(newWebhook)
       return res.status(201).json({ message: "Webhook received and saved." });
     } catch (error) {
       console.error("Error processing webhook:", error);
