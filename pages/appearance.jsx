@@ -327,7 +327,7 @@ export default function Appearance() {
   useEffect(() => {
     const fetchSubscription = async () => {
       try {
-        const response = await fetch('/api/routes/subscription');
+        const response = await fetch('/api/routes/status');
         if (!response.ok) {
           throw new Error('Cliente não encontrado');
         }

@@ -89,7 +89,7 @@ export default function Temas() {
       setLoading(true);
 
       try {
-        const response = await fetch('/api/routes/subscription');
+        const response = await fetch('/api/routes/status');
         if (!response.ok) {
           throw new Error('Cliente não encontrado');
         }

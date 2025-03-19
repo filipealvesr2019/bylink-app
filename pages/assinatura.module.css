@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+
+}
+.div{
+    background-color: white;
+    width: 50vw;
+    height: 30vw;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}

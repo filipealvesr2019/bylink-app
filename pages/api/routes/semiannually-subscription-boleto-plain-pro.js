@@ -39,7 +39,7 @@ export default async function handler(req, res) {
         discount: { value: 0, dueDateLimitDays: 0, type: "PERCENTAGE" },
         interest: { value: 0 },
         fine: { value: null, type: "FIXED" },
-        description: "Assinatura Plano Pro anual",
+        description: "Assinatura Plano Pro Semestral",
         endDate: null,
         maxPayments: null,
         externalReference: null,
