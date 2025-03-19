@@ -242,6 +242,119 @@ export default function Temas() {
       }
     }
       
+
+
+    
+    const Tema2 = () => {
+      switch(status){
+        case  "RECEIVED":
+          return  <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+          }}
+        >
+          <Link href={`/viewer/tema2`} className={styles.Link}>
+            <div
+              className={styles.tema2}
+              style={{
+                backgroundImage: "url(https://i.imgur.com/qMgrYpd.jpg)",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              {links.map((link) => (
+                <div key={link.id}>
+                  <button
+                    type="text"
+                    value={link.name}
+                    onChange={(e) =>
+                      updateLinkValue(link.id, "name", e.target.value)
+                    }
+                    placeholder={`Nome do Link ${link.id}`}
+                    className={styles.tema2Buttons}
+                  >
+                    {link.name}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </Link>
+        </div>
+        case "CONFIRMED":
+          return  <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+          }}
+        >
+          <Link href={`/viewer/tema2`} className={styles.Link}>
+            <div
+              className={styles.tema2}
+              style={{
+                backgroundImage: "url(https://i.imgur.com/qMgrYpd.jpg)",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              {links.map((link) => (
+                <div key={link.id}>
+                  <button
+                    type="text"
+                    value={link.name}
+                    onChange={(e) =>
+                      updateLinkValue(link.id, "name", e.target.value)
+                    }
+                    placeholder={`Nome do Link ${link.id}`}
+                    className={styles.tema2Buttons}
+                  >
+                    {link.name}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </Link>
+        </div>
+        default:
+          return  <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+          }}
+        >
+          <div className={styles.Link} onClick={handleClickOpenModal}>
+            <div
+              className={styles.tema2}
+              style={{
+                backgroundImage: "url(https://i.imgur.com/qMgrYpd.jpg)",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              {links.map((link) => (
+                <div key={link.id}>
+                  <button
+                    type="text"
+                    value={link.name}
+                    onChange={(e) =>
+                      updateLinkValue(link.id, "name", e.target.value)
+                    }
+                    placeholder={`Nome do Link ${link.id}`}
+                    className={styles.tema2Buttons}
+                  >
+                    {link.name}
+                  </button>
+                </div>
+              ))}
+            </div>
+            <div className={styles.lock}>
+              <LockOutlinedIcon />
+            </div>
+          </div>
+        </div>
+      }
+    }
+      
   return (
     <>
       <MobileMenu />
@@ -259,6 +372,7 @@ export default function Temas() {
           </div>
         )}
         {Tema1()}
+        {Tema2()}
         {/* {status !== "RECEIVED"  ? (
           <div
             style={{
@@ -318,7 +432,7 @@ export default function Temas() {
           </div>
         )} */}
 
-        {status !== "RECEIVED" ? (
+        {/* {status !== "RECEIVED" ? (
           <div
             style={{
               display: "flex",
@@ -389,7 +503,7 @@ export default function Temas() {
               </div>
             </Link>
           </div>
-        )}
+        )} */}
 
         {status !== "RECEIVED" ? (
           <div
