@@ -73,7 +73,11 @@ export default function Login() {
               <span className={styles.icon}>🏠</span> Dashboard
             </Link>
           </li>
-         
+          <li>
+            <Link href="/assinatura" className={styles.link}>
+              <span className={styles.icon}>👤</span> Minha Assinatura
+            </Link>
+          </li>
           <li>
             <Link href="/appearance" className={styles.link}>
               <span className={styles.icon}>✏️</span> Aparência

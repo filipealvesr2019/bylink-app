@@ -42,7 +42,7 @@ export default async function handler(req, res) {
     if (!subscription) {
       return res.status(404).json({ error: "Subscription not found" });
     }
-
+    console.log(status)
     return res.status(200).json(status);
   } catch (error) {
     return res.status(500).json({ error: "Internal Server Error" });
