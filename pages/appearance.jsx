@@ -332,8 +332,7 @@ export default function Appearance() {
           throw new Error('Cliente não encontrado');
         }
         const data = await response.json();
-        console.log("fetchSubscription", data);
-        setStatus(data.status);
+        setStatus(data);
       } catch (error) {
         setError(error.message);
       } finally {
