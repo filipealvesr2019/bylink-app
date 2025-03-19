@@ -5,7 +5,7 @@ const Webhookschema = new mongoose.Schema({
   id: { type: String,  },
   event: { type: String,},
   dateCreated: { type: Date, },
-  payment: {
+  subscription: {
     object: { type: String,  },
     id: { type: String,},
     dateCreated: { type: Date, },

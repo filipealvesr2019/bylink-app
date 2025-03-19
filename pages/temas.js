@@ -8,6 +8,7 @@ import styles from "./temas.module.css";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import Loading from "../components/Loading/Loading";
 export default function Temas() {
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
@@ -81,26 +82,28 @@ export default function Temas() {
     }
   };
 
-
-  useEffect(() => {
-    const fetchSubscription = async () => {
-      try {
-        const response = await fetch('/api/routes/subscription');
-        if (!response.ok) {
-          throw new Error('Cliente não encontrado');
-        }
-        const data = await response.json();
-        console.log("fetchSubscription", data);
-        setStatus(data.status);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
+  const [loadingStatus, setLoadingStatus] = useState(true);
+ // Buscar status da assinatura
+ useEffect(() => {
+  const fetchSubscription = async () => {
+    try {
+      const response = await fetch("/api/routes/subscription");
+      if (!response.ok) {
+        throw new Error("Cliente não encontrado");
       }
-    };
+      const data = await response.json();
+      console.log("fetchSubscription", data);
+      setStatus(data.status);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoadingStatus(false);
+    }
+  };
 
-    fetchSubscription();
-  }, []);
+  fetchSubscription();
+}, []);
+
 
 
   useEffect(() => {
@@ -131,6 +134,15 @@ export default function Temas() {
       router.push("/subscription")
 
     }
+  }
+
+   // Exibir carregamento enquanto os dados não chegarem
+   if (loadingStatus) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <p>Erro: {error}</p>;
   }
   return (
     <>
