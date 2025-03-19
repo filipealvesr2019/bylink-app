@@ -16,7 +16,8 @@ export default function BioCovers({ status, setBio}){
         const [openModal, setOpenModal] = useState(false);
         const modalRef = useRef(null);
         const router = useRouter();
-      
+        const [cliente, setCliente] = useState(null);
+
         const handleClickOpenModal = () => {
           setOpenModal(true);
         };
