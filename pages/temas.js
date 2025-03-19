@@ -83,30 +83,31 @@ export default function Temas() {
   };
 
   const [loadingStatus, setLoadingStatus] = useState(true);
- // Buscar status da assinatura
- useEffect(() => {
-  const fetchSubscription = async () => {
-    try {
-      const response = await fetch("/api/routes/subscription");
-      if (!response.ok) {
-        throw new Error("Cliente não encontrado");
+
+  useEffect(() => {
+    const fetchSubscription = async () => {
+      try {
+        const response = await fetch('/api/routes/subscription');
+        if (!response.ok) {
+          throw new Error('Cliente não encontrado');
+        }
+        const data = await response.json();
+        console.log("fetchSubscription", data);
+        setStatus(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
-      const data = await response.json();
-      console.log("fetchSubscription", data);
-      setStatus(data.status);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoadingStatus(false);
-    }
-  };
+    };
 
-  fetchSubscription();
-}, []);
-
+    fetchSubscription();
+  }, []);
 
 
   useEffect(() => {
+    setLoading(true);
+
     const fetchCliente = async () => {
       try {
         const response = await fetch('/api/routes/clientes');
@@ -116,7 +117,11 @@ export default function Temas() {
         const data = await response.json();
         console.log("Dados do cliente recebidos:", data);
         setCliente(data);
+        setLoading(false);
+
       } catch (error) {
+        setLoading(false);
+
         setError(error.message);
       } finally {
         setLoading(false);
@@ -135,15 +140,10 @@ export default function Temas() {
 
     }
   }
-
-   // Exibir carregamento enquanto os dados não chegarem
-   if (loadingStatus) {
-    return <Loading />;
-  }
-
-  if (error) {
-    return <p>Erro: {error}</p>;
-  }
+    // Exibir carregamento enquanto os dados não chegarem
+    if (loading) {
+      return <Loading/>;
+    }
   return (
     <>
       <MobileMenu />
