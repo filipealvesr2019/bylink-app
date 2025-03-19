@@ -86,6 +86,8 @@ export default function Temas() {
 
   useEffect(() => {
     const fetchSubscription = async () => {
+      setLoading(true);
+
       try {
         const response = await fetch('/api/routes/subscription');
         if (!response.ok) {
@@ -94,8 +96,12 @@ export default function Temas() {
         const data = await response.json();
         console.log("fetchSubscription", data);
         setStatus(data);
+        setLoading(false);
+
       } catch (error) {
         setError(error.message);
+        setLoading(false);
+
       } finally {
         setLoading(false);
       }
