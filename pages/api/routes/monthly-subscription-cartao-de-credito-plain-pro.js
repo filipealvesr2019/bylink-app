@@ -13,6 +13,7 @@ export default async function handler(req, res) {
 
   try {
     await dbConnect(); // Conecta ao banco
+    const remoteIp = req.headers["x-forwarded-for"]?.split(",")[0] || req.socket.remoteAddress;
 
     const customer = await Clientes.findOne({ userId });
     const asaasId = customer?.asaasId;
@@ -24,7 +25,6 @@ export default async function handler(req, res) {
         .status(400)
         .json({ message: "userId e customerId são obrigatórios" });
     }
-    console.log(asaasId);
 
     const url2 = `https://api-sandbox.asaas.com/v3/customers/${asaasId}`;
     const options2 = {
@@ -42,7 +42,7 @@ export default async function handler(req, res) {
       console.error("Erro na API do Asaas:", errorResponse);
       return res.status(response2.status).json(errorResponse);
     }
-    console.log(data2);
+  
 
     const url = "https://api-sandbox.asaas.com/v3/subscriptions";
     const options = {
@@ -81,9 +81,10 @@ export default async function handler(req, res) {
           email: data2.email,
           cpfCnpj: data2.cpfCnpj,
         },
-        remoteIp: null,
+        remoteIp: remoteIp,
       }),
     };
+    console.log(remoteIp)
 
     const response = await fetch(url, options);
     const data = await response.json();
