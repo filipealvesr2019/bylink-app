@@ -243,7 +243,6 @@ export default function Temas() {
     }
       
 
-
     
     const Tema2 = () => {
       switch(status){
@@ -355,6 +354,98 @@ export default function Temas() {
       }
     }
       
+
+    
+    const Tema6 = () => {
+      switch(status){
+        case  "RECEIVED":
+          return  <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+          }}
+        >
+          <Link href={`/viewer/tema6`} className={styles.Link}>
+            <div className={styles.tema6}>
+              {links.map((link) => (
+                <div key={link.id}>
+                  <button
+                    type="text"
+                    value={link.name}
+                    onChange={(e) =>
+                      updateLinkValue(link.id, "name", e.target.value)
+                    }
+                    placeholder={`Nome do Link ${link.id}`}
+                    className={styles.tema6Buttons}
+                  >
+                    {link.name}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </Link>
+        </div>
+        case "CONFIRMED":
+          return   <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+          }}
+        >
+          <Link href={`/viewer/tema6`} className={styles.Link}>
+            <div className={styles.tema6}>
+              {links.map((link) => (
+                <div key={link.id}>
+                  <button
+                    type="text"
+                    value={link.name}
+                    onChange={(e) =>
+                      updateLinkValue(link.id, "name", e.target.value)
+                    }
+                    placeholder={`Nome do Link ${link.id}`}
+                    className={styles.tema6Buttons}
+                  >
+                    {link.name}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </Link>
+        </div>
+        default:
+          return    <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+          }}
+        >
+          <div className={styles.Link} onClick={handleClickOpenModal}>
+            <div className={styles.tema6}>
+              {links.map((link) => (
+                <div key={link.id}>
+                  <button
+                    type="text"
+                    value={link.name}
+                    onChange={(e) =>
+                      updateLinkValue(link.id, "name", e.target.value)
+                    }
+                    placeholder={`Nome do Link ${link.id}`}
+                    className={styles.tema3Buttons}
+                  >
+                    {link.name}
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.lock}>
+              <LockOutlinedIcon />
+            </div>
+          </div>
+        </div>
+      }
+    }
+      
   return (
     <>
       <MobileMenu />
@@ -371,9 +462,10 @@ export default function Temas() {
             </div>
           </div>
         )}
-        {Tema1()}
+         {Tema1()}
         {Tema2()}
-        {/* {status !== "RECEIVED"  ? (
+        {Tema6()}
+         {/* {teste !== "RECEIVED"  ? (
           <div
             style={{
               display: "flex",
@@ -430,9 +522,9 @@ export default function Temas() {
               </div>
             </Link>
           </div>
-        )} */}
+        )} 
 
-        {/* {status !== "RECEIVED" ? (
+        {teste !== "RECEIVED" ? (
           <div
             style={{
               display: "flex",
@@ -503,9 +595,9 @@ export default function Temas() {
               </div>
             </Link>
           </div>
-        )} */}
+        )}  */}
 
-        {status !== "RECEIVED" ? (
+        {/* {teste !== "RECEIVED" ? (
           <div
             style={{
               display: "flex",
@@ -563,7 +655,7 @@ export default function Temas() {
               </div>
             </Link>
           </div>
-        )}
+        )} */}
 
         {status !== "RECEIVED" ? (
           <div

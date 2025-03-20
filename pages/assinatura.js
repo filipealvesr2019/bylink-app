@@ -31,42 +31,68 @@ export default function assinatura() {
     fetchSubscription();
   }, []);
   const handleSwitchCycle = (cycle) => {
-    switch(cycle){
-        case "Assinatura Plano Pro Mensal":
-            return "Mensal"
-        case "Assinatura Plano Pro Semestral":
-            return "Semestral"
-        case "Assinatura Plano Pro Anual":
-        return "Anual"
-        default:
-            return "Gratuito"
+    switch (cycle) {
+      case "Assinatura Plano Pro Mensal":
+        return "Mensal";
+      case "Assinatura Plano Pro Semestral":
+        return "Semestral";
+      case "Assinatura Plano Pro Anual":
+        return "Anual";
+      default:
+        return "Gratuito";
     }
-  }
+  };
   return (
     <div className={styles.container}>
       <h1>Assinatura</h1>
       {loading ? (
         <Loading />
       ) : (
-        <div className={styles.div}>
-          <h2>Detalhes da Assinatura</h2>
-          <span>Nome do Plano: {subscription.description}</span>
-          <span>Frequência de cobrança: { handleSwitchCycle(subscription.description)}</span>
-          <span>Valor do plano: R${subscription.value}</span>
-        <div>
-        Status:{" "}
-          <span
-            style={{
-              color: subscription.status === "PENDING" ? "#F6880B" : "#00B983",
-              fontWeight: 700,
-            }}
-          >
-            {" "}
-            {subscription.status === "PENDING" ? "Pendente" : "Pago"}
-          </span>
-        </div>
-        <span>Data de assinatura: {new Date(subscription.dateCreated).toLocaleDateString("pt-BR")}</span>
-        </div>
+        <>
+          {!subscription ? (
+            <div className={styles.div}>
+              <h2>Detalhes da Assinatura</h2>
+              <span>Nome do Plano: Plano Gratuito</span>
+              <span>
+                Frequência de cobrança:c Nenhuma
+              </span>
+              <span>Valor do plano: R$0</span>
+              <div>
+                Status:Nenhuma
+              </div>
+              <span>
+                Data de assinatura:Nenhuma
+              </span>
+            </div>
+          ) : (
+            <div className={styles.div}>
+              <h2>Detalhes da Assinatura</h2>
+              <span>Nome do Plano: {subscription.description}</span>
+              <span>
+                Frequência de cobrança:{" "}
+                {handleSwitchCycle(subscription.description)}
+              </span>
+              <span>Valor do plano: R${subscription.value}</span>
+              <div>
+                Status:{" "}
+                <span
+                  style={{
+                    color:
+                      subscription.status === "PENDING" ? "#F6880B" : "#00B983",
+                    fontWeight: 700,
+                  }}
+                >
+                  {" "}
+                  {subscription.status === "PENDING" ? "Pendente" : "Pago"}
+                </span>
+              </div>
+              <span>
+                Data de assinatura:{" "}
+                {new Date(subscription.dateCreated).toLocaleDateString("pt-BR")}
+              </span>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
