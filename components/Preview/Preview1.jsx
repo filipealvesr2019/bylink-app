@@ -7,7 +7,8 @@ const Preview1 = ({     settings,
     link,
     backgroundButton,
     backgroundColor,
-    colorButton }) => {
+    colorButton,
+    colors }) => {
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
     { id: 2, name: "LINK 2", value: "" },
@@ -44,7 +45,9 @@ const Preview1 = ({     settings,
             </div>
             <span  className={styles.span}>{name}</span> 
           </div>
+          
           <Buttons
+          colors={colors}
                 settings={settings}
                 backgroundColor={settings.backgroundColor}
                 button={button}
@@ -52,7 +55,7 @@ const Preview1 = ({     settings,
                 backgroundButton={backgroundButton}
                 colorButton={colorButton}
               />
-          <div className="field">
+          {/* <div className="field">
             {links.map((link) => (
               <div
                 key={link.id}
@@ -70,12 +73,15 @@ const Preview1 = ({     settings,
                   }
                   placeholder={`Nome do Link ${link.id}`}
                   className={styles.buttonLinks}
+                  style={{
+                    background: "#ffffff"
+                  }}
                 >
                   {link.name}
                 </button>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
         
       </div>

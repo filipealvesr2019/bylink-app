@@ -5,6 +5,8 @@ const ColorSettings = ({
   status,
   setSettings,
   handleTitleColorChange,
+  setBackgroundButton,
+  backgroundButton,
 }) => {
   return (
     <div
@@ -56,7 +58,20 @@ const ColorSettings = ({
                 </div>
               </div>
             </div>
+            <div className="column is-6">
+              <div className="field">
+                <label className="label">Cor dos butoes</label>
+                <div className="control">
+                  <input
+                    type="color"
+                    value={settings.linkColor}
+                    onChange={(e) => setBackgroundButton(e.target.value)}
 
+                    className="input"
+                  />
+                </div>
+              </div>
+            </div>
         {status !== "RECEIVED" ? (
           <></>
         ) : (
@@ -68,13 +83,9 @@ const ColorSettings = ({
                 <div className="control">
                   <input
                     type="color"
-                    value={settings.linkColor}
-                    onChange={(e) =>
-                      setSettings((prev) => ({
-                        ...prev,
-                        linkColor: e.target.value,
-                      }))
-                    }
+                    value={backgroundButton}
+                    onChange={(e) => setBackgroundButton(e.target.value)}
+
                     className="input"
                   />
                 </div>

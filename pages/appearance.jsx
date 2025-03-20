@@ -26,6 +26,9 @@ export default function Appearance() {
   ]);
   const [button, setButton] = useState("button1");
   const [bio, setBio] = useState("standard");
+  const [colors , setColors] = useState({})
+  const [backgroundButton , setBackgroundButton] = useState("")
+  
   const [autoPlay, setAutoPlay] = useState(false);
     const [status, setStatus] = useState("");
     const [loading, setLoading] = useState(true);
@@ -59,6 +62,11 @@ export default function Appearance() {
     shadowStyle: "none",
     titleColor: "#000000",
   };
+  
+  const bio1 = { 
+    backgroundColor: "red"
+  }
+  
 
   // State management
   const [settings, setSettings] = useState(defaultSettings);
@@ -103,22 +111,8 @@ export default function Appearance() {
     }
   };
 
-  // Load and save settings
-  useEffect(() => {
-    const savedSettings = JSON.parse(
-      localStorage.getItem("appearanceSettings")
-    );
-    if (savedSettings) setSettings(savedSettings);
-  }, []);
 
-  useEffect(() => {
-    localStorage.setItem("appearanceSettings", JSON.stringify(settings));
-  }, [settings]);
 
-  useEffect(() => {
-    const savedLinks = JSON.parse(localStorage.getItem("socialLinks")) || [];
-    setSocialLinks(savedLinks);
-  }, []);
 
   // Handlers
   const handleReset = () => {
@@ -126,11 +120,7 @@ export default function Appearance() {
     setError("");
   };
 
-  const handleSaveTemplate = () => {
-    localStorage.setItem("appearanceSettings", JSON.stringify(settings));
-    alert("Template salvo com sucesso!");
-  };
-
+ 
   const validateImage = (url) => {
     return new Promise((resolve) => {
       const img = new Image();
@@ -437,6 +427,8 @@ export default function Appearance() {
                   status={status}
                   setSettings={setSettings}
                   handleTitleColorChange={handleTitleColorChange}
+                  setBackgroundButton={setBackgroundButton}
+                  backgroundButton={backgroundButton}
                 />
               </>
             )}
@@ -475,7 +467,7 @@ export default function Appearance() {
                 }}
               >
                 {bio}
-                <BioCovers  setBio={setBio} status={status}/>
+                <BioCovers  setBio={setBio} status={status} setColors={setColors}/>
               </div>
             )}
 
@@ -534,14 +526,17 @@ export default function Appearance() {
         <PreviewBio 
            settings={settings}
            bio={bio}
-           backgroundColor={backgroundColor}
+           backgroundColor={settings.backgroundColor}
            button={button}
            link={links}
-           backgroundButton={settings.linkColor}
+           backgroundButton={backgroundButton}
            colorButton="white"
+           colors={colors}
+           
            
             />
 {bio}
+
           </div>
         </div>
       </div>

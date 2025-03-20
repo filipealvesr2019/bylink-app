@@ -17,6 +17,7 @@ export default function Buttons({
   backgroundButton,
   colorButton,
   backgroundColor,
+  colors
 }) {
   const buttonStyles = () => {
     switch (button) {
@@ -61,13 +62,14 @@ export default function Buttons({
                     flexDirection: "column",
                   }}
                 >
+                  
                   <button
                     type="text"
                     value={link.name}
                     placeholder={`Nome do Link ${link.id}`}
                     className={styles.button}
                     style={{
-                      backgroundColor: backgroundButton,
+                      backgroundColor: backgroundButton ,
                       color: colorButton,
                       borderRadius: "4px",
                       marginBottom: "1rem",

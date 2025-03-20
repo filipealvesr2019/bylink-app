@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Link from "next/link";
 
-export default function BioCovers({ status, setBio}){
+export default function BioCovers({ status, setBio, setColors}){
      const [links, setLinks] = useState([
         { id: 1, name: "LINK 1", value: "" },
         { id: 2, name: "LINK 2", value: "" },
@@ -76,7 +76,16 @@ export default function BioCovers({ status, setBio}){
             }
           }
           // RECEIVED
+          const bio1 = {
+            backgroundColor: "#ffffff",
+            color: "#1e3c72" 
+          }
 
+          const handlBio = (bio, colors) =>{
+            setBio(bio);
+            setColors(colors)
+          }
+          
     return (
         <div className={styles.container}>
         {openModal && (
@@ -92,7 +101,7 @@ export default function BioCovers({ status, setBio}){
         )}
           {/* <Link href={`/viewer/tema3`} className={styles.Link}> */}
             <div className={styles.tema3} onClick={() => {
-                setBio("bio1")}}>
+                handlBio("bio1", bio1)}}>
               {links.map((link) => (
                 <div key={link.id}>
                   <button

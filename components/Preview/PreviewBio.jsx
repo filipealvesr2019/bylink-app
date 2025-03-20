@@ -25,7 +25,8 @@ export default function PreviewBio({
     colorButton,
     link,
     backgroundButton,
-    backgroundColor
+    backgroundColor,
+    colors
  }) {
 
 
@@ -75,7 +76,7 @@ export default function PreviewBio({
               flexDirection: "column",
             }}
           >
-                        <Preview1 settings={settings}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
+                        <Preview1 settings={settings} colors={colors}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
 
           </div>
         );
@@ -91,17 +92,18 @@ export default function PreviewBio({
         return null;
     }
   };
+  console.log(colors)
 
   return (
     <>
-      <div className={PreviewBioStyles.container}>
+      <div className={PreviewBioStyles.container} >
         <div
      
         >
           {handleBioSwitch()}
         </div>
         {/* {bio} */}
-        {backgroundColor}
+        {backgroundButton}
       </div>
     </>
   );
