@@ -8,6 +8,50 @@ const ColorSettings = ({
   setBackgroundButton,
   backgroundButton,
 }) => {
+
+  const ButtonsColors = () => {
+      switch (status) {
+        case "RECEIVED":
+          return (
+            <div className="column is-6">
+            <div className="field">
+              <label className="label">Cor dos butoes</label>
+              <div className="control">
+                <input
+                  type="color"
+                  value={settings.linkColor}
+                  onChange={(e) => setBackgroundButton(e.target.value)}
+
+                  className="input"
+                />
+              </div>
+            </div>
+          </div>
+          );
+        case "CONFIRMED":
+          return (
+            <div className="column is-6">
+            <div className="field">
+              <label className="label">Cor dos butoes</label>
+              <div className="control">
+                <input
+                  type="color"
+                  value={settings.linkColor}
+                  onChange={(e) => setBackgroundButton(e.target.value)}
+
+                  className="input"
+                />
+              </div>
+            </div>
+          </div>
+          );
+        default:
+          return (
+            <></>
+          );
+      }
+    };
+  
   return (
     <div
       className="settings-section"
@@ -58,21 +102,10 @@ const ColorSettings = ({
                 </div>
               </div>
             </div>
-            <div className="column is-6">
-              <div className="field">
-                <label className="label">Cor dos butoes</label>
-                <div className="control">
-                  <input
-                    type="color"
-                    value={settings.linkColor}
-                    onChange={(e) => setBackgroundButton(e.target.value)}
-
-                    className="input"
-                  />
-                </div>
-              </div>
-            </div>
-        {status !== "RECEIVED" ? (
+          
+{ButtonsColors()}
+            
+        {/* {status !== "RECEIVED" ? (
           <></>
         ) : (
           <>
@@ -92,7 +125,7 @@ const ColorSettings = ({
               </div>
             </div>
           </>
-        )}
+        )} */}
 
         {/* <div className="column is-12">
           <div className="field">

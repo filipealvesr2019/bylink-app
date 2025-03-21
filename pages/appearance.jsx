@@ -21,14 +21,31 @@ import PreviewBio from "../components/Preview/PreviewBio";
 
 export default function Appearance() {
   const [links, setLinks] = useState([
-    { id: 1, name: "Exemplo de Link 1", value: "" },
-    { id: 2, name: "Exemplo de Link 2", value: "" },
+    { id: 1, name: "LINK 1", value: "" },
+    { id: 2, name: "LINK 2", value: "" },
+    { id: 3, name: "LINK 3", value: "" },
+    { id: 4, name: "LINK 4", value: "" },
   ]);
   const [button, setButton] = useState("button1");
   const [bio, setBio] = useState("standard");
-  const [colors , setColors] = useState({})
-  const [backgroundButton , setBackgroundButton] = useState("")
   
+
+  const handlePreviewColors = () => {
+    switch(bio){
+      case "bio1":
+        return {containerBackground: "", BackgroundButton: "#ffffff"}
+        case "bio2":
+          return { containerBackground: "", BackgroundButton: "#ffffff"}
+      default:
+        return { BackgroundButton: "#0000ff"}
+    }
+  }
+  const {BackgroundButton } =  handlePreviewColors()
+  const [colors , setColors] = useState({})
+  const [backgroundButton , setBackgroundButton] = useState(BackgroundButton)
+  useEffect(() => {
+    setBackgroundButton(handlePreviewColors().BackgroundButton);
+  }, [bio]); // Sempre que `bio` mudar, atualiza `backgroundButton`
   const [autoPlay, setAutoPlay] = useState(false);
     const [status, setStatus] = useState("");
     const [loading, setLoading] = useState(true);

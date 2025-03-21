@@ -82,7 +82,7 @@ export default function PreviewBio({
         );
       case "bio2":
         return (
-          <Preview2/>
+          <Preview2  settings={settings} colors={colors}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
         );
       case "bio3":
         return (

@@ -71,7 +71,7 @@ export default function Buttons({
                     style={{
                       backgroundColor: backgroundButton ,
                       color: colorButton,
-                      borderRadius: "4px",
+                      
                       marginBottom: "1rem",
                     }}
                   >
