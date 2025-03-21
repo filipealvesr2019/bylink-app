@@ -1,16 +1,17 @@
 import Link from "next/link";
 import { useState } from "react";
-import styles from "./Preview1.module.css";
+import styles from "./Bio2.module.css";
 import Buttons from "../Buttons/Buttons";
-const Preview1 = ({     settings,
-    button,
-    link,
-    backgroundButton,
-    backgroundColor,
-    colorButton,
-    colors,
-    containerBackgroundColor
-   }) => {
+const Preview2 = ({
+  settings,
+  button,
+  link,
+  backgroundButton,
+  backgroundColor,
+  colorButton,
+  colors,
+  containerBackgroundColor,
+}) => {
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
     { id: 2, name: "LINK 2", value: "" },
@@ -18,7 +19,6 @@ const Preview1 = ({     settings,
     { id: 4, name: "LINK 4", value: "" },
   ]);
   const [name, setName] = useState("Tema1");
-
   const formatLinkName = (name) => {
     return name
       .toLowerCase() // Torna tudo minúsculo
@@ -37,28 +37,25 @@ const Preview1 = ({     settings,
           }}
           className={styles.content}
         >
-
           <div className={styles.profile}>
             <div>
-
-          <img
-            src="https://i.imgur.com/r6IyNwI.jpg"
-            alt=""
-            className={styles.img}
-          />
-            </div>
-            <span  className={styles.span}>{name}</span> 
-          </div>
-          
-          <Buttons
-          colors={colors}
-                settings={settings}
-                backgroundColor={settings.backgroundColor}
-                button={button}
-                link={link}
-                backgroundButton={backgroundButton}
-                colorButton={colorButton}
+              <img
+                src="https://i.imgur.com/r6IyNwI.jpg"
+                alt=""
+                className={styles.img}
               />
+            </div>
+            <span className={styles.span}>{name}</span>
+          </div>
+          <Buttons
+            colors={colors}
+            settings={settings}
+            backgroundColor={containerBackgroundColor}
+            button={button}
+            link={link}
+            backgroundButton={backgroundButton}
+            colorButton={colorButton}
+          />
           <div className="field">
             {links.map((link) => (
               <div
@@ -77,9 +74,6 @@ const Preview1 = ({     settings,
                   }
                   placeholder={`Nome do Link ${link.id}`}
                   className={styles.buttonLinks}
-                  style={{
-                    background: "#ffffff"
-                  }}
                 >
                   {link.name}
                 </button>
@@ -87,10 +81,9 @@ const Preview1 = ({     settings,
             ))}
           </div>
         </div>
-        
       </div>
     </>
   );
 };
 
-export default Preview1;
+export default Preview2;

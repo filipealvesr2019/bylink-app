@@ -12,12 +12,11 @@ import styles from "../pages/styles/appearance.module.css";
 import axios from "axios";
 
 import VideosUpload from "../components/Videos/VideosUpload";
-import BioContainer from "../components/Bio/BioContainer";
 import BioCovers from "../components/BioCovers/BioCovers";
 
 import VideoList from "../components/Videos/VideoList";
 import BioButtonsStylesCovers from "../components/BioButtonsStylesCovers/BioButtonsStylesCovers";
-import PreviewBio from "../components/Preview/PreviewBio";
+import BioContainer from "../components/Bio/BioContainer";
 
 export default function Appearance() {
   const [links, setLinks] = useState([
@@ -548,7 +547,7 @@ export default function Appearance() {
           {/* Preview */}
           <div className={styles.columnB}>
 
-        <PreviewBio 
+        <BioContainer 
            settings={settings}
            bio={bio}
            backgroundColor={settings.backgroundColor}

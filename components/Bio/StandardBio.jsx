@@ -1,12 +1,13 @@
-import Buttons from "../../Buttons/Buttons";
-import styles from "./Bio1.module.css";
-export default function Bio1({ 
+import Buttons from "../Buttons/Buttons";
+import styles from "./StandardBio.module.css";
+export default function StandardBio({ 
     settings,
     button,
     link,
     backgroundButton,
     backgroundColor,
-    colorButton
+    colorButton,
+    background
 
 }) {
   const profileImageStyle = {

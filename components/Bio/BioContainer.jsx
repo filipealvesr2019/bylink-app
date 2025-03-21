@@ -8,22 +8,28 @@ import bio7 from "./BioStyles/bio7.module.css";
 import bio8 from "./BioStyles/bio8.module.css";
 import bio9 from "./BioStyles/bio9.module.css";
 import bio10 from "./BioStyles/bio10.module.css";
-import BioStyles from "./BioContainer.module.css";
+import PreviewBioStyles from "./PreviewBio.module.css";
+
+// import Bio1 from "./BioList/Bio1";
+
+// import StandardBio from "./BioList/StandardBio";
 
 
-import StandardBio from "./BioList/StandardBio";
-import Tema3 from "../temas/Tema3";
-export default function BioContainer({ 
-    settings,
-    bio,
-    button,
-    colorButton,
-    link,
-    backgroundButton,
-    backgroundColor
- }) {
+import Bio1 from "./Bio1";
+import Bio2 from "./Bio2";
+import StandardBio from "./StandardBio";
+export default function BioContainer({
+  settings,
+  bio,
+  button,
+  colorButton,
+  link,
+  backgroundButton,
+  backgroundColor,
+  colors,
+  containerBackgroundColor,
 
-
+}) {
   const buttonStyles = () => {
     switch (bio) {
       case "bio1":
@@ -36,7 +42,7 @@ export default function BioContainer({
         return bio4;
       case "bio5":
         return bio5;
-      case " bio6":
+      case "bio6":
         return bio6;
       case "bio7":
         return bio7;
@@ -58,7 +64,16 @@ export default function BioContainer({
       case "standard":
         return (
           <div>
-            <StandardBio settings={settings}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
+            <StandardBio
+              settings={settings}
+              backgroundColor={backgroundColor}
+              backgroundButton={backgroundButton}
+              button={button}
+              link={link}
+              colorButton={colorButton}
+              containerBackgroundColor={containerBackgroundColor}
+
+            />
           </div>
         );
       case "bio1":
@@ -70,33 +85,46 @@ export default function BioContainer({
               flexDirection: "column",
             }}
           >
-                        <Tema3 settings={settings}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
-
+            <Bio1
+              settings={settings}
+              colors={colors}
+              backgroundColor={backgroundColor}
+              backgroundButton={backgroundButton}
+              button={button}
+              link={link}
+              colorButton={colorButton}
+              containerBackgroundColor={containerBackgroundColor}
+            />
           </div>
         );
+      case "bio2":
+        return (
+          <Bio2
+            settings={settings}
+            colors={colors}
+            backgroundColor={backgroundColor}
+            backgroundButton={backgroundButton}
+            button={button}
+            link={link}
+            colorButton={colorButton}
+            containerBackgroundColor={containerBackgroundColor}
+
+          />
+        );
       case "bio3":
-        return (
-          <></>
-        );
-      case "bio4":
-        return (
-         <></>
-        );
+        return <></>;
       default:
         return null;
     }
   };
+  console.log(colors);
 
   return (
     <>
-      <div className={BioStyles.BioContainerStyles}>
-        <div
-          style={{
-            marginBottom: "1rem",
-          }}
-        >
-          {handleBioSwitch()}
-        </div>
+      <div className={PreviewBioStyles.container}>
+        <div>{handleBioSwitch()}</div>
+        {/* {bio} */}
+        {containerBackgroundColor}
       </div>
     </>
   );
