@@ -92,7 +92,7 @@ const ColorSettings = ({
                   <input
                     type="color"
                     value={containerBackgroundColor}
-                    onChange={(e) => setContainerBackgroundColor(e)}
+                    onChange={(e) => setContainerBackgroundColor(e.target.value)}
                     className="input"
                     disabled={settings.gradient}
                   />

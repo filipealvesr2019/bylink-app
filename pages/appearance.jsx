@@ -560,7 +560,7 @@ export default function Appearance() {
            
            
             />
-{bio}
+
 
           </div>
         </div>
