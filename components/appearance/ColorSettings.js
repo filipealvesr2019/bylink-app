@@ -7,6 +7,8 @@ const ColorSettings = ({
   handleTitleColorChange,
   setBackgroundButton,
   backgroundButton,
+  setContainerBackgroundColor,
+  containerBackgroundColor
 }) => {
 
   const ButtonsColors = () => {
@@ -19,7 +21,7 @@ const ColorSettings = ({
               <div className="control">
                 <input
                   type="color"
-                  value={settings.linkColor}
+                  value={backgroundButton}
                   onChange={(e) => setBackgroundButton(e.target.value)}
 
                   className="input"
@@ -36,7 +38,7 @@ const ColorSettings = ({
               <div className="control">
                 <input
                   type="color"
-                  value={settings.linkColor}
+                  value={backgroundButton}
                   onChange={(e) => setBackgroundButton(e.target.value)}
 
                   className="input"
@@ -89,13 +91,8 @@ const ColorSettings = ({
                 <div className="control">
                   <input
                     type="color"
-                    value={settings.backgroundColor}
-                    onChange={(e) =>
-                      setSettings((prev) => ({
-                        ...prev,
-                        backgroundColor: e.target.value,
-                      }))
-                    }
+                    value={containerBackgroundColor}
+                    onChange={(e) => setContainerBackgroundColor(e)}
                     className="input"
                     disabled={settings.gradient}
                   />
@@ -104,7 +101,7 @@ const ColorSettings = ({
             </div>
           
 {ButtonsColors()}
-            
+        
         {/* {status !== "RECEIVED" ? (
           <></>
         ) : (

@@ -33,19 +33,25 @@ export default function Appearance() {
   const handlePreviewColors = () => {
     switch(bio){
       case "bio1":
-        return {containerBackground: "", BackgroundButton: "#ffffff"}
+        return {containerBackground: "linear-gradient(135deg, #1e3c72, #2a5298)", BackgroundButton: "#ffffff"}
         case "bio2":
-          return { containerBackground: "", BackgroundButton: "#ffffff"}
+          return { containerBackground: "linear-gradient(135deg, #00c6ff, #0072ff)", BackgroundButton: "#ffffff"}
       default:
-        return { BackgroundButton: "#0000ff"}
+        return { containerBackground: "red", BackgroundButton: "#0000ff"}
     }
   }
-  const {BackgroundButton } =  handlePreviewColors()
+  const {containerBackground, BackgroundButton } =  handlePreviewColors()
   const [colors , setColors] = useState({})
+  const [containerBackgroundColor , setContainerBackgroundColor] = useState(containerBackground)
+
   const [backgroundButton , setBackgroundButton] = useState(BackgroundButton)
   useEffect(() => {
-    setBackgroundButton(handlePreviewColors().BackgroundButton);
-  }, [bio]); // Sempre que `bio` mudar, atualiza `backgroundButton`
+    const { containerBackground, BackgroundButton } = handlePreviewColors();
+    setContainerBackgroundColor(containerBackground);
+    setBackgroundButton(BackgroundButton);
+  }, [bio]); // Atualiza os estados quando `bio` muda
+  
+
   const [autoPlay, setAutoPlay] = useState(false);
     const [status, setStatus] = useState("");
     const [loading, setLoading] = useState(true);
@@ -446,6 +452,8 @@ export default function Appearance() {
                   handleTitleColorChange={handleTitleColorChange}
                   setBackgroundButton={setBackgroundButton}
                   backgroundButton={backgroundButton}
+                  setContainerBackgroundColor={setContainerBackgroundColor}
+                  containerBackgroundColor={containerBackgroundColor}
                 />
               </>
             )}
@@ -549,6 +557,7 @@ export default function Appearance() {
            backgroundButton={backgroundButton}
            colorButton="white"
            colors={colors}
+           containerBackgroundColor={containerBackgroundColor}
            
            
             />

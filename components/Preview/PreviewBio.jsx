@@ -18,18 +18,18 @@ import StandardBio from "../Bio/BioList/StandardBio";
 import Tema5 from "../temas/Tema5";
 import Preview1 from "./Preview1";
 import Preview2 from "./Preview2";
-export default function PreviewBio({ 
-    settings,
-    bio,
-    button,
-    colorButton,
-    link,
-    backgroundButton,
-    backgroundColor,
-    colors
- }) {
+export default function PreviewBio({
+  settings,
+  bio,
+  button,
+  colorButton,
+  link,
+  backgroundButton,
+  backgroundColor,
+  colors,
+  containerBackgroundColor,
 
-
+}) {
   const buttonStyles = () => {
     switch (bio) {
       case "bio1":
@@ -64,7 +64,16 @@ export default function PreviewBio({
       case "standard":
         return (
           <div>
-            <StandardBio settings={settings}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
+            <StandardBio
+              settings={settings}
+              backgroundColor={backgroundColor}
+              backgroundButton={backgroundButton}
+              button={button}
+              link={link}
+              colorButton={colorButton}
+              containerBackgroundColor={containerBackgroundColor}
+
+            />
           </div>
         );
       case "bio1":
@@ -76,34 +85,46 @@ export default function PreviewBio({
               flexDirection: "column",
             }}
           >
-                        <Preview1 settings={settings} colors={colors}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
-
+            <Preview1
+              settings={settings}
+              colors={colors}
+              backgroundColor={backgroundColor}
+              backgroundButton={backgroundButton}
+              button={button}
+              link={link}
+              colorButton={colorButton}
+              containerBackgroundColor={containerBackgroundColor}
+            />
           </div>
         );
       case "bio2":
         return (
-          <Preview2  settings={settings} colors={colors}  backgroundColor={backgroundColor} backgroundButton={backgroundButton} button={button} link={link} colorButton={colorButton}/>
+          <Preview2
+            settings={settings}
+            colors={colors}
+            backgroundColor={backgroundColor}
+            backgroundButton={backgroundButton}
+            button={button}
+            link={link}
+            colorButton={colorButton}
+            containerBackgroundColor={containerBackgroundColor}
+
+          />
         );
       case "bio3":
-        return (
-         <></>
-        );
+        return <></>;
       default:
         return null;
     }
   };
-  console.log(colors)
+  console.log(colors);
 
   return (
     <>
-      <div className={PreviewBioStyles.container} >
-        <div
-     
-        >
-          {handleBioSwitch()}
-        </div>
+      <div className={PreviewBioStyles.container}>
+        <div>{handleBioSwitch()}</div>
         {/* {bio} */}
-        {backgroundButton}
+        {containerBackgroundColor}
       </div>
     </>
   );

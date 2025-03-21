@@ -8,7 +8,9 @@ const Preview1 = ({     settings,
     backgroundButton,
     backgroundColor,
     colorButton,
-    colors }) => {
+    colors,
+    containerBackgroundColor
+   }) => {
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
     { id: 2, name: "LINK 2", value: "" },
@@ -26,7 +28,9 @@ const Preview1 = ({     settings,
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.container} style={{
+        background: containerBackgroundColor
+      }}>
         <div
           style={{
             color: "white",

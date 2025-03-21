@@ -6,7 +6,8 @@ export default function StandardBio({
     link,
     backgroundButton,
     backgroundColor,
-    colorButton
+    colorButton,
+    background
 
 }) {
   const profileImageStyle = {
