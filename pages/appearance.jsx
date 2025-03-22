@@ -20,8 +20,6 @@ import BioContainer from "../components/Bio/BioContainer";
 import Preview from "../components/Bio/Preview";
 
 export default function Appearance() {
-
- 
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
     { id: 2, name: "LINK 2", value: "" },
@@ -31,52 +29,57 @@ export default function Appearance() {
   const [bio, setBio] = useState("standard");
 
   const handlePreviewButtons = () => {
-    switch(bio){
+    switch (bio) {
       case "bio1":
-        return { buttons: "button1"}
-        case "bio2":
-          return { buttons: "button2"}
+        return { buttons: "button1" };
+      case "bio2":
+        return { buttons: "button2" };
       default:
-        return { buttons: "button1"}
+        return { buttons: "button1" };
     }
-  }
-  const { buttons } =  handlePreviewButtons()
+  };
+  const { buttons } = handlePreviewButtons();
 
   const [button, setButton] = useState(buttons);
-    
+
   useEffect(() => {
-    const { buttons} = handlePreviewButtons();
+    const { buttons } = handlePreviewButtons();
     setButton(buttons);
   }, [bio]); // Atualiza os estados quando `bio` muda
-  
 
   const handlePreviewColors = () => {
-    switch(bio){
+    switch (bio) {
       case "bio1":
-        return {containerBackground: "linear-gradient(135deg, #1e3c72, #2a5298)", BackgroundButton: "#ffffff"}
-        case "bio2":
-          return { containerBackground: "linear-gradient(135deg, #00c6ff, #0072ff)", BackgroundButton: "#ffffff"}
+        return {
+          containerBackground: "linear-gradient(135deg, #1e3c72, #2a5298)",
+          BackgroundButton: "#ffffff",
+        };
+      case "bio2":
+        return {
+          containerBackground: "linear-gradient(135deg, #00c6ff, #0072ff)",
+          BackgroundButton: "#ffffff",
+        };
       default:
-        return { containerBackground: "#fff", BackgroundButton: "#0000ff"}
+        return { containerBackground: "#fff", BackgroundButton: "#0000ff" };
     }
-  }
-  const {containerBackground, BackgroundButton } =  handlePreviewColors()
+  };
+  const { containerBackground, BackgroundButton } = handlePreviewColors();
 
-  const [colors , setColors] = useState({})
-  const [containerBackgroundColor , setContainerBackgroundColor] = useState(containerBackground)
+  const [colors, setColors] = useState({});
+  const [containerBackgroundColor, setContainerBackgroundColor] =
+    useState(containerBackground);
 
-  const [backgroundButton , setBackgroundButton] = useState(BackgroundButton)
-  
+  const [backgroundButton, setBackgroundButton] = useState(BackgroundButton);
+
   useEffect(() => {
     const { containerBackground, BackgroundButton } = handlePreviewColors();
     setContainerBackgroundColor(containerBackground);
     setBackgroundButton(BackgroundButton);
   }, [bio]); // Atualiza os estados quando `bio` muda
-  
 
   const [autoPlay, setAutoPlay] = useState(false);
-    const [status, setStatus] = useState("");
-    const [loading, setLoading] = useState(true);
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(true);
   // Default settings
   const defaultSettings = {
     backgroundColor: "#ffffff",
@@ -107,11 +110,10 @@ export default function Appearance() {
     shadowStyle: "none",
     titleColor: "#000000",
   };
-  
-  const bio1 = { 
-    backgroundColor: "red"
-  }
-  
+
+  const bio1 = {
+    backgroundColor: "red",
+  };
 
   // State management
   const [settings, setSettings] = useState(defaultSettings);
@@ -123,7 +125,7 @@ export default function Appearance() {
   const [linksColor, setLinksColor] = useState("");
   const [buttonStyle, setButtonStyle] = useState("");
 
-  const rawName = "nava bio"
+  const rawName = "nava bio";
   const formatLinkName = (name) => {
     return name.toLowerCase().replace(/\s+/g, "_");
   };
@@ -135,7 +137,7 @@ export default function Appearance() {
       const response = await axios.post(
         "http://localhost:5003/api/routes/temas",
         {
-          name: settings.title || formattedName ,
+          name: settings.title || formattedName,
           nameColor: settings.titleColor,
           nameSize: settings.titleSize,
           description: settings.presentation,
@@ -166,16 +168,12 @@ export default function Appearance() {
     }
   };
 
-
-
-
   // Handlers
   const handleReset = () => {
     setSettings(defaultSettings);
     setError("");
   };
 
- 
   const validateImage = (url) => {
     return new Promise((resolve) => {
       const img = new Image();
@@ -244,7 +242,7 @@ export default function Appearance() {
     width: "50%",
     height: "25px",
     backgroundColor: "#1a1a1a",
-  
+
     left: "25%",
     zIndex: 10,
   };
@@ -368,13 +366,12 @@ export default function Appearance() {
   };
   // RECEIVED
 
-
   useEffect(() => {
     const fetchSubscription = async () => {
       try {
-        const response = await fetch('/api/routes/status');
+        const response = await fetch("/api/routes/status");
         if (!response.ok) {
-          throw new Error('Cliente não encontrado');
+          throw new Error("Cliente não encontrado");
         }
         const data = await response.json();
         setStatus(data);
@@ -525,7 +522,11 @@ export default function Appearance() {
               >
                 {bio}
                 {button}
-                <BioCovers  setBio={setBio} status={status} setColors={setColors}/>
+                <BioCovers
+                  setBio={setBio}
+                  status={status}
+                  setColors={setColors}
+                />
               </div>
             )}
 
@@ -539,7 +540,7 @@ export default function Appearance() {
                 }}
               >
                 <BioButtonsStylesCovers
-                status={status}
+                  status={status}
                   settings={settings}
                   setButton={setButton}
                 />
@@ -580,22 +581,17 @@ export default function Appearance() {
           </div>
           {/* Preview */}
           <div className={styles.columnB}>
-
-        <Preview 
-           settings={settings}
-           bio={bio}
-           backgroundColor={settings.backgroundColor}
-           button={button}
-           link={links}
-           backgroundButton={backgroundButton}
-           colorButton="white"
-           colors={colors}
-           containerBackgroundColor={containerBackgroundColor}
-           
-           
+            <Preview
+              settings={settings}
+              bio={bio}
+              backgroundColor={settings.backgroundColor}
+              button={button}
+              link={links}
+              backgroundButton={backgroundButton}
+              colorButton="white"
+              colors={colors}
+              containerBackgroundColor={containerBackgroundColor}
             />
-
-
           </div>
         </div>
       </div>
