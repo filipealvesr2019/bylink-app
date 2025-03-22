@@ -230,7 +230,6 @@ export default function Buttons({
     <>
       <div className={styles.ButtonsContainer}>
         <div>{handleButtonsSwitch()}</div>
-        {button}
       </div>
     </>
   );
