@@ -65,13 +65,14 @@ export default function Preview({
         return (
           <div>
             <StandardBio
-              settings={settings}
-              backgroundColor={backgroundColor}
-              backgroundButton={backgroundButton}
-              button={button}
-              link={link}
-              colorButton={colorButton}
-              containerBackgroundColor={containerBackgroundColor}
+             settings={settings}
+             colors={colors}
+             backgroundColor={backgroundColor}
+             backgroundButton={backgroundButton}
+             button={button}
+             link={link}
+             colorButton={colorButton}
+             containerBackgroundColor={containerBackgroundColor}
 
             />
           </div>

@@ -7,7 +7,6 @@ const Preview1 = ({
   button,
   link,
   backgroundButton,
-  backgroundColor,
   colorButton,
   colors,
   containerBackgroundColor,

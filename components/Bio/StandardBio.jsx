@@ -1,72 +1,97 @@
+import Link from "next/link";
+import { useState } from "react";
+import styles from "./Bio1.module.css";
 import Buttons from "../Buttons/Buttons";
-import styles from "./StandardBio.module.css";
-export default function StandardBio({ 
-    settings,
-    button,
-    link,
-    backgroundButton,
-    backgroundColor,
-    colorButton,
-    background
+const Preview1 = ({
+  settings,
+  button,
+  link,
+  backgroundButton,
+  colorButton,
+  colors,
+  containerBackgroundColor,
+}) => {
+  const [links, setLinks] = useState([
+    { id: 1, name: "LINK 1", value: "" },
+    { id: 2, name: "LINK 2", value: "" },
+    { id: 3, name: "LINK 3", value: "" },
+    { id: 4, name: "LINK 4", value: "" },
+  ]);
+  const [name, setName] = useState("Tema1");
 
-}) {
-  const profileImageStyle = {
-    width: "5rem",
-    height: "5rem",
-    borderRadius: "50%",
+  const formatLinkName = (name) => {
+    return name
+      .toLowerCase() // Torna tudo minúsculo
+      .replace(/\s+/g, "_"); // Substitui espaços por underscores
   };
+  const formattedName = formatLinkName(name); // Aplica a formatação
 
   return (
-    <div className={styles.container}>
-      {settings?.profileImage ? (
-        <img
-          src={settings?.profileImage}
-          alt="Profile"
-          style={profileImageStyle}
-        />
-      ) : (
+    <>
+      <div
+        className={styles.container}
+        style={{
+          background: containerBackgroundColor,
+        }}
+      >
         <div
           style={{
-            width: "5rem",
-            height: "5rem",
-            borderRadius: "50%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            color: "white",
           }}
+          className={styles.content}
         >
-          <img src="https://i.imgur.com/soSw6fY.png" alt="" />
-        </div>
-      )}
-      <h2
-        style={{
-          fontSize: "1.5rem",
-          fontWeight: "bold",
-          marginBottom: "5px",
-          color: settings?.titleColor,
-        }}
-      >
-        {settings?.title || "Seu Nome"}
-      </h2>
-      <p
-        style={{
-          fontSize: "0.9rem",
-          opacity: 0.9,
-          marginBottom: "15px",
-          color: settings?.titleColor,
-        }}
-      >
-        {settings?.presentation || "@seu.usuario"}
-      </p>
+          <div className={styles.profile}>
+            <div>
+              <img
+                src="https://i.imgur.com/r6IyNwI.jpg"
+                alt=""
+                className={styles.img}
+              />
+            </div>
+            <span className={styles.span}>{name}</span>
+          </div>
 
-      <Buttons
-        settings={settings}
-        backgroundColor={backgroundColor}
-        button={button}
-        link={link}
-        backgroundButton={backgroundButton}
-        colorButton={colorButton}
-      />
-    </div>
+          <Buttons
+            colors={colors}
+            settings={settings}
+            containerBackgroundColor={containerBackgroundColor}
+            button={button}
+            link={link}
+            backgroundButton={backgroundButton}
+            colorButton={colorButton}
+          />
+          {/*               
+          <div className="field">
+            {links.map((link) => (
+              <div
+                key={link.id}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+                lassName={styles.buttonContainer}
+              >
+                <button
+                  type="text"
+                  value={link.name}
+                  onChange={(e) =>
+                    updateLinkValue(link.id, "name", e.target.value)
+                  }
+                  placeholder={`Nome do Link ${link.id}`}
+                  className={styles.buttonLinks}
+                  style={{
+                    background: "#ffffff"
+                  }}
+                >
+                  {link.name}
+                </button>
+              </div>
+            ))}
+          </div> */}
+        </div>
+      </div>
+    </>
   );
-}
+};
+
+export default Preview1;
