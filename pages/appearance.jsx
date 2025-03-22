@@ -28,8 +28,26 @@ export default function Appearance() {
     { id: 3, name: "LINK 3", value: "" },
     { id: 4, name: "LINK 4", value: "" },
   ]);
-  const [button, setButton] = useState("button1");
   const [bio, setBio] = useState("standard");
+
+  const handlePreviewButtons = () => {
+    switch(bio){
+      case "bio1":
+        return { buttons: "button1"}
+        case "bio2":
+          return { buttons: "button2"}
+      default:
+        return { buttons: "button1"}
+    }
+  }
+  const { buttons } =  handlePreviewButtons()
+
+  const [button, setButton] = useState(buttons);
+    
+  useEffect(() => {
+    const { buttons} = handlePreviewButtons();
+    setButton(buttons);
+  }, [bio]); // Atualiza os estados quando `bio` muda
   
 
   const handlePreviewColors = () => {
@@ -39,14 +57,16 @@ export default function Appearance() {
         case "bio2":
           return { containerBackground: "linear-gradient(135deg, #00c6ff, #0072ff)", BackgroundButton: "#ffffff"}
       default:
-        return { containerBackground: "red", BackgroundButton: "#0000ff"}
+        return { containerBackground: "#fff", BackgroundButton: "#0000ff"}
     }
   }
   const {containerBackground, BackgroundButton } =  handlePreviewColors()
+
   const [colors , setColors] = useState({})
   const [containerBackgroundColor , setContainerBackgroundColor] = useState(containerBackground)
 
   const [backgroundButton , setBackgroundButton] = useState(BackgroundButton)
+  
   useEffect(() => {
     const { containerBackground, BackgroundButton } = handlePreviewColors();
     setContainerBackgroundColor(containerBackground);
@@ -504,6 +524,7 @@ export default function Appearance() {
                 }}
               >
                 {bio}
+                {button}
                 <BioCovers  setBio={setBio} status={status} setColors={setColors}/>
               </div>
             )}

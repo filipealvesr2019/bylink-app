@@ -18,9 +18,9 @@ export default function StandardBio({
 
   return (
     <div className={styles.container}>
-      {settings.profileImage ? (
+      {settings?.profileImage ? (
         <img
-          src={settings.profileImage}
+          src={settings?.profileImage}
           alt="Profile"
           style={profileImageStyle}
         />
@@ -43,20 +43,20 @@ export default function StandardBio({
           fontSize: "1.5rem",
           fontWeight: "bold",
           marginBottom: "5px",
-          color: settings.titleColor,
+          color: settings?.titleColor,
         }}
       >
-        {settings.title || "Seu Nome"}
+        {settings?.title || "Seu Nome"}
       </h2>
       <p
         style={{
           fontSize: "0.9rem",
           opacity: 0.9,
           marginBottom: "15px",
-          color: settings.titleColor,
+          color: settings?.titleColor,
         }}
       >
-        {settings.presentation || "@seu.usuario"}
+        {settings?.presentation || "@seu.usuario"}
       </p>
 
       <Buttons

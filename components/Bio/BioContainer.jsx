@@ -28,6 +28,7 @@ export default function BioContainer({
   backgroundColor,
   colors,
   containerBackgroundColor,
+  
 
 }) {
   const buttonStyles = () => {
@@ -121,10 +122,12 @@ export default function BioContainer({
 
   return (
     <>
-      <div className={BioContainerStyles.container}>
+      <div className={BioContainerStyles.container} style={{
+        background:  containerBackgroundColor
+      }}>
         <div>{handleBioSwitch()}</div>
         {/* {bio} */}
-        {containerBackgroundColor}
+        {/* {containerBackgroundColor} */}
       </div>
     </>
   );

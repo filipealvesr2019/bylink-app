@@ -124,7 +124,7 @@ export default function Preview({
       <div className={PreviewBioStyles.container}>
         <div>{handleBioSwitch()}</div>
         {/* {bio} */}
-        {containerBackgroundColor}
+        {/* {containerBackgroundColor} */}
       </div>
     </>
   );

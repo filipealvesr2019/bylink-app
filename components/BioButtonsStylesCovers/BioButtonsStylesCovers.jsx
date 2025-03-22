@@ -137,7 +137,7 @@ export default function BioButtonsStylesCovers({
           style={{
             backgroundColor: settings.linkColor,
             color: settings.backgroundColor,
-            borderRadius: "50px",
+            borderRadius: "100px",
             border: "0",
             width: "10vw",
             padding: ".5rem",

@@ -7,14 +7,17 @@ import Link from "next/link";
 import BioContainer from "../components/Bio/BioContainer";
 
 export default function Paginas() {
-  const router = useRouter();
-
   const [links, setLinks] = useState([
-    { id: 1, name: "Exemplo de Link 1", value: "" },
-    { id: 2, name: "Exemplo de Link 2", value: "" },
+    { id: 1, name: "LINK 1", value: "" },
+    { id: 2, name: "LINK 2", value: "" },
+    { id: 3, name: "LINK 3", value: "" },
+    { id: 4, name: "LINK 4", value: "" },
   ]);
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState("colors");
-  const [socialLinks, setSocialLinks] = useState([]);
+  const [backgroundColor, setBackgroundColor] = useState("");
+  const [button, setButton] = useState("button1");
+  const [bio, setBio] = useState("standard");
   const [error, setError] = useState("");
   const [data, setData] = useState({});
   const { name } = router.query; // Obtém o parâmetro `name` da rota
@@ -23,6 +26,9 @@ export default function Paginas() {
     try {
       const reponse = await axios.get(`/api/routes/${name}`);
       setData(reponse.data);
+      setBackgroundColor(reponse.data.backgroundColor);
+      setBio(reponse.data.bio);
+      setButton(reponse.data.button);
       console.log("fetchPage", reponse.data);
     } catch (error) {
       console.log(error);
@@ -38,9 +44,13 @@ export default function Paginas() {
   return (
     <div>
     <BioContainer
+      bio={bio}
+      containerBackgroundColor={backgroundColor}
+      button={button}
       colorButton="white"
-    
+      link={links}
     />
+    
     </div>
   );
 }

@@ -16,9 +16,10 @@ export default function Buttons({
 
   backgroundButton,
   colorButton,
-  backgroundColor,
+  containerBackgroundColor,
   colors
 }) {
+  
   const buttonStyles = () => {
     switch (button) {
       case "button1":
@@ -53,10 +54,10 @@ export default function Buttons({
       case "button1":
         return (
           <div>
-            {link.map((link) => (
+            {link?.map((link) => (
               <Link href={`${link.value}`}>
                 <div
-                  key={link.id}
+                  key={link?.id}
                   style={{
                     display: "flex",
                     flexDirection: "column",
@@ -66,11 +67,11 @@ export default function Buttons({
                   <button
                     type="text"
                     value={link.name}
-                    placeholder={`Nome do Link ${link.id}`}
+                    placeholder={`Nome do Link ${link?.id}`}
                     className={styles.button}
                     style={{
                       backgroundColor: backgroundButton ,
-                      color: colorButton,
+                      color: containerBackgroundColor,
                       
                       marginBottom: "1rem",
                     }}
@@ -85,10 +86,10 @@ export default function Buttons({
       case "button2":
         return (
           <>
-            {link.map((link) => (
-              <Link href={`${link.value}`}>
+            {link?.map((link) => (
+              <Link href={`${link?.value}`}>
                 <div
-                  key={link.id}
+                  key={link?.id}
                   style={{
                     display: "flex",
                     flexDirection: "column",
@@ -96,8 +97,8 @@ export default function Buttons({
                 >
                   <button
                     type="text"
-                    value={link.name}
-                    placeholder={`Nome do Link ${link.id}`}
+                    value={link?.name}
+                    placeholder={`Nome do Link ${link?.id}`}
                     className={styles.button}
                     style={{
                       backgroundColor: backgroundButton,
@@ -117,16 +118,16 @@ export default function Buttons({
       case "button3":
         return (
           <div
-            key={link.id}
+            key={link?.id}
             style={{
               display: "flex",
               flexDirection: "column",
             }}
           >
-            {link.map((link) => (
+            {link?.map((link) => (
               <Link href={`${link.value}`}>
                 <div
-                  key={link.id}
+                  key={link?.id}
                   style={{
                     display: "flex",
                     flexDirection: "column",
@@ -135,7 +136,7 @@ export default function Buttons({
                   <button
                     type="text"
                     value={link.name}
-                    placeholder={`Nome do Link ${link.id}`}
+                    placeholder={`Nome do Link ${link?.id}`}
                     className={styles.button}
                     style={{
                       background: "transparent",
@@ -156,7 +157,7 @@ export default function Buttons({
       case "button4":
         return (
           <div
-            key={link.id}
+            key={link?.id}
             style={{
               display: "flex",
               flexDirection: "column",
@@ -165,7 +166,7 @@ export default function Buttons({
             {link.map((link) => (
               <Link href={`${link.value}`}>
                 <div
-                  key={link.id}
+                  key={link?.id}
                   style={{
                     display: "flex",
                     flexDirection: "column",
@@ -174,7 +175,7 @@ export default function Buttons({
                   <button
                     type="text"
                     value={link.name}
-                    placeholder={`Nome do Link ${link.id}`}
+                    placeholder={`Nome do Link ${link?.id}`}
                     className={styles.button}
                     style={{
                       background: "transparent",
@@ -195,9 +196,9 @@ export default function Buttons({
         case "button5":
         return (
           <div className="field">
-          {link.map((link) => (
+          {link?.map((link) => (
             <div
-              key={link.id}
+              key={link?.id}
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -208,9 +209,9 @@ export default function Buttons({
                 type="text"
                 value={link.name}
                 onChange={(e) =>
-                  updateLinkValue(link.id, "name", e.target.value)
+                  updateLinkValue(link?.id, "name", e.target.value)
                 }
-                placeholder={`Nome do Link ${link.id}`}
+                placeholder={`Nome do Link ${link?.id}`}
                 className={styles.buttonLinks}
               >
                 {link.name}
@@ -229,6 +230,7 @@ export default function Buttons({
     <>
       <div className={styles.ButtonsContainer}>
         <div>{handleButtonsSwitch()}</div>
+        {button}
       </div>
     </>
   );

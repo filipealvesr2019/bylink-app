@@ -56,7 +56,7 @@ const Preview2 = ({
             backgroundButton={backgroundButton}
             colorButton={colorButton}
           />
-          <div className="field">
+          {/* <div className="field">
             {links.map((link) => (
               <div
                 key={link.id}
@@ -79,9 +79,10 @@ const Preview2 = ({
                 </button>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
+      
     </>
   );
 };
