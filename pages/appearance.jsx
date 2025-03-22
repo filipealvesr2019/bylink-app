@@ -17,8 +17,11 @@ import BioCovers from "../components/BioCovers/BioCovers";
 import VideoList from "../components/Videos/VideoList";
 import BioButtonsStylesCovers from "../components/BioButtonsStylesCovers/BioButtonsStylesCovers";
 import BioContainer from "../components/Bio/BioContainer";
+import Preview from "../components/Bio/Preview";
 
 export default function Appearance() {
+
+ 
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
     { id: 2, name: "LINK 2", value: "" },
@@ -99,17 +102,25 @@ export default function Appearance() {
   const [backgroundColor, setBackgroundColor] = useState("");
   const [linksColor, setLinksColor] = useState("");
   const [buttonStyle, setButtonStyle] = useState("");
+
+  const rawName = "nava bio"
+  const formatLinkName = (name) => {
+    return name.toLowerCase().replace(/\s+/g, "_");
+  };
+
+  const formattedName = formatLinkName(rawName);
+
   const CriarPagina = async () => {
     try {
       const response = await axios.post(
         "http://localhost:5003/api/routes/temas",
         {
-          name: settings.title || "nome",
+          name: settings.title || formattedName ,
           nameColor: settings.titleColor,
           nameSize: settings.titleSize,
           description: settings.presentation,
-          linksColor: settings.linkColor || "#000000",
-          backgroundColor: settings.backgroundColor || "#ffffff",
+          linksColor: backgroundButton || "",
+          backgroundColor: containerBackgroundColor || "",
           buttonStyle: settings.buttonStyle || "filled",
           mainFont: settings.font,
           gradient: {
@@ -121,6 +132,8 @@ export default function Appearance() {
           title: settings.title,
           profileImage: settings.profileImage || "",
           BackgroundImage: settings.backgroundImage,
+          bio: bio,
+          button: button,
           // Adicione mais campos aqui, se necessário
         }
       );
@@ -547,7 +560,7 @@ export default function Appearance() {
           {/* Preview */}
           <div className={styles.columnB}>
 
-        <BioContainer 
+        <Preview 
            settings={settings}
            bio={bio}
            backgroundColor={settings.backgroundColor}

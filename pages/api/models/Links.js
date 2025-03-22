@@ -18,6 +18,8 @@ const LinksSchema = new mongoose.Schema({
   mainFont: { type: String, default: ""  },
   profileImage: { type: String, default: ""  },
   BackgroundImage: { type: String, default: ""  },
+  bio: { type: String, default: "standard"  },
+  button: { type: String, default: "button1"  },
   dataCriacao: { type: Date, default: Date.now },
 });
 

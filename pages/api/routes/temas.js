@@ -27,6 +27,8 @@ export default async function handler(req, res) {
         gradient,
         profileImage,
         BackgroundImage,
+        bio,
+        button,
        
         } = req.body;
       console.log("Dados recebidos:", req.body);
@@ -51,7 +53,8 @@ export default async function handler(req, res) {
           buttonStyle,
           mainFont,
           gradient,
-          
+          bio,
+          button,
         });
   
         // Salvar o produto no banco de dados

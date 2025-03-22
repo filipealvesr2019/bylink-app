@@ -8,7 +8,7 @@ import bio7 from "./BioStyles/bio7.module.css";
 import bio8 from "./BioStyles/bio8.module.css";
 import bio9 from "./BioStyles/bio9.module.css";
 import bio10 from "./BioStyles/bio10.module.css";
-import BioContainerStyles from "./BioContainer.module.css";
+import PreviewBioStyles from "./PreviewBio.module.css";
 
 // import Bio1 from "./BioList/Bio1";
 
@@ -18,7 +18,7 @@ import BioContainerStyles from "./BioContainer.module.css";
 import Bio1 from "./Bio1";
 import Bio2 from "./Bio2";
 import StandardBio from "./StandardBio";
-export default function BioContainer({
+export default function Preview({
   settings,
   bio,
   button,
@@ -121,7 +121,7 @@ export default function BioContainer({
 
   return (
     <>
-      <div className={BioContainerStyles.container}>
+      <div className={PreviewBioStyles.container}>
         <div>{handleBioSwitch()}</div>
         {/* {bio} */}
         {containerBackgroundColor}
