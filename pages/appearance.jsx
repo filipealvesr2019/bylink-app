@@ -35,7 +35,7 @@ export default function Appearance() {
       case "bio2":
         return { buttons: "button2" };
       default:
-        return { buttons: "button1" };
+        return { buttons: "" };
     }
   };
   const { buttons } = handlePreviewButtons();
@@ -433,12 +433,12 @@ export default function Appearance() {
                     <span>Imagens</span>
                   </a>
                 </li>
-                <li className={activeTab === "videos" ? "is-active" : ""}>
+                {/* <li className={activeTab === "videos" ? "is-active" : ""}>
                   <a onClick={() => setActiveTab("videos")}>
                     <span className="icon"></span>
                     <span>Videos</span>
                   </a>
-                </li>
+                </li> */}
 
                 <li className={activeTab === "effects" ? "is-active" : ""}>
                   <a onClick={() => setActiveTab("effects")}>
@@ -505,7 +505,7 @@ export default function Appearance() {
                 status={status}
               />
             )}
-            {activeTab === "videos" && (
+            {/* {activeTab === "videos" && (
               <div
                 style={{
                   width: "35vw",
@@ -513,7 +513,7 @@ export default function Appearance() {
               >
                 <VideosUpload />
               </div>
-            )}
+            )} */}
             {activeTab === "temas" && (
               <div
                 style={{

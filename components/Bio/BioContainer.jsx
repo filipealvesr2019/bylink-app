@@ -28,9 +28,11 @@ export default function BioContainer({
   backgroundColor,
   colors,
   containerBackgroundColor,
+  buttonLength
   
 
 }) {
+  
   const buttonStyles = () => {
     switch (bio) {
       case "bio1":
@@ -70,6 +72,7 @@ export default function BioContainer({
               backgroundColor={backgroundColor}
               backgroundButton={backgroundButton}
               button={button}
+              buttonLength={buttonLength}
               link={link}
               colorButton={colorButton}
               containerBackgroundColor={containerBackgroundColor}
@@ -95,6 +98,7 @@ export default function BioContainer({
               link={link}
               colorButton={colorButton}
               containerBackgroundColor={containerBackgroundColor}
+              buttonLength={buttonLength}
             />
           </div>
         );

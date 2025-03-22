@@ -102,8 +102,8 @@ export default function Buttons({
                     className={styles.button}
                     style={{
                       backgroundColor: backgroundButton,
-                      color: colorButton,
-                      borderRadius: "50px",
+                      color: containerBackgroundColor,
+     
                       border: "0",
                       marginBottom: "1rem",
                     }}

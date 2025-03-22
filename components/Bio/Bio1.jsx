@@ -2,15 +2,16 @@ import Link from "next/link";
 import { useState } from "react";
 import styles from "./Bio1.module.css";
 import Buttons from "../Buttons/Buttons";
-const Preview1 = ({     settings,
-    button,
-    link,
-    backgroundButton,
-    backgroundColor,
-    colorButton,
-    colors,
-    containerBackgroundColor
-   }) => {
+const Preview1 = ({
+  settings,
+  button,
+  link,
+  backgroundButton,
+  backgroundColor,
+  colorButton,
+  colors,
+  containerBackgroundColor,
+}) => {
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
     { id: 2, name: "LINK 2", value: "" },
@@ -28,38 +29,39 @@ const Preview1 = ({     settings,
 
   return (
     <>
-      <div className={styles.container} style={{
-        background: containerBackgroundColor
-      }}>
+      <div
+        className={styles.container}
+        style={{
+          background: containerBackgroundColor,
+        }}
+      >
         <div
           style={{
             color: "white",
           }}
           className={styles.content}
         >
-
           <div className={styles.profile}>
             <div>
-
-          <img
-            src="https://i.imgur.com/r6IyNwI.jpg"
-            alt=""
-            className={styles.img}
-          />
-            </div>
-            <span  className={styles.span}>{name}</span> 
-          </div>
-          
-          <Buttons
-          colors={colors}
-                settings={settings}
-                containerBackgroundColor={containerBackgroundColor}
-                button={button}
-                link={link}
-                backgroundButton={backgroundButton}
-                colorButton={colorButton}
+              <img
+                src="https://i.imgur.com/r6IyNwI.jpg"
+                alt=""
+                className={styles.img}
               />
-{/*               
+            </div>
+            <span className={styles.span}>{name}</span>
+          </div>
+
+          <Buttons
+            colors={colors}
+            settings={settings}
+            containerBackgroundColor={containerBackgroundColor}
+            button={button}
+            link={link}
+            backgroundButton={backgroundButton}
+            colorButton={colorButton}
+          />
+          {/*               
           <div className="field">
             {links.map((link) => (
               <div
@@ -88,7 +90,6 @@ const Preview1 = ({     settings,
             ))}
           </div> */}
         </div>
-        
       </div>
     </>
   );

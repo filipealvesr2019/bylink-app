@@ -1,7 +1,13 @@
 .button{
-    border-radius: 100px;
-    width: 15vw;
-border-style: none;
-padding: .7rem;
+    background: #ffffff;
+    color: #1e3c72;
+    border: 0;
+    width: 20vw;
+    margin: 0 auto;
+    padding: .8rem;
+    margin-bottom: .8rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
 
 }
