@@ -10,7 +10,8 @@ export default function Paginas() {
   const [links, setLinks] = useState([
     { id: 1, name: "LINK 1", value: "" },
     { id: 2, name: "LINK 2", value: "" },
-  
+    { id: 3, name: "LINK 3", value: "" },
+    { id: 4, name: "LINK 4", value: "" },
   ]);
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("colors");
